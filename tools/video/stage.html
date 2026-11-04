@@ -3,59 +3,65 @@
 <head>
 <meta charset="utf-8">
 <title>Whitebox stage</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap">
 <style>
 :root {
-  --black: #0c0d10; --white: #fbfbf9; --ink: #16181d; --muted: #686c76; --line: #d9dade;
-  --blue: #2a4bd7; --tint: #e7ebfb; --term: #101218; --term-ink: #e4e6ec; --term-dim: #5c6270;
-  --display: "Bricolage Grotesque", Georgia, serif; --sans: "IBM Plex Sans", Arial, sans-serif; --mono: "IBM Plex Mono", Menlo, monospace;
+  --black: #0b0d10; --white: #ffffff; --ink: #0b0d10; --muted: #4a5059; --line: #d5d9de;
+  --accent: #ff4f00; --tint: #fff0e8; --term: #0b0d10; --term-ink: #eceef1; --term-dim: #6b727c;
+  --grid: #eceef1; --grid-dark: #171a1f;
+  --display: "Inter Tight", "Helvetica Neue", Arial, sans-serif; --sans: "Inter Tight", "Helvetica Neue", Arial, sans-serif; --mono: "JetBrains Mono", Menlo, monospace;
 }
 * { box-sizing: border-box; }
 html, body { margin: 0; width: 1440px; height: 900px; overflow: hidden; }
-#stage { position: relative; width: 1440px; height: 900px; background: var(--white); color: var(--ink); font-family: var(--sans); transition: background .6s, color .6s; }
-#stage.dark { background: var(--black); color: var(--white); }
-#mark { position: absolute; top: 34px; left: 56px; display: flex; gap: 12px; align-items: center; font: 500 19px var(--display); }
-#mark i { width: 18px; height: 18px; border: 3px solid currentColor; display: block; }
+#stage { position: relative; width: 1440px; height: 900px; background-color: var(--white); background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 32px 32px; color: var(--ink); font-family: var(--sans); transition: background-color .6s, color .6s; }
+#stage.dark { background-color: var(--black); background-image: linear-gradient(var(--grid-dark) 1px, transparent 1px), linear-gradient(90deg, var(--grid-dark) 1px, transparent 1px); color: var(--white); }
+#mark { position: absolute; top: 34px; left: 56px; display: flex; gap: 14px; align-items: center; font: 700 20px var(--display); letter-spacing: -0.02em; }
+#mark i { position: relative; width: 24px; height: 24px; border: 2px solid currentColor; display: block; }
+#mark i::after { content: ""; position: absolute; top: -7px; right: -7px; width: 12px; height: 12px; background: var(--accent); }
 #chapter { position: absolute; top: 36px; right: 56px; font: 400 18px var(--mono); opacity: .65; }
 #scene { position: absolute; left: 56px; right: 56px; top: 84px; bottom: 138px; display: flex; flex-direction: column; justify-content: center; gap: 20px; }
 #cap { position: absolute; left: 56px; right: 56px; bottom: 36px; min-height: 84px; display: flex; align-items: center; padding: 14px 26px; background: var(--ink); color: var(--white); font: 500 29px/1.3 var(--sans); }
 #stage.dark #cap { background: var(--white); color: var(--ink); }
-h1 { margin: 0; font: 700 56px/1.1 var(--display); letter-spacing: -.01em; }
+h1 { margin: 0; font: 800 58px/1.05 var(--display); letter-spacing: -.04em; }
 
 .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
 .flow div { min-height: 170px; display: flex; align-items: center; padding: 22px; border: 2px solid #4a4d57; font: 500 29px/1.25 var(--sans); opacity: .42; transition: all .35s; }
 .flow div.on { opacity: 1; border-color: var(--white); background: var(--white); color: var(--ink); }
 #stage:not(.dark) .flow div { border-color: var(--line); opacity: .55; }
-#stage:not(.dark) .flow div.on { opacity: 1; border-color: var(--blue); background: var(--blue); color: #fff; }
+#stage:not(.dark) .flow div { background: var(--white); }
+#stage:not(.dark) .flow div.on { opacity: 1; border-color: var(--accent); background: var(--accent); color: var(--ink); }
 
 .box-wrap { display: grid; place-items: center; gap: 30px; }
 .box { position: relative; width: 430px; height: 430px; background: var(--white); border: 3px solid var(--white); overflow: hidden; display: grid; place-items: center; }
 .box .inner { font: 600 25px/1.5 var(--mono); color: var(--ink); text-align: center; }
-.door { position: absolute; top: 0; bottom: 0; width: 50%; background: #1c1e25; transition: transform 2s cubic-bezier(.7,0,.2,1); }
-.door.l { left: 0; border-right: 1px solid #3a3d47; } .door.r { right: 0; }
+.door { position: absolute; top: 0; bottom: 0; width: 50%; background: #171a1f; transition: transform 2s cubic-bezier(.7,0,.2,1); }
+.door.l { left: 0; border-right: 1px solid #2b2f36; } .door.r { right: 0; }
 .box.open .door.l { transform: translateX(-100%); } .box.open .door.r { transform: translateX(100%); }
-.box-label { font: 700 46px var(--display); }
+.box-label { font: 800 46px var(--display); letter-spacing: -.03em; }
 
 svg text { font-family: var(--sans); }
 .n rect { fill: var(--white); stroke: var(--ink); stroke-width: 3; transition: all .3s; }
 .n text { font-size: 28px; font-weight: 500; fill: var(--ink); text-anchor: middle; transition: fill .3s; }
-.n.on rect { fill: var(--blue); stroke: var(--blue); } .n.on text { fill: #fff; }
+.n.on rect { fill: var(--accent); stroke: var(--accent); } .n.on text { fill: var(--ink); }
 .edge { fill: none; stroke: var(--ink); stroke-width: 3; marker-end: url(#a); }
 .edge-label { font-size: 24px; fill: var(--muted); font-weight: 500; }
 
 pre { margin: 0; font: 400 20px/1.36 var(--mono); }
-.code { padding: 6px 0; }
+pre, .term, .file, .box pre { font-variant-ligatures: none; }
+.term { font-variant-ligatures: none; }
+.code { padding: 6px 0; background: var(--white); }
+.file { background: var(--white); align-self: flex-start; padding: 2px 6px; }
 .code span { display: block; padding: 0 14px; white-space: pre; opacity: 1; transition: all .25s; border-left: 5px solid transparent; }
 .code.focus span { opacity: .3; }
-.code.focus span.on { opacity: 1; background: var(--tint); border-left-color: var(--blue); }
+.code.focus span.on { opacity: 1; background: var(--tint); border-left-color: var(--accent); }
 .file { font: 400 19px var(--mono); color: var(--muted); }
 
 .term { background: var(--term); color: var(--term-ink); padding: 28px 30px; min-height: 480px; font: 400 21px/1.6 var(--mono); }
 .term.demo-output { min-height: 250px; padding: 18px 26px; font-size: 20px; line-height: 1.5; }
 .term span { display: block; white-space: pre-wrap; overflow-wrap: anywhere; }
-.term span.cmd { color: #9db1ff; } .term span.final { font-weight: 600; color: #fff; margin-top: 10px; }
+.term span.cmd { color: #ff9a6b; } .term span.final { font-weight: 600; color: #fff; margin-top: 10px; }
 
-table { border-collapse: collapse; width: 100%; font-size: 29px; }
+table { border-collapse: collapse; width: 100%; font-size: 29px; background: var(--white); }
 th, td { text-align: left; padding: 15px 18px; border-bottom: 2px solid var(--line); }
 th { font-size: 22px; color: var(--muted); font-weight: 500; }
 td:first-child { font: 400 28px var(--mono); }
@@ -80,7 +86,7 @@ const sleep = (secs) => new Promise((done) => setTimeout(done, secs * 1000));
 const esc = (s) => s.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
 
 const LOOP = `<svg viewBox="0 0 1320 620" width="100%" height="100%">
-  <defs><marker id="a" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M1 1 L11 6 L1 11 Z" fill="#16181d"/></marker></defs>
+  <defs><marker id="a" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M1 1 L11 6 L1 11 Z" fill="#0b0d10"/></marker></defs>
   <path class="edge" d="M350 130 H500"/><path class="edge" d="M840 130 H980"/><path class="edge" d="M670 200 V380"/><path class="edge" d="M500 460 H175 V206"/>
   <text class="edge-label" x="890" y="115">No</text><text class="edge-label" x="688" y="300">Yes</text><text class="edge-label" x="240" y="445">Go round again</text>
   <g class="n" id="ask"><rect x="20" y="60" width="330" height="140"/><text x="185" y="140">Send to the model</text></g>
