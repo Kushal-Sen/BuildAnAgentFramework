@@ -1,0 +1,220 @@
+<title>Whitebox: The Agent Loop</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a black box header opens onto a white reading column; media breaks wider. */
+:root {
+  --bg: #fbfbf9; --surface: #ffffff; --ink: #16181d; --muted: #5d616b; --rule: #d9dade;
+  --accent: #2a4bd7; --tint: #e7ebfb; --box: #0c0d10; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #101218; --term-ink: #e4e6ec; --term-cmd: #9db1ff;
+  --display: "Bricolage Grotesque", Georgia, serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+    --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+    --term: #08090c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+  --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #08090c; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 400 1.0625rem/1.65 var(--body); }
+.gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 68rem; margin: 0 auto; min-width: 0; }
+.col { max-width: 42rem; display: grid; gap: 1rem; min-width: 0; }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2.6rem, 7vw, 4.4rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; }
+h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); line-height: 1.15; font-weight: 700; }
+h3 { font-size: 1.2rem; line-height: 1.3; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--accent); }
+a:focus-visible, video:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+code { font-family: var(--mono); font-size: 0.92em; }
+
+header.mast { background: var(--box); color: var(--on-box); padding-block: 1.6rem 3rem; }
+.mast .wrap { display: grid; gap: 2.4rem; }
+.brand { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font: 500 1rem var(--display); }
+.brand span:first-child { display: flex; align-items: center; gap: 0.55rem; }
+.brand i { width: 0.95rem; height: 0.95rem; border: 3px solid currentColor; display: block; }
+.brand span:last-child { font: 400 0.85rem var(--mono); color: var(--box-muted); align-self: center; }
+.mast .intro { display: grid; gap: 1rem; max-width: 46rem; }
+.mast .dek { font-size: 1.2rem; color: var(--box-muted); }
+.meta { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+
+main { padding-block: 0 4rem; }
+section { padding-block: 3.2rem 0; display: grid; gap: 1.4rem; }
+.label { font: 600 0.78rem/1.2 var(--mono); color: var(--accent); }
+.lede { font-size: 1.15rem; }
+
+figure { margin: 0; display: grid; gap: 0.5rem; min-width: 0; }
+figcaption { font-size: 0.86rem; color: var(--muted); }
+video { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 1440 / 900; background: #000; }
+
+ol.loop { margin: 0; padding-left: 1.3rem; display: grid; gap: 0.35rem; }
+ol.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 2.4rem; counter-reset: step; }
+ol.steps > li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 1.6rem; align-items: start; counter-increment: step; }
+ol.steps .txt { display: grid; gap: 0.45rem; min-width: 0; }
+ol.steps .txt h3::before { content: counter(step); display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; margin-right: 0.55rem; background: var(--ink); color: var(--bg); font: 600 0.85rem/1 var(--mono); vertical-align: 0.1em; }
+ol.steps img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); }
+@media (max-width: 720px) { ol.steps > li { grid-template-columns: minmax(0, 1fr); } }
+
+pre { margin: 0; background: var(--term); color: var(--term-ink); padding: 1rem 1.1rem; overflow-x: auto; font: 400 0.86rem/1.6 var(--mono); }
+pre .cmd { color: var(--term-cmd); }
+.tablebox { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.98rem; }
+th, td { text-align: left; padding: 0.65rem 0.8rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; color: var(--muted); }
+td { font-variant-numeric: tabular-nums; }
+.fails { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.fails div { background: var(--tint); padding: 1rem 1.1rem; display: grid; gap: 0.3rem; align-content: start; min-width: 0; }
+.list { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.35rem; }
+.next { background: var(--box); color: var(--on-box); padding: 1.4rem 1.5rem; display: grid; gap: 0.3rem; }
+.next span { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--muted); }
+</style>
+
+<header class="mast gutter">
+  <div class="wrap">
+    <div class="brand"><span><i></i>Whitebox Academy</span><span>Build an AI Agent from Scratch</span></div>
+    <div class="intro">
+      <span class="meta">Chapter 12 of 34 · Part 2: The first agent · About 2 hours</span>
+      <h1>The agent loop</h1>
+      <p class="dek">Turn one tool call into an agent that works through a task on its own, in about 60 lines of Python.</p>
+    </div>
+  </div>
+</header>
+
+<main class="gutter">
+  <div class="wrap">
+    <section>
+      <figure>
+        <video controls playsinline preload="metadata" poster="media/02-loop.jpg">
+          <source src="media/video.mp4" type="video/mp4">
+        </video>
+        <figcaption>Chapter video, 3 minutes 42 seconds, no sound. It starts with a 30-second recap, and captions on screen explain each step.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Where we are</span>
+        <h2>One tool call isn’t enough</h2>
+        <p class="lede">In chapter 11, the model asked for one tool, your code ran it, and the model used the result. Most real tasks take several steps, and each step depends on the one before. You can’t read a file until you know its name.</p>
+        <p>An agent solves this with a loop:</p>
+        <ol class="loop">
+          <li>Send the conversation to the model.</li>
+          <li>If the model asks for tools, run them and add the results to the conversation.</li>
+          <li>Go back to step 1.</li>
+          <li>If the model doesn’t ask for a tool, its reply is the final answer.</li>
+        </ol>
+        <p>The model decides what to do next. Your code does the work and keeps the conversation. The model remembers nothing between calls, so you resend the whole conversation each time.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Walkthrough</span>
+        <h2>From the idea to a running agent</h2>
+      </div>
+      <ol class="steps">
+        <li>
+          <div class="txt"><h3>Follow the loop</h3><p>Each pass sends the conversation to the model and checks the reply. A tool request goes round again. Anything else ends the run.</p></div>
+          <img src="media/02-loop.jpg" alt="Diagram of the agent loop: send to the model, check for a tool request, run the tool and repeat, or return the final answer" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Read the code</h3><p>The loop lives in <code>run_agent</code>. <code>max_steps</code> stops runaway loops, and each reply is added to the conversation so the model can see what it asked for.</p></div>
+          <img src="media/03-code.jpg" alt="The run_agent function with the lines that call the model highlighted" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Run it</h3><p>Ask a question that needs several steps. Nobody told the agent the file names, so it lists the folder first. Your run may take a different path, because models vary.</p></div>
+          <img src="media/04-run.jpg" alt="Terminal showing the agent listing the sales folder and reading each file" loading="lazy" width="1440" height="900">
+        </li>
+      </ol>
+      <div class="col">
+        <h3>Try it yourself</h3>
+        <p>Make sure Ollama is running, then run this from <code>chapters/12-agent-loop/code</code>:</p>
+      </div>
+      <pre><span class="cmd">$ python3 agent.py "What was the total coffee revenue across all the days in the sales folder?"</span>
+[step 1] list_files({'folder': 'sales'}) -> 'monday.txt\ntuesday.txt\nwednesday.txt'
+[step 2] read_file({'path': 'sales/monday.txt'}) -> 'Coffee: 120\nTea: 80\n'
+[step 3] read_file({'path': 'sales/tuesday.txt'}) -> 'Coffee: 150\nTea: 95\n'
+[step 4] read_file({'path': 'sales/wednesday.txt'}) -> 'Coffee: 110\nTea: 70\n'
+[step 5] add_numbers({'numbers': [120, 150, 110]}) -> '380.0'
+The total coffee revenue across all the days in the sales folder is $380.</pre>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">What breaks</span>
+        <h2>The loop is simple. The model isn’t always reliable.</h2>
+        <p>We asked the same question five times per setting, at temperature 0.7, and counted the runs that reached 380. Five runs is a small test, so treat these as a warning, not a ranking.</p>
+      </div>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th scope="col">Model</th><th scope="col">Download</th><th scope="col">Original prompt</th><th scope="col">Longer prompt</th></tr></thead>
+          <tbody>
+            <tr><td><code>llama3.1:8b</code></td><td>4.9 GB</td><td>2/5</td><td>3/5</td></tr>
+            <tr><td><code>qwen2.5:7b</code></td><td>4.7 GB</td><td>5/5</td><td>4/5</td></tr>
+            <tr><td><code>qwen2.5:14b</code></td><td>9.0 GB</td><td>5/5</td><td>3/5</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="fails">
+        <div><h3>Guessing</h3><p><code>llama3.1:8b</code> tried to read a file that doesn’t exist, then asked the user for help.</p></div>
+        <div><h3>Running out of steps</h3><p>One <code>qwen2.5:7b</code> run hit the limit and stopped with no answer.</p></div>
+        <div><h3>Fake tool calls</h3><p><code>qwen2.5:14b</code> once wrote a tool call as plain text, and the loop treated it as the answer.</p></div>
+      </div>
+      <p class="col">You’ll build a proper way to measure this in chapter 18.</p>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Your turn</span>
+        <h2>Exercises</h2>
+        <p>Open <code>exercises.py</code> and complete the three TODOs:</p>
+        <ol class="loop">
+          <li>Return an error if the model asks for a tool that doesn’t exist.</li>
+          <li>Return an error if a tool raises an exception.</li>
+          <li>Stop after <code>max_steps</code>.</li>
+        </ol>
+        <p>Then run <code>python3 exercises.py</code>. Ollama doesn’t need to be running, because the checks use a fake model. You’ve finished when you see <code>3/3 passed</code>.</p>
+      </div>
+      <div class="col">
+        <h3>Common mistakes</h3>
+        <ul class="list">
+          <li>Forgetting to add the model’s reply to <code>messages</code>.</li>
+          <li>Letting tool errors crash the program. Return them so the model can recover.</li>
+          <li>Checking only the final answer. A correct answer can hide a failed tool call.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Recap</span>
+        <h2>What you opened</h2>
+        <ul class="list">
+          <li>An agent is a model in a loop with tools.</li>
+          <li>The model chooses the next step, and your code runs it.</li>
+          <li>The conversation is the agent’s only memory.</li>
+          <li>Always limit the number of steps.</li>
+          <li>Errors go back to the model as text.</li>
+        </ul>
+        <p>The think, act, observe pattern was popularized by the 2022 paper <a href="https://arxiv.org/abs/2210.03629">ReAct</a>. Chapter 25 compares it with other planning patterns.</p>
+      </div>
+      <div class="next"><span>Next</span><h3>Chapter 13: Make the model replaceable</h3></div>
+    </section>
+
+    <footer>
+      <p>Get the code at <a href="https://github.com/WhiteboxAcademy/BuildAnAgentFramework">github.com/WhiteboxAcademy/BuildAnAgentFramework</a>. Code is under the MIT License. Articles and videos are under CC BY 4.0.</p>
+    </footer>
+  </div>
+</main>

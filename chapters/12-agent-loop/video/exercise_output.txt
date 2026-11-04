@@ -1,0 +1,11 @@
+$ python3 exercises.py
+FAIL  TODO 1: unknown tool: KeyError: 'missing'
+FAIL  TODO 2: tool exception: ValueError: this tool always fails
+FAIL  TODO 3: step limit: RuntimeError: the agent never stopped
+0/3 passed
+
+$ python3 exercises.py   # after finishing the TODOs
+PASS  TODO 1: unknown tool
+PASS  TODO 2: tool exception
+PASS  TODO 3: step limit
+3/3 passed
