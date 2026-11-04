@@ -13,8 +13,8 @@ Work through the chapters in order and tick each one off as you finish it.
 
 ## Part 1: LLM foundations (about 5.5 hours)
 
-- [ ] 06 How LLMs work
-- [ ] 07 Calling a model
+- [ ] 06 Your first model call
+- [ ] 07 How LLMs work
 - [ ] 08 Prompting and structured output
 
 ## Part 2: The first agent (about 6.5 hours)

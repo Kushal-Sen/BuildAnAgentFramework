@@ -1,0 +1,242 @@
+<title>Whitebox: How LLMs Work</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a black box header opens onto a white reading column; media breaks wider. */
+:root {
+  --bg: #fbfbf9; --surface: #ffffff; --ink: #16181d; --muted: #5d616b; --rule: #d9dade;
+  --accent: #2a4bd7; --tint: #e7ebfb; --box: #0c0d10; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #101218; --term-ink: #e4e6ec; --term-cmd: #9db1ff;
+  --display: "Bricolage Grotesque", Georgia, serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+    --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+    --term: #08090c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+  --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #08090c; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 400 1.0625rem/1.65 var(--body); }
+.gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 68rem; margin: 0 auto; min-width: 0; }
+.col { max-width: 42rem; display: grid; gap: 1rem; min-width: 0; }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2.6rem, 7vw, 4.4rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; }
+h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); line-height: 1.15; font-weight: 700; }
+h3 { font-size: 1.2rem; line-height: 1.3; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--accent); }
+a:focus-visible, video:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+code { font-family: var(--mono); font-size: 0.92em; }
+
+header.mast { background: var(--box); color: var(--on-box); padding-block: 1.6rem 3rem; }
+.mast .wrap { display: grid; gap: 2.4rem; }
+.brand { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font: 500 1rem var(--display); }
+.brand span:first-child { display: flex; align-items: center; gap: 0.55rem; }
+.brand i { width: 0.95rem; height: 0.95rem; border: 3px solid currentColor; display: block; }
+.brand span:last-child { font: 400 0.85rem var(--mono); color: var(--box-muted); align-self: center; }
+.mast .intro { display: grid; gap: 1rem; max-width: 46rem; }
+.mast .dek { font-size: 1.2rem; color: var(--box-muted); }
+.meta { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+
+main { padding-block: 0 4rem; }
+section { padding-block: 3.2rem 0; display: grid; gap: 1.4rem; }
+.label { font: 600 0.78rem/1.2 var(--mono); color: var(--accent); }
+.lede { font-size: 1.15rem; }
+
+figure { margin: 0; display: grid; gap: 0.5rem; min-width: 0; }
+figcaption { font-size: 0.86rem; color: var(--muted); }
+video { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 1440 / 900; background: #000; }
+
+ol.loop { margin: 0; padding-left: 1.3rem; display: grid; gap: 0.35rem; }
+ol.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 2.4rem; counter-reset: step; }
+ol.steps > li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 1.6rem; align-items: start; counter-increment: step; }
+ol.steps .txt { display: grid; gap: 0.45rem; min-width: 0; }
+ol.steps .txt h3::before { content: counter(step); display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; margin-right: 0.55rem; background: var(--ink); color: var(--bg); font: 600 0.85rem/1 var(--mono); vertical-align: 0.1em; }
+ol.steps img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); }
+@media (max-width: 720px) { ol.steps > li { grid-template-columns: minmax(0, 1fr); } }
+
+pre { margin: 0; background: var(--term); color: var(--term-ink); padding: 1rem 1.1rem; overflow-x: auto; font: 400 0.86rem/1.6 var(--mono); }
+pre .cmd { color: var(--term-cmd); }
+.tablebox { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.98rem; }
+th, td { text-align: left; padding: 0.65rem 0.8rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; color: var(--muted); }
+td { font-variant-numeric: tabular-nums; }
+.fails { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.fails div { background: var(--tint); padding: 1rem 1.1rem; display: grid; gap: 0.3rem; align-content: start; min-width: 0; }
+.list { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.35rem; }
+.next { background: var(--box); color: var(--on-box); padding: 1.4rem 1.5rem; display: grid; gap: 0.3rem; }
+.next span { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--muted); }
+</style>
+
+<header class="mast gutter">
+  <div class="wrap">
+    <div class="brand"><span><i></i>Whitebox Academy</span><span>Build an AI Agent from Scratch</span></div>
+    <div class="intro">
+      <span class="meta">Chapter 07 of 34 · Part 1: LLM foundations · About 2 hours</span>
+      <h1>How LLMs work</h1>
+      <p class="dek">Open the model itself, using six experiments on your own computer. You don’t need any math.</p>
+    </div>
+  </div>
+</header>
+
+<main class="gutter">
+  <div class="wrap">
+    <section>
+      <figure>
+        <video controls playsinline preload="metadata" poster="media/02-predict.jpg">
+          <source src="media/video.mp4" type="video/mp4">
+        </video>
+        <figcaption>Chapter video, 5 minutes 0 seconds, no sound. It starts with a 30-second recap, and captions on screen explain each step.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Where we are</span>
+        <h2>What an LLM is</h2>
+        <p class="lede">In chapter 06, the same question gave different answers, and the model forgot your name. This chapter solves both puzzles. LLM stands for large language model. It’s a program trained on a huge amount of text to do one job: predict what comes next.</p>
+        <p>Inside is a very large set of numbers, called parameters. Your model has about 7.6 billion of them. They were set during training, and they don’t change when you use the model. Everything an LLM seems to do comes from that one job, repeated.</p>
+        <p><a href="https://claude.ai/artifact/1uGgX3WK7v3D5HyfvB782p#start-ollama">Start Ollama</a>, activate the <code>.venv</code> from chapter 05, and run <code>python3 experiments.py</code> from <code>chapters/07-how-llms-work/code</code>. It takes about a minute. It uses the <code>chat</code> function from chapter 06, plus two measuring tools provided for you.</p>
+      </div>
+      <pre><span class="cmd">$ python3 experiments.py</span>
+1. Tokens
+  'Hello': characters: 5, tokens: 1
+  'Hello world': characters: 11, tokens: 2
+  'unbelievably': characters: 12, tokens: 3
+  '12345678': characters: 8, tokens: 8
+  'नमस्ते दुनिया': characters: 13, tokens: 13
+2. Next-token prediction
+  ' Paris': 54.5%
+  ' __': 6.9%
+  ' a': 4.6%
+  ' ______': 4.5%
+  ' ____': 4.0%
+3. Temperature
+  0: 1 different: ['Brew Haven', 'Brew Haven', 'Brew Haven', 'Brew Haven', 'Brew Haven', 'Brew Haven']
+  0.7: 5 different: ['Brewed Moments', 'Morning Blend', 'Brewscape', 'Brew Haven', 'Bean Haven', 'Brew Haven']
+  1.5: 5 different: ['Café Bliss', 'MorningBlend', 'Brewtopia', 'Brew Haven', 'Mocha Meadows', 'Brew Haven']
+4. No memory
+  Separate call: You didn't provide your name in the question.
+  With history:  Your name is Asha.
+5. Context window
+  Window of 4096 tokens: '7342'
+  Window of 256 tokens: 'coffeeandteacoffeeandteacoffeeandteacoffeeandteacoffeeandteacoffeeandteacoffeeandteacoffeeand'
+6. Made-up answers
+  The paper "Recursive Tea Embeddings for Quantum Coffee Agents" by Dr. Mira Sundaram explores the application of quantum computing principles to develop a novel embedding technique for agents that could potentially optimize decision-making processes in dynamic environments, using a whimsical theme of "coffee" to engage the reader.</pre>
+      <p class="col">This is real output from <code>qwen2.5:7b</code>. Some of yours will differ.</p>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Walkthrough</span>
+        <h2>Six experiments</h2>
+        <p>Before each one, predict what will happen. A wrong guess is often the most useful result.</p>
+      </div>
+      <ol class="steps">
+        <li>
+          <div class="txt"><h3>Tokens</h3><p>Models read tokens, which are small chunks of text. For English, a rough rule of thumb is 4 characters per token. Other languages often take more. Limits are measured in tokens, and cloud models usually charge by the token.</p></div>
+          <img src="media/03-tokens.jpg" alt="Terminal output comparing characters and tokens for several texts" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Next-token prediction</h3><p>The model gives every possible next token a chance, picks one, adds it to the text and repeats. Here, the blanks probably reflect fill-in-the-blank text it saw in training. Either way, it’s predicting likely text, not looking up a fact.</p></div>
+          <img src="media/04-chances.jpg" alt="The model's top five next tokens, led by Paris at 54.5 percent" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Temperature</h3><p>Temperature controls how the model picks. At 0, it always takes the top choice. Higher values add variety. That solves puzzle 1: the default temperature isn’t 0, so the same question gave different answers. Use a low temperature for reliable tool use. Even at 0, results can differ between machines and model versions.</p></div>
+          <img src="media/05-temperature.jpg" alt="Coffee shop names generated at temperatures of 0, 0.7 and 1.5" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>No memory</h3><p>Each call starts from nothing. That solves puzzle 2: your second call didn’t include your name. When a chatbot seems to remember you, the app is resending the conversation. You’ll write that code yourself in chapter 12.</p></div>
+          <img src="media/06-memory.jpg" alt="A separate call forgets the name, and a call with history remembers it" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Context window</h3><p>The context window is the most tokens a model can handle at once, including its reply. With a small window, the secret code was lost and the reply was nonsense. There was no error message, because Ollama cut the text and carried on.</p></div>
+          <img src="media/07-context.jpg" alt="A large window finds the secret code, and a small window returns nonsense" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Made-up answers</h3><p>We asked for a summary of a paper that doesn’t exist, and the model gave one confidently. This is called hallucination. It did refuse two other made-up questions, so you can’t predict when it will happen. That’s a big reason why agents use tools.</p></div>
+          <img src="media/08-madeup.jpg" alt="The model confidently summarizing a paper that does not exist" loading="lazy" width="1440" height="900">
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Why it matters</span>
+        <h2>What this means for agents</h2>
+      </div>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th scope="col">What you learned</th><th scope="col">Why it matters</th></tr></thead>
+          <tbody>
+            <tr><td>Models predict text</td><td>Check their output, and don’t trust it blindly</td></tr>
+            <tr><td>Tokens are the unit</td><td>Limits and costs are counted in tokens</td></tr>
+            <tr><td>Temperature adds variety</td><td>Use a low value for reliable tool use</td></tr>
+            <tr><td>Models have no memory</td><td>Your code must keep the conversation</td></tr>
+            <tr><td>Context is limited</td><td>Long runs need managing</td></tr>
+            <tr><td>Models make things up</td><td>Tools and retrieval give them real facts</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Your turn</span>
+        <h2>Exercises</h2>
+        <p>Open <code>exercises.py</code> and complete the five TODOs:</p>
+        <ol class="loop">
+          <li><code>estimate_tokens</code>: use the rule of thumb.</li>
+          <li><code>most_likely</code>: pick the top token.</li>
+          <li><code>apply_temperature</code>: see how temperature changes the chances.</li>
+          <li><code>fits_window</code>: check a context limit.</li>
+          <li><code>add_turn</code>: add to a conversation without changing the original.</li>
+        </ol>
+        <p>Then run <code>python3 -m pytest test_exercises.py</code>. You’ve finished when you see <code>5 passed</code>.</p>
+      </div>
+      <div class="col">
+        <h3>Common mistakes</h3>
+        <ul class="list">
+          <li>Thinking the model looks facts up. It predicts text.</li>
+          <li>Thinking the model remembers earlier calls. Your code has to resend them.</li>
+          <li>Counting words instead of tokens.</li>
+          <li>Expecting an error when the context overflows. You may just get a bad answer.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Recap</span>
+        <h2>What you opened</h2>
+        <ul class="list">
+          <li>An LLM predicts the next token, one at a time.</li>
+          <li>Tokens are the chunks of text a model reads.</li>
+          <li>Temperature controls how much variety you get.</li>
+          <li>Each call starts with no memory.</li>
+          <li>The context window limits what fits, and overflow can be silent.</li>
+          <li>Models can state made-up things confidently.</li>
+        </ul>
+        <p>Today’s LLMs are built on the Transformer, from the 2017 paper <a href="https://arxiv.org/abs/1706.03762">Attention Is All You Need</a>. For a visual explanation, see <a href="https://jalammar.github.io/illustrated-transformer/">The Illustrated Transformer</a>.</p>
+      </div>
+      <div class="next"><span>Next</span><h3>Chapter 08: Prompting and structured output</h3></div>
+    </section>
+
+    <footer>
+      <p>Get the code at <a href="https://github.com/WhiteboxAcademy/BuildAnAgentFramework">github.com/WhiteboxAcademy/BuildAnAgentFramework</a>. Code is under the MIT License. Articles and videos are under CC BY 4.0.</p>
+    </footer>
+  </div>
+</main>

@@ -1,0 +1,13 @@
+$ python3 -m pytest test_exercises.py -q --tb=no
+FFFFF                                                                    [100%]
+=========================== short test summary info ============================
+FAILED test_exercises.py::test_todo_1_user_message - AssertionError: assert N...
+FAILED test_exercises.py::test_todo_2_with_system - AssertionError: assert No...
+FAILED test_exercises.py::test_todo_3_build_body - AssertionError: assert Non...
+FAILED test_exercises.py::test_todo_4_reply_text - AssertionError: assert Non...
+FAILED test_exercises.py::test_todo_5_join_stream - assert None == 'Hello!'
+5 failed
+
+$ python3 -m pytest test_exercises.py -q --tb=no   # after the TODOs
+.....                                                                    [100%]
+5 passed

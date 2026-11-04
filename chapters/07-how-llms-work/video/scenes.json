@@ -1,0 +1,408 @@
+{
+ "chapter": "Chapter 07",
+ "scenes": [
+  {
+   "type": "recap",
+   "title": "Previously: your first model call",
+   "flow": [
+    "Messages have roles",
+    "System messages set rules",
+    "Streaming sends pieces",
+    "Two puzzles"
+   ],
+   "captions": [
+    {
+     "text": "Recap of chapter 06: you wrote a chat function, and sent messages with roles.",
+     "secs": 8,
+     "focus": 0
+    },
+    {
+     "text": "A system message sets the rules for the conversation.",
+     "secs": 6,
+     "focus": 1
+    },
+    {
+     "text": "Streaming gives you a reply piece by piece.",
+     "secs": 6,
+     "focus": 2
+    },
+    {
+     "text": "And two puzzles: the answers changed, and the model forgot your name.",
+     "secs": 10,
+     "focus": 3
+    }
+   ]
+  },
+  {
+   "type": "box",
+   "label": "The model",
+   "inner": [
+    "tokens",
+    "+ prediction",
+    "+ sampling"
+   ],
+   "captions": [
+    {
+     "text": "Today's black box: the AI model itself.",
+     "secs": 4
+    },
+    {
+     "text": "Let's open it.",
+     "secs": 4,
+     "open": true,
+     "shot": "01-box"
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "dark": false,
+   "title": "An LLM has one job: predict what comes next",
+   "flow": [
+    "Read the text so far",
+    "Give each next token a chance",
+    "Pick one",
+    "Add it, and repeat"
+   ],
+   "captions": [
+    {
+     "text": "First, it reads all the text so far.",
+     "secs": 6,
+     "focus": 0
+    },
+    {
+     "text": "It gives every possible next token a chance.",
+     "secs": 6,
+     "focus": 1
+    },
+    {
+     "text": "It picks one token.",
+     "secs": 5,
+     "focus": 2,
+     "shot": "02-predict"
+    },
+    {
+     "text": "It adds that token, and repeats. This loop writes the whole reply.",
+     "secs": 7,
+     "focus": 3
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/experiments.py",
+   "start": "# Two measuring tools",
+   "end": "return [(guess",
+   "captions": [
+    {
+     "text": "These experiments use your chat function, plus two measuring tools provided for you.",
+     "secs": 8,
+     "focus": null
+    },
+    {
+     "text": "You don't need to memorize these. They ask Ollama to report what the model did.",
+     "secs": 8,
+     "focus": [
+      "def count_tokens",
+      "return measure"
+     ]
+    },
+    {
+     "text": "This one asks for the model's top guesses for the next token.",
+     "secs": 7,
+     "focus": [
+      "def next_token_chances",
+      "return [(guess"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/experiments.py",
+   "start": "print(\"1. Tokens\")",
+   "end": "count_tokens(text)}\")",
+   "output": "video/part1.txt",
+   "captions": [
+    {
+     "text": "Experiment 1. These are the inputs: five pieces of text.",
+     "secs": 7,
+     "focus": [
+      "for text in",
+      "for text in"
+     ],
+     "lines": 0
+    },
+    {
+     "text": "For each one, we print its characters and its tokens. Tokens are small chunks of text.",
+     "secs": 8,
+     "focus": [
+      "print(f",
+      "print(f"
+     ],
+     "lines": 0
+    },
+    {
+     "text": "Predict: which of these five texts will take the most tokens?",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Here's the output. Unusual words and numbers take more tokens.",
+     "secs": 7,
+     "focus": null,
+     "lines": 5
+    },
+    {
+     "text": "Other languages often take more too. Limits and costs are counted in tokens.",
+     "secs": 8,
+     "focus": null,
+     "lines": 6,
+     "shot": "03-tokens"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/experiments.py",
+   "start": "print(\"2. Next",
+   "end": "{chance:.1%}",
+   "output": "video/part2.txt",
+   "captions": [
+    {
+     "text": "Experiment 2. The input is an unfinished sentence: The capital of France is.",
+     "secs": 8,
+     "focus": [
+      "for token, chance",
+      "for token, chance"
+     ],
+     "lines": 0
+    },
+    {
+     "text": "Predict: how sure will the model be about the next word?",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "The output shows the model's top guesses for the next token, with their chances.",
+     "secs": 8,
+     "focus": null,
+     "lines": 6,
+     "shot": "04-chances"
+    },
+    {
+     "text": "The blanks probably reflect quiz-style text it saw in training. It predicts text. It doesn't look up facts.",
+     "secs": 9,
+     "focus": null,
+     "lines": 6
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/experiments.py",
+   "start": "print(\"3. Temperature\")",
+   "end": "different: {names}",
+   "output": "video/part3.txt",
+   "captions": [
+    {
+     "text": "Experiment 3. The input is one prompt, asking for a coffee shop name.",
+     "secs": 7,
+     "focus": [
+      "prompt =",
+      "prompt ="
+     ],
+     "lines": 0
+    },
+    {
+     "text": "We ask six times at each temperature: 0, 0.7 and 1.5.",
+     "secs": 7,
+     "focus": [
+      "for temperature",
+      "for seed in"
+     ],
+     "lines": 0
+    },
+    {
+     "text": "Predict: how many different names will each temperature give?",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "At 0, the model always takes the top choice, so all six names match.",
+     "secs": 8,
+     "focus": null,
+     "lines": 2
+    },
+    {
+     "text": "That solves puzzle 1. The default temperature isn't 0, so answers vary.",
+     "secs": 8,
+     "focus": null,
+     "lines": 4,
+     "shot": "05-temperature"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/experiments.py",
+   "start": "print(\"4. No memory\")",
+   "end": "With history:",
+   "output": "video/part4.txt",
+   "captions": [
+    {
+     "text": "Experiment 4. First we say: My name is Asha. Then we ask: What is my name?",
+     "secs": 8,
+     "focus": [
+      "intro =",
+      "question ="
+     ],
+     "lines": 0
+    },
+    {
+     "text": "Predict: will the separate call know the name?",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "The separate call sends only the question. Each call starts from nothing, so it fails.",
+     "secs": 8,
+     "focus": [
+      "print(\"  Separate",
+      "print(\"  Separate"
+     ],
+     "lines": 2
+    },
+    {
+     "text": "That solves puzzle 2. Send the earlier messages, and it knows the name.",
+     "secs": 8,
+     "focus": [
+      "print(\"  With",
+      "print(\"  With"
+     ],
+     "lines": 3,
+     "shot": "06-memory"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/experiments.py",
+   "start": "print(\"5. Context",
+   "end": "Window of {size}",
+   "output": "video/part5.txt",
+   "captions": [
+    {
+     "text": "Experiment 5. The input hides a secret code at the start of a long message.",
+     "secs": 8,
+     "focus": [
+      "filler =",
+      "message ="
+     ],
+     "lines": 0
+    },
+    {
+     "text": "We ask for the code twice, using a large context window and a small one.",
+     "secs": 8,
+     "focus": [
+      "for size in",
+      "answer ="
+     ],
+     "lines": 0
+    },
+    {
+     "text": "Predict: will the small window still find the code?",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "The large window finds it. With the small one, the code was lost, and there was no error.",
+     "secs": 9,
+     "focus": null,
+     "lines": 3,
+     "shot": "07-context"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/experiments.py",
+   "start": "print(\"6. Made",
+   "end": "print(\" \", chat",
+   "output": "video/part6.txt",
+   "captions": [
+    {
+     "text": "Experiment 6. The input asks for a summary of a paper that doesn't exist.",
+     "secs": 8,
+     "focus": [
+      "paper =",
+      "paper ="
+     ],
+     "lines": 0
+    },
+    {
+     "text": "Predict: will the model admit the paper isn't real?",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "The model summarized it confidently. This is called hallucination.",
+     "secs": 8,
+     "focus": null,
+     "lines": 2,
+     "shot": "08-madeup"
+    },
+    {
+     "text": "That's a big reason why agents need tools.",
+     "secs": 6,
+     "focus": null,
+     "lines": 2
+    }
+   ]
+  },
+  {
+   "type": "term",
+   "file": "video/exercise_output.txt",
+   "final": "5 passed",
+   "captions": [
+    {
+     "text": "Your turn. Open exercises.py and complete the five TODOs.",
+     "secs": 6,
+     "lines": 9
+    },
+    {
+     "text": "You've finished when you see 5 passed.",
+     "secs": 6,
+     "lines": 13
+    }
+   ]
+  },
+  {
+   "type": "end",
+   "title": "You opened the model.",
+   "points": [
+    "LLMs predict the next token",
+    "Temperature controls variety",
+    "Each call starts with no memory",
+    "Models can make things up"
+   ],
+   "next": "Next: Chapter 08, prompting and structured output",
+   "captions": [
+    {
+     "text": "The model is no longer a mystery.",
+     "secs": 5
+    },
+    {
+     "text": "Next, you'll learn to steer it with better prompts.",
+     "secs": 6
+    }
+   ]
+  }
+ ]
+}

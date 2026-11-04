@@ -51,6 +51,7 @@ pre { margin: 0; font: 400 20px/1.36 var(--mono); }
 .file { font: 400 19px var(--mono); color: var(--muted); }
 
 .term { background: var(--term); color: var(--term-ink); padding: 28px 30px; min-height: 480px; font: 400 21px/1.6 var(--mono); }
+.term.demo-output { min-height: 250px; padding: 18px 26px; font-size: 20px; line-height: 1.5; }
 .term span { display: block; white-space: pre-wrap; overflow-wrap: anywhere; }
 .term span.cmd { color: #9db1ff; } .term span.final { font-weight: 600; color: #fff; margin-top: 10px; }
 
@@ -94,6 +95,7 @@ const render = {
   loop: () => LOOP,
   code: (s) => `<div class="file">${s.file}</div><pre class="code">${s.lines.map((l) => `<span>${esc(l) || " "}</span>`).join("")}</pre>`,
   term: () => `<div class="term"></div>`,
+  demo: (s) => `<div class="file">${s.file}</div><pre class="code">${s.lines.map((l) => `<span>${esc(l) || " "}</span>`).join("")}</pre><div class="term demo-output"></div>`,
   scores: (s) => `<h1>${s.title}</h1><table><tr><th>Model</th><th>Original prompt</th><th>Longer prompt</th></tr>${s.rows.map((r) => `<tr>${r.map((c) => `<td>${c}</td>`).join("")}</tr>`).join("")}</table><div class="notes">${s.notes.map((n) => `<div>${n}</div>`).join("")}</div>`,
   end: (s) => `<h1>${s.title}</h1><div class="points">${s.points.map((p) => `<div>${p}</div>`).join("")}</div><div class="next">${s.next}</div>`,
 };
@@ -117,6 +119,10 @@ const apply = {
       const kind = l.startsWith("$") ? "cmd" : s.final && l.startsWith(s.final) ? "final" : "";
       return `<span class="${kind}">${esc(l) || " "}</span>`;
     }).join("");
+  },
+  demo: (c, s) => {
+    apply.code(c, s);
+    $(".term").innerHTML = s.outputLines.slice(0, c.lines).map((l) => `<span>${esc(l) || " "}</span>`).join("");
   },
   scores: (c) => $(".notes").classList.toggle("on", c.focus === "notes"),
   end: () => {},

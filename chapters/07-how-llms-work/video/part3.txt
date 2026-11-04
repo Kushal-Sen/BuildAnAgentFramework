@@ -1,0 +1,4 @@
+3. Temperature
+  0: 1 different: ['Brew Haven', 'Brew Haven', 'Brew Haven', 'Brew Haven', 'Brew Haven', 'Brew Haven']
+  0.7: 5 different: ['Brewed Moments', 'Morning Blend', 'Brewscape', 'Brew Haven', 'Bean Haven', 'Brew Haven']
+  1.5: 5 different: ['Café Bliss', 'MorningBlend', 'Brewtopia', 'Brew Haven', 'Mocha Meadows', 'Brew Haven']

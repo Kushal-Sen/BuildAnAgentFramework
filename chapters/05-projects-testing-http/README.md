@@ -216,4 +216,4 @@ Tim Berners-Lee created HTTP for the World Wide Web around 1990. To learn more, 
 [pytest documentation](https://docs.pytest.org/) and the
 [Requests documentation](https://requests.readthedocs.io/).
 
-**Next:** chapter 06, where you'll learn how LLMs work.
+**Next:** chapter 06, where your code will talk to an AI model.

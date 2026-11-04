@@ -26,7 +26,9 @@ def load_scenes(chapter):
         if "file" not in scene:
             continue
         lines = (chapter / scene["file"]).read_text().splitlines()
-        if scene["type"] == "code":
+        if scene["type"] == "demo":
+            scene["outputLines"] = (chapter / scene["output"]).read_text().splitlines()
+        if scene["type"] in ("code", "demo"):
             first = next(i for i, line in enumerate(lines) if scene["start"] in line)
             last = next(i for i, line in enumerate(lines) if i > first and scene["end"] in line)
             lines = lines[first:last + 1]

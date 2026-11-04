@@ -1,0 +1,13 @@
+$ python3 first_call.py
+1. One question
+Python is a high-level, general-purpose programming language.
+2. A system message
+Arr! Python be a programming language, matey!
+3. A conversation
+Yellow.
+4. Streaming
+['Welcome', ' to', ' your', ' learning', ' journey', '!']
+Welcome to your learning journey!
+5. Two puzzles
+Same question, three times: ['Sputnik', 'Purrfectly', 'Moonwhisper']
+You didn't provide your name in the question.

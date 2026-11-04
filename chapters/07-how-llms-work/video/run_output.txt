@@ -1,0 +1,25 @@
+$ python3 experiments.py
+1. Tokens
+  'Hello': characters: 5, tokens: 1
+  'Hello world': characters: 11, tokens: 2
+  'unbelievably': characters: 12, tokens: 3
+  '12345678': characters: 8, tokens: 8
+  'नमस्ते दुनिया': characters: 13, tokens: 13
+2. Next-token prediction
+  ' Paris': 54.5%
+  ' __': 6.9%
+  ' a': 4.6%
+  ' ______': 4.5%
+  ' ____': 4.0%
+3. Temperature
+  0: 1 different: ['Brew Haven', 'Brew Haven', 'Brew Haven', 'Brew Haven', 'Brew Haven', 'Brew Haven']
+  0.7: 5 different: ['Brewed Moments', 'Morning Blend', 'Brewscape', 'Brew Haven', 'Bean Haven', 'Brew Haven']
+  1.5: 5 different: ['Café Bliss', 'MorningBlend', 'Brewtopia', 'Brew Haven', 'Mocha Meadows', 'Brew Haven']
+4. No memory
+  Separate call: You didn't provide your name in the question.
+  With history:  Your name is Asha.
+5. Context window
+  Window of 4096 tokens: '7342'
+  Window of 256 tokens: 'coffeeandteacoffeeandteacoffeeandteacoffeeandteacoffeeandteacoffeeandteacoffeeandteacoffeeand'
+6. Made-up answers
+  The paper "Recursive Tea Embeddings for Quantum Coffee Agents" by Dr. Mira Sundaram explores the application of quantum computing principles to develop a novel embedding technique for agents that could potentially optimize decision-making processes in dynamic environments, using a whimsical theme of "coffee" to engage the reader.

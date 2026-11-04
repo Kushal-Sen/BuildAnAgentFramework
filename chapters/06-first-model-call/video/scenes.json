@@ -1,0 +1,295 @@
+{
+ "chapter": "Chapter 06",
+ "scenes": [
+  {
+   "type": "recap",
+   "title": "Previously: real projects",
+   "flow": [
+    "Environments separate projects",
+    "pytest checks code",
+    "HTTP connects programs",
+    "Status codes show results"
+   ],
+   "captions": [
+    {
+     "text": "Recap of chapter 05: a virtual environment keeps each project's packages separate.",
+     "secs": 8,
+     "focus": 0
+    },
+    {
+     "text": "pytest runs all your tests with one command.",
+     "secs": 6,
+     "focus": 1
+    },
+    {
+     "text": "HTTP is how programs talk, and Ollama is a small web server.",
+     "secs": 8,
+     "focus": 2
+    },
+    {
+     "text": "You've finished the primer. Now your code will talk to an AI.",
+     "secs": 8,
+     "focus": 3
+    }
+   ]
+  },
+  {
+   "type": "box",
+   "label": "A model call",
+   "inner": [
+    "request",
+    "+ messages",
+    "+ reply"
+   ],
+   "captions": [
+    {
+     "text": "Today's black box: how your code talks to a model.",
+     "secs": 4
+    },
+    {
+     "text": "Let's open it.",
+     "secs": 4,
+     "open": true,
+     "shot": "01-box"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/first_call.py",
+   "start": "def chat",
+   "end": "return response.json()",
+   "captions": [
+    {
+     "text": "A model call is an HTTP request, just like the ones in chapter 05.",
+     "secs": 7,
+     "focus": null
+    },
+    {
+     "text": "The body holds the model, the conversation and your settings.",
+     "secs": 7,
+     "focus": [
+      "body =",
+      "body ="
+     ],
+     "shot": "02-chat"
+    },
+    {
+     "text": "requests.post sends it to Ollama. raise_for_status stops if something failed.",
+     "secs": 8,
+     "focus": [
+      "response = requests",
+      "response.raise_for_status"
+     ]
+    },
+    {
+     "text": "The reply text is inside the JSON, at message, then content.",
+     "secs": 7,
+     "focus": [
+      "return response",
+      "return response"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/first_call.py",
+   "start": "print(\"1. One",
+   "end": "print(chat([question",
+   "output": "video/part1.txt",
+   "captions": [
+    {
+     "text": "You send a list of messages. Each message has a role. This one is from the user.",
+     "secs": 8,
+     "focus": [
+      "question =",
+      "question ="
+     ],
+     "lines": 0
+    },
+    {
+     "text": "And here's the model's reply. Your code just talked to an AI.",
+     "secs": 7,
+     "focus": null,
+     "lines": 2,
+     "shot": "03-first"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/first_call.py",
+   "start": "print(\"2. A system",
+   "end": "print(chat([pirate",
+   "output": "video/part2.txt",
+   "captions": [
+    {
+     "text": "A system message sets the rules for the conversation. It comes from you, the developer.",
+     "secs": 8,
+     "focus": [
+      "pirate =",
+      "Keep your reply"
+     ],
+     "lines": 0
+    },
+    {
+     "text": "Same question, new rules. Clear, specific instructions work best.",
+     "secs": 7,
+     "focus": null,
+     "lines": 2,
+     "shot": "04-system"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/first_call.py",
+   "start": "print(\"3. A conversation",
+   "end": "print(chat(messages",
+   "output": "video/part3.txt",
+   "captions": [
+    {
+     "text": "To continue a conversation, you send all of it, including the model's earlier reply.",
+     "secs": 8,
+     "focus": [
+      "messages =",
+      "]"
+     ],
+     "lines": 0
+    },
+    {
+     "text": "The word it only makes sense because the earlier messages are included.",
+     "secs": 7,
+     "focus": null,
+     "lines": 2,
+     "shot": "05-conversation"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/first_call.py",
+   "start": "def stream_chat",
+   "end": "yield json.loads",
+   "captions": [
+    {
+     "text": "Long replies take time. Streaming sends the reply piece by piece.",
+     "secs": 7,
+     "focus": null
+    },
+    {
+     "text": "Ollama sends one line of JSON for each piece. A generator yields them.",
+     "secs": 8,
+     "focus": [
+      "for line in",
+      "yield json"
+     ],
+     "shot": "06-stream"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/first_call.py",
+   "start": "print(\"4. Streaming",
+   "end": "print(\"\".join",
+   "output": "video/part4.txt",
+   "captions": [
+    {
+     "text": "Here we collect the pieces, then print the first six.",
+     "secs": 6,
+     "focus": [
+      "pieces =",
+      "print(pieces"
+     ],
+     "lines": 0
+    },
+    {
+     "text": "Each piece is a small chunk of text. Joined together, they make the reply.",
+     "secs": 8,
+     "focus": null,
+     "lines": 3
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/first_call.py",
+   "start": "print(\"5. Two puzzles",
+   "end": "What is my name",
+   "output": "video/part5.txt",
+   "captions": [
+    {
+     "text": "Now, two puzzles. Predict the answers before the output appears.",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Puzzle 1: ask for a cat name three times. Will the answers match?",
+     "secs": 8,
+     "focus": [
+      "name =",
+      "print(\"Same"
+     ],
+     "lines": 0
+    },
+    {
+     "text": "Puzzle 2: tell it your name, then ask in a second call. Will it remember?",
+     "secs": 8,
+     "focus": [
+      "chat([{",
+      "print(chat"
+     ],
+     "lines": 0
+    },
+    {
+     "text": "Three different answers, and it forgot the name. Why? The next chapter explains.",
+     "secs": 9,
+     "focus": null,
+     "lines": 3,
+     "shot": "07-puzzles"
+    }
+   ]
+  },
+  {
+   "type": "term",
+   "file": "video/exercise_output.txt",
+   "final": "5 passed",
+   "captions": [
+    {
+     "text": "Your turn. Open exercises.py and build the pieces of a model call.",
+     "secs": 6,
+     "lines": 9
+    },
+    {
+     "text": "You've finished when you see 5 passed.",
+     "secs": 6,
+     "lines": 13
+    }
+   ]
+  },
+  {
+   "type": "end",
+   "title": "Your code talked to an AI.",
+   "points": [
+    "A model call is an HTTP request",
+    "Messages have roles",
+    "System messages set the rules",
+    "Send the whole conversation"
+   ],
+   "next": "Next: Chapter 07, why the puzzles happened",
+   "captions": [
+    {
+     "text": "You now have a working chat function.",
+     "secs": 5
+    },
+    {
+     "text": "Next, you'll open the model to solve those two puzzles.",
+     "secs": 6
+    }
+   ]
+  }
+ ]
+}

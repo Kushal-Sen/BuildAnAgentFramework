@@ -1,0 +1,6 @@
+1. Tokens
+  'Hello': characters: 5, tokens: 1
+  'Hello world': characters: 11, tokens: 2
+  'unbelievably': characters: 12, tokens: 3
+  '12345678': characters: 8, tokens: 8
+  'नमस्ते दुनिया': characters: 13, tokens: 13

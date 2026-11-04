@@ -1,0 +1,235 @@
+<title>Whitebox: First Model Call</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a black box header opens onto a white reading column; media breaks wider. */
+:root {
+  --bg: #fbfbf9; --surface: #ffffff; --ink: #16181d; --muted: #5d616b; --rule: #d9dade;
+  --accent: #2a4bd7; --tint: #e7ebfb; --box: #0c0d10; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #101218; --term-ink: #e4e6ec; --term-cmd: #9db1ff;
+  --display: "Bricolage Grotesque", Georgia, serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+    --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+    --term: #08090c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+  --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #08090c; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 400 1.0625rem/1.65 var(--body); }
+.gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 68rem; margin: 0 auto; min-width: 0; }
+.col { max-width: 42rem; display: grid; gap: 1rem; min-width: 0; }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2.6rem, 7vw, 4.4rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; }
+h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); line-height: 1.15; font-weight: 700; }
+h3 { font-size: 1.2rem; line-height: 1.3; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--accent); }
+a:focus-visible, video:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+code { font-family: var(--mono); font-size: 0.92em; }
+
+header.mast { background: var(--box); color: var(--on-box); padding-block: 1.6rem 3rem; }
+.mast .wrap { display: grid; gap: 2.4rem; }
+.brand { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font: 500 1rem var(--display); }
+.brand span:first-child { display: flex; align-items: center; gap: 0.55rem; }
+.brand i { width: 0.95rem; height: 0.95rem; border: 3px solid currentColor; display: block; }
+.brand span:last-child { font: 400 0.85rem var(--mono); color: var(--box-muted); align-self: center; }
+.mast .intro { display: grid; gap: 1rem; max-width: 46rem; }
+.mast .dek { font-size: 1.2rem; color: var(--box-muted); }
+.meta { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+
+main { padding-block: 0 4rem; }
+section { padding-block: 3.2rem 0; display: grid; gap: 1.4rem; }
+.label { font: 600 0.78rem/1.2 var(--mono); color: var(--accent); }
+.lede { font-size: 1.15rem; }
+
+figure { margin: 0; display: grid; gap: 0.5rem; min-width: 0; }
+figcaption { font-size: 0.86rem; color: var(--muted); }
+video { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 1440 / 900; background: #000; }
+
+ol.loop { margin: 0; padding-left: 1.3rem; display: grid; gap: 0.35rem; }
+ol.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 2.4rem; counter-reset: step; }
+ol.steps > li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 1.6rem; align-items: start; counter-increment: step; }
+ol.steps .txt { display: grid; gap: 0.45rem; min-width: 0; }
+ol.steps .txt h3::before { content: counter(step); display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; margin-right: 0.55rem; background: var(--ink); color: var(--bg); font: 600 0.85rem/1 var(--mono); vertical-align: 0.1em; }
+ol.steps img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); }
+@media (max-width: 720px) { ol.steps > li { grid-template-columns: minmax(0, 1fr); } }
+
+pre { margin: 0; background: var(--term); color: var(--term-ink); padding: 1rem 1.1rem; overflow-x: auto; font: 400 0.86rem/1.6 var(--mono); }
+pre .cmd { color: var(--term-cmd); }
+.tablebox { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.98rem; }
+th, td { text-align: left; padding: 0.65rem 0.8rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; color: var(--muted); }
+td { font-variant-numeric: tabular-nums; }
+.fails { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.fails div { background: var(--tint); padding: 1rem 1.1rem; display: grid; gap: 0.3rem; align-content: start; min-width: 0; }
+.list { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.35rem; }
+.next { background: var(--box); color: var(--on-box); padding: 1.4rem 1.5rem; display: grid; gap: 0.3rem; }
+.next span { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--muted); }
+</style>
+
+<header class="mast gutter">
+  <div class="wrap">
+    <div class="brand"><span><i></i>Whitebox Academy</span><span>Build an AI Agent from Scratch</span></div>
+    <div class="intro">
+      <span class="meta">Chapter 06 of 34 · Part 1: LLM foundations · About 1.5 hours</span>
+      <h1>Your first model call</h1>
+      <p class="dek">Write a <code>chat</code> function, and make your code talk to an AI model for the first time.</p>
+    </div>
+  </div>
+</header>
+
+<main class="gutter">
+  <div class="wrap">
+    <section>
+      <figure>
+        <video controls playsinline preload="metadata" poster="media/03-first.jpg">
+          <source src="media/video.mp4" type="video/mp4">
+        </video>
+        <figcaption>Chapter video, 3 minutes 15 seconds, no sound. It starts with a 30-second recap, and captions on screen explain each step.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Where we are</span>
+        <h2>From a server to a conversation</h2>
+        <p class="lede">In chapter 05, you made HTTP requests to Ollama, but only to ask about the server. Now you’ll ask the model itself a question.</p>
+        <p><a href="https://claude.ai/artifact/1uGgX3WK7v3D5HyfvB782p#start-ollama">Start Ollama</a>, activate the <code>.venv</code> from chapter 05, and run <code>python3 first_call.py</code> from <code>chapters/06-first-model-call/code</code>.</p>
+      </div>
+      <pre><span class="cmd">$ python3 first_call.py</span>
+1. One question
+Python is a high-level, general-purpose programming language.
+2. A system message
+Arr! Python be a programming language, matey!
+3. A conversation
+Yellow.
+4. Streaming
+['Welcome', ' to', ' your', ' learning', ' journey', '!']
+Welcome to your learning journey!
+5. Two puzzles
+Same question, three times: ['Sputnik', 'Purrfectly', 'Moonwhisper']
+You didn't provide your name in the question.</pre>
+      <p class="col">This is real output from <code>qwen2.5:7b</code>. Your replies will be different.</p>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Walkthrough</span>
+        <h2>Building up a model call</h2>
+      </div>
+      <ol class="steps">
+        <li>
+          <div class="txt"><h3>The chat function</h3><p>A model call is an HTTP request, like the ones in chapter 05. <code>body</code> holds the model, the conversation and your settings. <code>raise_for_status</code> stops with an error if something failed, and the reply text is at <code>["message"]["content"]</code>. You’ll use this function for the rest of the course.</p></div>
+          <img src="media/02-chat.jpg" alt="The chat function with its request body highlighted" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Your first question</h3><p>You send a list of messages. This is the list of dictionaries from chapter 02. Each message has a role, and this one comes from the <code>user</code>.</p></div>
+          <img src="media/03-first.jpg" alt="Code sending one question, with the model's reply below it" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>System messages</h3><p>A <code>system</code> message sets the rules, and it comes from you, the developer. Be specific. Our first attempt, “You are a pirate”, gave a plain answer with no pirate voice at all.</p></div>
+          <img src="media/04-system.jpg" alt="Code with a pirate system message, and a reply starting with Arr" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Conversations</h3><p>To continue a conversation, send all of it, including the model’s earlier <code>assistant</code> replies. The word “it” only makes sense because the earlier messages are included.</p></div>
+          <img src="media/05-conversation.jpg" alt="Code sending a three-message conversation, with the reply below it" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Streaming</h3><p>Streaming gives you a reply piece by piece as it’s written. Ollama sends one line of JSON for each piece, and a generator from chapter 04 yields them.</p></div>
+          <img src="media/06-stream.jpg" alt="A stream_chat generator with its loop highlighted" loading="lazy" width="1440" height="900">
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Two puzzles</span>
+        <h2>Predict before you run</h2>
+        <p>You now have a working model call, but two things may surprise you. Before you run this part, make a guess:</p>
+        <ol class="loop">
+          <li>If you ask for a cat name three times, will you get the same answer?</li>
+          <li>If you tell the model your name, then ask for it in a second call, will it remember?</li>
+        </ol>
+      </div>
+      <figure><img src="media/07-puzzles.jpg" alt="Three different cat names, and the model failing to remember a name" loading="lazy" width="1440" height="900"></figure>
+      <p class="col">Why does the same question give different answers? Why did it forget your name? You’ll find out in the next chapter.</p>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Reading errors</span>
+        <h2>Three errors you’ll meet</h2>
+        <p>These are real errors:</p>
+      </div>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th scope="col">What happened</th><th scope="col">What you see</th><th scope="col">The fix</th></tr></thead>
+          <tbody>
+            <tr><td>The model name is wrong</td><td><code>requests.exceptions.HTTPError: 404 Client Error: Not Found for url: http://127.0.0.1:11434/api/chat</code></td><td>Check the name with <code>ollama list</code></td></tr>
+            <tr><td>Ollama isn’t running</td><td><code>requests.exceptions.ConnectionError: HTTPConnectionPool(...)</code></td><td><a href="https://claude.ai/artifact/1uGgX3WK7v3D5HyfvB782p#start-ollama">Start Ollama</a></td></tr>
+            <tr><td>You read the wrong key</td><td><code>KeyError: 'message'</code></td><td>Print the response to see its real shape</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Your turn</span>
+        <h2>Exercises</h2>
+        <p>Open <code>exercises.py</code> and complete the five TODOs. Together, they build the pieces of a model call:</p>
+        <ol class="loop">
+          <li><code>user_message</code>: build a message.</li>
+          <li><code>with_system</code>: add a system message.</li>
+          <li><code>build_body</code>: build the request body.</li>
+          <li><code>reply_text</code>: read the reply.</li>
+          <li><code>join_stream</code>: join streamed pieces.</li>
+        </ol>
+        <p>Then run <code>python3 -m pytest test_exercises.py</code>. You’ve finished when you see <code>5 passed</code>.</p>
+      </div>
+      <div class="col">
+        <h3>Common mistakes</h3>
+        <ul class="list">
+          <li>Sending a single dictionary instead of a list of messages.</li>
+          <li>Writing vague system messages. Be specific about what you want.</li>
+          <li>Forgetting <code>stream=True</code> in both the body and <code>requests.post</code> when streaming.</li>
+          <li>Expecting the same answer every time.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Recap</span>
+        <h2>What you opened</h2>
+        <ul class="list">
+          <li>A model call is an HTTP request with a list of messages.</li>
+          <li>Messages have roles: <code>system</code>, <code>user</code> and <code>assistant</code>.</li>
+          <li>A <code>system</code> message sets the rules.</li>
+          <li>To continue a conversation, send all of it.</li>
+          <li>Streaming gives you the reply piece by piece.</li>
+        </ul>
+        <p>To learn more, see the <a href="https://docs.ollama.com/api">Ollama API documentation</a>.</p>
+      </div>
+      <div class="next"><span>Next</span><h3>Chapter 07: How LLMs work</h3></div>
+    </section>
+
+    <footer>
+      <p>Get the code at <a href="https://github.com/WhiteboxAcademy/BuildAnAgentFramework">github.com/WhiteboxAcademy/BuildAnAgentFramework</a>. Code is under the MIT License. Articles and videos are under CC BY 4.0.</p>
+    </footer>
+  </div>
+</main>

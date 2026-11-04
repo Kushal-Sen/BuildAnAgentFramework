@@ -1,0 +1,3 @@
+5. Context window
+  Window of 4096 tokens: '7342'
+  Window of 256 tokens: 'coffeeandteacoffeeandteacoffeeandteacoffeeandteacoffeeandteacoffeeandteacoffeeandteacoffeeand'

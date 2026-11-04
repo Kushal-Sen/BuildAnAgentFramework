@@ -32,7 +32,7 @@
 {"type":"term","file":"video/exercise_output.txt","final":"5 passed","captions":[
  {"text":"Your turn. Complete the TODOs, including writing your own test.","secs":6,"lines":9},
  {"text":"You've finished when you see 5 passed. Then try the Part 0 checkpoint.","secs":7,"lines":13}]},
-{"type":"end","title":"You finished the Python primer.","points":["Environments keep projects separate","pytest checks your code","HTTP connects programs","Always check the status code"],"next":"Next: Chapter 06, how LLMs work","captions":[
+{"type":"end","title":"You finished the Python primer.","points":["Environments keep projects separate","pytest checks your code","HTTP connects programs","Always check the status code"],"next":"Next: Chapter 06, your first model call","captions":[
  {"text":"You now have the Python you need.","secs":5},
- {"text":"Next, you'll open the biggest black box of all: the model.","secs":6}]}
+ {"text":"Next, your code will talk to an AI model.","secs":6}]}
 ]}
