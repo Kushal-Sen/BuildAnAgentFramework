@@ -52,7 +52,7 @@ Open [code/prompts.py](code/prompts.py) and follow along. The `chat` function is
 in chapter 06, with one new parameter, `format`, which you'll meet in experiment 6. `user` and
 `system` are small helpers that build messages.
 
-## Part 1: Prompt engineering
+## First half: Prompt engineering
 
 ### The parts of a good prompt
 
@@ -127,7 +127,7 @@ A prompt is rarely right the first time. Treat it like code:
 Our pirate prompt in chapter 06 failed until we made it more specific. In testing for this chapter,
 a classifier scored 4 of 7 with no label definitions, and 7 of 7 once we defined each label.
 
-## Part 2: Structured output
+## Second half: Structured output
 
 An agent's code needs data it can read, not a friendly paragraph. That means asking for
 **structured output**, usually JSON.
