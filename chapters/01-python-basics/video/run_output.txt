@@ -1,0 +1,12 @@
+$ python3 basics.py
+Coffee 120 True
+<class 'str'> <class 'int'> <class 'bool'>
+Three Coffee orders cost 360.
+Big order
+Day 1
+Day 2
+Day 3
+Orders left: 3
+Orders left: 2
+Orders left: 1
+Tea order: 160

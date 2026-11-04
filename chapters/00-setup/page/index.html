@@ -1,0 +1,199 @@
+<title>Whitebox: Setup</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a black box header opens onto a white reading column; media breaks wider. */
+:root {
+  --bg: #fbfbf9; --surface: #ffffff; --ink: #16181d; --muted: #5d616b; --rule: #d9dade;
+  --accent: #2a4bd7; --tint: #e7ebfb; --box: #0c0d10; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #101218; --term-ink: #e4e6ec; --term-cmd: #9db1ff;
+  --display: "Bricolage Grotesque", Georgia, serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+    --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+    --term: #08090c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+  --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #08090c; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 400 1.0625rem/1.65 var(--body); }
+.gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 68rem; margin: 0 auto; min-width: 0; }
+.col { max-width: 42rem; display: grid; gap: 1rem; min-width: 0; }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2.6rem, 7vw, 4.4rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; }
+h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); line-height: 1.15; font-weight: 700; }
+h3 { font-size: 1.2rem; line-height: 1.3; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--accent); }
+a:focus-visible, video:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+code { font-family: var(--mono); font-size: 0.92em; }
+
+header.mast { background: var(--box); color: var(--on-box); padding-block: 1.6rem 3rem; }
+.mast .wrap { display: grid; gap: 2.4rem; }
+.brand { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font: 500 1rem var(--display); }
+.brand span:first-child { display: flex; align-items: center; gap: 0.55rem; }
+.brand i { width: 0.95rem; height: 0.95rem; border: 3px solid currentColor; display: block; }
+.brand span:last-child { font: 400 0.85rem var(--mono); color: var(--box-muted); align-self: center; }
+.mast .intro { display: grid; gap: 1rem; max-width: 46rem; }
+.mast .dek { font-size: 1.2rem; color: var(--box-muted); }
+.meta { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+
+main { padding-block: 0 4rem; }
+section { padding-block: 3.2rem 0; display: grid; gap: 1.4rem; }
+.label { font: 600 0.78rem/1.2 var(--mono); color: var(--accent); }
+.lede { font-size: 1.15rem; }
+
+figure { margin: 0; display: grid; gap: 0.5rem; min-width: 0; }
+figcaption { font-size: 0.86rem; color: var(--muted); }
+video { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 1440 / 900; background: #000; }
+
+ol.loop { margin: 0; padding-left: 1.3rem; display: grid; gap: 0.35rem; }
+ol.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 2.4rem; counter-reset: step; }
+ol.steps > li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 1.6rem; align-items: start; counter-increment: step; }
+ol.steps .txt { display: grid; gap: 0.45rem; min-width: 0; }
+ol.steps .txt h3::before { content: counter(step); display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; margin-right: 0.55rem; background: var(--ink); color: var(--bg); font: 600 0.85rem/1 var(--mono); vertical-align: 0.1em; }
+ol.steps img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); }
+@media (max-width: 720px) { ol.steps > li { grid-template-columns: minmax(0, 1fr); } }
+
+pre { margin: 0; background: var(--term); color: var(--term-ink); padding: 1rem 1.1rem; overflow-x: auto; font: 400 0.86rem/1.6 var(--mono); }
+pre .cmd { color: var(--term-cmd); }
+.tablebox { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.98rem; }
+th, td { text-align: left; padding: 0.65rem 0.8rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; color: var(--muted); }
+td { font-variant-numeric: tabular-nums; }
+.fails { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.fails div { background: var(--tint); padding: 1rem 1.1rem; display: grid; gap: 0.3rem; align-content: start; min-width: 0; }
+.list { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.35rem; }
+.next { background: var(--box); color: var(--on-box); padding: 1.4rem 1.5rem; display: grid; gap: 0.3rem; }
+.next span { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--muted); }
+</style>
+
+<header class="mast gutter">
+  <div class="wrap">
+    <div class="brand"><span><i></i>Whitebox Academy</span><span>Build an AI Agent from Scratch</span></div>
+    <div class="intro">
+      <span class="meta">Chapter 00 of 34 · Part 0: Setup and Python primer · About 1 hour</span>
+      <h1>Setup</h1>
+      <p class="dek">Get your computer ready for the whole course, and talk to an AI model running on your own machine.</p>
+    </div>
+  </div>
+</header>
+
+<main class="gutter">
+  <div class="wrap">
+    <section>
+      <figure>
+        <video controls playsinline preload="metadata" poster="media/02-tools.jpg">
+          <source src="media/video.mp4" type="video/mp4">
+        </video>
+        <figcaption>Chapter video, 2 minutes 4 seconds, no sound. It starts with a 30-second course overview, and captions on screen explain each step.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Where we’re going</span>
+        <h2>Build an agent from scratch</h2>
+        <p class="lede">By the end of this course, you’ll have your own agent framework and a coding agent that fixes bugs on its own.</p>
+        <p>An <strong>AI model</strong> is a program that reads text and predicts a reply. An <strong>agent</strong> is a model that can also use tools to get work done. You’ll learn exactly how that works in later chapters. For now, you only need to get the tools installed.</p>
+      </div>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th scope="col">Tool</th><th scope="col">What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Python</td><td>Runs all the code in this course</td></tr>
+            <tr><td>Ollama</td><td>Runs AI models on your own computer, for free</td></tr>
+            <tr><td><code>qwen2.5:7b</code></td><td>The AI model we use, about a 4.7 GB download</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="col">Your questions stay on your computer, and you don’t need an account or API key yet.</p>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Walkthrough</span>
+        <h2>Four steps to a working setup</h2>
+        <ol class="loop">
+          <li><strong>Get the course.</strong> Open <a href="https://github.com/WhiteboxAcademy/BuildAnAgentFramework">the course on GitHub</a>, choose <strong>Code &gt; Download ZIP</strong>, and unzip it somewhere easy to find.</li>
+          <li><strong>Install Python.</strong> Get Python 3.12 or newer from <a href="https://www.python.org/downloads/">python.org</a>. On Windows, tick <strong>Add python.exe to PATH</strong> on the first install screen, and use <code>python</code> instead of <code>python3</code> throughout this course.</li>
+          <li><strong>Install Ollama and the model.</strong> Install Ollama from <a href="https://ollama.com/download">ollama.com/download</a>, then run <code>ollama pull qwen2.5:7b</code> in a terminal.</li>
+          <li><strong>Run the setup check.</strong> In the terminal, go to <code>chapters/00-setup/code</code> and run <code>python3 check_setup.py</code>.</li>
+        </ol>
+      </div>
+      <div class="fails">
+        <div><h3>Under 8 GB of memory?</h3><p>Use <code>qwen2.5:3b</code> instead, and run <code>python3 check_setup.py qwen2.5:3b</code>. It’s enough to start, but in our test it got 0 of 5 runs right on the multi-step task in chapter 12. If you can, use a computer with at least 8 GB.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">The setup check</span>
+        <h2>You’re ready at 7/7</h2>
+        <p>This is real output from a working setup. Your numbers will be different. The check asks the model two small questions, so it may take a minute.</p>
+      </div>
+      <pre><span class="cmd">$ python3 check_setup.py</span>
+PASS  Python: 3.15.0
+PASS  Disk space: 48 GB free
+PASS  Memory: 24 GB
+PASS  Ollama: version 0.34.4
+PASS  Model installed: qwen2.5:7b
+PASS  Model answers: &#39;ready&#39;
+PASS  Model uses tools: add was called
+7/7 passed</pre>
+      <div class="col">
+        <h3>If a check fails</h3>
+        <p>Each failure tells you what to do next. Fix the first <code>FAIL</code> line, then run the check again. <code>SKIP</code> means a check couldn’t run until that failure is fixed.</p>
+      </div>
+      <pre><span class="cmd">$ python3 check_setup.py</span>
+PASS  Python: 3.15.0
+PASS  Disk space: 48 GB free
+PASS  Memory: 24 GB
+FAIL  Ollama: Ollama isn&#39;t running. Open the Ollama app, or run: ollama serve
+SKIP  Model installed: fix the failure above first
+SKIP  Model answers: fix the failure above first
+SKIP  Model uses tools: fix the failure above first
+3/7 passed</pre>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Your turn</span>
+        <h2>Exercise</h2>
+        <p>Run the setup check until you see <code>7/7 passed</code>. Then talk to your model:</p>
+      </div>
+      <pre><span class="cmd">$ ollama run qwen2.5:7b "Explain what a terminal is in one sentence."</span></pre>
+      <p class="col">Your reply will be different each time, because models don’t always give the same answer. You’ve finished this chapter when you get a reply.</p>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Recap</span>
+        <h2>What you set up</h2>
+        <ul class="list">
+          <li>You’ll build an agent from scratch in this course.</li>
+          <li>Ollama runs the AI model on your own computer.</li>
+          <li><code>check_setup.py</code> tells you if your computer is ready.</li>
+        </ul>
+      </div>
+      <div class="next"><span>Next</span><h3>Chapter 01: Python basics</h3></div>
+    </section>
+
+    <footer>
+      <p>Get the code at <a href="https://github.com/WhiteboxAcademy/BuildAnAgentFramework">github.com/WhiteboxAcademy/BuildAnAgentFramework</a>. Code is under the MIT License. Articles and videos are under CC BY 4.0.</p>
+    </footer>
+  </div>
+</main>

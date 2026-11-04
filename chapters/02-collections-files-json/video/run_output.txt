@@ -1,0 +1,10 @@
+$ python3 data_basics.py
+Coffee 3
+Coffee 0
+user: Hello
+assistant: Hi! How can I help?
+[240, 160, 190] 295
+Order more coffee
+480
+{"name": "add", "arguments": {"a": 2, "b": 3}}
+Error: missing.json doesn't exist

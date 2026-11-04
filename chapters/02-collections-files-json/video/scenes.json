@@ -1,0 +1,36 @@
+{"chapter":"Chapter 02","scenes":[
+{"type":"recap","title":"Previously: Python basics","flow":["Variables name values","if makes decisions","Loops repeat code","Functions return results"],"captions":[
+ {"text":"Recap of chapter 01: variables are names for values.","secs":7,"focus":0},
+ {"text":"if makes decisions, and indentation shows what belongs to it.","secs":7,"focus":1},
+ {"text":"Loops repeat code, and functions take inputs and return results.","secs":8,"focus":3},
+ {"text":"Real programs need groups of data, and a way to save them.","secs":8,"focus":3}]},
+{"type":"box","label":"Working with data","inner":["lists","+ dictionaries","+ JSON"],"captions":[
+ {"text":"Today's black box: how programs hold and save data.","secs":4},
+ {"text":"Let's open it.","secs":4,"open":true,"shot":"01-box"}]},
+{"type":"code","file":"code/data_basics.py","start":"# Lists","end":"print(f\"{message","captions":[
+ {"text":"A list holds values in order. The first position is 0, not 1.","secs":7,"focus":["products =","print(products"]},
+ {"text":"A dictionary stores values under names, called keys.","secs":7,"focus":["order =","print(order"],"shot":"02-dicts"},
+ {"text":".get is safer, because it gives a default when a key is missing.","secs":7,"focus":["print(order","print(order"]},
+ {"text":"This matters: an agent's conversation is a list of dictionaries, just like this.","secs":8,"focus":["messages =","print(f\"{message"]}]},
+{"type":"code","file":"code/data_basics.py","start":"# Files","end":"print(json.dumps","captions":[
+ {"text":"Path reads and writes files. write_text replaces what's in the file.","secs":7,"focus":["notes =","print(notes"],"shot":"03-files"},
+ {"text":"JSON is a text format for data. loads turns text into Python data.","secs":8,"focus":["orders = json","print(sum"]},
+ {"text":"dumps turns Python data into text. Models ask for tools using JSON like this.","secs":8,"focus":["print(json.dumps","print(json.dumps"]}]},
+{"type":"code","file":"code/data_basics.py","start":"# Errors","end":"print(read_json","captions":[
+ {"text":"Some errors are expected, like a missing file.","secs":6,"focus":null},
+ {"text":"try runs the risky code. except handles that one kind of error.","secs":7,"focus":["try:","return f\"Error"],"shot":"04-errors"},
+ {"text":"Agents do the same: a tool's error goes back as text, so the model can recover.","secs":8,"focus":["return f\"Error","return f\"Error"]}]},
+{"type":"term","file":"video/run_output.txt","final":"Error:","captions":[
+ {"text":"Now run it. The list and dictionary values come first.","secs":6,"lines":3},
+ {"text":"Then the conversation, printed one message at a time.","secs":6,"lines":5},
+ {"text":"The file, the JSON total and the JSON text come next.","secs":7,"lines":9,"shot":"05-run"},
+ {"text":"The missing file didn't crash the program. It returned an error message.","secs":7,"lines":10}]},
+{"type":"term","file":"video/error_output.txt","final":"KeyError","captions":[
+ {"text":"This error means the dictionary has no key called price.","secs":7,"lines":6,"shot":"06-error"}]},
+{"type":"term","file":"video/exercise_output.txt","final":"5/5","captions":[
+ {"text":"Your turn. Open exercises.py and complete the five TODOs.","secs":6,"lines":7},
+ {"text":"You've finished when you see 5/5 passed.","secs":6,"lines":15}]},
+{"type":"end","title":"You opened data in Python.","points":["Lists hold values in order","Dictionaries use keys","JSON turns data into text","try and except handle errors"],"next":"Next: Chapter 03, classes, dataclasses and type hints","captions":[
+ {"text":"You can now hold, save and load data.","secs":5},
+ {"text":"Next, you'll organize your code with classes and type hints.","secs":6}]}
+]}

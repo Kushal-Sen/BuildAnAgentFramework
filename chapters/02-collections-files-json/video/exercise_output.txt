@@ -1,0 +1,15 @@
+$ python3 exercises.py
+FAIL  TODO 1: total_quantity: total_quantity(...) returned None, expected 5
+FAIL  TODO 2: get_price: get_price({'Tea': 80}, 'Tea') returned None, expected 80
+FAIL  TODO 3: in_stock: in_stock(...) returned None, expected ['Coffee', 'Juice']
+FAIL  TODO 4: save_and_load: save_and_load(...) returned None, expected {'a': [1, 2]}
+FAIL  TODO 5: tool_name: tool_name('{"name": "add"}') returned None, expected 'add'
+0/5 passed
+
+$ python3 exercises.py   # after finishing the TODOs
+PASS  TODO 1: total_quantity
+PASS  TODO 2: get_price
+PASS  TODO 3: in_stock
+PASS  TODO 4: save_and_load
+PASS  TODO 5: tool_name
+5/5 passed

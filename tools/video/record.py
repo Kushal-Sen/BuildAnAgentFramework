@@ -2,7 +2,7 @@
 
 usage: python record.py CHAPTER_DIR OUT_DIR
 
-Needs: pip install playwright imageio-ffmpeg, then: python -m playwright install chromium
+Needs: pip install -r tools/video/requirements.txt, then: python -m playwright install chromium
 Writes OUT_DIR/video.mp4 and a screenshot for each caption marked "shot" in the script.
 Code and terminal scenes read the chapter's real files, so re-record after they change.
 """

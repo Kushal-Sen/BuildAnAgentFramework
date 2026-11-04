@@ -1,0 +1,169 @@
+{
+  "chapter": "Chapter 00",
+  "scenes": [
+    {
+      "type": "recap",
+      "title": "Where this course goes",
+      "flow": [
+        "Learn Python",
+        "Build an agent",
+        "Build a framework",
+        "Build a coding agent"
+      ],
+      "captions": [
+        {
+          "text": "Welcome to Whitebox Academy. This is the first chapter, so here's where we're going.",
+          "secs": 8,
+          "focus": 0
+        },
+        {
+          "text": "First, you'll learn the Python you need. No AI experience is required.",
+          "secs": 7,
+          "focus": 1
+        },
+        {
+          "text": "Then you'll build an agent, and turn it into your own framework.",
+          "secs": 7,
+          "focus": 2
+        },
+        {
+          "text": "Finally, you'll build a coding agent that fixes bugs on its own.",
+          "secs": 8,
+          "focus": 3
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "label": "Your setup",
+      "inner": [
+        "python",
+        "+ ollama",
+        "+ model"
+      ],
+      "captions": [
+        {
+          "text": "Today's black box: the tools on your own computer.",
+          "secs": 4
+        },
+        {
+          "text": "Let's open it.",
+          "secs": 4,
+          "open": true,
+          "shot": "01-box"
+        }
+      ]
+    },
+    {
+      "type": "recap",
+      "title": "What you need",
+      "flow": [
+        "Python runs the code",
+        "Ollama runs AI models on your computer",
+        "qwen2.5:7b is the model we use",
+        "No API key needed yet"
+      ],
+      "captions": [
+        {
+          "text": "You need three tools. First, Python 3.12 or newer.",
+          "secs": 6,
+          "focus": 0
+        },
+        {
+          "text": "Second, Ollama, which runs AI models on your own computer for free.",
+          "secs": 6,
+          "focus": 1,
+          "shot": "02-tools"
+        },
+        {
+          "text": "Third, the model itself, about a 4.7 GB download.",
+          "secs": 6,
+          "focus": 2
+        },
+        {
+          "text": "You don't need an account or an API key yet. Install steps are in the article.",
+          "secs": 7,
+          "focus": 3
+        }
+      ],
+      "dark": false
+    },
+    {
+      "type": "term",
+      "file": "video/check_output.txt",
+      "final": "7/7",
+      "captions": [
+        {
+          "text": "Once they're installed, run the setup check from the chapter folder.",
+          "secs": 6,
+          "lines": 1
+        },
+        {
+          "text": "It checks Python, your disk space and your memory.",
+          "secs": 6,
+          "lines": 4
+        },
+        {
+          "text": "Then it checks Ollama and that the model is installed.",
+          "secs": 6,
+          "lines": 6
+        },
+        {
+          "text": "Finally, it asks the model two small questions, including one that needs a tool.",
+          "secs": 7,
+          "lines": 8,
+          "shot": "03-check"
+        },
+        {
+          "text": "You're ready when the last line says 7/7 passed.",
+          "secs": 6,
+          "lines": 9
+        }
+      ]
+    },
+    {
+      "type": "term",
+      "file": "video/fail_output.txt",
+      "final": "3/7",
+      "captions": [
+        {
+          "text": "If a check fails, it tells you what to do. Here, Ollama isn't running.",
+          "secs": 7,
+          "lines": 9,
+          "shot": "04-fail"
+        },
+        {
+          "text": "Fix the first FAIL line, then run the check again.",
+          "secs": 6,
+          "lines": 9
+        },
+        {
+          "text": "SKIP means a check can't run until that failure is fixed.",
+          "secs": 6,
+          "lines": 9
+        }
+      ]
+    },
+    {
+      "type": "end",
+      "title": "Your computer is ready.",
+      "points": [
+        "Python runs the code",
+        "Ollama runs the model",
+        "The setup check says 7/7 passed",
+        "Everything runs on your computer"
+      ],
+      "next": "Next: Chapter 01, Python basics",
+      "captions": [
+        {
+          "text": "That's all the setup you need for now.",
+          "secs": 5
+        },
+        {
+          "text": "Next, you'll start learning Python.",
+          "secs": 6
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+$ python3 exercises.py
+FAIL  TODO 1: greet: greet('Asha') returned None, expected 'Hello, Asha!'
+FAIL  TODO 2: is_even: is_even(4) returned None, expected True
+FAIL  TODO 3: order_size: order_size(300) returned None, expected 'big'
+FAIL  TODO 4: sum_to: sum_to(4) returned None, expected 10
+FAIL  TODO 5: discounted_price: discounted_price(200, 25) returned None, expected 150.0
+0/5 passed
+
+$ python3 exercises.py   # after finishing the TODOs
+PASS  TODO 1: greet
+PASS  TODO 2: is_even
+PASS  TODO 3: order_size
+PASS  TODO 4: sum_to
+PASS  TODO 5: discounted_price
+5/5 passed

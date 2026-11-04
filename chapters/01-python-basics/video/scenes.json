@@ -1,0 +1,38 @@
+{"chapter":"Chapter 01","scenes":[
+{"type":"recap","title":"Previously: your setup","flow":["Python installed","Ollama running","Model downloaded","Setup check passed"],"captions":[
+ {"text":"Recap of chapter 00: you installed Python, the language for this whole course.","secs":8,"focus":0},
+ {"text":"You installed Ollama, which runs AI models on your own computer.","secs":7,"focus":1},
+ {"text":"You downloaded a model and talked to it.","secs":7,"focus":2},
+ {"text":"The setup check passed. Now you'll learn the Python you need.","secs":8,"focus":3}]},
+{"type":"box","label":"Python basics","inner":["values","+ decisions","+ functions"],"captions":[
+ {"text":"Today's black box: how a Python program works.","secs":4},
+ {"text":"Let's open it.","secs":4,"open":true,"shot":"01-box"}]},
+{"type":"code","file":"code/basics.py","start":"# Values and variables","end":"print(f\"Three","captions":[
+ {"text":"A program is a text file of instructions. Python runs them from top to bottom.","secs":7,"focus":null},
+ {"text":"A variable is a name for a value. Equals stores the value under that name.","secs":7,"focus":["product =","in_stock ="],"shot":"02-values"},
+ {"text":"Each value has a type: text, a whole number, or true and false.","secs":7,"focus":["print(type","print(type"]},
+ {"text":"An f-string puts values inside text. Put them in curly brackets.","secs":7,"focus":["total =","print(f\"Three"]}]},
+{"type":"code","file":"code/basics.py","start":"# Decisions","end":"orders_left = orders_left - 1","captions":[
+ {"text":"if runs code only when a condition is true. Python uses the first match.","secs":7,"focus":["if total","print(\"Small"]},
+ {"text":"The four spaces matter. Indentation shows which lines belong to the if.","secs":7,"focus":["print(\"Big","print(\"Big"],"shot":"03-decisions"},
+ {"text":"A for loop repeats for each value. range(1, 4) stops before 4.","secs":7,"focus":["for day","print(\"Day"]},
+ {"text":"A while loop repeats while a condition is true, so it must change eventually.","secs":8,"focus":["orders_left = 3","orders_left = orders_left - 1"]}]},
+{"type":"code","file":"code/basics.py","start":"# Functions","end":"print(describe","captions":[
+ {"text":"A function is a named block of code you can reuse.","secs":6,"focus":["def order_cost","return price"]},
+ {"text":"Parameters are its inputs, and return sends a result back.","secs":7,"focus":["def order_cost","return price"],"shot":"04-functions"},
+ {"text":"Call a function by name, and pass in values.","secs":6,"focus":["cost = order_cost","print(describe"]},
+ {"text":"Later, an agent's tools will be ordinary functions just like these.","secs":7,"focus":null}]},
+{"type":"term","file":"video/run_output.txt","final":"Tea order","captions":[
+ {"text":"Now run it. The output comes from top to bottom.","secs":6,"lines":4},
+ {"text":"The decision picks one result, and the loops repeat.","secs":7,"lines":11},
+ {"text":"The last line came from your two functions.","secs":6,"lines":12,"shot":"05-run"}]},
+{"type":"term","file":"video/error_output.txt","final":"TypeError","captions":[
+ {"text":"Errors are normal. Read the last line first.","secs":6,"lines":6,"shot":"06-error"},
+ {"text":"Python can't add text and a number. An f-string fixes this.","secs":7,"lines":6}]},
+{"type":"term","file":"video/exercise_output.txt","final":"5/5","captions":[
+ {"text":"Your turn. Open exercises.py and complete the five TODOs.","secs":6,"lines":7},
+ {"text":"You've finished when you see 5/5 passed.","secs":6,"lines":15}]},
+{"type":"end","title":"You opened Python basics.","points":["Variables name values","if makes decisions","Loops repeat code","Functions return results"],"next":"Next: Chapter 02, collections, files, JSON and errors","captions":[
+ {"text":"That's the core of every Python program.","secs":5},
+ {"text":"Next, you'll work with collections of data, files and JSON.","secs":6}]}
+]}

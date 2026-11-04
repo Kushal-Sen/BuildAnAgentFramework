@@ -25,6 +25,8 @@ h1 { margin: 0; font: 700 56px/1.1 var(--display); letter-spacing: -.01em; }
 .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
 .flow div { min-height: 170px; display: flex; align-items: center; padding: 22px; border: 2px solid #4a4d57; font: 500 29px/1.25 var(--sans); opacity: .42; transition: all .35s; }
 .flow div.on { opacity: 1; border-color: var(--white); background: var(--white); color: var(--ink); }
+#stage:not(.dark) .flow div { border-color: var(--line); opacity: .55; }
+#stage:not(.dark) .flow div.on { opacity: 1; border-color: var(--blue); background: var(--blue); color: #fff; }
 
 .box-wrap { display: grid; place-items: center; gap: 30px; }
 .box { position: relative; width: 430px; height: 430px; background: var(--white); border: 3px solid var(--white); overflow: hidden; display: grid; place-items: center; }
@@ -88,7 +90,7 @@ const LOOP = `<svg viewBox="0 0 1320 620" width="100%" height="100%">
 
 const render = {
   recap: (s) => `<h1>${s.title}</h1><div class="flow">${s.flow.map((f) => `<div>${f}</div>`).join("")}</div>`,
-  box: (s) => `<div class="box-wrap"><div class="box"><div class="inner">model<br>+ tools<br>+ loop</div><i class="door l"></i><i class="door r"></i></div><div class="box-label">${s.label}</div></div>`,
+  box: (s) => `<div class="box-wrap"><div class="box"><div class="inner">${s.inner.join("<br>")}</div><i class="door l"></i><i class="door r"></i></div><div class="box-label">${s.label}</div></div>`,
   loop: () => LOOP,
   code: (s) => `<div class="file">${s.file}</div><pre class="code">${s.lines.map((l) => `<span>${esc(l) || " "}</span>`).join("")}</pre>`,
   term: () => `<div class="term"></div>`,
@@ -112,7 +114,7 @@ const apply = {
   },
   term: (c, s) => {
     $(".term").innerHTML = s.lines.slice(0, c.lines).map((l) => {
-      const kind = l.startsWith("$") ? "cmd" : l.startsWith("The total") ? "final" : "";
+      const kind = l.startsWith("$") ? "cmd" : s.final && l.startsWith(s.final) ? "final" : "";
       return `<span class="${kind}">${esc(l) || " "}</span>`;
     }).join("");
   },
@@ -123,7 +125,7 @@ const apply = {
 window.start = async (data) => {
   $("#chapter").textContent = data.chapter;
   for (const scene of data.scenes) {
-    const dark = scene.type === "recap" || scene.type === "box";
+    const dark = scene.dark ?? (scene.type === "recap" || scene.type === "box");
     $("#stage").classList.toggle("dark", dark);
     $("#scene").innerHTML = render[scene.type](scene);
     for (const caption of scene.captions) {

@@ -1,0 +1,9 @@
+$ python3 check_setup.py
+PASS  Python: 3.15.0
+PASS  Disk space: 48 GB free
+PASS  Memory: 24 GB
+FAIL  Ollama: Ollama isn't running. Open the Ollama app, or run: ollama serve
+SKIP  Model installed: fix the failure above first
+SKIP  Model answers: fix the failure above first
+SKIP  Model uses tools: fix the failure above first
+3/7 passed
