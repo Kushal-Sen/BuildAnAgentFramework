@@ -1,0 +1,4 @@
+$ python3 by_hand.py "Tell me a joke."
+Model asked for: {"tool": "read_file", "arguments": {"path": "sales/monday.txt"}}
+Tool returned: 'Coffee: 120\nTea: 80\n'
+Final answer: Why did the coffee refuse to go to the party? Because it already had too many commitments!

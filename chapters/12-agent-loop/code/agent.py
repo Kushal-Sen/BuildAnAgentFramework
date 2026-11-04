@@ -1,29 +1,21 @@
 """A complete agent: ask the model, run its tools, repeat until it answers."""
-import json
 import sys
-import urllib.request
+
+import requests
 
 from tools import SCHEMAS, TOOLS
 
-URL = "http://127.0.0.1:11434/api/chat"
+OLLAMA = "http://127.0.0.1:11434"
 MODEL = "qwen2.5:7b"
 SYSTEM = "You are a helpful assistant. Use the tools to find facts. Never guess."
 
 
-def chat(messages):
+def chat(messages, **options):
     """Send the conversation to the model and return its reply."""
-    body = {
-        "model": MODEL,
-        "messages": messages,
-        "tools": SCHEMAS,
-        "stream": False,
-        "options": {"temperature": 0},
-    }
-    request = urllib.request.Request(
-        URL, json.dumps(body).encode(), {"Content-Type": "application/json"}
-    )
-    with urllib.request.urlopen(request, timeout=120) as response:
-        return json.load(response)["message"]
+    body = {"model": MODEL, "messages": messages, "tools": SCHEMAS, "stream": False, "options": options}
+    response = requests.post(f"{OLLAMA}/api/chat", json=body, timeout=180)
+    response.raise_for_status()
+    return response.json()["message"]
 
 
 def run_tool(call):
@@ -59,5 +51,10 @@ def run_agent(question, chat=chat, max_steps=8):
     return f"Stopped: no answer after {max_steps} steps."
 
 
+def steady_chat(messages):
+    """The same chat at temperature 0, so a demo takes the same path each time."""
+    return chat(messages, temperature=0)
+
+
 if __name__ == "__main__":
-    print(run_agent(" ".join(sys.argv[1:])))
+    print(run_agent(" ".join(sys.argv[1:]), chat=steady_chat))

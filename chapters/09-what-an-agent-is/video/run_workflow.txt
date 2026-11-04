@@ -1,0 +1,29 @@
+What was the total coffee revenue across all the days in the sales folder?
+
+Here are the files:
+
+monday.txt:
+Coffee: 120
+Tea: 80
+
+tuesday.txt:
+Coffee: 150
+Tea: 95
+
+wednesday.txt:
+Coffee: 110
+Tea: 70
+
+
+A reply: To find the total coffee revenue across all the days in the sales folder, we need to sum up the coffee sales from each file. Here's the breakdown:
+
+- Monday: 120
+- Tuesday: 150
+- Wednesday: 110
+
+Now, let's add these values together:
+
+120 (Monday) + 150 (Tuesday) + 110 (Wednesday) = 380
+
+Therefore, the total coffee revenue across all the days is 380.
+Correct: 5/5

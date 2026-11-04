@@ -1,320 +1,486 @@
 {
-  "chapter": "Chapter 12",
-  "scenes": [
+ "chapter": "Chapter 12",
+ "scenes": [
+  {
+   "type": "recap",
+   "title": "Previously: one round trip",
+   "flow": [
+    "You ask",
+    "Model requests a tool",
+    "Your code runs it",
+    "Model answers"
+   ],
+   "captions": [
     {
-      "type": "recap",
-      "title": "Previously: one tool call",
-      "flow": [
-        "You ask",
-        "Model requests a tool",
-        "Your code runs it",
-        "Model answers"
-      ],
-      "captions": [
-        {
-          "text": "Recap of chapter 11: you gave a model its first tool.",
-          "secs": 7,
-          "focus": 0
-        },
-        {
-          "text": "The model doesn't run anything itself. It only asks for a tool by name.",
-          "secs": 8,
-          "focus": 1
-        },
-        {
-          "text": "Your code runs the tool and sends the result back.",
-          "secs": 7,
-          "focus": 2
-        },
-        {
-          "text": "That handles one tool call. Real tasks need many, and each step depends on the last.",
-          "secs": 8,
-          "focus": 3
-        }
-      ]
+     "text": "Recap of chapter 11: you passed tools to the model with tools=.",
+     "secs": 7,
+     "focus": 0
     },
     {
-      "type": "box",
-      "label": "The agent loop",
-      "captions": [
-        {
-          "text": "Today's black box: the agent loop.",
-          "secs": 4
-        },
-        {
-          "text": "Let's open it.",
-          "secs": 4,
-          "open": true,
-          "shot": "01-box"
-        }
-      ],
-      "inner": [
-        "model",
-        "+ tools",
-        "+ loop"
-      ]
+     "text": "The model doesn't run anything. It only asks for a tool by name.",
+     "secs": 8,
+     "focus": 1
     },
     {
-      "type": "loop",
-      "captions": [
-        {
-          "text": "An agent is a model running in a loop with tools.",
-          "secs": 6,
-          "focus": []
-        },
-        {
-          "text": "Step 1: send the whole conversation to the model.",
-          "secs": 6,
-          "focus": [
-            "ask"
-          ]
-        },
-        {
-          "text": "Step 2: check the reply. Did the model ask for a tool?",
-          "secs": 6,
-          "focus": [
-            "check"
-          ]
-        },
-        {
-          "text": "If yes, run the tool and add the result to the conversation.",
-          "secs": 6,
-          "focus": [
-            "tool"
-          ],
-          "shot": "02-loop"
-        },
-        {
-          "text": "Then go round again. The model now knows more than it did.",
-          "secs": 6,
-          "focus": [
-            "ask"
-          ]
-        },
-        {
-          "text": "If no tool is requested, the reply is the final answer.",
-          "secs": 6,
-          "focus": [
-            "answer"
-          ]
-        }
-      ]
+     "text": "Your code runs the tool, and sends the result back as a tool message.",
+     "secs": 7,
+     "focus": 2
     },
     {
-      "type": "code",
-      "file": "code/agent.py",
-      "start": "def run_agent",
-      "end": "return f\"Stopped",
-      "captions": [
-        {
-          "text": "Here is that loop in Python. This is the real code from the chapter.",
-          "secs": 6,
-          "focus": null
-        },
-        {
-          "text": "The conversation starts with a system prompt and the user's question.",
-          "secs": 6,
-          "focus": [
-            "messages = [",
-            "]"
-          ]
-        },
-        {
-          "text": "max_steps stops a confused model from running forever.",
-          "secs": 6,
-          "focus": [
-            "for step in",
-            "for step in"
-          ]
-        },
-        {
-          "text": "Ask the model, and keep its reply in the conversation.",
-          "secs": 6,
-          "focus": [
-            "reply = chat",
-            "messages.append(reply)"
-          ],
-          "shot": "03-code"
-        },
-        {
-          "text": "No tool requested? Then this is the final answer.",
-          "secs": 6,
-          "focus": [
-            "calls = reply",
-            "return reply"
-          ]
-        },
-        {
-          "text": "Otherwise, run each tool and add its result to the conversation.",
-          "secs": 6,
-          "focus": [
-            "for call in",
-            "{\"role\": \"tool\""
-          ]
-        },
-        {
-          "text": "If the limit is reached, stop and say so.",
-          "secs": 5,
-          "focus": [
-            "return f\"Stopped",
-            "return f\"Stopped"
-          ]
-        }
-      ]
-    },
-    {
-      "type": "code",
-      "file": "code/agent.py",
-      "start": "def run_tool",
-      "end": "return f\"Error: {error}\"",
-      "captions": [
-        {
-          "text": "Tools can fail, so run_tool catches problems.",
-          "secs": 5,
-          "focus": null
-        },
-        {
-          "text": "The model might ask for a tool that doesn't exist.",
-          "secs": 6,
-          "focus": [
-            "if name not in",
-            "return f\"Error: there"
-          ]
-        },
-        {
-          "text": "A tool might crash. The error goes back to the model as text, so it can try something else.",
-          "secs": 8,
-          "focus": [
-            "try:",
-            "return f\"Error: {error}\""
-          ]
-        }
-      ]
-    },
-    {
-      "type": "term",
-      "file": "video/run_output.txt",
-      "captions": [
-        {
-          "text": "Now run it. The question needs several steps.",
-          "secs": 5,
-          "lines": 1
-        },
-        {
-          "text": "First, the agent lists the folder. Nobody told it the file names.",
-          "secs": 6,
-          "lines": 2
-        },
-        {
-          "text": "It uses those names to read each file, one at a time.",
-          "secs": 7,
-          "lines": 5,
-          "shot": "04-run"
-        },
-        {
-          "text": "Then it adds the three coffee numbers with a tool.",
-          "secs": 6,
-          "lines": 6
-        },
-        {
-          "text": "Five steps later: the correct answer, 380.",
-          "secs": 6,
-          "lines": 7
-        }
-      ],
-      "final": "The total"
-    },
-    {
-      "type": "scores",
-      "title": "Same loop. Same question. Five runs each.",
-      "rows": [
-        [
-          "llama3.1:8b",
-          "2/5",
-          "3/5"
-        ],
-        [
-          "qwen2.5:7b",
-          "5/5",
-          "4/5"
-        ],
-        [
-          "qwen2.5:14b",
-          "5/5",
-          "3/5"
-        ]
-      ],
-      "notes": [
-        "Guessed a file name that doesn't exist",
-        "Ran out of steps",
-        "Wrote a tool call as plain text"
-      ],
-      "captions": [
-        {
-          "text": "The loop is simple. The model inside it isn't always reliable.",
-          "secs": 6,
-          "focus": null
-        },
-        {
-          "text": "These are real results. A bigger model and a longer prompt didn't automatically help.",
-          "secs": 8,
-          "focus": null,
-          "shot": "05-scores"
-        },
-        {
-          "text": "Failures included guessed file names, running out of steps, and fake tool calls.",
-          "secs": 8,
-          "focus": "notes"
-        },
-        {
-          "text": "Five runs is a small test. In chapter 18, you'll build proper evals.",
-          "secs": 6,
-          "focus": "notes"
-        }
-      ]
-    },
-    {
-      "type": "term",
-      "file": "video/exercise_output.txt",
-      "captions": [
-        {
-          "text": "Your turn. Open exercises.py and complete the three TODOs.",
-          "secs": 6,
-          "lines": 5
-        },
-        {
-          "text": "The checks use a fake model, so Ollama doesn't need to be running.",
-          "secs": 6,
-          "lines": 5
-        },
-        {
-          "text": "You've finished when you see 3/3 passed.",
-          "secs": 6,
-          "lines": 11,
-          "shot": "06-exercises"
-        }
-      ]
-    },
-    {
-      "type": "end",
-      "title": "You opened the agent loop.",
-      "points": [
-        "An agent is a model in a loop with tools",
-        "The conversation is its only memory",
-        "Always limit the steps",
-        "Errors go back to the model"
-      ],
-      "next": "Next: Chapter 13, make the model replaceable",
-      "captions": [
-        {
-          "text": "That's the whole idea of an agent.",
-          "secs": 6
-        },
-        {
-          "text": "Next, you'll make the model replaceable.",
-          "secs": 6
-        }
-      ]
+     "text": "That's one round trip. Real tasks need many, and each step depends on the last.",
+     "secs": 8,
+     "focus": 3
     }
-  ]
+   ]
+  },
+  {
+   "type": "box",
+   "label": "The agent loop",
+   "inner": [
+    "model",
+    "+ tools",
+    "+ loop"
+   ],
+   "captions": [
+    {
+     "text": "Today's black box: the agent loop.",
+     "secs": 4
+    },
+    {
+     "text": "Let's open it.",
+     "secs": 4,
+     "open": true,
+     "shot": "01-box"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/rounds.py",
+   "start": "def one_round",
+   "end": "        )",
+   "captions": [
+    {
+     "text": "Here's chapter 11's round trip, written as one function.",
+     "secs": 6,
+     "focus": null
+    },
+    {
+     "text": "Ask the model, and keep its reply in the conversation.",
+     "secs": 6,
+     "focus": [
+      "reply = steady_chat",
+      "messages.append(reply)"
+     ]
+    },
+    {
+     "text": "No tool requested? Then the reply is the answer.",
+     "secs": 6,
+     "focus": [
+      "calls = reply",
+      "return"
+     ]
+    },
+    {
+     "text": "Otherwise, run each tool, and add its result to the conversation.",
+     "secs": 6,
+     "focus": [
+      "for call in",
+      "{\"role\": \"tool\""
+     ]
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/rounds.py",
+   "start": "# Three round trips",
+   "end": "The conversation now",
+   "output": "video/rounds.txt",
+   "captions": [
+    {
+     "text": "Our question needs the coffee total from every file. Here, we run three round trips.",
+     "secs": 8,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Predict: will three be enough?",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "First, it lists the folder. Nobody told it the file names.",
+     "secs": 7,
+     "focus": null,
+     "lines": 2
+    },
+    {
+     "text": "Then it uses those names. After three rounds, it still hasn't finished.",
+     "secs": 8,
+     "focus": null,
+     "lines": 5,
+     "shot": "02-rounds"
+    },
+    {
+     "text": "How many rounds do we need? We can't know. The model decides as it goes.",
+     "secs": 8,
+     "focus": null,
+     "lines": 5
+    }
+   ]
+  },
+  {
+   "type": "loop",
+   "captions": [
+    {
+     "text": "So we repeat the round trip until the model stops asking for tools.",
+     "secs": 7,
+     "focus": []
+    },
+    {
+     "text": "Send the whole conversation to the model.",
+     "secs": 5,
+     "focus": [
+      "ask"
+     ]
+    },
+    {
+     "text": "Check the reply. Did the model ask for a tool?",
+     "secs": 5,
+     "focus": [
+      "check"
+     ]
+    },
+    {
+     "text": "If yes, run the tool and add the result to the conversation.",
+     "secs": 6,
+     "focus": [
+      "tool"
+     ],
+     "shot": "03-loop"
+    },
+    {
+     "text": "Then go round again. The model now knows more than it did.",
+     "secs": 6,
+     "focus": [
+      "ask"
+     ]
+    },
+    {
+     "text": "If no tool is requested, the reply is the final answer.",
+     "secs": 6,
+     "focus": [
+      "answer"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/agent.py",
+   "start": "def run_agent",
+   "end": "return f\"Stopped",
+   "captions": [
+    {
+     "text": "Here's that loop in Python. The inside is the round trip you just saw.",
+     "secs": 7,
+     "focus": null
+    },
+    {
+     "text": "The conversation starts with a system prompt and the question.",
+     "secs": 6,
+     "focus": [
+      "messages = [",
+      "]"
+     ]
+    },
+    {
+     "text": "A for loop gives us at most max_steps rounds.",
+     "secs": 6,
+     "focus": [
+      "for step in",
+      "for step in"
+     ]
+    },
+    {
+     "text": "Ask the model, and keep its reply.",
+     "secs": 5,
+     "focus": [
+      "reply = chat",
+      "messages.append(reply)"
+     ],
+     "shot": "04-code"
+    },
+    {
+     "text": "No tool requested? Return the answer, which ends the loop.",
+     "secs": 6,
+     "focus": [
+      "calls = reply",
+      "return reply"
+     ]
+    },
+    {
+     "text": "Otherwise, run each tool and add its result.",
+     "secs": 5,
+     "focus": [
+      "for call in",
+      "{\"role\": \"tool\""
+     ]
+    },
+    {
+     "text": "If the limit is reached, stop and say so.",
+     "secs": 5,
+     "focus": [
+      "return f\"Stopped",
+      "return f\"Stopped"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/agent.py",
+   "start": "def steady_chat",
+   "end": "print(run_agent",
+   "output": "video/run_output.txt",
+   "captions": [
+    {
+     "text": "Now run it. For a repeatable demo, we pass in chat at temperature 0.",
+     "secs": 8,
+     "focus": null,
+     "lines": 1
+    },
+    {
+     "text": "Same start as before: it lists the folder, then reads the files.",
+     "secs": 7,
+     "focus": null,
+     "lines": 3
+    },
+    {
+     "text": "It reads the last file, and adds the three coffee numbers with a tool.",
+     "secs": 7,
+     "focus": null,
+     "lines": 6,
+     "shot": "05-run"
+    },
+    {
+     "text": "Five steps, then no more tool requests. The answer is 380.",
+     "secs": 7,
+     "focus": null,
+     "lines": 7
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/forgetful.py",
+   "start": "def forgetful_agent",
+   "end": "reply = chat(messages)",
+   "output": "video/forgetful.txt",
+   "captions": [
+    {
+     "text": "Why resend the whole conversation? This version starts fresh on every step.",
+     "secs": 8,
+     "focus": [
+      "messages = [",
+      "]"
+     ],
+     "lines": 0
+    },
+    {
+     "text": "It never keeps the replies or the results.",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Predict: what will it do?",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "It lists the folder, eight times. Each call looks like the first one.",
+     "secs": 8,
+     "focus": null,
+     "lines": 10,
+     "shot": "06-forgetful"
+    },
+    {
+     "text": "The model has no memory, so the conversation is the agent's memory.",
+     "secs": 7,
+     "focus": null,
+     "lines": 10
+    },
+    {
+     "text": "And max_steps is what stopped it. Without a limit, it would never end.",
+     "secs": 7,
+     "focus": [
+      "for step in",
+      "for step in"
+     ],
+     "lines": 10
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/five_runs.py",
+   "start": "for run in range(1, 6):",
+   "end": "Reached 380",
+   "output": "video/five_original.txt",
+   "captions": [
+    {
+     "text": "What breaks? This provided tool runs your agent five times, at temperature 0.7.",
+     "secs": 8,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Predict: how many of the five runs will reach 380?",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Five out of five, this time. But the run before this one got four.",
+     "secs": 8,
+     "focus": null,
+     "lines": 7,
+     "shot": "07-five"
+    },
+    {
+     "text": "In that run, one attempt gave a wrong total. Nothing crashed.",
+     "secs": 8,
+     "focus": null,
+     "lines": 7
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/five_runs.py",
+   "start": "PROMPTS = {",
+   "end": "}",
+   "output": "video/five_longer.txt",
+   "captions": [
+    {
+     "text": "Next, the same test with a longer prompt, with more instructions.",
+     "secs": 7,
+     "focus": [
+      "\"Longer prompt\"",
+      "until you can answer"
+     ],
+     "lines": 0
+    },
+    {
+     "text": "Predict: will it do better?",
+     "secs": 5,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Five out of five here too. In one earlier test, it scored four. Five runs can't settle it.",
+     "secs": 9,
+     "focus": null,
+     "lines": 7
+    }
+   ]
+  },
+  {
+   "type": "scores",
+   "title": "Same loop. Same question. Five runs each.",
+   "rows": [
+    [
+     "llama3.1:8b",
+     "2/5",
+     "3/5"
+    ],
+    [
+     "qwen2.5:7b",
+     "5/5",
+     "4/5"
+    ],
+    [
+     "qwen2.5:14b",
+     "5/5",
+     "3/5"
+    ]
+   ],
+   "notes": [
+    "Guessed a file name that doesn't exist",
+    "Ran out of steps",
+    "Wrote a tool call as plain text"
+   ],
+   "captions": [
+    {
+     "text": "When we first built this chapter, we ran the same test on three models.",
+     "secs": 7,
+     "focus": null
+    },
+    {
+     "text": "A bigger model and a longer prompt didn't automatically help.",
+     "secs": 7,
+     "focus": null,
+     "shot": "08-scores"
+    },
+    {
+     "text": "Failures included guessed file names, running out of steps, and fake tool calls.",
+     "secs": 8,
+     "focus": "notes"
+    },
+    {
+     "text": "Five runs is a small test. In chapter 18, you'll build proper evals.",
+     "secs": 6,
+     "focus": "notes"
+    }
+   ]
+  },
+  {
+   "type": "term",
+   "file": "video/exercise_output.txt",
+   "final": "5 passed",
+   "captions": [
+    {
+     "text": "Your turn. Open exercises.py and complete the five TODOs.",
+     "secs": 6,
+     "lines": 9
+    },
+    {
+     "text": "The checks use a fake model, so Ollama doesn't need to be running.",
+     "secs": 6,
+     "lines": 9
+    },
+    {
+     "text": "You've finished when you see 5 passed.",
+     "secs": 6,
+     "lines": 13,
+     "shot": "09-exercises"
+    }
+   ]
+  },
+  {
+   "type": "end",
+   "title": "You opened the agent loop.",
+   "points": [
+    "An agent is a model in a loop with tools",
+    "The conversation is its only memory",
+    "You can't know the steps in advance",
+    "Always limit the steps"
+   ],
+   "next": "Next: Chapter 13, make the model replaceable",
+   "captions": [
+    {
+     "text": "That's the whole idea of an agent.",
+     "secs": 6
+    },
+    {
+     "text": "Next, you'll make the model replaceable.",
+     "secs": 6
+    }
+   ]
+  }
+ ]
 }

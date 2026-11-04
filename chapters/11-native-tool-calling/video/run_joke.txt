@@ -1,0 +1,2 @@
+$ python3 native.py "Tell me a joke."
+Sure! Here's a joke for you: Why don't scientists trust atoms? Because they make up everything!

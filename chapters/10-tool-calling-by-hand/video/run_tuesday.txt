@@ -1,0 +1,4 @@
+$ python3 by_hand.py "What was the tea revenue on Tuesday?"
+Model asked for: {"tool": "read_file", "arguments": {"path": "sales/tuesday.txt"}}
+Tool returned: 'Coffee: 150\nTea: 95\n'
+Final answer: The tea revenue on Tuesday was 95.

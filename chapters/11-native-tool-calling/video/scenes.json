@@ -1,0 +1,432 @@
+{
+ "chapter": "Chapter 11",
+ "scenes": [
+  {
+   "type": "recap",
+   "title": "Previously: tool calling by hand",
+   "flow": [
+    "The model replied with JSON",
+    "A dict ran the tool",
+    "Errors went back as text",
+    "A joke still read a file"
+   ],
+   "captions": [
+    {
+     "text": "Recap of chapter 10: the model replied with JSON that named a tool.",
+     "secs": 8,
+     "focus": 0
+    },
+    {
+     "text": "A dict turned that name into a function, and your code ran it.",
+     "secs": 7,
+     "focus": 1
+    },
+    {
+     "text": "Errors went back to the model as text.",
+     "secs": 6,
+     "focus": 2
+    },
+    {
+     "text": "But the schema forced a tool every time. Even a joke read a file.",
+     "secs": 9,
+     "focus": 3
+    }
+   ]
+  },
+  {
+   "type": "box",
+   "label": "Native tools",
+   "inner": [
+    "tools=",
+    "tool_calls",
+    "role: tool"
+   ],
+   "captions": [
+    {
+     "text": "Today's black box: the tool calling built into model APIs.",
+     "secs": 4
+    },
+    {
+     "text": "Let's open it.",
+     "secs": 4,
+     "open": true,
+     "shot": "01-box"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/native.py",
+   "start": "reply = chat(messages, temperature=0)",
+   "end": "return reply[\"content\"]",
+   "output": "video/run_monday.txt",
+   "captions": [
+    {
+     "text": "This is the core of native.py. Here's a question it can answer with one tool.",
+     "secs": 8,
+     "focus": null,
+     "lines": 1
+    },
+    {
+     "text": "The model asked for read_file, your code ran it, and the model answered.",
+     "secs": 8,
+     "focus": null,
+     "lines": 3,
+     "shot": "02-monday"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/native.py",
+   "start": "reply = chat(messages, temperature=0)",
+   "end": "return reply[\"content\"]",
+   "output": "video/run_joke.txt",
+   "captions": [
+    {
+     "text": "Now the joke from chapter 10. Predict: will it read a file?",
+     "secs": 7,
+     "focus": null,
+     "lines": 1
+    },
+    {
+     "text": "No tool this time. It went straight to this return.",
+     "secs": 7,
+     "focus": [
+      "if not calls",
+      "return reply"
+     ],
+     "lines": 2,
+     "shot": "03-joke"
+    },
+    {
+     "text": "By hand it asked for a tool 5 times out of 5. Native: 0 out of 5.",
+     "secs": 8,
+     "focus": [
+      "if not calls",
+      "return reply"
+     ],
+     "lines": 2
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/native.py",
+   "start": "for call in calls:",
+   "end": "{\"role\": \"tool\"",
+   "output": "video/run_two.txt",
+   "captions": [
+    {
+     "text": "This question needs two files. Predict: how many tools will it ask for?",
+     "secs": 7,
+     "focus": null,
+     "lines": 1
+    },
+    {
+     "text": "Two, in a single reply. That's why we loop over the calls.",
+     "secs": 8,
+     "focus": [
+      "for call in calls",
+      "for call in calls"
+     ],
+     "lines": 3,
+     "shot": "04-two"
+    },
+    {
+     "text": "Each result goes back with the role tool.",
+     "secs": 6,
+     "focus": [
+      "\"role\": \"tool\"",
+      "\"role\": \"tool\""
+     ],
+     "lines": 3
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/native.py",
+   "start": "def run_tool(call):",
+   "end": "return f\"Error: {error}\"",
+   "output": "video/run_friday.txt",
+   "captions": [
+    {
+     "text": "There's no Friday file. run_tool is chapter 10's dispatch.",
+     "secs": 7,
+     "focus": null,
+     "lines": 1
+    },
+    {
+     "text": "The error went back as text, and the model reported it honestly.",
+     "secs": 8,
+     "focus": [
+      "except Exception",
+      "return f\"Error: {error}\""
+     ],
+     "lines": 3,
+     "shot": "05-friday"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/tools.py",
+   "start": "    schema(",
+   "end": "[\"path\"],",
+   "captions": [
+    {
+     "text": "So how did the model know the tools? You describe each one in tools.py.",
+     "secs": 7,
+     "focus": null
+    },
+    {
+     "text": "Each definition has a name and says what the tool does.",
+     "secs": 6,
+     "focus": [
+      "\"read_file\",",
+      "\"Read a text file.\""
+     ],
+     "shot": "06-schema"
+    },
+    {
+     "text": "Its parameters are a JSON schema, like the ones from chapter 08.",
+     "secs": 7,
+     "focus": [
+      "{\"path\":",
+      "{\"path\":"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/native.py",
+   "start": "def chat(messages",
+   "end": "return response.json()",
+   "captions": [
+    {
+     "text": "Your chat function has two changes.",
+     "secs": 5,
+     "focus": null
+    },
+    {
+     "text": "It sends the tools with every request.",
+     "secs": 6,
+     "focus": [
+      "\"tools\": SCHEMAS",
+      "\"tools\": SCHEMAS"
+     ],
+     "shot": "07-chat"
+    },
+    {
+     "text": "And it returns the whole message, because a tool request isn't in the text.",
+     "secs": 8,
+     "focus": [
+      "return response.json()",
+      "return response.json()"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/peek.py",
+   "start": "print(\"1. The whole reply\")",
+   "end": "print(json.dumps(chat",
+   "output": "video/peek1.txt",
+   "captions": [
+    {
+     "text": "peek.py is provided. Its first part prints the whole reply.",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "content is empty. tool_calls is a list, and the arguments are already a dict.",
+     "secs": 9,
+     "focus": null,
+     "lines": 17,
+     "shot": "08-reply"
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "dark": false,
+   "title": "By hand versus native",
+   "flow": [
+    "Tools: in SYSTEM, now in tools=",
+    "Request: parsed JSON, now tool_calls",
+    "Result: user message, now role tool",
+    "No tool needed: now it just answers"
+   ],
+   "captions": [
+    {
+     "text": "Side by side: the tools move from your prompt to the tools field.",
+     "secs": 7,
+     "focus": 0
+    },
+    {
+     "text": "You no longer parse the request yourself.",
+     "secs": 6,
+     "focus": 1
+    },
+    {
+     "text": "Results get their own role.",
+     "secs": 5,
+     "focus": 2,
+     "shot": "09-compare"
+    },
+    {
+     "text": "And the model can choose not to use a tool.",
+     "secs": 6,
+     "focus": 3
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/peek.py",
+   "start": "print(\"2. Parameter descriptions\")",
+   "end": "print(\"  Without:\"",
+   "output": "video/peek2.txt",
+   "captions": [
+    {
+     "text": "\"Read the Monday sales file.\" gives no path. Predict: what will the model try?",
+     "secs": 8,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "With the descriptions, it found the path 5 times out of 5.",
+     "secs": 7,
+     "focus": [
+      "print(\"  With:",
+      "print(\"  With:"
+     ],
+     "lines": 2
+    },
+    {
+     "text": "Without them, it made up a name 5 times out of 5. A tool description is a prompt.",
+     "secs": 9,
+     "focus": [
+      "print(\"  Without:",
+      "print(\"  Without:"
+     ],
+     "lines": 3,
+     "shot": "10-descriptions"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/peek.py",
+   "start": "print(\"3. What the model really writes\")",
+   "end": ".json()[\"response\"])",
+   "output": "video/peek3.txt",
+   "captions": [
+    {
+     "text": "But a model can only produce text. So what does it really write?",
+     "secs": 7,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "This skips the chat API and sends the raw prompt, with the tools pasted in.",
+     "secs": 8,
+     "focus": [
+      "\"prompt\": raw_prompt",
+      "\"prompt\": raw_prompt"
+     ],
+     "lines": 0
+    },
+    {
+     "text": "It's text! Ollama spots these tags and fills in tool_calls.",
+     "secs": 8,
+     "focus": null,
+     "lines": 4,
+     "shot": "11-raw"
+    },
+    {
+     "text": "Native tool calling is what you built in chapter 10.",
+     "secs": 6,
+     "focus": null,
+     "lines": 4
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/native.py",
+   "start": "if reply.get(\"tool_calls\"):",
+   "end": "return reply[\"content\"]",
+   "output": "video/run_sales.txt",
+   "captions": [
+    {
+     "text": "Now the question from chapter 09. It needs a listing, three files and some addition.",
+     "secs": 8,
+     "focus": null,
+     "lines": 1
+    },
+    {
+     "text": "Predict: what will one round trip do?",
+     "secs": 5,
+     "focus": null,
+     "lines": 1
+    },
+    {
+     "text": "It listed the folder. Then the model asked for a file, and our code had to stop.",
+     "secs": 9,
+     "focus": null,
+     "lines": 3,
+     "shot": "12-stopped"
+    },
+    {
+     "text": "It stopped the same way 10 times out of 10. One round trip isn't enough.",
+     "secs": 8,
+     "focus": null,
+     "lines": 3
+    }
+   ]
+  },
+  {
+   "type": "term",
+   "file": "video/exercise_output.txt",
+   "final": "5 passed",
+   "captions": [
+    {
+     "text": "Your turn. Open exercises.py and complete the five TODOs.",
+     "secs": 6,
+     "lines": 9
+    },
+    {
+     "text": "You've finished when you see 5 passed.",
+     "secs": 6,
+     "lines": 13
+    }
+   ]
+  },
+  {
+   "type": "end",
+   "title": "You opened native tools.",
+   "points": [
+    "Offer tools with tools=",
+    "Read requests from tool_calls",
+    "Send results with role tool",
+    "Underneath, it's still text"
+   ],
+   "next": "Next: Chapter 12, the agent loop",
+   "captions": [
+    {
+     "text": "Your code can now make one complete tool round trip.",
+     "secs": 6
+    },
+    {
+     "text": "Next, you'll turn that round trip into an agent.",
+     "secs": 6
+    }
+   ]
+  }
+ ]
+}

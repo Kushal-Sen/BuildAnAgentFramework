@@ -1,0 +1,401 @@
+{
+ "chapter": "Chapter 10",
+ "scenes": [
+  {
+   "type": "recap",
+   "title": "Previously: what an agent is",
+   "flow": [
+    "A model can only produce text",
+    "Something else has to act",
+    "You fetched the files by hand",
+    "An agent is a model, tools and a loop"
+   ],
+   "captions": [
+    {
+     "text": "Recap of chapter 09: a model can only produce text.",
+     "secs": 7,
+     "focus": 0
+    },
+    {
+     "text": "It can't open a file. Something else has to act.",
+     "secs": 7,
+     "focus": 1
+    },
+    {
+     "text": "You played that part. The model asked, and you fetched the files.",
+     "secs": 8,
+     "focus": 2
+    },
+    {
+     "text": "An agent is a model, tools and a loop. Today, code replaces you.",
+     "secs": 8,
+     "focus": 3
+    }
+   ]
+  },
+  {
+   "type": "box",
+   "label": "Tool calling",
+   "inner": [
+    "the model asks",
+    "your code runs it",
+    "the model answers"
+   ],
+   "captions": [
+    {
+     "text": "Today's black box: how a model gets a tool to run.",
+     "secs": 4
+    },
+    {
+     "text": "Let's open it.",
+     "secs": 4,
+     "open": true,
+     "shot": "01-box"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/by_hand.py",
+   "start": "if __name__",
+   "end": "print(\"Final answer:\"",
+   "output": "video/run_monday.txt",
+   "captions": [
+    {
+     "text": "This program is provided. Run it first, and we'll open it right after.",
+     "secs": 7,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "The input: one question about Monday, from the sales files you read in chapter 09.",
+     "secs": 7,
+     "focus": null,
+     "lines": 1
+    },
+    {
+     "text": "The model didn't answer. It replied with JSON, asking for a tool.",
+     "secs": 8,
+     "focus": null,
+     "lines": 2
+    },
+    {
+     "text": "Code ran that tool, and got the real file.",
+     "secs": 6,
+     "focus": null,
+     "lines": 3
+    },
+    {
+     "text": "Then the model answered from the result. Nobody fetched anything by hand.",
+     "secs": 8,
+     "focus": null,
+     "lines": 4,
+     "shot": "02-run"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/by_hand.py",
+   "start": "def list_files",
+   "end": "TOOLS =",
+   "captions": [
+    {
+     "text": "Open the code. Tools are ordinary Python functions.",
+     "secs": 6,
+     "focus": [
+      "def read_file",
+      "read_text"
+     ]
+    },
+    {
+     "text": "TOOLS is a dict from a name to a function. The name is text, and text is what a model can write.",
+     "secs": 9,
+     "focus": [
+      "TOOLS =",
+      "TOOLS ="
+     ],
+     "shot": "03-tools"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/by_hand.py",
+   "start": "SYSTEM =",
+   "end": "Reply with the tool",
+   "captions": [
+    {
+     "text": "The model can't see your Python. So the system message describes each tool.",
+     "secs": 8,
+     "focus": null,
+     "shot": "04-system"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/measure.py",
+   "start": "print(\"1. No schema\")",
+   "end": "print(f\"  Valid JSON: {sum(map(is_json, replies))}/5\")",
+   "output": "video/measure_schema.txt",
+   "captions": [
+    {
+     "text": "Your code needs to read the request. First, ask with no schema.",
+     "secs": 7,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Predict: how many of five replies will be valid JSON?",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "None of them. The model wrote a sentence around its request, so json.loads can't read it.",
+     "secs": 9,
+     "focus": null,
+     "lines": 3,
+     "shot": "05-noschema"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/by_hand.py",
+   "start": "REQUEST =",
+   "end": "\"required\"",
+   "captions": [
+    {
+     "text": "So use chapter 08's tool: a schema, passed as format.",
+     "secs": 6,
+     "focus": null
+    },
+    {
+     "text": "The tool must be one of our names. Arguments can be any object.",
+     "secs": 7,
+     "focus": [
+      "\"tool\"",
+      "\"arguments\""
+     ]
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/measure.py",
+   "start": "print(\"2. With the schema\")",
+   "end": "print(f\"  Valid JSON",
+   "output": "video/measure_schema.txt",
+   "captions": [
+    {
+     "text": "The same question, with the schema: valid JSON in 5 of 5 runs.",
+     "secs": 7,
+     "focus": null,
+     "lines": 5,
+     "shot": "06-schema"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/by_hand.py",
+   "start": "def dispatch",
+   "end": "return f\"Error: {error}\"",
+   "captions": [
+    {
+     "text": "dispatch runs the tool. It looks the name up in TOOLS and calls that function.",
+     "secs": 8,
+     "focus": [
+      "TOOLS[name]",
+      "TOOLS[name]"
+     ],
+     "shot": "07-dispatch"
+    },
+    {
+     "text": "The two stars unpack the arguments dict into named arguments.",
+     "secs": 7,
+     "focus": [
+      "TOOLS[name]",
+      "TOOLS[name]"
+     ]
+    },
+    {
+     "text": "A failed tool returns text starting with Error. We'll see why soon.",
+     "secs": 7,
+     "focus": [
+      "except Exception",
+      "return f\"Error: {error}\""
+     ]
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/by_hand.py",
+   "start": "def ask",
+   "end": "return chat(messages, **options)",
+   "captions": [
+    {
+     "text": "ask is the whole round trip. First call: the model asks for a tool.",
+     "secs": 7,
+     "focus": [
+      "reply = chat",
+      "reply = chat"
+     ]
+    },
+    {
+     "text": "Read the JSON, and run the tool.",
+     "secs": 5,
+     "focus": [
+      "request = json.loads",
+      "result = dispatch"
+     ]
+    },
+    {
+     "text": "Add the request and the result to the conversation.",
+     "secs": 6,
+     "focus": [
+      "messages.append",
+      "Now answer"
+     ]
+    },
+    {
+     "text": "Second call. Models have no memory, so we send it all again.",
+     "secs": 7,
+     "focus": [
+      "return chat",
+      "return chat"
+     ],
+     "shot": "08-ask"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/by_hand.py",
+   "start": "def dispatch",
+   "end": "return f\"Error: {error}\"",
+   "output": "video/run_sunday.txt",
+   "captions": [
+    {
+     "text": "There's no Sunday file. Predict: will this crash, or will the model make up a number?",
+     "secs": 8,
+     "focus": null,
+     "lines": 1
+    },
+    {
+     "text": "The file was missing, so dispatch sent the error back as text.",
+     "secs": 7,
+     "focus": [
+      "except Exception",
+      "return f\"Error: {error}\""
+     ],
+     "lines": 3
+    },
+    {
+     "text": "The model read it and said so. In 5 of 5 runs, it didn't invent a number.",
+     "secs": 8,
+     "focus": null,
+     "lines": 4,
+     "shot": "09-error"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/by_hand.py",
+   "start": "reply = chat(messages, format=REQUEST",
+   "end": "print(\"Model asked for:\"",
+   "output": "video/run_joke.txt",
+   "captions": [
+    {
+     "text": "A joke needs no tool. Predict: what will the model ask for?",
+     "secs": 7,
+     "focus": null,
+     "lines": 1
+    },
+    {
+     "text": "It asked for a tool anyway, in 5 of 5 runs. The schema requires one.",
+     "secs": 8,
+     "focus": null,
+     "lines": 2
+    },
+    {
+     "text": "So this version can't choose to skip tools. Keep that in mind.",
+     "secs": 7,
+     "focus": null,
+     "lines": 4,
+     "shot": "10-joke"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/measure.py",
+   "start": "print(\"7. No tool fits",
+   "end": "print(*",
+   "output": "video/measure_enum.txt",
+   "captions": [
+    {
+     "text": "One more test: a question no tool fits, with the enum removed.",
+     "secs": 7,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "The model invented a tool called weather, in 5 of 5 runs. dispatch would return an error.",
+     "secs": 9,
+     "focus": null,
+     "lines": 12,
+     "shot": "11-enum"
+    },
+    {
+     "text": "Shape isn't truth. Always check what the model asks for.",
+     "secs": 6,
+     "focus": null,
+     "lines": 12
+    }
+   ]
+  },
+  {
+   "type": "term",
+   "file": "video/exercise_output.txt",
+   "final": "5 passed",
+   "captions": [
+    {
+     "text": "Your turn. Open exercises.py and complete the five TODOs.",
+     "secs": 6,
+     "lines": 8
+    },
+    {
+     "text": "You've finished when you see 5 passed. The tests use a fake model.",
+     "secs": 7,
+     "lines": 13
+    }
+   ]
+  },
+  {
+   "type": "end",
+   "title": "You opened tool calling.",
+   "points": [
+    "A tool request is just JSON",
+    "A dict turns a name into a function",
+    "Errors go back as text",
+    "Check what the model asks for"
+   ],
+   "next": "Next: Chapter 11, native tool calling",
+   "captions": [
+    {
+     "text": "You replaced yourself with a few lines of code.",
+     "secs": 6
+    },
+    {
+     "text": "Next, you'll see the model API do this same job.",
+     "secs": 6
+    }
+   ]
+  }
+ ]
+}

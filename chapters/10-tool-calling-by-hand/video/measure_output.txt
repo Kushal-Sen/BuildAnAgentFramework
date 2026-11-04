@@ -1,0 +1,59 @@
+1. No schema
+  Valid JSON: 0/5
+  A reply: 'To determine the coffee revenue on Monday, we need to read the content of the file containing the sales data for that day.\n\nArguments for the tool:\nread_file: {"path": "sales/monday.txt"}'
+2. With the schema
+  Valid JSON: 5/5
+3. A file that's there
+  {"tool": "read_file", "arguments": {"path": "sales/monday.txt"}} -> 'The coffee revenue on Monday was 120.'
+  {"tool": "read_file", "arguments": {"path": "sales/monday.txt"}} -> 'The coffee revenue on Monday was 120.'
+  {"tool": "read_file", "arguments": {"path": "sales/monday.txt"}} -> 'The coffee revenue on Monday was $120.'
+  {"tool": "read_file", "arguments": {"path": "sales/monday.txt"}} -> 'The coffee revenue on Monday was 120.'
+  {"tool": "read_file", "arguments": {"path": "sales/monday.txt"}} -> 'The coffee revenue on Monday was 120.'
+4. A file that isn't there
+  {"tool": "read_file", "arguments": {"path": "sales/sunday.txt"}} -> "Based on the available information, the tool indicated there is no file for Sunday's sales data, so we cannot determine the coffee revenue on Sunday."
+  {"tool": "read_file", "arguments": {"path": "sales/sunday.txt"}} -> "I'm sorry, but there is no data available for the coffee revenue on Sunday."
+  {"tool": "read_file", "arguments": {"path": "sales/sunday.txt"}} -> "Based on the information available, I cannot determine the coffee revenue on Sunday as the file 'sales/sunday.txt' does not exist."
+  {"tool": "read_file", "arguments": {"path": "sales/sunday.txt"}} -> "Based on the available information, the tool indicated there is no file for Sunday's sales data, so we cannot determine the coffee revenue on Sunday."
+  {"tool": "read_file", "arguments": {"path": "sales/sunday.txt"}} -> 'Based on the available information, the tool could not find the file for Sunday, so I cannot provide the coffee revenue for that day.'
+5. A question that needs no tool
+  {
+  "tool": "read_file",
+  "arguments": {"path": "jokes/joke.txt"}
+} -> 'Why did the programmer go broke? Because he used up all his cache!'
+  {
+"tool": "read_file",
+"arguments": {"path": "sales/joke.txt"}
+} -> 'Why did the snake cross the road? To get to the snake pit on the other side!'
+  {
+  "tool": "read_file",
+  "arguments": {"path": "jokes/joke.txt"}
+} -> 'Why did the tomato turn red? Because it saw the salad dressing!'
+  {
+"tool": "read_file",
+"arguments": {"path": "jokes/joke.txt"}
+} -> 'Why did the tomato turn red? Because it saw the salad dressing!'
+  {"tool": "read_file", "arguments": {"path": "sales/monday.txt"}} -> 'Why did the coffee refuse to go to the party? Because it already had its own caffeine lifestyle!'
+6. No tool fits, with the enum
+  {
+  "tool": "read_file",
+  "arguments": {"path": "sales/monday.txt"}
+}
+  {"tool": "read_file", "arguments": {"path": "sales/monday.txt"}}
+  {"tool": "read_file", "arguments": {"path": "sales/monday.txt"}}
+  {
+  "tool": "read_file",
+  "arguments": {"path": "weather/kolkata.txt"}
+}
+  { "tool": "read_file", "arguments": { "path": "weather_kolkata.txt" } }
+7. No tool fits, without the enum
+  {
+  "tool": "weather",
+  "arguments": {"city": "Kolkata"}
+}
+  {"tool": "weather", "arguments": {"location": "Kolkata"}}
+  {"tool": "weather", "arguments": {"location": "Kolkata"}}
+  {
+  "tool": "weather",
+  "arguments": {"city": "Kolkata"}
+}
+  { "tool": "weather", "arguments": { "city": "Kolkata" } }

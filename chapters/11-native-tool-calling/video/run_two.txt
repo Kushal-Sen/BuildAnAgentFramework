@@ -1,0 +1,14 @@
+$ python3 native.py "What are the sales in sales/monday.txt and sales/tuesday.txt?"
+[tool] read_file({'path': 'sales/monday.txt'}) -> 'Coffee: 120\nTea: 80\n'
+[tool] read_file({'path': 'sales/tuesday.txt'}) -> 'Coffee: 150\nTea: 95\n'
+Based on the data from the files:
+
+- For Monday, the sales were:
+  - Coffee: 120
+  - Tea: 80
+
+- For Tuesday, the sales were:
+  - Coffee: 150
+  - Tea: 95
+
+These numbers represent the sales amounts for each item.

@@ -1,0 +1,5 @@
+Question: What was the total coffee revenue across all the days in the sales folder?
+Model: Could you please provide me with the path to the sales folder so I can access the files?
+You: monday.txt tuesday.txt wednesday.txt
+Model: Could you open monday.txt and share the total coffee revenue for Monday?
+You: Coffee: 120, Tea: 80

@@ -1,0 +1,12 @@
+7. No tool fits, without the enum
+  {
+  "tool": "weather",
+  "arguments": {"city": "Kolkata"}
+}
+  {"tool": "weather", "arguments": {"location": "Kolkata"}}
+  {"tool": "weather", "arguments": {"location": "Kolkata"}}
+  {
+  "tool": "weather",
+  "arguments": {"city": "Kolkata"}
+}
+  { "tool": "weather", "arguments": { "city": "Kolkata" } }

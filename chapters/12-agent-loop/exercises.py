@@ -1,91 +1,50 @@
-"""Chapter 12 exercises. Fill in the three TODOs, then run: python3 exercises.py
-
-These checks use a scripted fake model, so Ollama doesn't need to be running.
-"""
+"""Chapter 12 exercises. Complete each TODO, then run: python3 -m pytest test_exercises.py"""
 
 
 def add(a, b):
     return a + b
 
 
-def broken():
-    raise ValueError("this tool always fails")
-
-
-TOOLS = {"add": add, "broken": broken}
+TOOLS = {"add": add}
 
 
 def run_tool(call):
+    """Provided: run one tool call, as in chapter 11. Errors come back as text."""
     name = call["function"]["name"]
-    arguments = call["function"]["arguments"]
-    # TODO 1: if the tool doesn't exist, return a string starting with "Error:".
-    # TODO 2: if the tool raises an exception, return a string starting with "Error:".
-    return str(TOOLS[name](**arguments))
+    if name not in TOOLS:
+        return f"Error: there is no tool called {name}"
+    try:
+        return str(TOOLS[name](**call["function"]["arguments"]))
+    except Exception as error:
+        return f"Error: {error}"
+
+
+def is_final(reply):
+    """TODO 1: Return True if the reply is a final answer, which means it has no tool calls.
+    The "tool_calls" key may be missing, or it may hold an empty list.
+    """
+    return None
+
+
+def add_results(messages, calls):
+    """TODO 2: For each call, run it with run_tool, and add this message to messages:
+    {"role": "tool", "tool_name": <the tool's name>, "content": <the result>}
+    """
+    return None
 
 
 def run_agent(question, chat, max_steps=3):
-    messages = [{"role": "user", "content": question}]
-    while True:  # TODO 3: stop after max_steps and return a string starting with "Stopped:".
-        reply = chat(messages)
-        messages.append(reply)
-        calls = reply.get("tool_calls")
-        if not calls:
-            return reply["content"]
-        for call in calls:
-            messages.append({"role": "tool", "content": run_tool(call)})
+    """TODO 3: Start messages with one user message holding the question. Then, in a loop,
+    call chat(messages) and add its reply to messages. If the reply is final, return its
+    "content". If not, add the tool results and go round again. Use your functions above.
+
+    TODO 4: Stop after max_steps, and return "Stopped: no answer after <max_steps> steps."
+    """
+    return None
 
 
-# ---- Self-check: you don't need to change anything below this line. ----
-
-
-def tool_call(name, **arguments):
-    return {"role": "assistant", "content": "",
-            "tool_calls": [{"function": {"name": name, "arguments": arguments}}]}
-
-
-def scripted(*replies):
-    """A fake model that gives each reply in turn."""
-    remaining = list(replies)
-
-    def chat(messages):
-        scripted.seen = messages
-        return remaining.pop(0)
-
-    return chat
-
-
-def always_calls_add(messages):
-    if len(messages) > 50:
-        raise RuntimeError("the agent never stopped")
-    return tool_call("add", a=1, b=2)
-
-
-def check_unknown_tool():
-    chat = scripted(tool_call("missing"), {"role": "assistant", "content": "done"})
-    assert run_agent("hi", chat) == "done"
-    assert scripted.seen[2]["content"].startswith("Error:")
-
-
-def check_tool_exception():
-    chat = scripted(tool_call("broken"), {"role": "assistant", "content": "done"})
-    assert run_agent("hi", chat) == "done"
-    assert scripted.seen[2]["content"].startswith("Error:")
-
-
-def check_step_limit():
-    assert run_agent("hi", always_calls_add, max_steps=3).startswith("Stopped:")
-
-
-if __name__ == "__main__":
-    checks = [("TODO 1: unknown tool", check_unknown_tool),
-              ("TODO 2: tool exception", check_tool_exception),
-              ("TODO 3: step limit", check_step_limit)]
-    passed = 0
-    for label, check in checks:
-        try:
-            check()
-            passed += 1
-            print(f"PASS  {label}")
-        except Exception as error:
-            print(f"FAIL  {label}: {type(error).__name__}: {error}")
-    print(f"{passed}/{len(checks)} passed")
+def tools_used(messages):
+    """TODO 5: Return the name of every tool the model asked for, in order. Tool requests
+    are in the "tool_calls" of the assistant messages. Other messages don't have that key.
+    """
+    return None

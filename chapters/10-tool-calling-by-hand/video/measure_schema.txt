@@ -1,0 +1,5 @@
+1. No schema
+  Valid JSON: 0/5
+  A reply: 'To determine the coffee revenue on Monday, we need to read the content of the file containing the sales data for that day.\n\nArguments for the tool:\nread_file: {"path": "sales/monday.txt"}'
+2. With the schema
+  Valid JSON: 5/5

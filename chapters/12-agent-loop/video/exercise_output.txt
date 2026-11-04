@@ -1,11 +1,13 @@
-$ python3 exercises.py
-FAIL  TODO 1: unknown tool: KeyError: 'missing'
-FAIL  TODO 2: tool exception: ValueError: this tool always fails
-FAIL  TODO 3: step limit: RuntimeError: the agent never stopped
-0/3 passed
+$ python3 -m pytest test_exercises.py -q --tb=no
+FFFFF                                                                    [100%]
+=========================== short test summary info ============================
+FAILED test_exercises.py::test_todo_1_is_final - AssertionError: assert None ...
+FAILED test_exercises.py::test_todo_2_add_results - AssertionError: assert []...
+FAILED test_exercises.py::test_todo_3_run_agent - AssertionError: assert None...
+FAILED test_exercises.py::test_todo_4_step_limit - AssertionError: assert Non...
+FAILED test_exercises.py::test_todo_5_tools_used - AssertionError: assert Non...
+5 failed in 0.01s
 
-$ python3 exercises.py   # after finishing the TODOs
-PASS  TODO 1: unknown tool
-PASS  TODO 2: tool exception
-PASS  TODO 3: step limit
-3/3 passed
+$ python3 -m pytest test_exercises.py -q --tb=no   # after the TODOs
+.....                                                                    [100%]
+5 passed in 0.01s

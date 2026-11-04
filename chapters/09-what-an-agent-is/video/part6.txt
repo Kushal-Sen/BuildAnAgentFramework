@@ -1,0 +1,2 @@
+Therefore, the total coffee revenue across all the days is 380.
+Correct: 5/5

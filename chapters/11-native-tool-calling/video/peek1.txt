@@ -1,0 +1,17 @@
+1. The whole reply
+{
+ "role": "assistant",
+ "content": "",
+ "tool_calls": [
+  {
+   "id": "call_k90erhjm",
+   "function": {
+    "index": 0,
+    "name": "read_file",
+    "arguments": {
+     "path": "sales/monday.txt"
+    }
+   }
+  }
+ ]
+}

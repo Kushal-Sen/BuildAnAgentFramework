@@ -1,0 +1,415 @@
+{
+ "chapter": "Chapter 09",
+ "scenes": [
+  {
+   "type": "recap",
+   "title": "Previously: prompting and structured output",
+   "flow": [
+    "Be specific",
+    "Examples and steps",
+    "Schemas control shape",
+    "Shape isn't truth"
+   ],
+   "captions": [
+    {
+     "text": "Recap of chapter 08: a specific prompt gets you what you asked for.",
+     "secs": 8,
+     "focus": 0
+    },
+    {
+     "text": "Examples show the pattern, and asking for steps gives the model room to reason.",
+     "secs": 8,
+     "focus": 1
+    },
+    {
+     "text": "A schema makes a reply your code can read.",
+     "secs": 6,
+     "focus": 2
+    },
+    {
+     "text": "But a valid reply can still be wrong. So far, every model has only talked. Can one act?",
+     "secs": 8,
+     "focus": 3
+    }
+   ]
+  },
+  {
+   "type": "box",
+   "label": "Agents",
+   "inner": [
+    "text in",
+    "text out",
+    "and then?"
+   ],
+   "captions": [
+    {
+     "text": "Today's black box: what makes something an agent.",
+     "secs": 4
+    },
+    {
+     "text": "Let's open it.",
+     "secs": 4,
+     "open": true,
+     "shot": "01-box"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/no_hands.py",
+   "start": "print(\"1. Just ask",
+   "end": "temperature=0))",
+   "output": "video/part1.txt",
+   "captions": [
+    {
+     "text": "Ask the model about our sales folder. The right answer is 380. What will it say?",
+     "secs": 8,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "It says it can't get to the data. That's honest.",
+     "secs": 7,
+     "focus": null,
+     "lines": 2
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/no_hands.py",
+   "start": "YOU_CAN = (",
+   "end": "seed=seed))",
+   "output": "video/part2.txt",
+   "captions": [
+    {
+     "text": "Now tell it that it can read files, and ask five times.",
+     "secs": 7,
+     "focus": [
+      "YOU_CAN",
+      "Do what"
+     ],
+     "lines": 0
+    },
+    {
+     "text": "Five confident answers. None of them is 380, and no file was opened.",
+     "secs": 9,
+     "focus": null,
+     "lines": 6,
+     "shot": "02-made-up"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/no_hands.py",
+   "start": "print(\"3. Ask it",
+   "end": "Does note.txt",
+   "output": "video/part3.txt",
+   "captions": [
+    {
+     "text": "Ask it to create a file, then check whether the file exists.",
+     "secs": 7,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "It says the file was created.",
+     "secs": 5,
+     "focus": null,
+     "lines": 2
+    },
+    {
+     "text": "But the file doesn't exist. The model wrote a sentence, and nothing else happened.",
+     "secs": 9,
+     "focus": null,
+     "lines": 3,
+     "shot": "03-no-file"
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "dark": false,
+   "title": "What a model can do",
+   "flow": [
+    "Text goes in",
+    "Text comes out",
+    "It can't open a file",
+    "Something else must act"
+   ],
+   "captions": [
+    {
+     "text": "A model takes text in.",
+     "secs": 4,
+     "focus": 0
+    },
+    {
+     "text": "It gives text out.",
+     "secs": 4,
+     "focus": 1
+    },
+    {
+     "text": "That's all. It can't open a file, however sure it sounds.",
+     "secs": 6,
+     "focus": 2
+    },
+    {
+     "text": "If anything is going to happen, something else has to do it. Right now, that's you.",
+     "secs": 8,
+     "focus": 3
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/be_the_tools.py",
+   "start": "SYSTEM =",
+   "end": "When you have",
+   "captions": [
+    {
+     "text": "Tell the model the truth: it can't see files, but a person can help.",
+     "secs": 7,
+     "focus": [
+      "You can't see",
+      "You can't see"
+     ]
+    },
+    {
+     "text": "It must ask for one thing at a time, then stop and wait.",
+     "secs": 7,
+     "focus": [
+      "Each message",
+      "what one file"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/be_the_tools.py",
+   "start": "answer = \"\"",
+   "end": "messages.append({\"role\": \"user\"",
+   "output": "video/part4.txt",
+   "captions": [
+    {
+     "text": "This loop is the whole program. input waits for you to type a line.",
+     "secs": 8,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "The model asks. You open the files and type back what you find.",
+     "secs": 8,
+     "focus": [
+      "reply = chat",
+      "answer = input"
+     ],
+     "lines": 3
+    },
+    {
+     "text": "It decides what it needs next, using what you just told it.",
+     "secs": 8,
+     "focus": null,
+     "lines": 5,
+     "shot": "04-you-fetch"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/be_the_tools.py",
+   "start": "answer = \"\"",
+   "end": "messages.append({\"role\": \"user\"",
+   "output": "video/part5.txt",
+   "captions": [
+    {
+     "text": "After three files, it has what it needs.",
+     "secs": 6,
+     "focus": null,
+     "lines": 4
+    },
+    {
+     "text": "380. That's right, and this time it's based on real files.",
+     "secs": 8,
+     "focus": null,
+     "lines": 10,
+     "shot": "05-right"
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "dark": false,
+   "title": "So who did what?",
+   "flow": [
+    "Model: chose the next step",
+    "You: fetched the facts",
+    "You: kept it going",
+    "That's an agent"
+   ],
+   "captions": [
+    {
+     "text": "The model chose each step. You never told it the order.",
+     "secs": 7,
+     "focus": 0
+    },
+    {
+     "text": "You did the work it couldn't do. Those are the tools.",
+     "secs": 6,
+     "focus": 1
+    },
+    {
+     "text": "You and the while loop kept the conversation going. That's the loop.",
+     "secs": 7,
+     "focus": 2
+    },
+    {
+     "text": "An agent is a model, tools and a loop.",
+     "secs": 6,
+     "focus": 3,
+     "shot": "06-agent"
+    }
+   ]
+  },
+  {
+   "type": "loop",
+   "captions": [
+    {
+     "text": "Here's that loop as a picture.",
+     "secs": 4,
+     "focus": []
+    },
+    {
+     "text": "Send the conversation to the model.",
+     "secs": 5,
+     "focus": [
+      "ask"
+     ]
+    },
+    {
+     "text": "Did it ask for something? You fetched it, and added it to the conversation.",
+     "secs": 8,
+     "focus": [
+      "check",
+      "tool"
+     ]
+    },
+    {
+     "text": "When it stopped asking, you had the final answer.",
+     "secs": 6,
+     "focus": [
+      "answer"
+     ],
+     "shot": "07-loop"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/workflow.py",
+   "start": "files = \"\"",
+   "end": "Correct:",
+   "output": "video/part6.txt",
+   "captions": [
+    {
+     "text": "You don't always need an agent. Here your code reads every file first.",
+     "secs": 8,
+     "focus": [
+      "files =",
+      "path.read_text"
+     ],
+     "lines": 0
+    },
+    {
+     "text": "Then the model answers in one call. Your code chose every step. That's a workflow.",
+     "secs": 9,
+     "focus": [
+      "replies =",
+      "replies ="
+     ],
+     "lines": 0
+    },
+    {
+     "text": "It was right in 5 of 5 runs, with no person helping.",
+     "secs": 7,
+     "focus": null,
+     "lines": 2,
+     "shot": "08-workflow"
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "dark": false,
+   "title": "Who picks the next step?",
+   "flow": [
+    "Single call: there's only one",
+    "Workflow: your code",
+    "Agent: the model",
+    "Use the simplest that works"
+   ],
+   "captions": [
+    {
+     "text": "A single call has one step, so there's nothing to pick.",
+     "secs": 6,
+     "focus": 0
+    },
+    {
+     "text": "In a workflow, your code picks each step in advance.",
+     "secs": 6,
+     "focus": 1
+    },
+    {
+     "text": "In an agent, the model picks each step as it goes.",
+     "secs": 6,
+     "focus": 2
+    },
+    {
+     "text": "Use an agent only when you can't know the steps in advance.",
+     "secs": 7,
+     "focus": 3,
+     "shot": "09-shapes"
+    }
+   ]
+  },
+  {
+   "type": "term",
+   "file": "video/exercise_output.txt",
+   "final": "5 passed",
+   "captions": [
+    {
+     "text": "Your turn. Open exercises.py and complete the five TODOs.",
+     "secs": 6,
+     "lines": 9
+    },
+    {
+     "text": "You've finished when you see 5 passed.",
+     "secs": 6,
+     "lines": 13
+    }
+   ]
+  },
+  {
+   "type": "end",
+   "title": "You opened the agent.",
+   "points": [
+    "Models only make text",
+    "Something else has to act",
+    "An agent: model, tools, loop",
+    "Use the simplest shape that works"
+   ],
+   "next": "Next: Chapter 10, tool calling by hand",
+   "captions": [
+    {
+     "text": "You've just been the tools and the loop, by hand.",
+     "secs": 6
+    },
+    {
+     "text": "Next, you'll replace yourself with code.",
+     "secs": 6
+    }
+   ]
+  }
+ ]
+}

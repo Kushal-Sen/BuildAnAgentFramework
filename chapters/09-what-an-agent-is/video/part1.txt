@@ -1,0 +1,2 @@
+1. Just ask
+  To provide the total coffee revenue across all days in the sales folder, I would need to access the specific sales data, which I currently don't have access to.

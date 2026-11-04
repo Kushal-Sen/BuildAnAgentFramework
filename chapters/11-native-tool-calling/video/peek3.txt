@@ -1,0 +1,4 @@
+3. What the model really writes
+<tool_call>
+{"name": "read_file", "arguments": {"path": "sales/monday.txt"}}
+</tool_call>

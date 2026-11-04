@@ -1,0 +1,242 @@
+<title>Whitebox: Tools by Hand</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a black box header opens onto a white reading column; media breaks wider. */
+:root {
+  --bg: #fbfbf9; --surface: #ffffff; --ink: #16181d; --muted: #5d616b; --rule: #d9dade;
+  --accent: #2a4bd7; --tint: #e7ebfb; --box: #0c0d10; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #101218; --term-ink: #e4e6ec; --term-cmd: #9db1ff;
+  --display: "Bricolage Grotesque", Georgia, serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+    --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+    --term: #08090c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+  --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #08090c; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 400 1.0625rem/1.65 var(--body); }
+.gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 68rem; margin: 0 auto; min-width: 0; }
+.col { max-width: 42rem; display: grid; gap: 1rem; min-width: 0; }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2.6rem, 7vw, 4.4rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; }
+h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); line-height: 1.15; font-weight: 700; }
+h3 { font-size: 1.2rem; line-height: 1.3; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--accent); }
+a:focus-visible, video:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+code { font-family: var(--mono); font-size: 0.92em; }
+
+header.mast { background: var(--box); color: var(--on-box); padding-block: 1.6rem 3rem; }
+.mast .wrap { display: grid; gap: 2.4rem; }
+.brand { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font: 500 1rem var(--display); }
+.brand span:first-child { display: flex; align-items: center; gap: 0.55rem; }
+.brand i { width: 0.95rem; height: 0.95rem; border: 3px solid currentColor; display: block; }
+.brand span:last-child { font: 400 0.85rem var(--mono); color: var(--box-muted); align-self: center; }
+.mast .intro { display: grid; gap: 1rem; max-width: 46rem; }
+.mast .dek { font-size: 1.2rem; color: var(--box-muted); }
+.meta { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+
+main { padding-block: 0 4rem; }
+section { padding-block: 3.2rem 0; display: grid; gap: 1.4rem; }
+.label { font: 600 0.78rem/1.2 var(--mono); color: var(--accent); }
+.lede { font-size: 1.15rem; }
+
+figure { margin: 0; display: grid; gap: 0.5rem; min-width: 0; }
+figcaption { font-size: 0.86rem; color: var(--muted); }
+video { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 1440 / 900; background: #000; }
+
+ol.loop { margin: 0; padding-left: 1.3rem; display: grid; gap: 0.35rem; }
+ol.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 2.4rem; counter-reset: step; }
+ol.steps > li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 1.6rem; align-items: start; counter-increment: step; }
+ol.steps .txt { display: grid; gap: 0.45rem; min-width: 0; }
+ol.steps .txt h3::before { content: counter(step); display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; margin-right: 0.55rem; background: var(--ink); color: var(--bg); font: 600 0.85rem/1 var(--mono); vertical-align: 0.1em; }
+ol.steps img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); }
+@media (max-width: 720px) { ol.steps > li { grid-template-columns: minmax(0, 1fr); } }
+
+pre { margin: 0; background: var(--term); color: var(--term-ink); padding: 1rem 1.1rem; overflow-x: auto; font: 400 0.86rem/1.6 var(--mono); }
+pre .cmd { color: var(--term-cmd); }
+.tablebox { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.98rem; }
+th, td { text-align: left; padding: 0.65rem 0.8rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; color: var(--muted); }
+td { font-variant-numeric: tabular-nums; }
+.fails { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.fails div { background: var(--tint); padding: 1rem 1.1rem; display: grid; gap: 0.3rem; align-content: start; min-width: 0; }
+.list { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.35rem; }
+.next { background: var(--box); color: var(--on-box); padding: 1.4rem 1.5rem; display: grid; gap: 0.3rem; }
+.next span { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--muted); }
+</style>
+
+<header class="mast gutter">
+  <div class="wrap">
+    <div class="brand"><span><i></i>Whitebox Academy</span><span>Build an AI Agent from Scratch</span></div>
+    <div class="intro">
+      <span class="meta">Chapter 10 of 34 · Part 2: The first agent · About 1.5 hours</span>
+      <h1>Tool calling by hand</h1>
+      <p class="dek">Replace yourself with code: the model asks for a tool in JSON, and a Python dict runs it.</p>
+    </div>
+  </div>
+</header>
+
+<main class="gutter">
+  <div class="wrap">
+    <section>
+      <figure>
+        <video controls playsinline preload="metadata" poster="media/02-run.jpg">
+          <source src="media/video.mp4" type="video/mp4">
+        </video>
+        <figcaption>Chapter video, 4 minutes 38 seconds, no sound. It starts with a 30-second recap, and captions on screen explain each step.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Where we are</span>
+        <h2>Replace the human</h2>
+        <p class="lede">In chapter 09, the model asked and you fetched the files. An agent can’t wait for you to type, so this chapter replaces you with code.</p>
+        <p>Chapter 09’s question needs several files, so start with one step of it. <a href="https://claude.ai/artifact/1uGgX3WK7v3D5HyfvB782p#start-ollama">Start Ollama</a>, activate the <code>.venv</code> from chapter 05, and run this from <code>chapters/10-tool-calling-by-hand/code</code>. <code>by_hand.py</code> is provided, and you haven’t seen it yet. Run it first, then we’ll open it piece by piece.</p>
+      </div>
+      <pre><span class="cmd">$ python3 by_hand.py "What was the coffee revenue on Monday?"</span>
+Model asked for: {"tool": "read_file", "arguments": {"path": "sales/monday.txt"}}
+Tool returned: 'Coffee: 120\nTea: 80\n'
+Final answer: The coffee revenue on Monday was 120.</pre>
+      <div class="col">
+        <p>This is real output from <code>qwen2.5:7b</code>. Three things happened, and the model only did two of them:</p>
+        <ol class="loop">
+          <li><strong>The model wrote a request.</strong> It didn’t answer. It replied with JSON naming a tool.</li>
+          <li><strong>Your code ran the tool.</strong> It read the real file.</li>
+          <li><strong>The model answered,</strong> using the result your code sent back.</li>
+        </ol>
+        <p>This is <strong>tool calling</strong>. The model still only produces text. The difference is that now some of that text is a request your code can read.</p>
+        <p><strong>Predict:</strong> which file will the model ask for this time?</p>
+      </div>
+      <pre><span class="cmd">$ python3 by_hand.py "What was the tea revenue on Tuesday?"</span>
+Model asked for: {"tool": "read_file", "arguments": {"path": "sales/tuesday.txt"}}
+Tool returned: 'Coffee: 150\nTea: 95\n'
+Final answer: The tea revenue on Tuesday was 95.</pre>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Walk through the code</span>
+        <h2>Open by_hand.py</h2>
+        <p>The <code>chat</code> function is the one from chapter 08. The rest takes five steps.</p>
+      </div>
+      <ol class="steps">
+        <li>
+          <div class="txt"><h3>Tools are ordinary functions</h3><p>A tool is a function you let the model ask for. <code>TOOLS</code> is a dict from a name to a function. The model can only write text, so it writes the name, and the dict turns that name into something you can call.</p></div>
+          <img src="media/03-tools.jpg" alt="The tool functions and the TOOLS dict" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Tell the model what exists</h3><p>The model can’t see your Python. It only knows about the tools you describe in the system message.</p></div>
+          <img src="media/04-system.jpg" alt="A system message listing the three tools" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Get a request your code can read</h3><p><strong>Predict:</strong> with only that system message, how many of five replies will be valid JSON? None were. The model wrote a sentence around its request. So pass a schema as <code>format</code>, as in chapter 08, and it was valid in 5 of 5 runs. <code>enum</code> limits <code>tool</code> to names that exist.</p></div>
+          <img src="media/06-schema.jpg" alt="Results showing 0 of 5 valid JSON without a schema, and 5 of 5 with one" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Run the tool</h3><p>Choosing a function from a name is called dispatch. <code>TOOLS[name]</code> finds the function, and <code>**arguments</code> unpacks the dict into named arguments. The result is always a string, because text is all you can send to a model.</p></div>
+          <img src="media/07-dispatch.jpg" alt="The dispatch function" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>The round trip</h3><p><code>ask</code> calls the model twice. The first call uses the schema and gets a request. The second gets the answer. A model remembers nothing between calls, so you add the request and the result to the conversation, and send all of it again.</p></div>
+          <img src="media/08-ask.jpg" alt="The ask function with its two model calls" loading="lazy" width="1440" height="900">
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">When it goes wrong</span>
+        <h2>Three tests</h2>
+        <p>Before each one, predict what will happen.</p>
+      </div>
+      <ol class="steps">
+        <li>
+          <div class="txt"><h3>A tool fails</h3><p>There’s no file for Sunday. Will it crash, or will the model make up a number? Neither. <code>dispatch</code> caught the exception and sent the error back as text. The model didn’t invent a number in 5 of 5 runs. Treat a tool error as information for the model, not as the end of the program.</p></div>
+          <img src="media/09-error.jpg" alt="A missing file returned to the model as an error, and an honest answer" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>No tool is needed</h3><p>A joke needs no tool, but the model asked for one anyway, in 5 of 5 runs, because the schema requires one. This version can’t choose to skip tools.</p></div>
+          <img src="media/10-joke.jpg" alt="The model reading a sales file before telling a joke" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>No tool fits</h3><p>None of our tools can tell you the weather. With the <code>enum</code> removed, the model invented a tool called <code>weather</code> in 5 of 5 runs. A schema controls the shape, not the truth. The model’s request is input to your program, so <code>dispatch</code> checks the name.</p></div>
+          <img src="media/11-enum.jpg" alt="Five replies asking for a weather tool that doesn't exist" loading="lazy" width="1440" height="900">
+        </li>
+      </ol>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th scope="col">What happened</th><th scope="col">What you see</th><th scope="col">The fix</th></tr></thead>
+          <tbody>
+            <tr><td>The reply isn’t JSON</td><td><code>JSONDecodeError: Expecting value: line 1 column 1 (char 0)</code></td><td>Pass the schema as <code>format</code></td></tr>
+            <tr><td>A tool fails with no <code>try</code> around it</td><td><code>FileNotFoundError: [Errno 2] No such file or directory</code></td><td>Catch it in <code>dispatch</code></td></tr>
+            <tr><td>The model uses the wrong argument name</td><td><code>Error: read_file() got an unexpected keyword argument 'file'</code></td><td>Show the argument names in the system message</td></tr>
+            <tr><td>The model names a tool you don’t have</td><td><code>Error: there is no tool called weather</code></td><td>Check the name before you look it up</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Your turn</span>
+        <h2>Exercises</h2>
+        <p>Open <code>exercises.py</code> and complete the five TODOs:</p>
+        <ol class="loop">
+          <li><code>request_schema</code>: write the schema for a tool request.</li>
+          <li><code>read_request</code>: read the tool name and arguments from a reply.</li>
+          <li><code>run_tool</code>: look up a function in a dict and call it.</li>
+          <li><code>safe_run_tool</code>: return errors as text instead of crashing.</li>
+          <li><code>round_trip</code>: do one full round trip.</li>
+        </ol>
+        <p>Then run <code>python3 -m pytest test_exercises.py</code>. These checks use a fake model, so Ollama doesn’t need to be running. You’ve finished when you see <code>5 passed</code>.</p>
+      </div>
+      <div class="col">
+        <h3>Common mistakes</h3>
+        <ul class="list">
+          <li>Forgetting to send the result back. The model can’t see what your code did.</li>
+          <li>Sending only the result in the second call. In testing, the model never answered the question this way, in 5 of 5 runs.</li>
+          <li>Passing the schema on the second call too. In testing, it wrote another tool request instead of an answer, in 5 of 5 runs.</li>
+          <li>Returning a number from a tool without <code>str</code>. Messages hold text.</li>
+          <li>Letting a tool error crash the program, when the model could have used it.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Recap</span>
+        <h2>What you opened</h2>
+        <ul class="list">
+          <li>A model can’t run anything. It writes a request, and your code runs it.</li>
+          <li>A tool is an ordinary function, and a dict turns its name into a call.</li>
+          <li>A schema makes the request something your code can read.</li>
+          <li>Results and errors both go back to the model as text.</li>
+          <li>The model’s request is input, so check it.</li>
+        </ul>
+        <p>To learn more, read the <a href="https://arxiv.org/abs/2302.04761">Toolformer paper</a> or Ollama’s post on <a href="https://ollama.com/blog/structured-outputs">structured outputs</a>.</p>
+      </div>
+      <div class="next"><span>Next</span><h3>Chapter 11: Native tool calling</h3></div>
+    </section>
+
+    <footer>
+      <p>Get the code at <a href="https://github.com/WhiteboxAcademy/BuildAnAgentFramework">github.com/WhiteboxAcademy/BuildAnAgentFramework</a>. Code is under the MIT License. Articles and videos are under CC BY 4.0.</p>
+    </footer>
+  </div>
+</main>

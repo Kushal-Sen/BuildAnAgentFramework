@@ -64,7 +64,7 @@ print(add(**arguments))
 ```
 
 This is how an agent runs a tool. The model sends the arguments as a dictionary, and your code
-calls `tool(**arguments)`. You'll see that line in chapter 12.
+calls `tool(**arguments)`. You'll write that line in chapter 10.
 
 ## Decorators
 

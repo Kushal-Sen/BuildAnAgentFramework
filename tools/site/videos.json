@@ -7,5 +7,9 @@
   "05-projects-testing-http": "i6-cW8-297g",
   "06-first-model-call": "zlvRHp51rho",
   "07-how-llms-work": "w7Qn4SWuYv4",
-  "08-prompting-structured-output": "rObjDL5v6to"
+  "08-prompting-structured-output": "rObjDL5v6to",
+  "09-what-an-agent-is": "U5XiImwdFxY",
+  "10-tool-calling-by-hand": "qgcKlwVQQ9A",
+  "11-native-tool-calling": "2ZlPsKpdR4E",
+  "12-agent-loop": "PS8Vw-kUxKA"
 }

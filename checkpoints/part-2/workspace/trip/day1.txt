@@ -1,0 +1,3 @@
+Hotel: 90
+Food: 35
+Taxi: 20

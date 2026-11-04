@@ -1,0 +1,289 @@
+<title>Whitebox: Native Tools</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a black box header opens onto a white reading column; media breaks wider. */
+:root {
+  --bg: #fbfbf9; --surface: #ffffff; --ink: #16181d; --muted: #5d616b; --rule: #d9dade;
+  --accent: #2a4bd7; --tint: #e7ebfb; --box: #0c0d10; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #101218; --term-ink: #e4e6ec; --term-cmd: #9db1ff;
+  --display: "Bricolage Grotesque", Georgia, serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+    --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+    --term: #08090c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+  --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #08090c; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 400 1.0625rem/1.65 var(--body); }
+.gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 68rem; margin: 0 auto; min-width: 0; }
+.col { max-width: 42rem; display: grid; gap: 1rem; min-width: 0; }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2.6rem, 7vw, 4.4rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; }
+h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); line-height: 1.15; font-weight: 700; }
+h3 { font-size: 1.2rem; line-height: 1.3; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--accent); }
+a:focus-visible, video:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+code { font-family: var(--mono); font-size: 0.92em; }
+
+header.mast { background: var(--box); color: var(--on-box); padding-block: 1.6rem 3rem; }
+.mast .wrap { display: grid; gap: 2.4rem; }
+.brand { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font: 500 1rem var(--display); }
+.brand span:first-child { display: flex; align-items: center; gap: 0.55rem; }
+.brand i { width: 0.95rem; height: 0.95rem; border: 3px solid currentColor; display: block; }
+.brand span:last-child { font: 400 0.85rem var(--mono); color: var(--box-muted); align-self: center; }
+.mast .intro { display: grid; gap: 1rem; max-width: 46rem; }
+.mast .dek { font-size: 1.2rem; color: var(--box-muted); }
+.meta { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+
+main { padding-block: 0 4rem; }
+section { padding-block: 3.2rem 0; display: grid; gap: 1.4rem; }
+.label { font: 600 0.78rem/1.2 var(--mono); color: var(--accent); }
+.lede { font-size: 1.15rem; }
+
+figure { margin: 0; display: grid; gap: 0.5rem; min-width: 0; }
+figcaption { font-size: 0.86rem; color: var(--muted); }
+video { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 1440 / 900; background: #000; }
+
+ol.loop { margin: 0; padding-left: 1.3rem; display: grid; gap: 0.35rem; }
+ol.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 2.4rem; counter-reset: step; }
+ol.steps > li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 1.6rem; align-items: start; counter-increment: step; }
+ol.steps .txt { display: grid; gap: 0.45rem; min-width: 0; }
+ol.steps .txt h3::before { content: counter(step); display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; margin-right: 0.55rem; background: var(--ink); color: var(--bg); font: 600 0.85rem/1 var(--mono); vertical-align: 0.1em; }
+ol.steps img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); }
+@media (max-width: 720px) { ol.steps > li { grid-template-columns: minmax(0, 1fr); } }
+
+pre { margin: 0; background: var(--term); color: var(--term-ink); padding: 1rem 1.1rem; overflow-x: auto; font: 400 0.86rem/1.6 var(--mono); }
+pre .cmd { color: var(--term-cmd); }
+.tablebox { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.98rem; }
+th, td { text-align: left; padding: 0.65rem 0.8rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; color: var(--muted); }
+td { font-variant-numeric: tabular-nums; }
+.fails { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.fails div { background: var(--tint); padding: 1rem 1.1rem; display: grid; gap: 0.3rem; align-content: start; min-width: 0; }
+.list { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.35rem; }
+.next { background: var(--box); color: var(--on-box); padding: 1.4rem 1.5rem; display: grid; gap: 0.3rem; }
+.next span { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--muted); }
+</style>
+
+<header class="mast gutter">
+  <div class="wrap">
+    <div class="brand"><span><i></i>Whitebox Academy</span><span>Build an AI Agent from Scratch</span></div>
+    <div class="intro">
+      <span class="meta">Chapter 11 of 34 · Part 2: The first agent · About 1.5 hours</span>
+      <h1>Native tool calling</h1>
+      <p class="dek">See how the model API does the job you did by hand in chapter 10, and what it does better.</p>
+    </div>
+  </div>
+</header>
+
+<main class="gutter">
+  <div class="wrap">
+    <section>
+      <figure>
+        <video controls playsinline preload="metadata" poster="media/02-monday.jpg">
+          <source src="media/video.mp4" type="video/mp4">
+        </video>
+        <figcaption>Chapter video, 4 minutes 57 seconds, no sound. It starts with a 30-second recap, and captions on screen explain each step.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Where we are</span>
+        <h2>The same job, built in</h2>
+        <p class="lede">In chapter 10, you wrote the tool list into a system prompt, forced the reply’s shape with a schema, and parsed the JSON yourself. It worked, but a joke still made the model read a file.</p>
+        <p>Model APIs have this job built in. It’s called native tool calling, and it’s the one new idea in this chapter. Your tools stay the same. Only the way you offer them to the model changes.</p>
+        <p><a href="https://claude.ai/artifact/1uGgX3WK7v3D5HyfvB782p#start-ollama">Start Ollama</a>, activate the <code>.venv</code> from chapter 05, and run this from <code>chapters/11-native-tool-calling/code</code>. <code>native.py</code> is provided, and you haven’t seen it yet. Run it first, then we’ll open it piece by piece.</p>
+      </div>
+      <pre><span class="cmd">$ python3 native.py "How much coffee was sold on Monday? The file is sales/monday.txt."</span>
+[tool] read_file({'path': 'sales/monday.txt'}) -&gt; 'Coffee: 120\nTea: 80\n'
+On Monday, 120 cups of coffee were sold.</pre>
+      <p class="col">This is real output from <code>qwen2.5:7b</code>. Your wording may differ. It’s the same result as chapter 10, but <code>native.py</code> has no list of tools in its prompt, no <code>format</code> and no <code>json.loads</code>.</p>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Try it</span>
+        <h2>Three more questions</h2>
+        <p>Before each one, make a prediction.</p>
+      </div>
+      <ol class="steps">
+        <li>
+          <div class="txt"><h3>Tell me a joke</h3><p><strong>Predict:</strong> in chapter 10, this made the model read a file. What will happen now?</p><p>No <code>[tool]</code> line appears. The by-hand version asked for a tool it didn’t need in 5 of 5 runs, and the native version in 0 of 5. Chapter 10’s schema required a tool name. Here, a tool is an option.</p></div>
+          <img src="media/03-joke.jpg" alt="The joke question answered with no tool call" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Two files</h3><p><strong>Predict:</strong> how many tools will the model ask for?</p><p>It asked for both files in one reply, in 10 of 10 runs. Chapter 10’s schema had room for only one request, and it read only Monday in 5 of 5 runs.</p></div>
+          <img src="media/04-two.jpg" alt="Two read_file calls from a single reply" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>A missing file</h3><p><strong>Predict:</strong> there’s no Friday file. What will the model say?</p><p>The error went back as text, as in chapter 10, and the model reported it honestly in 10 of 10 runs. We’ve shortened the folder in this error, and you’ll see your full path.</p></div>
+          <img src="media/05-friday.jpg" alt="A file not found error, reported honestly by the model" loading="lazy" width="1440" height="900">
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Open the code</span>
+        <h2>Four small pieces</h2>
+      </div>
+      <ol class="steps">
+        <li>
+          <div class="txt"><h3>Describe your tools</h3><p>In <code>tools.py</code>, the functions and <code>TOOLS</code> are the same as chapter 10. <code>SCHEMAS</code> is new. Each entry gives a tool’s name, what it does, its parameters and which ones are required. The parameters are a JSON schema, like the ones from chapter 08.</p></div>
+          <img src="media/06-schema.jpg" alt="The tool definitions in tools.py" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Send them with the conversation</h3><p>Your <code>chat</code> function has two changes. <code>"tools": SCHEMAS</code> offers the tools, and it returns the whole message, because the tool request isn’t in the text. Try removing <code>"tools": SCHEMAS</code>, then ask what’s in <code>sales/monday.txt</code>. In 5 of 5 runs, the model told us it couldn’t read files.</p></div>
+          <img src="media/07-chat.jpg" alt="The chat function with tools in the request body" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Read the reply</h3><p><code>peek.py</code> is provided, and you don’t need to change it. Run <code>python3 peek.py</code>. Its first part prints the whole reply. <code>content</code> is empty, <code>tool_calls</code> is a list, and <code>arguments</code> is already a dict. Your <code>id</code> will differ. When the model doesn’t want a tool, <code>tool_calls</code> isn’t there at all, so we read it with <code>.get</code>.</p></div>
+          <img src="media/08-reply.jpg" alt="The whole reply, with an empty content and a tool_calls list" loading="lazy" width="1440" height="900">
+        </li>
+      </ol>
+      <div class="col">
+        <h3>Run the tool, then send the result back</h3>
+        <p><code>run_tool</code> is chapter 10’s <code>dispatch</code>, reading its name and arguments from the call. This is the whole round trip:</p>
+      </div>
+      <pre>reply = chat(messages, temperature=0)
+messages.append(reply)
+calls = reply.get("tool_calls")
+if not calls:
+    return reply["content"]
+for call in calls:
+    result = run_tool(call)
+    print(f"[tool] {call['function']['name']}({call['function']['arguments']}) -&gt; {result!r}")
+    messages.append(
+        {"role": "tool", "tool_name": call["function"]["name"], "content": result}
+    )
+reply = chat(messages, temperature=0)</pre>
+      <div class="col">
+        <ol class="loop">
+          <li>Ask the model, and add its reply to the conversation.</li>
+          <li>If it didn’t ask for a tool, its text is the answer.</li>
+          <li>Run each tool, and add each result as a message with the role <code>tool</code>.</li>
+          <li>Ask again, so the model can use the results.</li>
+        </ol>
+        <p>The role <code>tool</code> is new. In chapter 10, you pretended the result was a user message. Now the conversation says what really happened.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Side by side</span>
+        <h2>By hand versus native</h2>
+      </div>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th scope="col">The job</th><th scope="col">By hand (<code>by_hand.py</code>)</th><th scope="col">Native (<code>native.py</code>)</th></tr></thead>
+          <tbody>
+            <tr><td>Tell the model the tools</td><td>Written into <code>SYSTEM</code></td><td><code>"tools": SCHEMAS</code></td></tr>
+            <tr><td>Get a request you can read</td><td><code>format=REQUEST</code></td><td><code>reply.get("tool_calls")</code></td></tr>
+            <tr><td>Read the arguments</td><td><code>json.loads(reply)</code></td><td>Already a dict</td></tr>
+            <tr><td>Run the tool</td><td><code>dispatch(name, arguments)</code></td><td><code>run_tool(call)</code></td></tr>
+            <tr><td>Send the result back</td><td>A <code>user</code> message</td><td>A <code>tool</code> message</td></tr>
+            <tr><td>No tool needed</td><td>It must pick one anyway</td><td>It just answers</td></tr>
+            <tr><td>Two tools at once</td><td>Only one fits</td><td><code>tool_calls</code> is a list</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Inside the box</span>
+        <h2>It’s still text</h2>
+      </div>
+      <ol class="steps">
+        <li>
+          <div class="txt"><h3>Descriptions are prompts</h3><p><strong>Predict:</strong> “Read the Monday sales file.” gives no path. How will the model find one?</p><p>The only change is removing descriptions like <code>File path, such as sales/monday.txt</code>. With them, the model chose the right path in 5 of 5 runs. Without them, it made up a name in 5 of 5. A tool definition is a prompt, and a well-formed call can still be wrong.</p></div>
+          <img src="media/10-descriptions.jpg" alt="Five correct paths with descriptions, and five made-up names without" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>What the model really writes</h3><p>A model can only produce text, so how does it make a tool call? The third part of <code>peek.py</code> skips the chat API and sends the raw text, as you did in chapter 07. The model writes its request as text, inside <code>&lt;tool_call&gt;</code> tags.</p></div>
+          <img src="media/11-raw.jpg" alt="The raw text of a tool call inside tool_call tags" loading="lazy" width="1440" height="900">
+        </li>
+      </ol>
+      <div class="col">
+        <p>Each model has a template, and <code>qwen2.5:7b</code>’s template pastes your tools into the system prompt, with instructions on how to ask for one. You can read it with <code>ollama show qwen2.5:7b --template</code>. Ollama then spots the tags in the reply and moves the JSON into <code>tool_calls</code>.</p>
+        <p>So native tool calling is what you built in chapter 10: tools described in a prompt, and a request written as text that gets parsed. Other models use other wording, and this model was trained on its format. The API just does that work for you.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">The limit</span>
+        <h2>One round trip isn’t enough</h2>
+        <p>Now try the question from chapter 09. <strong>Predict:</strong> it needs a folder listing, three files and some addition. What will <code>native.py</code> do?</p>
+      </div>
+      <pre><span class="cmd">$ python3 native.py "What was the total coffee revenue across all the days in the sales folder?"</span>
+[tool] list_files({'folder': 'sales'}) -&gt; 'monday.txt\ntuesday.txt\nwednesday.txt'
+Stopped: the model still wants read_file({'path': 'sales/monday.txt'})</pre>
+      <p class="col">It stopped the same way in 10 of 10 runs. The model did the right thing: it listed the folder, then asked to read the first file. It can’t ask for a file until it knows the file’s name, so this needs another step. Our code does one round trip, then it’s finished.</p>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Your turn</span>
+        <h2>Exercises</h2>
+        <p>Open <code>exercises.py</code> and complete the five TODOs:</p>
+        <ol class="loop">
+          <li><code>multiply_schema</code>: write a tool definition.</li>
+          <li><code>requested_calls</code>: read the tool calls from a reply.</li>
+          <li><code>run_tool</code>: run a call, and return errors as text.</li>
+          <li><code>tool_message</code>: build the message that carries a result.</li>
+          <li><code>round_trip</code>: put it together.</li>
+        </ol>
+        <p>Then run <code>python3 -m pytest test_exercises.py</code>. These checks use a fake model, so Ollama doesn’t need to be running. You’ve finished when you see <code>5 passed</code>.</p>
+      </div>
+      <div class="col">
+        <h3>Common mistakes</h3>
+        <ul class="list">
+          <li>Reading <code>content</code> when the model asked for a tool. It’s empty, so check <code>tool_calls</code> first.</li>
+          <li>Handling only the first tool call. <code>tool_calls</code> is a list, so run them all.</li>
+          <li>Skipping the reply when you add to <code>messages</code>. In our test, the model still answered correctly in 5 of 5 runs, but the conversation no longer shows what it asked for. Keep the record complete.</li>
+          <li>Writing vague descriptions. The model only knows what your definitions tell it.</li>
+          <li>Trusting a well-formed call. <code>Monday_sales.txt</code> was a valid request for a file that doesn’t exist.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Recap</span>
+        <h2>What you opened</h2>
+        <ul class="list">
+          <li>You offer tools with <code>tools=</code>, using JSON schemas.</li>
+          <li>The model asks for them in <code>tool_calls</code>, which is a list.</li>
+          <li>You run them, and send each result back with the role <code>tool</code>.</li>
+          <li>The model can choose not to use a tool.</li>
+          <li>Tool descriptions are prompts.</li>
+          <li>Underneath, a tool call is still text.</li>
+        </ul>
+        <p>To learn more, read <a href="https://openai.com/index/function-calling-and-other-api-updates/">OpenAI’s 2023 function calling announcement</a> and Ollama’s <a href="https://ollama.com/blog/tool-support">tool support post</a>.</p>
+      </div>
+      <div class="next"><span>Next</span><h3>Chapter 12: The agent loop</h3></div>
+    </section>
+
+    <footer>
+      <p>Get the code at <a href="https://github.com/WhiteboxAcademy/BuildAnAgentFramework">github.com/WhiteboxAcademy/BuildAnAgentFramework</a>. Code is under the MIT License. Articles and videos are under CC BY 4.0.</p>
+    </footer>
+  </div>
+</main>

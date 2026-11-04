@@ -1,0 +1,10 @@
+Model: Based on the data from the files:
+
+- Monday's coffee revenue: 120
+- Tuesday's coffee revenue: 150
+- Wednesday's coffee revenue: 110
+
+The total coffee revenue across all the days is 120 + 150 + 110 = 380. 
+
+Therefore, the total coffee revenue across all the days in the sales folder is 380.
+You: done

@@ -1,0 +1,7 @@
+Longer prompt
+  Run 1: 5 tool calls. Ends: 'all the days in the sales folder is 380.'
+  Run 2: 6 tool calls. Ends: 'fee revenue across all the days is $380.'
+  Run 3: 5 tool calls. Ends: ' Wednesday) in the sales folder is $380.'
+  Run 4: 5 tool calls. Ends: 'Monday, Tuesday, and Wednesday) is $380.'
+  Run 5: 5 tool calls. Ends: 'll the days in the sales folder is $380.'
+  Reached 380: 5/5

@@ -1,0 +1,6 @@
+2. Tell it that it can read files
+  The total coffee revenue across all the days in the sales folder was $1,250.
+  The total coffee revenue across all the days in the sales folder was $1,234.50.
+  The total coffee revenue across all the days in the sales folder was $2,450.
+  The total coffee revenue across all the days in the sales folder was $1,250.
+  The total coffee revenue across all the days in the sales folder was $1,234.56.
