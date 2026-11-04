@@ -1,0 +1,402 @@
+{
+ "chapter": "Chapter 08",
+ "scenes": [
+  {
+   "type": "recap",
+   "title": "Previously: how LLMs work",
+   "flow": [
+    "Models predict tokens",
+    "Temperature adds variety",
+    "Each call has no memory",
+    "Models can make things up"
+   ],
+   "captions": [
+    {
+     "text": "Recap of chapter 07: an LLM predicts the next token, one at a time.",
+     "secs": 8,
+     "focus": 0
+    },
+    {
+     "text": "Temperature controls how much variety you get.",
+     "secs": 6,
+     "focus": 1
+    },
+    {
+     "text": "Each call starts with no memory.",
+     "secs": 6,
+     "focus": 2
+    },
+    {
+     "text": "Models can state made-up things confidently. So what you ask matters a lot.",
+     "secs": 10,
+     "focus": 3
+    }
+   ]
+  },
+  {
+   "type": "box",
+   "label": "Prompts",
+   "inner": [
+    "instructions",
+    "+ examples",
+    "+ schemas"
+   ],
+   "captions": [
+    {
+     "text": "Today's black box: how to get what you want from a model.",
+     "secs": 4
+    },
+    {
+     "text": "Let's open it.",
+     "secs": 4,
+     "open": true,
+     "shot": "01-box"
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "dark": false,
+   "title": "The parts of a good prompt",
+   "flow": [
+    "Task: what to do",
+    "Context: the background",
+    "Format: the shape of the reply",
+    "Constraints and examples"
+   ],
+   "captions": [
+    {
+     "text": "A good prompt says what to do.",
+     "secs": 5,
+     "focus": 0
+    },
+    {
+     "text": "It gives the background the model needs.",
+     "secs": 5,
+     "focus": 1
+    },
+    {
+     "text": "It describes the shape of the reply.",
+     "secs": 5,
+     "focus": 2,
+     "shot": "02-parts"
+    },
+    {
+     "text": "It sets limits, and can show examples. You don't always need all of these.",
+     "secs": 7,
+     "focus": 3
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/prompts.py",
+   "start": "print(\"1. Be specific\")",
+   "end": "print(\"  Specific:\"",
+   "output": "video/part1.txt",
+   "captions": [
+    {
+     "text": "Experiment 1. One vague prompt, and one specific prompt.",
+     "secs": 7,
+     "focus": [
+      "vague =",
+      "specific ="
+     ],
+     "lines": 0
+    },
+    {
+     "text": "Predict: how long will the vague reply be?",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Over 4,000 characters, against one clean sentence. Anything you leave out, the model guesses.",
+     "secs": 9,
+     "focus": null,
+     "lines": 3,
+     "shot": "03-specific"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/prompts.py",
+   "start": "print(\"2. Show examples\")",
+   "end": "print(\"  With examples",
+   "output": "video/part2.txt",
+   "captions": [
+    {
+     "text": "Experiment 2. Classify a message, first with no examples, then with three.",
+     "secs": 8,
+     "focus": [
+      "examples =",
+      "Message: Please"
+     ],
+     "lines": 0
+    },
+    {
+     "text": "Predict: will the first one give a clean label?",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "With no examples, it invented a format. With examples, it copied the pattern.",
+     "secs": 8,
+     "focus": null,
+     "lines": 3,
+     "shot": "04-examples"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/prompts.py",
+   "start": "print(\"3. Ask for steps\")",
+   "end": "print(f\"  Step by step",
+   "output": "video/part3.txt",
+   "captions": [
+    {
+     "text": "Experiment 3. The same math problem, asked in two ways, five times each.",
+     "secs": 8,
+     "focus": [
+      "direct =",
+      "steps ="
+     ],
+     "lines": 0
+    },
+    {
+     "text": "Predict: which one will get the answer right?",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "When the model writes out its steps, it can read them before the next one.",
+     "secs": 8,
+     "focus": null,
+     "lines": 3,
+     "shot": "05-steps"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/prompts.py",
+   "start": "print(\"4. Separate",
+   "end": "print(f\"  Tagged",
+   "output": "video/part4.txt",
+   "captions": [
+    {
+     "text": "Experiment 4. This review contains a hidden instruction. That's prompt injection.",
+     "secs": 8,
+     "focus": [
+      "review =",
+      "review ="
+     ],
+     "lines": 0
+    },
+    {
+     "text": "Here, we put the review in tags, and tell the model not to obey it.",
+     "secs": 7,
+     "focus": [
+      "tagged =",
+      "user(f\"<review>"
+     ],
+     "lines": 0
+    },
+    {
+     "text": "Predict: will the tags stop the attack?",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "They didn't. Tags make prompts clearer, but they aren't security.",
+     "secs": 8,
+     "focus": null,
+     "lines": 3,
+     "shot": "06-injection"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/prompts.py",
+   "start": "print(\"5. Ask for JSON",
+   "end": "print(\"  A reply:\", repr",
+   "output": "video/part5.txt",
+   "captions": [
+    {
+     "text": "Now, the second half: replies your code can read. First, ask for JSON in words.",
+     "secs": 8,
+     "focus": [
+      "request =",
+      "request ="
+     ],
+     "lines": 0
+    },
+    {
+     "text": "Predict: will json.loads be able to read the reply?",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "It failed every time. The model wrapped the JSON in a code fence.",
+     "secs": 8,
+     "focus": null,
+     "lines": 3,
+     "shot": "07-json"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/prompts.py",
+   "start": "ORDER_SCHEMA = {",
+   "end": "\"required\": [\"customer\"",
+   "captions": [
+    {
+     "text": "A JSON schema describes the shape your data must have.",
+     "secs": 6,
+     "focus": null
+    },
+    {
+     "text": "It lists each field and its type.",
+     "secs": 6,
+     "focus": [
+      "\"customer\":",
+      "\"price\":"
+     ],
+     "shot": "08-schema"
+    },
+    {
+     "text": "Here, all four fields are required.",
+     "secs": 5,
+     "focus": [
+      "\"required\"",
+      "\"required\""
+     ]
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/prompts.py",
+   "start": "replies = [chat([user(request)], format",
+   "end": "print(\"  A reply:\", json.loads",
+   "output": "video/part6.txt",
+   "captions": [
+    {
+     "text": "Pass the schema as format, and Ollama restricts the reply to match it.",
+     "secs": 8,
+     "focus": [
+      "replies =",
+      "replies ="
+     ],
+     "lines": 0
+    },
+    {
+     "text": "Valid JSON, five times out of five. Your code can trust the shape.",
+     "secs": 8,
+     "focus": null,
+     "lines": 3,
+     "shot": "09-valid"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/prompts.py",
+   "start": "print(\"7. The right shape",
+   "end": "print(\"  Guessed",
+   "output": "video/part7.txt",
+   "captions": [
+    {
+     "text": "Experiment 7. This text has no quantity or price, but the schema requires them.",
+     "secs": 8,
+     "focus": [
+      "missing =",
+      "missing ="
+     ],
+     "lines": 0
+    },
+    {
+     "text": "Predict: what will the model do?",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "It made up the values. A schema controls the shape, not the truth.",
+     "secs": 8,
+     "focus": null,
+     "lines": 2,
+     "shot": "10-guess"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/prompts.py",
+   "start": "honest =",
+   "end": "print(\"  Honest",
+   "output": "video/part7.txt",
+   "captions": [
+    {
+     "text": "The fix: tell it not to guess, and let the schema allow null.",
+     "secs": 8,
+     "focus": null,
+     "lines": 2
+    },
+    {
+     "text": "Now it says what it doesn't know.",
+     "secs": 6,
+     "focus": null,
+     "lines": 3,
+     "shot": "11-honest"
+    }
+   ]
+  },
+  {
+   "type": "term",
+   "file": "video/exercise_output.txt",
+   "final": "5 passed",
+   "captions": [
+    {
+     "text": "Your turn. Open exercises.py and complete the five TODOs.",
+     "secs": 6,
+     "lines": 9
+    },
+    {
+     "text": "You've finished when you see 5 passed. Then try the Part 1 checkpoint.",
+     "secs": 7,
+     "lines": 13
+    }
+   ]
+  },
+  {
+   "type": "end",
+   "title": "You opened prompting.",
+   "points": [
+    "Be specific",
+    "Show examples and ask for steps",
+    "Tags aren't security",
+    "Schemas control shape, not truth"
+   ],
+   "next": "Next: Chapter 09, what an agent is",
+   "captions": [
+    {
+     "text": "You can now steer a model, and get data your code can use.",
+     "secs": 6
+    },
+    {
+     "text": "Next, you'll find out what makes something an agent.",
+     "secs": 6
+    }
+   ]
+  }
+ ]
+}

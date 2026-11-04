@@ -11,7 +11,7 @@ Work through the chapters in order and tick each one off as you finish it.
 - [ ] 04 Decorators, generators and context managers
 - [ ] 05 Virtual environments, packages, pytest and HTTP
 
-## Part 1: LLM foundations (about 5.5 hours)
+## Part 1: LLM foundations (about 6 hours)
 
 - [ ] 06 Your first model call
 - [ ] 07 How LLMs work

@@ -1,0 +1,22 @@
+$ python3 prompts.py
+1. Be specific
+  Vague: 4056 characters, starting "Certainly! Coffee is one of the world's most "
+  Specific: Sip into Kolkata's soul at Java Junction.
+2. Show examples
+  No examples:   Classification: Bug Report / User Feedback
+  With examples: bug
+3. Ask for steps
+  Answer only: 0/5 correct
+  Step by step: 5/5 correct
+4. Separate instructions from data
+  Plain: 5/5 hacked
+  Tagged: 5/5 hacked
+5. Ask for JSON in words
+  Valid JSON: 0/5
+  A reply: '```json\n{\n  "customer": "Asha",\n  "product": "coffee",\n  "quantity": 2,\n  "price": 120\n}\n```'
+6. Use a schema
+  Valid JSON: 5/5
+  A reply: {'customer': 'Asha', 'product': 'coffees', 'quantity': 2, 'price': 120}
+7. The right shape can still be wrong
+  Guessed: {'customer': 'Someone', 'product': 'tea', 'quantity': 1, 'price': 0}
+  Honest:  {'customer': None, 'product': 'tea', 'quantity': None, 'price': None}

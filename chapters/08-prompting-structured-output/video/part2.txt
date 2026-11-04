@@ -1,0 +1,3 @@
+2. Show examples
+  No examples:   Classification: Bug Report / User Feedback
+  With examples: bug

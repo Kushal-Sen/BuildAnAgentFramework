@@ -1,0 +1,3 @@
+6. Use a schema
+  Valid JSON: 5/5
+  A reply: {'customer': 'Asha', 'product': 'coffees', 'quantity': 2, 'price': 120}

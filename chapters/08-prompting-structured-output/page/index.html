@@ -1,0 +1,280 @@
+<title>Whitebox: Prompting</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a black box header opens onto a white reading column; media breaks wider. */
+:root {
+  --bg: #fbfbf9; --surface: #ffffff; --ink: #16181d; --muted: #5d616b; --rule: #d9dade;
+  --accent: #2a4bd7; --tint: #e7ebfb; --box: #0c0d10; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #101218; --term-ink: #e4e6ec; --term-cmd: #9db1ff;
+  --display: "Bricolage Grotesque", Georgia, serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+    --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+    --term: #08090c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+  --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #08090c; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 400 1.0625rem/1.65 var(--body); }
+.gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 68rem; margin: 0 auto; min-width: 0; }
+.col { max-width: 42rem; display: grid; gap: 1rem; min-width: 0; }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2.6rem, 7vw, 4.4rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; }
+h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); line-height: 1.15; font-weight: 700; }
+h3 { font-size: 1.2rem; line-height: 1.3; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--accent); }
+a:focus-visible, video:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+code { font-family: var(--mono); font-size: 0.92em; }
+
+header.mast { background: var(--box); color: var(--on-box); padding-block: 1.6rem 3rem; }
+.mast .wrap { display: grid; gap: 2.4rem; }
+.brand { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font: 500 1rem var(--display); }
+.brand span:first-child { display: flex; align-items: center; gap: 0.55rem; }
+.brand i { width: 0.95rem; height: 0.95rem; border: 3px solid currentColor; display: block; }
+.brand span:last-child { font: 400 0.85rem var(--mono); color: var(--box-muted); align-self: center; }
+.mast .intro { display: grid; gap: 1rem; max-width: 46rem; }
+.mast .dek { font-size: 1.2rem; color: var(--box-muted); }
+.meta { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+
+main { padding-block: 0 4rem; }
+section { padding-block: 3.2rem 0; display: grid; gap: 1.4rem; }
+.label { font: 600 0.78rem/1.2 var(--mono); color: var(--accent); }
+.lede { font-size: 1.15rem; }
+
+figure { margin: 0; display: grid; gap: 0.5rem; min-width: 0; }
+figcaption { font-size: 0.86rem; color: var(--muted); }
+video { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 1440 / 900; background: #000; }
+
+ol.loop { margin: 0; padding-left: 1.3rem; display: grid; gap: 0.35rem; }
+ol.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 2.4rem; counter-reset: step; }
+ol.steps > li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 1.6rem; align-items: start; counter-increment: step; }
+ol.steps .txt { display: grid; gap: 0.45rem; min-width: 0; }
+ol.steps .txt h3::before { content: counter(step); display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; margin-right: 0.55rem; background: var(--ink); color: var(--bg); font: 600 0.85rem/1 var(--mono); vertical-align: 0.1em; }
+ol.steps img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); }
+@media (max-width: 720px) { ol.steps > li { grid-template-columns: minmax(0, 1fr); } }
+
+pre { margin: 0; background: var(--term); color: var(--term-ink); padding: 1rem 1.1rem; overflow-x: auto; font: 400 0.86rem/1.6 var(--mono); }
+pre .cmd { color: var(--term-cmd); }
+.tablebox { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.98rem; }
+th, td { text-align: left; padding: 0.65rem 0.8rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; color: var(--muted); }
+td { font-variant-numeric: tabular-nums; }
+.fails { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.fails div { background: var(--tint); padding: 1rem 1.1rem; display: grid; gap: 0.3rem; align-content: start; min-width: 0; }
+.list { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.35rem; }
+.next { background: var(--box); color: var(--on-box); padding: 1.4rem 1.5rem; display: grid; gap: 0.3rem; }
+.next span { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--muted); }
+</style>
+
+<header class="mast gutter">
+  <div class="wrap">
+    <div class="brand"><span><i></i>Whitebox Academy</span><span>Build an AI Agent from Scratch</span></div>
+    <div class="intro">
+      <span class="meta">Chapter 08 of 34 · Part 1: LLM foundations · About 2.5 hours</span>
+      <h1>Prompting and structured output</h1>
+      <p class="dek">Learn the fundamentals of prompt engineering, then get replies your code can trust.</p>
+    </div>
+  </div>
+</header>
+
+<main class="gutter">
+  <div class="wrap">
+    <section>
+      <figure>
+        <video controls playsinline preload="metadata" poster="media/02-parts.jpg">
+          <source src="media/video.mp4" type="video/mp4">
+        </video>
+        <figcaption>Chapter video, 4 minutes 31 seconds, no sound. It starts with a 30-second recap, and captions on screen explain each step.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Where we are</span>
+        <h2>What you ask shapes what you get</h2>
+        <p class="lede">A model predicts text, so the text you give it shapes what comes back. Prompt engineering is the skill of writing that text well, and it’s mostly clear writing and careful testing.</p>
+        <p><a href="https://claude.ai/artifact/1uGgX3WK7v3D5HyfvB782p#start-ollama">Start Ollama</a>, activate the <code>.venv</code> from chapter 05, and run <code>python3 prompts.py</code> from <code>chapters/08-prompting-structured-output/code</code>. It takes a few minutes. It uses your <code>chat</code> function from chapter 06, with one new parameter, <code>format</code>.</p>
+      </div>
+      <pre><span class="cmd">$ python3 prompts.py</span>
+1. Be specific
+  Vague: 4056 characters, starting "Certainly! Coffee is one of the world's most "
+  Specific: Sip into Kolkata's soul at Java Junction.
+2. Show examples
+  No examples:   Classification: Bug Report / User Feedback
+  With examples: bug
+3. Ask for steps
+  Answer only: 0/5 correct
+  Step by step: 5/5 correct
+4. Separate instructions from data
+  Plain: 5/5 hacked
+  Tagged: 5/5 hacked
+5. Ask for JSON in words
+  Valid JSON: 0/5
+  A reply: '```json\n{\n  "customer": "Asha",\n  "product": "coffee",\n  "quantity": 2,\n  "price": 120\n}\n```'
+6. Use a schema
+  Valid JSON: 5/5
+  A reply: {'customer': 'Asha', 'product': 'coffees', 'quantity': 2, 'price': 120}
+7. The right shape can still be wrong
+  Guessed: {'customer': 'Someone', 'product': 'tea', 'quantity': 1, 'price': 0}
+  Honest:  {'customer': None, 'product': 'tea', 'quantity': None, 'price': None}</pre>
+      <p class="col">This is real output from <code>qwen2.5:7b</code>. Some of yours will differ.</p>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Part 1</span>
+        <h2>Prompt engineering fundamentals</h2>
+        <p>Most good prompts include some of these parts. You don’t always need all five. Put lasting rules in a <code>system</code> message, and the specific request in a <code>user</code> message.</p>
+      </div>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th scope="col">Part</th><th scope="col">What it says</th><th scope="col">Example</th></tr></thead>
+          <tbody>
+            <tr><td>Task</td><td>What to do</td><td>Write a sign for a coffee shop</td></tr>
+            <tr><td>Context</td><td>Background the model needs</td><td>The shop is in Kolkata</td></tr>
+            <tr><td>Format</td><td>The shape of the reply</td><td>One sentence</td></tr>
+            <tr><td>Constraints</td><td>Limits and rules</td><td>Use under 10 words</td></tr>
+            <tr><td>Examples</td><td>What a good result looks like</td><td>Message: I need a refund. Label: billing</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="col">Before each experiment, predict what will happen.</p>
+      <ol class="steps">
+        <li>
+          <div class="txt"><h3>Be specific</h3><p>The vague prompt gave over 4,000 characters, and the specific one gave exactly what we asked for. Anything you leave out, the model has to guess.</p></div>
+          <img src="media/03-specific.jpg" alt="A vague and a specific prompt, with very different replies" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Show examples</h3><p>Without examples, the model invented its own format. With three examples, it replied with a clean label. This is called few-shot prompting.</p></div>
+          <img src="media/04-examples.jpg" alt="A classifier with and without examples" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Ask for steps</h3><p>The correct answer is 503. Asking for only the number got 0 of 5 right, and asking for steps got 5 of 5. Written steps become text the model can read before its next step. This is called chain-of-thought prompting. For exact math, an agent should still use a calculator tool.</p></div>
+          <img src="media/05-steps.jpg" alt="Results showing 0 of 5 correct with answer only, and 5 of 5 step by step" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Separate instructions from data</h3><p>This review hides an instruction, which is called prompt injection. Tags make your prompt clearer, but they didn’t stop this attack: the model was hacked in 5 of 5 runs either way. Don’t rely on a prompt for security. You’ll learn real defenses in chapter 30.</p></div>
+          <img src="media/06-injection.jpg" alt="A prompt injection succeeding with and without tags" loading="lazy" width="1440" height="900">
+        </li>
+      </ol>
+      <div class="col">
+        <h3>Improving a prompt</h3>
+        <p>A prompt is rarely right the first time, so treat it like code: run it on real examples, look at what went wrong, change one thing, then run it again and count the results. In testing for this chapter, a classifier scored 4 of 7 with no label definitions, and 7 of 7 once we defined each label.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Part 2</span>
+        <h2>Structured output</h2>
+        <p>An agent’s code needs data it can read, not a friendly paragraph.</p>
+      </div>
+      <ol class="steps">
+        <li>
+          <div class="txt"><h3>Ask for JSON in words</h3><p>It failed in 5 of 5 runs. The JSON was fine, but the model wrapped it in a code fence, and <code>json.loads</code> can’t read that. A prompt alone doesn’t guarantee a format.</p></div>
+          <img src="media/07-json.jpg" alt="A reply wrapped in a code fence, with 0 of 5 valid" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Write a schema</h3><p>A JSON schema describes the shape your data must have: its fields and their types. To limit a field to certain values, use <code>enum</code>.</p></div>
+          <img src="media/08-schema.jpg" alt="A JSON schema for an order" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Use it</h3><p>Pass the schema as <code>format</code>, and Ollama restricts the reply to match it. Now it was valid JSON in 5 of 5 runs.</p></div>
+          <img src="media/09-valid.jpg" alt="Five of five valid JSON replies using a schema" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Check the truth</h3><p>“Someone wants tea” has no quantity or price, so the model made them up. A schema controls the shape, not the truth.</p></div>
+          <img src="media/10-guess.jpg" alt="Valid JSON with made-up values" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Let it say it doesn’t know</h3><p>Allow <code>null</code> in the schema, and tell the model not to guess. Now it reports what’s missing.</p></div>
+          <img src="media/11-honest.jpg" alt="A reply with null for the missing values" loading="lazy" width="1440" height="900">
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Why it matters</span>
+        <h2>What this means for agents</h2>
+      </div>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th scope="col">What you learned</th><th scope="col">Why it matters</th></tr></thead>
+          <tbody>
+            <tr><td>Be specific</td><td>Agents follow your instructions, not your intentions</td></tr>
+            <tr><td>Show examples</td><td>Examples teach the pattern you need</td></tr>
+            <tr><td>Ask for steps</td><td>Agents plan better when they can reason in text</td></tr>
+            <tr><td>Don’t trust prompts for security</td><td>Tools can bring in text with hidden instructions</td></tr>
+            <tr><td>Schemas control shape</td><td>Tool calls are structured output</td></tr>
+            <tr><td>Shape isn’t truth</td><td>Always check what the model gives you</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Your turn</span>
+        <h2>Exercises</h2>
+        <p>Open <code>exercises.py</code> and complete the five TODOs:</p>
+        <ol class="loop">
+          <li><code>build_prompt</code>: combine the parts of a prompt.</li>
+          <li><code>with_examples</code>: build a few-shot prompt.</li>
+          <li><code>final_answer</code>: read the last line of a step-by-step reply.</li>
+          <li><code>parse_json</code>: read JSON from a reply with a code fence.</li>
+          <li><code>label_schema</code>: write a schema with <code>enum</code>.</li>
+        </ol>
+        <p>Then run <code>python3 -m pytest test_exercises.py</code>. You’ve finished when you see <code>5 passed</code>.</p>
+      </div>
+      <div class="col">
+        <h3>Common mistakes</h3>
+        <ul class="list">
+          <li>Changing several things in a prompt at once. Then you can’t tell what helped.</li>
+          <li>Judging a prompt from one run. Run it several times.</li>
+          <li>Asking for only the answer on a problem that needs reasoning.</li>
+          <li>Trusting a value because it’s valid JSON.</li>
+          <li>Relying on a prompt to stop prompt injection.</li>
+        </ul>
+      </div>
+      <div class="fails">
+        <div><h3>Part 1 checkpoint</h3><p>You’ve finished Part 1. Before moving on, build the support ticket classifier in <code>checkpoints/part-1</code>. It uses everything from chapters 06 to 08 and takes about 45 minutes. Run <code>python3 -m pytest test_checkpoint.py</code> until you see <code>5 passed</code>, then try it with the real model.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Recap</span>
+        <h2>What you opened</h2>
+        <ul class="list">
+          <li>Be specific: give the task, context, format and constraints.</li>
+          <li>Examples show the pattern you want.</li>
+          <li>Asking for steps gives the model room to reason.</li>
+          <li>Tags make prompts clearer, but they aren’t security.</li>
+          <li>A schema guarantees the shape of a reply, not its truth.</li>
+        </ul>
+        <p>To learn more, read about <a href="https://arxiv.org/abs/2005.14165">few-shot prompting</a> and <a href="https://arxiv.org/abs/2201.11903">chain-of-thought prompting</a>, or see Anthropic’s <a href="https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview">prompt engineering guide</a>.</p>
+      </div>
+      <div class="next"><span>Next</span><h3>Chapter 09: What an agent is</h3></div>
+    </section>
+
+    <footer>
+      <p>Get the code at <a href="https://github.com/WhiteboxAcademy/BuildAnAgentFramework">github.com/WhiteboxAcademy/BuildAnAgentFramework</a>. Code is under the MIT License. Articles and videos are under CC BY 4.0.</p>
+    </footer>
+  </div>
+</main>
