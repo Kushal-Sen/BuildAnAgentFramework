@@ -39,9 +39,36 @@ python3 --version
 
 On Windows, use `python` instead of `python3` throughout this course.
 
-## Step 3: Install Ollama and the model
+## Step 3: Install Ollama
 
-Install Ollama from [ollama.com/download](https://ollama.com/download), then run:
+Install Ollama from [ollama.com/download](https://ollama.com/download).
+
+## Step 4: Start Ollama
+
+Ollama is a small server that runs in the background. It needs to be running whenever you use a
+model, so you may need to start it again after you restart your computer.
+
+Start it in one of these ways:
+
+- **Desktop app:** open the Ollama app and leave it running.
+- **Terminal:** run `ollama serve` in a separate terminal, and leave that terminal open.
+
+Then check that it's running:
+
+```bash
+ollama list
+```
+
+If it's running, you'll see a table of models, which may be empty. If it isn't, you'll see this:
+
+```text
+Error: could not connect to ollama server, run 'ollama serve' to start it
+```
+
+On Linux, the installer usually starts Ollama for you. If `ollama serve` says the address is
+already in use, Ollama is already running.
+
+## Step 5: Download the model
 
 ```bash
 ollama pull qwen2.5:7b
@@ -51,7 +78,7 @@ ollama pull qwen2.5:7b
 has a real limit. In our test, it passed the setup check but got 0 of 5 runs right on the
 multi-step task in chapter 12. If you can, use a computer with at least 8 GB.
 
-## Step 4: Run the setup check
+## Step 6: Run the setup check
 
 In the terminal, go to `chapters/00-setup/code` in the course folder and run:
 

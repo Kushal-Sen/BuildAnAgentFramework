@@ -1,0 +1,17 @@
+$ python3 power_tools.py
+(1, 2) {'name': 'Tea'}
+5
+Calling multiply with (4, 5)
+20
+multiply - Multiply two numbers.
+['greet', 'shout']
+Hello, Asha!
+Models
+reply
+['bit', 'by', 'bit']
+Start loading
+Working
+End loading
+Start risky work
+End risky work
+Caught: Something went wrong

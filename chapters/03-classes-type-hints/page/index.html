@@ -1,0 +1,231 @@
+<title>Whitebox: Classes and Types</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a black box header opens onto a white reading column; media breaks wider. */
+:root {
+  --bg: #fbfbf9; --surface: #ffffff; --ink: #16181d; --muted: #5d616b; --rule: #d9dade;
+  --accent: #2a4bd7; --tint: #e7ebfb; --box: #0c0d10; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #101218; --term-ink: #e4e6ec; --term-cmd: #9db1ff;
+  --display: "Bricolage Grotesque", Georgia, serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+    --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+    --term: #08090c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+  --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #08090c; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 400 1.0625rem/1.65 var(--body); }
+.gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 68rem; margin: 0 auto; min-width: 0; }
+.col { max-width: 42rem; display: grid; gap: 1rem; min-width: 0; }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2.6rem, 7vw, 4.4rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; }
+h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); line-height: 1.15; font-weight: 700; }
+h3 { font-size: 1.2rem; line-height: 1.3; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--accent); }
+a:focus-visible, video:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+code { font-family: var(--mono); font-size: 0.92em; }
+
+header.mast { background: var(--box); color: var(--on-box); padding-block: 1.6rem 3rem; }
+.mast .wrap { display: grid; gap: 2.4rem; }
+.brand { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font: 500 1rem var(--display); }
+.brand span:first-child { display: flex; align-items: center; gap: 0.55rem; }
+.brand i { width: 0.95rem; height: 0.95rem; border: 3px solid currentColor; display: block; }
+.brand span:last-child { font: 400 0.85rem var(--mono); color: var(--box-muted); align-self: center; }
+.mast .intro { display: grid; gap: 1rem; max-width: 46rem; }
+.mast .dek { font-size: 1.2rem; color: var(--box-muted); }
+.meta { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+
+main { padding-block: 0 4rem; }
+section { padding-block: 3.2rem 0; display: grid; gap: 1.4rem; }
+.label { font: 600 0.78rem/1.2 var(--mono); color: var(--accent); }
+.lede { font-size: 1.15rem; }
+
+figure { margin: 0; display: grid; gap: 0.5rem; min-width: 0; }
+figcaption { font-size: 0.86rem; color: var(--muted); }
+video { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 1440 / 900; background: #000; }
+
+ol.loop { margin: 0; padding-left: 1.3rem; display: grid; gap: 0.35rem; }
+ol.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 2.4rem; counter-reset: step; }
+ol.steps > li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 1.6rem; align-items: start; counter-increment: step; }
+ol.steps .txt { display: grid; gap: 0.45rem; min-width: 0; }
+ol.steps .txt h3::before { content: counter(step); display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; margin-right: 0.55rem; background: var(--ink); color: var(--bg); font: 600 0.85rem/1 var(--mono); vertical-align: 0.1em; }
+ol.steps img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); }
+@media (max-width: 720px) { ol.steps > li { grid-template-columns: minmax(0, 1fr); } }
+
+pre { margin: 0; background: var(--term); color: var(--term-ink); padding: 1rem 1.1rem; overflow-x: auto; font: 400 0.86rem/1.6 var(--mono); }
+pre .cmd { color: var(--term-cmd); }
+.tablebox { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.98rem; }
+th, td { text-align: left; padding: 0.65rem 0.8rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; color: var(--muted); }
+td { font-variant-numeric: tabular-nums; }
+.fails { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.fails div { background: var(--tint); padding: 1rem 1.1rem; display: grid; gap: 0.3rem; align-content: start; min-width: 0; }
+.list { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.35rem; }
+.next { background: var(--box); color: var(--on-box); padding: 1.4rem 1.5rem; display: grid; gap: 0.3rem; }
+.next span { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--muted); }
+</style>
+
+<header class="mast gutter">
+  <div class="wrap">
+    <div class="brand"><span><i></i>Whitebox Academy</span><span>Build an AI Agent from Scratch</span></div>
+    <div class="intro">
+      <span class="meta">Chapter 03 of 34 · Part 0: Setup and Python primer · About 2 hours</span>
+      <h1>Classes, dataclasses and type hints</h1>
+      <p class="dek">Give your data structure and behavior, using the same shapes your agent framework will be built from.</p>
+    </div>
+  </div>
+</header>
+
+<main class="gutter">
+  <div class="wrap">
+    <section>
+      <figure>
+        <video controls playsinline preload="metadata" poster="media/02-class.jpg">
+          <source src="media/video.mp4" type="video/mp4">
+        </video>
+        <figcaption>Chapter video, 2 minutes 43 seconds, no sound. It starts with a 30-second recap, and captions on screen explain each step.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Where we are</span>
+        <h2>Dictionaries only go so far</h2>
+        <p class="lede">In chapter 02, you stored data in lists and dictionaries. A dictionary can’t stop you misspelling a key, and it can’t carry its own behavior. Classes solve both.</p>
+        <p>You’ll use these ideas throughout the framework. <code>Message</code> and <code>Conversation</code> hold an agent’s history, type hints describe its tools, and a shared base class lets you swap one model for another. Open <code>chapters/03-classes-type-hints/code/models.py</code> and follow along.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Walkthrough</span>
+        <h2>From a blueprint to a shared shape</h2>
+      </div>
+      <ol class="steps">
+        <li>
+          <div class="txt"><h3>Classes</h3><p>A class is a blueprint that groups data with the functions that use it. <code>__init__</code> sets up each new object, and <code>self</code> means “this object”. A value stored on the object is an attribute, and a function in the class is a method.</p></div>
+          <img src="media/02-class.jpg" alt="An Order class with its __init__ method highlighted" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Dataclasses</h3><p>A dataclass writes <code>__init__</code> for you, and gives you readable printing and <code>==</code> comparison. A list field needs <code>field(default_factory=list)</code>, so each object gets its own list.</p></div>
+          <img src="media/03-dataclass.jpg" alt="A Conversation dataclass with its messages field highlighted" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Inheritance</h3><p>A base class defines a shape, and each subclass fills in the details. Code that uses a <code>Tool</code> doesn’t care which one it gets. In chapter 13, this same idea makes your model replaceable.</p></div>
+          <img src="media/04-inheritance.jpg" alt="A Tool base class with an UpperTool subclass" loading="lazy" width="1440" height="900">
+        </li>
+      </ol>
+      <div class="col">
+        <h3>Type hints</h3>
+        <p>Type hints describe what a function takes and returns.</p>
+      </div>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th scope="col">Hint</th><th scope="col">Meaning</th></tr></thead>
+          <tbody>
+            <tr><td><code>text: str</code></td><td><code>text</code> should be a string</td></tr>
+            <tr><td><code>limit: int = 10</code></td><td><code>limit</code> should be a whole number, and defaults to 10</td></tr>
+            <tr><td><code>-&gt; str</code></td><td>The function returns a string</td></tr>
+            <tr><td><code>-&gt; None</code></td><td>The function returns nothing</td></tr>
+            <tr><td><code>Message | None</code></td><td>Either a <code>Message</code> or <code>None</code></td></tr>
+            <tr><td><code>list[Message]</code></td><td>A list of <code>Message</code> objects</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="col"><strong>Python doesn’t enforce type hints.</strong> They help people and tools read your code. Your program can also read them as data, and in chapter 14 you’ll use that to describe tools to a model automatically.</p>
+      <div class="col">
+        <h3>Run it</h3>
+        <p>From <code>chapters/03-classes-type-hints/code</code>, run this:</p>
+      </div>
+      <pre><span class="cmd">$ python3 models.py</span>
+Coffee 240
+Message(role='user', content='Hello')
+True
+None
+2 Hello!
+Whitebox A
+{'text': &lt;class 'str'&gt;, 'limit': &lt;class 'int'&gt;, 'return': &lt;class 'str'&gt;}
+upper AGENT
+reverse tnega</pre>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Reading errors</span>
+        <h2>Four errors you’ll meet</h2>
+        <p>These are real error messages:</p>
+      </div>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th scope="col">What you did</th><th scope="col">What Python says</th><th scope="col">The fix</th></tr></thead>
+          <tbody>
+            <tr><td>Forgot <code>self</code> in a method</td><td><code>TypeError: Order.total() takes 0 positional arguments but 1 was given</code></td><td>Add <code>self</code> as the first parameter</td></tr>
+            <tr><td>Left out a value</td><td><code>TypeError: Order.__init__() missing 1 required positional argument: 'price'</code></td><td>Pass the value in</td></tr>
+            <tr><td>Wrote <code>price = price</code></td><td><code>AttributeError: 'Order' object has no attribute 'price'</code></td><td>Use <code>self.price = price</code></td></tr>
+            <tr><td>Used <code>[]</code> as a dataclass default</td><td><code>ValueError: mutable default &lt;class 'list'&gt; for field messages is not allowed: use default_factory</code></td><td>Use <code>field(default_factory=list)</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Your turn</span>
+        <h2>Exercises</h2>
+        <p>Open <code>exercises.py</code> and complete the TODOs:</p>
+        <ol class="loop">
+          <li><code>Item</code>: write a class with <code>__init__</code> and a method.</li>
+          <li><code>ToolCall</code>: write a dataclass with a default.</li>
+          <li><code>Chat</code>: complete two methods.</li>
+          <li><code>AddTool</code>: write a subclass.</li>
+          <li><code>area</code>: add type hints.</li>
+        </ol>
+        <p>Then run <code>python3 exercises.py</code>. You’ve finished when you see <code>5/5 passed</code>.</p>
+      </div>
+      <div class="col">
+        <h3>Common mistakes</h3>
+        <ul class="list">
+          <li>Forgetting <code>self</code> in a method, or forgetting <code>self.</code> when you store a value.</li>
+          <li>Writing <code>Order</code> when you mean <code>Order()</code>. The brackets create the object.</li>
+          <li>Using <code>[]</code> as a default instead of <code>field(default_factory=list)</code>.</li>
+          <li>Expecting type hints to stop wrong values. They don’t.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Recap</span>
+        <h2>What you opened</h2>
+        <ul class="list">
+          <li>A class groups data with the functions that use it.</li>
+          <li>A dataclass writes the setup code for you.</li>
+          <li>Type hints describe your code, and your program can read them.</li>
+          <li>Inheritance lets different classes share one shape.</li>
+        </ul>
+        <p>To learn more, see the official guide to <a href="https://docs.python.org/3/tutorial/classes.html">classes</a>.</p>
+      </div>
+      <div class="next"><span>Next</span><h3>Chapter 04: Decorators, generators and context managers</h3></div>
+    </section>
+
+    <footer>
+      <p>Get the code at <a href="https://github.com/WhiteboxAcademy/BuildAnAgentFramework">github.com/WhiteboxAcademy/BuildAnAgentFramework</a>. Code is under the MIT License. Articles and videos are under CC BY 4.0.</p>
+    </footer>
+  </div>
+</main>

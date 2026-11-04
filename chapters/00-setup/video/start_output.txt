@@ -1,0 +1,8 @@
+$ ollama list
+Error: could not connect to ollama server, run 'ollama serve' to start it
+
+$ ollama serve   # in a separate terminal, or open the Ollama app
+
+$ ollama list
+NAME           ID              SIZE      MODIFIED          
+qwen2.5:7b     845dbda0ea48    4.7 GB    5 hours ago          

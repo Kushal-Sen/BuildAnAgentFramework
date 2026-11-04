@@ -1,0 +1,36 @@
+{"chapter":"Chapter 03","scenes":[
+{"type":"recap","title":"Previously: working with data","flow":["Lists and dictionaries","Files with Path","JSON as text","try and except"],"captions":[
+ {"text":"Recap of chapter 02: lists hold values in order, and dictionaries use keys.","secs":8,"focus":0},
+ {"text":"Path reads and writes files.","secs":6,"focus":1},
+ {"text":"JSON turns data into text and back.","secs":6,"focus":2},
+ {"text":"try and except handle expected errors. Next, we'll give data some structure.","secs":10,"focus":3}]},
+{"type":"box","label":"Classes","inner":["data","+ methods","+ type hints"],"captions":[
+ {"text":"Today's black box: how to organize data and behavior.","secs":4},
+ {"text":"Let's open it.","secs":4,"open":true,"shot":"01-box"}]},
+{"type":"code","file":"code/models.py","start":"# A class","end":"print(order.product","captions":[
+ {"text":"A class is a blueprint. It groups data with the functions that use it.","secs":7,"focus":null},
+ {"text":"__init__ runs when you create an object, and sets up its data.","secs":7,"focus":["def __init__","self.quantity"],"shot":"02-class"},
+ {"text":"self means this object. A method can use its data.","secs":7,"focus":["def total","return self.price"]},
+ {"text":"Create an object by calling the class, then use its data and methods.","secs":7,"focus":["order = Order","print(order.product"]}]},
+{"type":"code","file":"code/models.py","start":"# A dataclass with","end":"print(len(conversation","captions":[
+ {"text":"A dataclass writes __init__ for you. This one holds a whole conversation.","secs":7,"focus":["@dataclass","messages:"]},
+ {"text":"A list field needs default_factory, so each object gets its own list.","secs":7,"focus":["messages:","messages:"],"shot":"03-dataclass"},
+ {"text":"Type hints show what goes in and what comes out.","secs":7,"focus":["def add","self.messages.append"]},
+ {"text":"last returns a Message, or None if the list is empty.","secs":7,"focus":["def last","return self.messages"]}]},
+{"type":"code","file":"code/models.py","start":"# Inheritance","end":"return text.upper()","captions":[
+ {"text":"Inheritance lets classes share one shape. Tool is the base class.","secs":7,"focus":["class Tool","raise NotImplementedError"],"shot":"04-inheritance"},
+ {"text":"UpperTool is a subclass. It fills in the details.","secs":6,"focus":["class UpperTool","return text.upper()"]},
+ {"text":"Later, this same idea makes your AI model replaceable.","secs":6,"focus":null}]},
+{"type":"term","file":"video/run_output.txt","final":"reverse","captions":[
+ {"text":"Now run it. The class and dataclass results come first.","secs":6,"lines":6},
+ {"text":"Your program can read type hints as data. Chapter 14 uses this to describe tools.","secs":8,"lines":8,"shot":"05-run"},
+ {"text":"Both tools share one shape, so the same loop runs them.","secs":6,"lines":10}]},
+{"type":"term","file":"video/error_output.txt","final":"TypeError","captions":[
+ {"text":"This error usually means you forgot self in a method.","secs":7,"lines":6,"shot":"06-error"}]},
+{"type":"term","file":"video/exercise_output.txt","final":"5/5","captions":[
+ {"text":"Your turn. Open exercises.py and complete the TODOs.","secs":6,"lines":7},
+ {"text":"You've finished when you see 5/5 passed.","secs":6,"lines":15}]},
+{"type":"end","title":"You opened classes.","points":["Classes group data and behavior","Dataclasses write the setup for you","Type hints describe your code","Inheritance shares one shape"],"next":"Next: Chapter 04, decorators, generators and context managers","captions":[
+ {"text":"You can now model your data properly.","secs":5},
+ {"text":"Next, you'll learn three tools the framework depends on.","secs":6}]}
+]}

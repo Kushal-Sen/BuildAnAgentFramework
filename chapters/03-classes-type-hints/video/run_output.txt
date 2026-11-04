@@ -1,0 +1,10 @@
+$ python3 models.py
+Coffee 240
+Message(role='user', content='Hello')
+True
+None
+2 Hello!
+Whitebox A
+{'text': <class 'str'>, 'limit': <class 'int'>, 'return': <class 'str'>}
+upper AGENT
+reverse tnega

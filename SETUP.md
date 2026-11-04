@@ -10,7 +10,8 @@ On Windows, tick **Add python.exe to PATH** on the first install screen.
 ## 2. Install Ollama
 
 Ollama runs AI models on your own computer. Install it from
-[ollama.com/download](https://ollama.com/download), then download the course model
+[ollama.com/download](https://ollama.com/download), then
+[start it](chapters/00-setup/README.md#step-4-start-ollama). Next, download the course model
 (about 5 GB):
 
 ```bash

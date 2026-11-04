@@ -1,0 +1,5 @@
+$ python3 main.py
+240
+200 {'version': '0.34.4'}
+200 7.6B
+404 {'error': "model 'no-such-model:latest' not found"}

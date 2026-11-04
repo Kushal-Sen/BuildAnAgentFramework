@@ -99,7 +99,7 @@ footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--rule
         <video controls playsinline preload="metadata" poster="media/02-tools.jpg">
           <source src="media/video.mp4" type="video/mp4">
         </video>
-        <figcaption>Chapter video, 2 minutes 4 seconds, no sound. It starts with a 30-second course overview, and captions on screen explain each step.</figcaption>
+        <figcaption>Chapter video, 2 minutes 28 seconds, no sound. It starts with a 30-second course overview, and captions on screen explain each step.</figcaption>
       </figure>
     </section>
 
@@ -126,11 +126,13 @@ footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--rule
     <section>
       <div class="col">
         <span class="label">Walkthrough</span>
-        <h2>Four steps to a working setup</h2>
+        <h2>Six steps to a working setup</h2>
         <ol class="loop">
           <li><strong>Get the course.</strong> Open <a href="https://github.com/WhiteboxAcademy/BuildAnAgentFramework">the course on GitHub</a>, choose <strong>Code &gt; Download ZIP</strong>, and unzip it somewhere easy to find.</li>
           <li><strong>Install Python.</strong> Get Python 3.12 or newer from <a href="https://www.python.org/downloads/">python.org</a>. On Windows, tick <strong>Add python.exe to PATH</strong> on the first install screen, and use <code>python</code> instead of <code>python3</code> throughout this course.</li>
-          <li><strong>Install Ollama and the model.</strong> Install Ollama from <a href="https://ollama.com/download">ollama.com/download</a>, then run <code>ollama pull qwen2.5:7b</code> in a terminal.</li>
+          <li><strong>Install Ollama.</strong> Get it from <a href="https://ollama.com/download">ollama.com/download</a>.</li>
+          <li id="start-ollama"><strong>Start Ollama.</strong> Ollama is a small server that runs in the background, and it needs to be running whenever you use a model. Open the Ollama app and leave it running, or run <code>ollama serve</code> in a separate terminal and leave that terminal open. Then run <code>ollama list</code> to check. You’ll see a table of models, which may be empty. If you see <code>could not connect to ollama server</code>, it isn’t running. You may need to start it again after you restart your computer. On Linux, the installer usually starts it for you, so if <code>ollama serve</code> says the address is already in use, it’s already running.</li>
+          <li><strong>Download the model.</strong> Run <code>ollama pull qwen2.5:7b</code> in a terminal.</li>
           <li><strong>Run the setup check.</strong> In the terminal, go to <code>chapters/00-setup/code</code> and run <code>python3 check_setup.py</code>.</li>
         </ol>
       </div>

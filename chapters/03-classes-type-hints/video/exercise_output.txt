@@ -1,0 +1,15 @@
+$ python3 exercises.py
+FAIL  TODO 1: Item: TypeError: Item() takes no arguments
+FAIL  TODO 2: ToolCall: TypeError: ToolCall.__init__() takes 1 positional argument but 2 were given
+FAIL  TODO 3: Chat: AssertionError: add() should store each message
+FAIL  TODO 4: AddTool: AssertionError: name is "tool", expected "add"
+FAIL  TODO 5: area: AssertionError: area has hints {}
+0/5 passed
+
+$ python3 exercises.py   # after finishing the TODOs
+PASS  TODO 1: Item
+PASS  TODO 2: ToolCall
+PASS  TODO 3: Chat
+PASS  TODO 4: AddTool
+PASS  TODO 5: area
+5/5 passed

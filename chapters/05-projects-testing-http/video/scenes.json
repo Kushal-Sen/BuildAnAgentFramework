@@ -1,0 +1,38 @@
+{"chapter":"Chapter 05","scenes":[
+{"type":"recap","title":"Previously: Python's power tools","flow":["** unpacks a dictionary","Decorators add behavior","Generators yield values","Context managers clean up"],"captions":[
+ {"text":"Recap of chapter 04: two stars unpack a dictionary into named arguments.","secs":8,"focus":0},
+ {"text":"A decorator takes a function and adds behavior.","secs":7,"focus":1},
+ {"text":"A generator gives back one value at a time.","secs":7,"focus":2},
+ {"text":"A context manager guarantees cleanup, even after an error.","secs":8,"focus":3}]},
+{"type":"box","label":"Real projects","inner":["environments","+ tests","+ HTTP"],"captions":[
+ {"text":"Today's black box: how real projects are set up.","secs":4},
+ {"text":"Let's open it.","secs":4,"open":true,"shot":"01-box"}]},
+{"type":"term","file":"video/install_output.txt","final":"Successfully","captions":[
+ {"text":"A virtual environment is a private folder of packages for one project.","secs":7,"lines":1},
+ {"text":"Activate it each time you open a terminal. Your prompt then shows .venv.","secs":7,"lines":2},
+ {"text":"pip installs what's listed in requirements.txt.","secs":6,"lines":3},
+ {"text":"These two packages also brought along the packages they need.","secs":7,"lines":4,"shot":"02-install"}]},
+{"type":"code","file":"code/tests/test_prices.py","start":"import pytest","end":"order_total(120, -1)","captions":[
+ {"text":"A test is code that checks your code.","secs":6,"focus":null},
+ {"text":"pytest runs functions starting with test_. assert checks that something is true.","secs":8,"focus":["def test_order_total","assert order_total"],"shot":"03-test"},
+ {"text":"pytest.raises checks that an error really happens.","secs":6,"focus":["def test_negative","order_total(120, -1)"]}]},
+{"type":"term","file":"video/pytest_output.txt","final":"====","captions":[
+ {"text":"One command runs every test. Each dot is a test that passed.","secs":7,"lines":7}]},
+{"type":"term","file":"video/fail_output.txt","final":"FAILED","captions":[
+ {"text":"When a test fails, pytest shows what it got. Here, 122 instead of 240.","secs":8,"lines":18,"shot":"04-fail"},
+ {"text":"The function added the numbers when it should have multiplied them.","secs":7,"lines":18}]},
+{"type":"code","file":"code/main.py","start":"import requests","end":"no-such-model","captions":[
+ {"text":"HTTP is how programs talk over a network. Ollama is a small web server.","secs":7,"focus":["OLLAMA =","OLLAMA ="]},
+ {"text":"GET asks for data. A response has a status code and a body.","secs":7,"focus":["response = requests.get","print(response.status_code, response.json())"],"shot":"05-http"},
+ {"text":"POST sends data. json= turns your dictionary into JSON for you.","secs":7,"focus":["response = requests.post","response = requests.post"]},
+ {"text":"Always set a timeout, so a stuck server can't hang your program.","secs":7,"focus":null}]},
+{"type":"term","file":"video/run_output.txt","final":"404","captions":[
+ {"text":"Now run it. 200 means it worked.","secs":6,"lines":4},
+ {"text":"404 means not found. It's still a response, so always check the status code.","secs":8,"lines":5,"shot":"06-run"}]},
+{"type":"term","file":"video/exercise_output.txt","final":"5 passed","captions":[
+ {"text":"Your turn. Complete the TODOs, including writing your own test.","secs":6,"lines":9},
+ {"text":"You've finished when you see 5 passed. Then try the Part 0 checkpoint.","secs":7,"lines":13}]},
+{"type":"end","title":"You finished the Python primer.","points":["Environments keep projects separate","pytest checks your code","HTTP connects programs","Always check the status code"],"next":"Next: Chapter 06, how LLMs work","captions":[
+ {"text":"You now have the Python you need.","secs":5},
+ {"text":"Next, you'll open the biggest black box of all: the model.","secs":6}]}
+]}

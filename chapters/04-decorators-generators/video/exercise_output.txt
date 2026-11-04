@@ -1,0 +1,15 @@
+$ python3 exercises.py
+FAIL  TODO 1: double_result: five() returned 5, expected 10
+FAIL  TODO 2: register: the function isn't in REGISTRY
+FAIL  TODO 3: call_tool: returned None, expected 3
+FAIL  TODO 4: evens: use yield to make a generator
+FAIL  TODO 5: tracked: log is ['work']
+0/5 passed
+
+$ python3 exercises.py   # after finishing the TODOs
+PASS  TODO 1: double_result
+PASS  TODO 2: register
+PASS  TODO 3: call_tool
+PASS  TODO 4: evens
+PASS  TODO 5: tracked
+5/5 passed

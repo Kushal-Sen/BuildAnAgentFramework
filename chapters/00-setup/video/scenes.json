@@ -70,7 +70,7 @@
           "focus": 0
         },
         {
-          "text": "Second, Ollama, which runs AI models on your own computer for free.",
+          "text": "Second, Ollama, a small server that runs AI models on your own computer for free.",
           "secs": 6,
           "focus": 1,
           "shot": "02-tools"
@@ -87,6 +87,29 @@
         }
       ],
       "dark": false
+    },
+    {
+      "type": "term",
+      "file": "video/start_output.txt",
+      "final": "qwen2.5:7b",
+      "captions": [
+        {
+          "text": "Ollama must be running whenever you use a model. If it isn't, you'll see this error.",
+          "secs": 8,
+          "lines": 2,
+          "shot": "03-start"
+        },
+        {
+          "text": "Start it by opening the Ollama app, or by running ollama serve in a separate terminal.",
+          "secs": 8,
+          "lines": 4
+        },
+        {
+          "text": "Check it with ollama list. You may need to start it again after restarting your computer.",
+          "secs": 8,
+          "lines": 8
+        }
+      ]
     },
     {
       "type": "term",
@@ -112,7 +135,7 @@
           "text": "Finally, it asks the model two small questions, including one that needs a tool.",
           "secs": 7,
           "lines": 8,
-          "shot": "03-check"
+          "shot": "04-check"
         },
         {
           "text": "You're ready when the last line says 7/7 passed.",
@@ -130,7 +153,7 @@
           "text": "If a check fails, it tells you what to do. Here, Ollama isn't running.",
           "secs": 7,
           "lines": 9,
-          "shot": "04-fail"
+          "shot": "05-fail"
         },
         {
           "text": "Fix the first FAIL line, then run the check again.",

@@ -1,0 +1,18 @@
+$ python3 -m pytest
+============================= test session starts ==============================
+collected 1 item
+
+test_fail.py F                                                           [100%]
+
+=================================== FAILURES ===================================
+__________________________________ test_total __________________________________
+
+    def test_total():
+>       assert total(120, 2) == 240
+E       assert 122 == 240
+E        +  where 122 = total(120, 2)
+
+test_fail.py:6: AssertionError
+=========================== short test summary info ============================
+FAILED test_fail.py::test_total - assert 122 == 240
+============================== 1 failed ===============================

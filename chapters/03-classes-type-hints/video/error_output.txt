@@ -1,0 +1,6 @@
+$ python3 mistake.py
+Traceback (most recent call last):
+  File "mistake.py", line 5, in <module>
+    print(Order().total())
+          ~~~~~~~~~~~~~^^
+TypeError: Order.total() takes 0 positional arguments but 1 was given

@@ -1,0 +1,41 @@
+{"chapter":"Chapter 04","scenes":[
+{"type":"recap","title":"Previously: classes","flow":["Classes group data","Dataclasses save work","Type hints describe code","Inheritance shares a shape"],"captions":[
+ {"text":"Recap of chapter 03: a class groups data with the functions that use it.","secs":8,"focus":0},
+ {"text":"A dataclass writes the setup code for you.","secs":7,"focus":1},
+ {"text":"Type hints describe your code, and your program can read them.","secs":7,"focus":2},
+ {"text":"Inheritance lets different classes share one shape.","secs":8,"focus":3}]},
+{"type":"box","label":"Python's power tools","inner":["decorators","+ generators","+ context managers"],"captions":[
+ {"text":"Today's black box: three features your framework depends on.","secs":4},
+ {"text":"Let's open it.","secs":4,"open":true,"shot":"01-box"}]},
+{"type":"code","file":"code/power_tools.py","start":"# Flexible arguments","end":"print(add(**arguments","captions":[
+ {"text":"First, flexible arguments. *args and **kwargs collect whatever is passed in.","secs":7,"focus":["def show","show(1, 2"]},
+ {"text":"Two stars also unpack a dictionary into named arguments.","secs":7,"focus":["arguments =","print(add"],"shot":"02-args"},
+ {"text":"This is how an agent runs a tool. The model sends arguments as a dictionary.","secs":8,"focus":["print(add","print(add"]}]},
+{"type":"code","file":"code/power_tools.py","start":"# A decorator","end":"print(multiply.__name__","captions":[
+ {"text":"A decorator takes a function and returns a new one with extra behavior.","secs":7,"focus":["def log_calls","return wrapper"],"shot":"03-decorator"},
+ {"text":"The wrapper does something extra, then calls the original function.","secs":7,"focus":["def wrapper","return function"]},
+ {"text":"The @ sign applies it. Calling multiply now runs the wrapper first.","secs":7,"focus":["@log_calls","return a * b"]}]},
+{"type":"code","file":"code/power_tools.py","start":"# A decorator that","end":"print(TOOLS[","captions":[
+ {"text":"This decorator stores each function in a dictionary, then gives it back.","secs":7,"focus":["TOOLS = {}","return function"]},
+ {"text":"Adding @tool is all it takes. Your framework's tool system will work this way.","secs":8,"focus":["@tool","return text.upper()"],"shot":"04-tools"}]},
+{"type":"code","file":"code/power_tools.py","start":"# Generators","end":"print(list(words","captions":[
+ {"text":"A generator uses yield to give back one value at a time, then pauses.","secs":7,"focus":["def stream_words","yield word"],"shot":"05-generator"},
+ {"text":"next gets one value, and list collects the rest.","secs":6,"focus":["words =","print(list"]},
+ {"text":"Models stream their replies piece by piece, in just this way.","secs":6,"focus":null}]},
+{"type":"code","file":"code/power_tools.py","start":"# Context managers","end":"print(\"Caught","captions":[
+ {"text":"A context manager runs setup and cleanup around a block of code.","secs":7,"focus":["def step","print(f\"End"],"shot":"06-context"},
+ {"text":"The with block runs at yield. finally always runs, even after an error.","secs":8,"focus":["try:","print(f\"End"]},
+ {"text":"Here, the block raises an error, and the cleanup still happens.","secs":7,"focus":["try:","print(\"Caught"]}]},
+{"type":"term","file":"video/run_output.txt","final":"Caught","captions":[
+ {"text":"Now run it. Here are the flexible arguments and the decorator.","secs":6,"lines":6},
+ {"text":"The registry found the tools by name, and the generator paused between words.","secs":8,"lines":11,"shot":"07-run"},
+ {"text":"End risky work printed before the error was caught. Cleanup always runs.","secs":8,"lines":17}]},
+{"type":"term","file":"video/error_output.txt","final":"TypeError","captions":[
+ {"text":"This error means a decorator forgot to return its wrapper.","secs":7,"lines":10,"shot":"08-error"}]},
+{"type":"term","file":"video/exercise_output.txt","final":"5/5","captions":[
+ {"text":"Your turn. Open exercises.py and complete the five TODOs.","secs":6,"lines":7},
+ {"text":"You've finished when you see 5/5 passed.","secs":6,"lines":15}]},
+{"type":"end","title":"You opened Python's power tools.","points":["** unpacks a dictionary","Decorators add behavior","Generators yield one at a time","Context managers guarantee cleanup"],"next":"Next: Chapter 05, environments, packages, pytest and HTTP","captions":[
+ {"text":"Your framework will use all of these.","secs":5},
+ {"text":"Next, you'll set up real projects and make web requests.","secs":6}]}
+]}

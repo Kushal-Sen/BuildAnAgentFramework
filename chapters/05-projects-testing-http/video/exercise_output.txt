@@ -1,0 +1,13 @@
+$ python3 -m pytest test_exercises.py test_mine.py -q --tb=no
+FFFFF                                                                    [100%]
+=========================== short test summary info ============================
+FAILED test_exercises.py::test_todo_1_read_response - AssertionError: assert ...
+FAILED test_exercises.py::test_todo_2_fetch_version - AssertionError: assert ...
+FAILED test_exercises.py::test_todo_3_send_json - AssertionError: assert None...
+FAILED test_exercises.py::test_todo_4_checked_quantity - Failed: DID NOT RAIS...
+FAILED test_mine.py::test_upper - assert False
+5 failed
+
+$ python3 -m pytest test_exercises.py test_mine.py -q --tb=no   # after the TODOs
+.....                                                                    [100%]
+5 passed

@@ -25,7 +25,7 @@ The model remembers nothing between calls, so you resend the whole conversation 
 
 ## Run it
 
-Make sure Ollama is running, then from `chapters/12-agent-loop/code`:
+[Start Ollama](../00-setup/README.md#step-4-start-ollama), then from `chapters/12-agent-loop/code`:
 
 ```bash
 python3 agent.py "What was the total coffee revenue across all the days in the sales folder?"

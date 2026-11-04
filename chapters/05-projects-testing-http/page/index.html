@@ -1,0 +1,232 @@
+<title>Whitebox: Real Projects</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a black box header opens onto a white reading column; media breaks wider. */
+:root {
+  --bg: #fbfbf9; --surface: #ffffff; --ink: #16181d; --muted: #5d616b; --rule: #d9dade;
+  --accent: #2a4bd7; --tint: #e7ebfb; --box: #0c0d10; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #101218; --term-ink: #e4e6ec; --term-cmd: #9db1ff;
+  --display: "Bricolage Grotesque", Georgia, serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+    --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+    --term: #08090c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+  --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #08090c; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 400 1.0625rem/1.65 var(--body); }
+.gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 68rem; margin: 0 auto; min-width: 0; }
+.col { max-width: 42rem; display: grid; gap: 1rem; min-width: 0; }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2.6rem, 7vw, 4.4rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; }
+h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); line-height: 1.15; font-weight: 700; }
+h3 { font-size: 1.2rem; line-height: 1.3; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--accent); }
+a:focus-visible, video:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+code { font-family: var(--mono); font-size: 0.92em; }
+
+header.mast { background: var(--box); color: var(--on-box); padding-block: 1.6rem 3rem; }
+.mast .wrap { display: grid; gap: 2.4rem; }
+.brand { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font: 500 1rem var(--display); }
+.brand span:first-child { display: flex; align-items: center; gap: 0.55rem; }
+.brand i { width: 0.95rem; height: 0.95rem; border: 3px solid currentColor; display: block; }
+.brand span:last-child { font: 400 0.85rem var(--mono); color: var(--box-muted); align-self: center; }
+.mast .intro { display: grid; gap: 1rem; max-width: 46rem; }
+.mast .dek { font-size: 1.2rem; color: var(--box-muted); }
+.meta { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+
+main { padding-block: 0 4rem; }
+section { padding-block: 3.2rem 0; display: grid; gap: 1.4rem; }
+.label { font: 600 0.78rem/1.2 var(--mono); color: var(--accent); }
+.lede { font-size: 1.15rem; }
+
+figure { margin: 0; display: grid; gap: 0.5rem; min-width: 0; }
+figcaption { font-size: 0.86rem; color: var(--muted); }
+video { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 1440 / 900; background: #000; }
+
+ol.loop { margin: 0; padding-left: 1.3rem; display: grid; gap: 0.35rem; }
+ol.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 2.4rem; counter-reset: step; }
+ol.steps > li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 1.6rem; align-items: start; counter-increment: step; }
+ol.steps .txt { display: grid; gap: 0.45rem; min-width: 0; }
+ol.steps .txt h3::before { content: counter(step); display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; margin-right: 0.55rem; background: var(--ink); color: var(--bg); font: 600 0.85rem/1 var(--mono); vertical-align: 0.1em; }
+ol.steps img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); }
+@media (max-width: 720px) { ol.steps > li { grid-template-columns: minmax(0, 1fr); } }
+
+pre { margin: 0; background: var(--term); color: var(--term-ink); padding: 1rem 1.1rem; overflow-x: auto; font: 400 0.86rem/1.6 var(--mono); }
+pre .cmd { color: var(--term-cmd); }
+.tablebox { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.98rem; }
+th, td { text-align: left; padding: 0.65rem 0.8rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; color: var(--muted); }
+td { font-variant-numeric: tabular-nums; }
+.fails { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.fails div { background: var(--tint); padding: 1rem 1.1rem; display: grid; gap: 0.3rem; align-content: start; min-width: 0; }
+.list { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.35rem; }
+.next { background: var(--box); color: var(--on-box); padding: 1.4rem 1.5rem; display: grid; gap: 0.3rem; }
+.next span { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--muted); }
+</style>
+
+<header class="mast gutter">
+  <div class="wrap">
+    <div class="brand"><span><i></i>Whitebox Academy</span><span>Build an AI Agent from Scratch</span></div>
+    <div class="intro">
+      <span class="meta">Chapter 05 of 34 · Part 0: Setup and Python primer · About 1.5 hours</span>
+      <h1>Virtual environments, packages, pytest and HTTP</h1>
+      <p class="dek">Set up a real project, test it with one command, and talk to a web service.</p>
+    </div>
+  </div>
+</header>
+
+<main class="gutter">
+  <div class="wrap">
+    <section>
+      <figure>
+        <video controls playsinline preload="metadata" poster="media/05-http.jpg">
+          <source src="media/video.mp4" type="video/mp4">
+        </video>
+        <figcaption>Chapter video, 2 minutes 53 seconds, no sound. It starts with a 30-second recap, and captions on screen explain each step.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Where we are</span>
+        <h2>From single files to real projects</h2>
+        <p class="lede">So far, each program has been a single file using only what comes with Python. Real projects use other people’s code, have automated tests, and talk to other services. Your agent will do all three.</p>
+        <p><a href="https://claude.ai/artifact/1uGgX3WK7v3D5HyfvB782p#start-ollama">Start Ollama</a> before you begin.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Walkthrough</span>
+        <h2>Set up, test, connect</h2>
+      </div>
+      <ol class="steps">
+        <li>
+          <div class="txt"><h3>Create an environment</h3><p>A package is code someone else wrote. A virtual environment is a private folder of packages for one project. Create it once with <code>python3 -m venv .venv</code>, then activate it each time you open a terminal. pip installs what’s listed in <code>requirements.txt</code>.</p></div>
+          <img src="media/02-install.jpg" alt="Terminal showing a virtual environment being created and packages installed" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Write a test</h3><p>A test is code that checks your code. pytest runs every function starting with <code>test_</code>. <code>assert</code> checks that something is true, and <code>pytest.raises</code> checks that an error really happens.</p></div>
+          <img src="media/03-test.jpg" alt="A pytest file with an assert highlighted" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Read a failure</h3><p>When a test fails, pytest shows what it got. Here it got 122 when it expected 240, because the function added the numbers when it should have multiplied them.</p></div>
+          <img src="media/04-fail.jpg" alt="pytest output showing that 122 does not equal 240" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Talk over HTTP</h3><p>HTTP is how programs talk over a network. <code>GET</code> asks for data, and <code>POST</code> sends it. Ollama runs a small web server on your computer, and every model call in this course uses HTTP. Always set a <code>timeout</code>.</p></div>
+          <img src="media/05-http.jpg" alt="Python code calling the Ollama server with the requests package" loading="lazy" width="1440" height="900">
+        </li>
+      </ol>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th scope="col">Status code</th><th scope="col">Meaning</th></tr></thead>
+          <tbody>
+            <tr><td>200</td><td>It worked</td></tr>
+            <tr><td>404</td><td>It wasn’t found</td></tr>
+            <tr><td>429</td><td>Too many requests</td></tr>
+            <tr><td>500</td><td>The server had a problem</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col">
+        <h3>Run it</h3>
+        <p>From <code>chapters/05-projects-testing-http/code</code>, run this. The last line is a real failure, and no Python error was raised. A 404 is still a response, so always check the status code.</p>
+      </div>
+      <pre><span class="cmd">$ python3 main.py</span>
+240
+200 {'version': '0.34.4'}
+200 7.6B
+404 {'error': "model 'no-such-model:latest' not found"}</pre>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Reading errors</span>
+        <h2>Five errors you’ll meet</h2>
+        <p>These are real error messages:</p>
+      </div>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th scope="col">What happened</th><th scope="col">What Python says</th><th scope="col">The fix</th></tr></thead>
+          <tbody>
+            <tr><td>The environment isn’t active</td><td><code>ModuleNotFoundError: No module named 'requests'</code></td><td>Activate <code>.venv</code>, then install</td></tr>
+            <tr><td>pytest isn’t installed</td><td><code>No module named pytest</code></td><td>Activate <code>.venv</code>, then install</td></tr>
+            <tr><td>You’re in the wrong folder</td><td><code>ModuleNotFoundError: No module named 'shop'</code></td><td>Run it from the <code>code</code> folder</td></tr>
+            <tr><td>The server isn’t running</td><td><code>requests.exceptions.ConnectionError: HTTPConnectionPool(...)</code></td><td><a href="https://claude.ai/artifact/1uGgX3WK7v3D5HyfvB782p#start-ollama">Start Ollama</a></td></tr>
+            <tr><td>The reply isn’t JSON</td><td><code>requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)</code></td><td>Check the status code and URL</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Your turn</span>
+        <h2>Exercises</h2>
+        <p>From now on, you’ll check your work with pytest. Open <code>exercises.py</code> and complete TODOs 1 to 4, then complete TODO 5 in <code>test_mine.py</code>:</p>
+        <ol class="loop">
+          <li><code>read_response</code>: handle a status code.</li>
+          <li><code>fetch_version</code>: make a GET request.</li>
+          <li><code>send_json</code>: make a POST request.</li>
+          <li><code>checked_quantity</code>: raise an error.</li>
+          <li><code>test_upper</code>: write your own test.</li>
+        </ol>
+        <p>Your functions receive <code>get</code> and <code>post</code> as parameters, so the tests can use fake versions and run without a network. You’ll use the same trick with a fake model in chapter 13.</p>
+      </div>
+      <pre><span class="cmd">$ python3 -m pytest test_exercises.py test_mine.py</span></pre>
+      <p class="col">You’ve finished when you see <code>5 passed</code>.</p>
+      <div class="col">
+        <h3>Common mistakes</h3>
+        <ul class="list">
+          <li>Forgetting to activate <code>.venv</code> in a new terminal.</li>
+          <li>Sharing or committing <code>.venv</code>. Share <code>requirements.txt</code> instead.</li>
+          <li>Leaving out <code>timeout</code>.</li>
+          <li>Assuming a response means success. Check the status code.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="fails">
+        <div><h3>Part 0 checkpoint</h3><p>You’ve finished the Python primer. Before moving on, complete the small order tracker in <code>checkpoints/part-0</code>. It uses everything from chapters 01 to 05 and takes about 45 minutes. Run <code>python3 -m pytest test_checkpoint.py</code> until you see <code>5 passed</code>.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Recap</span>
+        <h2>What you opened</h2>
+        <ul class="list">
+          <li>A virtual environment keeps each project’s packages separate.</li>
+          <li><code>requirements.txt</code> lists what a project needs.</li>
+          <li>pytest runs your tests with one command.</li>
+          <li>HTTP requests have a URL and a method, and responses have a status code.</li>
+        </ul>
+        <p>To learn more, see the <a href="https://docs.pytest.org/">pytest documentation</a> and the <a href="https://requests.readthedocs.io/">Requests documentation</a>.</p>
+      </div>
+      <div class="next"><span>Next</span><h3>Chapter 06: How LLMs work</h3></div>
+    </section>
+
+    <footer>
+      <p>Get the code at <a href="https://github.com/WhiteboxAcademy/BuildAnAgentFramework">github.com/WhiteboxAcademy/BuildAnAgentFramework</a>. Code is under the MIT License. Articles and videos are under CC BY 4.0.</p>
+    </footer>
+  </div>
+</main>
