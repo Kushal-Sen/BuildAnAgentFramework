@@ -1,0 +1,6 @@
+$ python3 lazy.py
+Model calls after stream(): 0
+First event: tool_call
+Model calls after one event: 1
+The rest: ['tool_result', 'text', 'done']
+Model calls at the end: 2

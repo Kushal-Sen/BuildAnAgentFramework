@@ -1,0 +1,489 @@
+{
+ "chapter": "Chapter 16",
+ "scenes": [
+  {
+   "type": "recap",
+   "title": "Previously: the runtime",
+   "flow": [
+    "An Agent you set up once",
+    "stream() yields events",
+    "run() returns a Result",
+    "history keeps a chat going"
+   ],
+   "captions": [
+    {
+     "text": "Recap of chapter 15: you wrapped the loop in an Agent class.",
+     "secs": 7,
+     "focus": 0
+    },
+    {
+     "text": "stream() yields an Event for each thing that happens.",
+     "secs": 8,
+     "focus": 1
+    },
+    {
+     "text": "run() goes to the end and returns a Result.",
+     "secs": 7,
+     "focus": 2
+    },
+    {
+     "text": "And history lets one conversation carry on. That's the runtime.",
+     "secs": 8,
+     "focus": 3
+    }
+   ]
+  },
+  {
+   "type": "box",
+   "label": "Tracing and hooks",
+   "inner": [
+    "moments",
+    "+ hooks",
+    "+ traces"
+   ],
+   "captions": [
+    {
+     "text": "Today's black box: what happens inside a run.",
+     "secs": 4
+    },
+    {
+     "text": "Let's open it.",
+     "secs": 4,
+     "open": true,
+     "shot": "01-box"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/blind.py",
+   "start": "agent = Agent",
+   "end": "print(\"Steps:\"",
+   "output": "video/run_blind.txt",
+   "captions": [
+    {
+     "text": "A new question: which day had the most coffee revenue? We print the answer and the step count.",
+     "secs": 9,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Predict: there are three files. How many steps will it take?",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Tuesday is right. It took seven steps, though. Why seven?",
+     "secs": 8,
+     "focus": null,
+     "lines": 12,
+     "shot": "02-blind"
+    },
+    {
+     "text": "We can't tell. The run is a black box.",
+     "secs": 6,
+     "focus": null,
+     "lines": 12
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/whitebox/hooks.py",
+   "start": "class Hook:",
+   "end": "def on_finish",
+   "captions": [
+    {
+     "text": "A hook is an object the agent calls at set moments during a run.",
+     "secs": 7,
+     "focus": null
+    },
+    {
+     "text": "Before and after each model call.",
+     "secs": 5,
+     "focus": [
+      "def before_model",
+      "def after_model"
+     ]
+    },
+    {
+     "text": "Before and after each tool call.",
+     "secs": 5,
+     "focus": [
+      "def before_tool",
+      "def after_tool"
+     ]
+    },
+    {
+     "text": "And once at the end. Every moment does nothing, until you override it.",
+     "secs": 7,
+     "focus": [
+      "def on_finish",
+      "def on_finish"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/whitebox/hooks.py",
+   "start": "class Printer",
+   "end": "-> {output!r}",
+   "captions": [
+    {
+     "text": "Printer overrides two moments, and prints each tool call and its result.",
+     "secs": 8,
+     "focus": null
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/watched.py",
+   "start": "agent = Agent",
+   "end": "print(\"Steps:\"",
+   "output": "video/run_watched.txt",
+   "captions": [
+    {
+     "text": "The same run, with one change: hooks=[Printer()]. The loop's code stays as it was.",
+     "secs": 8,
+     "focus": [
+      "agent = Agent",
+      "agent = Agent"
+     ],
+     "lines": 0
+    },
+    {
+     "text": "Its first move was to guess a file name. That file doesn't exist.",
+     "secs": 8,
+     "focus": null,
+     "lines": 2
+    },
+    {
+     "text": "Then it recovered: it listed the folder, and read all three files.",
+     "secs": 7,
+     "focus": null,
+     "lines": 10
+    },
+    {
+     "text": "Last, it added the numbers. Nobody asked for a total.",
+     "secs": 7,
+     "focus": null,
+     "lines": 12,
+     "shot": "03-watched"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/whitebox/agent.py",
+   "start": "def notify",
+   "end": "return output",
+   "captions": [
+    {
+     "text": "How does the agent reach the hooks? Through one method: notify.",
+     "secs": 7,
+     "focus": [
+      "def notify",
+      "return next"
+     ]
+    },
+    {
+     "text": "It calls that moment on every hook, then returns the first answer that isn't None.",
+     "secs": 9,
+     "focus": [
+      "answers =",
+      "return next"
+     ]
+    },
+    {
+     "text": "So before_tool can answer. If it returns text, that text replaces the tool's result.",
+     "secs": 9,
+     "focus": [
+      "output = self.notify",
+      "output = self.notify"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/whitebox/hooks.py",
+   "start": "class Approval",
+   "end": "refused the call",
+   "captions": [
+    {
+     "text": "That means a hook can change a run, not just watch it.",
+     "secs": 6,
+     "focus": null
+    },
+    {
+     "text": "Approval asks a person before running the tools you name.",
+     "secs": 7,
+     "focus": [
+      "def before_tool",
+      "if self.ask"
+     ]
+    },
+    {
+     "text": "If the answer isn't y, the tool never runs. The model reads this refusal instead.",
+     "secs": 8,
+     "focus": [
+      "return f\"Error",
+      "return f\"Error"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/approve.py",
+   "start": "hooks = [",
+   "end": "print(\"Note saved",
+   "output": "video/run_approve.txt",
+   "captions": [
+    {
+     "text": "Here, the agent must read Monday's sales, then save a note. Saving needs your approval.",
+     "secs": 8,
+     "focus": [
+      "hooks = [",
+      "hooks = ["
+     ],
+     "lines": 0
+    },
+    {
+     "text": "Predict: what number will it try to save?",
+     "secs": 5,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "It asked for both tools in one reply, before it had seen the file.",
+     "secs": 8,
+     "focus": null,
+     "lines": 4
+    },
+    {
+     "text": "So $543.21 is made up. Monday's coffee was 120. We type n.",
+     "secs": 7,
+     "focus": null,
+     "lines": 4,
+     "shot": "04-approve"
+    },
+    {
+     "text": "The note was never saved, and the model says the save failed.",
+     "secs": 7,
+     "focus": null,
+     "lines": 7
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/whitebox/hooks.py",
+   "start": "def write(self",
+   "end": "self.write(\"finish\"",
+   "captions": [
+    {
+     "text": "Printer's output is gone when the run ends. Tracer keeps a record in a file.",
+     "secs": 8,
+     "focus": null
+    },
+    {
+     "text": "It writes one line of JSON for each moment, so a trace is easy to read back.",
+     "secs": 8,
+     "focus": [
+      "def write",
+      "file.write"
+     ]
+    },
+    {
+     "text": "It records how long each call took, and everything the model replied.",
+     "secs": 7,
+     "focus": [
+      "def after_model",
+      "self.write(\"model\""
+     ]
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/demo.py",
+   "start": "agent = Agent",
+   "end": "show_trace(",
+   "output": "video/run_demo.txt",
+   "captions": [
+    {
+     "text": "demo.py traces the coffee total. show_trace prints the file for a person to read.",
+     "secs": 8,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Predict: as the run goes on, will each model call read more tokens, or fewer?",
+     "secs": 7,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "More. 272 tokens at the start, and 561 at the end. Timings on your machine will differ.",
+     "secs": 9,
+     "focus": null,
+     "lines": 12,
+     "shot": "05-trace"
+    },
+    {
+     "text": "That's chapter 12's lesson as a number: each call resends the whole conversation.",
+     "secs": 8,
+     "focus": null,
+     "lines": 12
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/traced.py",
+   "start": "agent = Agent",
+   "end": "show_trace(",
+   "output": "video/run_traced.txt",
+   "captions": [
+    {
+     "text": "Now trace our Tuesday question.",
+     "secs": 4,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "4,289 tokens. The coffee total took 2,634, and this needs the same three files.",
+     "secs": 8,
+     "focus": null,
+     "lines": 14,
+     "shot": "06-mystery"
+    },
+    {
+     "text": "The first line tells us why it wandered: nothing says where the files are.",
+     "secs": 8,
+     "focus": null,
+     "lines": 2
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/improved.py",
+   "start": "QUESTION =",
+   "end": "BETTER =",
+   "output": "video/run_improved.txt",
+   "captions": [
+    {
+     "text": "So add one sentence to the system prompt: Files are in the sales folder.",
+     "secs": 7,
+     "focus": [
+      "BETTER =",
+      "BETTER ="
+     ],
+     "lines": 0
+    },
+    {
+     "text": "Predict: will it answer in fewer steps?",
+     "secs": 5,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "No guessing now. But it makes every call twice, and runs out of steps.",
+     "secs": 8,
+     "focus": null,
+     "lines": 17,
+     "shot": "07-improved"
+    },
+    {
+     "text": "We ran this four times, and got the same calls each time. Did the fix fail?",
+     "secs": 8,
+     "focus": null,
+     "lines": 17
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/five_runs.py",
+   "start": "PROMPTS = {",
+   "end": "}",
+   "output": "video/run_five.txt",
+   "captions": [
+    {
+     "text": "That was temperature 0. This provided tool runs both prompts five times at temperature 0.7.",
+     "secs": 9,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Here, the better prompt named Tuesday in 5 of 5 runs. The original managed 2.",
+     "secs": 8,
+     "focus": null,
+     "lines": 14,
+     "shot": "08-five"
+    },
+    {
+     "text": "Across three batches, that's 15 of 15 against 5 of 15.",
+     "secs": 7,
+     "focus": null,
+     "lines": 14
+    },
+    {
+     "text": "A trace shows why one run went wrong. It can't tell you how often.",
+     "secs": 8,
+     "focus": null,
+     "lines": 14
+    }
+   ]
+  },
+  {
+   "type": "term",
+   "file": "video/exercise_output.txt",
+   "final": "5 passed",
+   "captions": [
+    {
+     "text": "Your turn. Open exercises.py, and write four hooks and a trace reader.",
+     "secs": 7,
+     "lines": 9
+    },
+    {
+     "text": "The checks use a fake model, so Ollama doesn't need to be running.",
+     "secs": 6,
+     "lines": 9
+    },
+    {
+     "text": "You've finished when you see 5 passed.",
+     "secs": 5,
+     "lines": 13,
+     "shot": "09-exercises"
+    }
+   ]
+  },
+  {
+   "type": "end",
+   "title": "You opened the run.",
+   "points": [
+    "Hooks watch a run from outside the loop",
+    "A hook can block a tool",
+    "A trace keeps the record",
+    "A trace shows why, not how often"
+   ],
+   "next": "Next: Chapter 17, reliability",
+   "captions": [
+    {
+     "text": "Now you can see inside every run, and step in.",
+     "secs": 6
+    },
+    {
+     "text": "Next, you'll handle what goes wrong.",
+     "secs": 5
+    }
+   ]
+  }
+ ]
+}

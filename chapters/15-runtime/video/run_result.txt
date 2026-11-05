@@ -1,0 +1,5 @@
+$ python3 result.py
+Answer:  The coffee revenue on Monday was $120.
+Steps:   2
+Stopped: False
+Messages: ['system', 'user', 'assistant', 'tool', 'assistant']

@@ -1,0 +1,10 @@
+Now, let's extract the coffee revenue from each file and add them up.
+
+Monday's coffee revenue: 120
+Tuesday's coffee revenue: 150
+Wednesday's coffee revenue: 110
+
+Let's add these numbers to find the total coffee revenue.
+[tool] add_numbers({'numbers': [120, 150, 110]})
+    -> '380'
+The total coffee revenue across all the days in the sales folder is 380.

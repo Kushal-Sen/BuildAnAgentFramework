@@ -1,0 +1,4 @@
+$ python3 memory.py
+First:   The coffee revenue on Monday was $120.
+Without: I'm not sure what specific information you're asking about on Tuesday. Could you please provide more context or specify what kind of data or information you're interested in regarding Tuesday?
+With:    The coffee revenue on Tuesday was $150.

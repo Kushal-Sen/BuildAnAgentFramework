@@ -1,0 +1,317 @@
+<title>Whitebox: Pluggable Model Layer</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a black box header opens onto a white reading column; media breaks wider. */
+:root {
+  --bg: #fbfbf9; --surface: #ffffff; --ink: #16181d; --muted: #5d616b; --rule: #d9dade;
+  --accent: #2a4bd7; --tint: #e7ebfb; --box: #0c0d10; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #101218; --term-ink: #e4e6ec; --term-cmd: #9db1ff;
+  --display: "Bricolage Grotesque", Georgia, serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+    --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+    --term: #08090c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+  --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #08090c; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 400 1.0625rem/1.65 var(--body); }
+.gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 68rem; margin: 0 auto; min-width: 0; }
+.col { max-width: 42rem; display: grid; gap: 1rem; min-width: 0; }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2.6rem, 7vw, 4.4rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; }
+h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); line-height: 1.15; font-weight: 700; }
+h3 { font-size: 1.2rem; line-height: 1.3; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--accent); }
+a:focus-visible, video:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+code { font-family: var(--mono); font-size: 0.92em; }
+
+header.mast { background: var(--box); color: var(--on-box); padding-block: 1.6rem 3rem; }
+.mast .wrap { display: grid; gap: 2.4rem; }
+.brand { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font: 500 1rem var(--display); }
+.brand span:first-child { display: flex; align-items: center; gap: 0.55rem; }
+.brand i { width: 0.95rem; height: 0.95rem; border: 3px solid currentColor; display: block; }
+.brand span:last-child { font: 400 0.85rem var(--mono); color: var(--box-muted); align-self: center; }
+.mast .intro { display: grid; gap: 1rem; max-width: 46rem; }
+.mast .dek { font-size: 1.2rem; color: var(--box-muted); }
+.meta { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+
+main { padding-block: 0 4rem; }
+section { padding-block: 3.2rem 0; display: grid; gap: 1.4rem; }
+.label { font: 600 0.78rem/1.2 var(--mono); color: var(--accent); }
+.lede { font-size: 1.15rem; }
+
+figure { margin: 0; display: grid; gap: 0.5rem; min-width: 0; }
+figcaption { font-size: 0.86rem; color: var(--muted); }
+video { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 1440 / 900; background: #000; }
+
+ol.loop { margin: 0; padding-left: 1.3rem; display: grid; gap: 0.35rem; }
+ol.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 2.4rem; counter-reset: step; }
+ol.steps > li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 1.6rem; align-items: start; counter-increment: step; }
+ol.steps .txt { display: grid; gap: 0.45rem; min-width: 0; }
+ol.steps .txt h3::before { content: counter(step); display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; margin-right: 0.55rem; background: var(--ink); color: var(--bg); font: 600 0.85rem/1 var(--mono); vertical-align: 0.1em; }
+ol.steps img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); }
+@media (max-width: 720px) { ol.steps > li { grid-template-columns: minmax(0, 1fr); } }
+
+pre { margin: 0; background: var(--term); color: var(--term-ink); padding: 1rem 1.1rem; overflow-x: auto; font: 400 0.86rem/1.6 var(--mono); }
+pre .cmd { color: var(--term-cmd); }
+.tablebox { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.98rem; }
+th, td { text-align: left; padding: 0.65rem 0.8rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; color: var(--muted); }
+td { font-variant-numeric: tabular-nums; }
+.fails { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.fails div { background: var(--tint); padding: 1rem 1.1rem; display: grid; gap: 0.3rem; align-content: start; min-width: 0; }
+.list { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.35rem; }
+.next { background: var(--box); color: var(--on-box); padding: 1.4rem 1.5rem; display: grid; gap: 0.3rem; }
+.next span { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--muted); }
+</style>
+
+<header class="mast gutter">
+  <div class="wrap">
+    <div class="brand"><span><i></i>Whitebox Academy</span><span>Build an AI Agent from Scratch</span></div>
+    <div class="intro">
+      <span class="meta">Chapter 13 of 34 · Part 3: From script to framework · About 2.5 hours</span>
+      <h1>Pluggable model layer</h1>
+      <p class="dek">Your agent only works with Ollama. Find out why, then make the model a part you can swap.</p>
+    </div>
+  </div>
+</header>
+
+<main class="gutter">
+  <div class="wrap">
+    <section>
+      <figure>
+        <video controls playsinline preload="metadata" poster="media/05-translate.jpg">
+          <source src="media/video.mp4" type="video/mp4">
+        </video>
+        <figcaption>Chapter video, 6 minutes 12 seconds, no sound. It starts with a 30-second recap, and captions on screen explain each step.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Where we are</span>
+        <h2>A working agent, with a hidden problem</h2>
+        <p class="lede">Chapter 12 gave you a working agent. But every part of it assumes the model is served by Ollama. This chapter finds that problem and fixes it, and the fix is the first piece of a framework.</p>
+        <p><a href="https://claude.ai/artifact/1uGgX3WK7v3D5HyfvB782p#start-ollama">Start Ollama</a>, and activate the <code>.venv</code> you made in chapter 05. You’ll work in <code>chapters/13-pluggable-model-layer/code</code>. From now on, <code>code/</code> holds a package called <code>whitebox</code>, and each chapter in Part 3 adds to it.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Try it</span>
+        <h2>Try another provider</h2>
+        <p>A <strong>provider</strong> is whoever serves the model. Providers do the same job, but each has its own format for messages and tool requests. <code>welded.py</code> is provided. Its <code>run_agent</code> and <code>run_tool</code> are chapter 12’s, unchanged. The new part stands in for a provider we made up, called Boxy:</p>
+      </div>
+      <pre>def boxy_chat(messages):
+    """Boxy is a provider we made up. It has its own way of asking for a tool."""
+    return {
+        "role": "assistant",
+        "content": "",
+        "calls": [{"tool": "list_files", "input": {"folder": "sales"}}],
+    }</pre>
+      <p class="col"><strong>Predict:</strong> this tool request goes to chapter 12’s loop. Will the tool run, will Python crash, or will something else happen?</p>
+      <pre><span class="cmd">$ python3 welded.py</span>
+Answer: ''</pre>
+      <div class="col">
+        <p>Nothing crashed, and that’s the bad news. The loop looked for <code>tool_calls</code>, found none, and decided this was the final answer. The agent finished with an empty answer, and no error to tell you why.</p>
+        <p>Seven lines in <code>run_tool</code> and <code>run_agent</code> read or write Ollama’s format. To support Boxy, you’d change all seven, and then the agent would stop working with Ollama. The loop and the provider are welded together.</p>
+        <p>So we’ll split the code in two. Your framework uses its own format everywhere, and one small class per provider translates between your format and theirs.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Build it</span>
+        <h2>The pieces, one at a time</h2>
+      </div>
+      <ol class="steps">
+        <li>
+          <div class="txt"><h3>Your own format</h3><p><code>Message</code> and <code>ToolCall</code> are dataclasses from chapter 03. Nothing in them mentions a provider.</p></div>
+          <img src="media/04-message.jpg" alt="The Message and ToolCall dataclasses" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Translate at the edge</h3><p><code>OllamaModel</code> subclasses the <code>Model</code> base class. <code>to_ollama</code> and <code>from_ollama</code> keep Ollama’s format inside this one class.</p></div>
+          <img src="media/05-translate.jpg" alt="The to_ollama and from_ollama methods" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Check the translation</h3><p><code>peek.py</code> is provided. It sends a tool request there and back, without calling the model.</p></div>
+          <img src="media/06-peek.jpg" alt="One tool request in both formats, and True when translated back" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Unweld the loop</h3><p>The model is now an argument, and the loop only reads your format. The word Ollama doesn’t appear in this file.</p></div>
+          <img src="media/07-loop.jpg" alt="The run_agent function calling model.chat" loading="lazy" width="1440" height="900">
+        </li>
+      </ol>
+      <div class="col">
+        <p>The base class is chapter 03’s <code>Tool</code> idea again. A model takes a list of <code>Message</code>s and returns a <code>Message</code>, and anything that does this can drive the agent:</p>
+      </div>
+      <pre>class Model:
+    """The shape that every model shares."""
+
+    def chat(self, messages, tools=None, **options):
+        raise NotImplementedError</pre>
+      <div class="col">
+        <p>Inside a package, a dot means “this same package”, so <code>from .messages import Message</code> imports from <code>whitebox/messages.py</code>. <code>data.get("tool_calls") or []</code> gives an empty list whether the key is missing or holds nothing.</p>
+        <p>One piece of Ollama’s format is left: the <code>SCHEMAS</code> in <code>sales_tools.py</code>. Chapter 14 fixes that.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Experiment</span>
+        <h2>Did the behavior change?</h2>
+        <p>You’ve changed a lot of code that worked. <strong>Predict:</strong> at temperature 0, will the new agent’s output match chapter 12’s?</p>
+      </div>
+      <pre><span class="cmd">$ python3 demo.py</span>
+[step 1] list_files({'folder': 'sales'}) -&gt; 'monday.txt\ntuesday.txt\nwednesday.txt'
+[step 2] read_file({'path': 'sales/monday.txt'}) -&gt; 'Coffee: 120\nTea: 80\n'
+[step 3] read_file({'path': 'sales/tuesday.txt'}) -&gt; 'Coffee: 150\nTea: 95\n'
+[step 4] read_file({'path': 'sales/wednesday.txt'}) -&gt; 'Coffee: 110\nTea: 70\n'
+[step 5] add_numbers({'numbers': [120, 150, 110]}) -&gt; '380.0'
+The total coffee revenue across all the days in the sales folder is $380.</pre>
+      <p class="col">It matches chapter 12’s output line for line. We ran it 5 times, and all 5 matched. The model sees the same conversation as before, because the translation puts it back into Ollama’s format.</p>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Experiment</span>
+        <h2>A model that isn’t a model</h2>
+        <p>In chapter 05, you passed in a fake <code>get</code> so your tests needed no network. Now that the model is an argument, the same trick works here. <code>FakeModel</code> gives back replies you wrote in advance, and remembers what it was sent. <code>pop(0)</code> removes the first item from a list and gives it back.</p>
+      </div>
+      <pre>class FakeModel(Model):
+    """Gives back replies you wrote in advance, and remembers what it was sent."""
+
+    def __init__(self, replies):
+        self.replies = list(replies)
+        self.seen = []
+
+    def chat(self, messages, tools=None, **options):
+        self.seen.append(list(messages))
+        return self.replies.pop(0)</pre>
+      <p class="col"><code>swap.py</code> is provided. It sends one question through the same <code>run_agent</code>, first with <code>OllamaModel</code>, then with a <code>FakeModel</code> whose replies are scripted. <strong>Predict:</strong> the fake has no AI in it. Will the tool really run?</p>
+      <pre><span class="cmd">$ python3 swap.py</span>
+With OllamaModel
+[step 1] read_file({'path': 'sales/monday.txt'}) -&gt; 'Coffee: 120\nTea: 80\n'
+According to the file, the coffee revenue on Monday was $120.
+
+With FakeModel
+[step 1] read_file({'path': 'sales/monday.txt'}) -&gt; 'Coffee: 120\nTea: 80\n'
+This answer was written in advance.
+The fake was called 2 times.
+On its last call, it saw 4 messages.</pre>
+      <div class="col">
+        <p>The tool ran both times. The loop can’t tell the two apart, which is the whole point. The output was the same in 5 of 5 runs here.</p>
+        <p>Now your agent can have tests that need no model. Run <code>python3 -m pytest tests</code> from <code>code/</code>, and you should see <code>5 passed</code>.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Build it</span>
+        <h2>Choose a model by name</h2>
+        <p>Changing model shouldn’t change your code. So <code>load_model</code> builds one from a short string:</p>
+      </div>
+      <pre>PROVIDERS = {"ollama": OllamaModel}
+
+
+def load_model(spec=None):
+    """Build a model from a "provider/name" string, or from the MODEL setting."""
+    spec = spec or os.environ.get("MODEL", DEFAULT_MODEL)
+    provider, _, name = spec.partition("/")
+    if provider not in PROVIDERS:
+        raise ValueError(f"Unknown provider {provider!r}. Choose from {sorted(PROVIDERS)}.")
+    return PROVIDERS[provider](name)</pre>
+      <div class="col">
+        <ul class="list">
+          <li><code>os.environ</code> holds environment variables, which are settings that live outside your code. Setting one differs between systems, so in this course we pass the name on the command line.</li>
+          <li><code>partition("/")</code> splits a string at the first <code>/</code> into three parts. <code>_</code> is the usual name for a value you don’t need.</li>
+          <li><code>PROVIDERS</code> holds classes. <code>PROVIDERS[provider](name)</code> finds the class, then calls it, just like chapter 10’s <code>TOOLS</code>.</li>
+        </ul>
+        <p><code>demo.py</code> passes its argument to <code>load_model</code>. <strong>Predict:</strong> what happens with a provider that doesn’t exist? And with a real provider, but a model you’ve never downloaded? These are the last lines of each error:</p>
+      </div>
+      <pre><span class="cmd">$ python3 demo.py nobody/model</span>
+ValueError: Unknown provider 'nobody'. Choose from ['ollama'].
+<span class="cmd">$ python3 demo.py ollama/not-a-model</span>
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: http://127.0.0.1:11434/api/chat</pre>
+      <p class="col"><code>load_model</code> caught the first one itself, with a message that says what to do. The second is a raw error from Ollama, and you’ll deal with errors like that in chapter 17. If you’ve downloaded another model, try <code>python3 demo.py ollama/&lt;its name&gt;</code>. Your code won’t change, though the answer may.</p>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Reference</span>
+        <h2>What breaks</h2>
+      </div>
+      <div class="tablebox">
+        <table>
+          <tr><th>What happened</th><th>What you see</th><th>The fix</th></tr>
+          <tr><td>Ollama isn’t running</td><td><code>requests.exceptions.ConnectionError</code></td><td><a href="https://claude.ai/artifact/1uGgX3WK7v3D5HyfvB782p#start-ollama">Start Ollama</a></td></tr>
+          <tr><td>You ran pytest from inside <code>tests/</code></td><td><code>ModuleNotFoundError: No module named 'whitebox'</code></td><td>Run <code>python3 -m pytest tests</code> from <code>code/</code></td></tr>
+          <tr><td>The model isn’t downloaded</td><td><code>404 Client Error: Not Found</code></td><td>Check the name with <code>ollama list</code></td></tr>
+          <tr><td>A <code>FakeModel</code> ran out of replies</td><td><code>IndexError: pop from empty list</code></td><td>The loop made more calls than you scripted, so add a reply</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Your turn</span>
+        <h2>Exercises</h2>
+        <p>Open <code>exercises.py</code> in the chapter folder. You’ll fix the failure from the start of this chapter by adding Boxy to your framework, without changing <code>whitebox</code> at all:</p>
+        <ol class="loop">
+          <li><code>to_boxy</code>: translate a <code>Message</code> into Boxy’s format.</li>
+          <li><code>from_boxy</code>: translate Boxy’s reply into a <code>Message</code>.</li>
+          <li><code>BoxyModel</code>: write a new <code>Model</code> subclass. Its check runs the real <code>run_agent</code>, on the reply that defeated chapter 12’s loop.</li>
+          <li><code>add_boxy</code>: add it to <code>PROVIDERS</code>, so <code>load_model("boxy/small")</code> works.</li>
+          <li><code>RuleModel</code>: write a <code>Model</code> with no AI in it at all, and watch the loop run it.</li>
+        </ol>
+        <p>Then run <code>python3 -m pytest test_exercises.py</code> from the chapter folder, not from <code>code/</code>. These checks use fake models, so Ollama doesn’t need to be running. You’ve finished when you see <code>5 passed</code>.</p>
+      </div>
+      <div class="col">
+        <h3>Common mistakes</h3>
+        <ul class="list">
+          <li>Letting a provider’s format leak out of its class. If you write <code>["function"]</code> outside <code>OllamaModel</code>, the weld is back.</li>
+          <li>Changing the loop to add a provider. A new provider is a new <code>Model</code> subclass.</li>
+          <li>Trusting a fake too far. A <code>FakeModel</code> tests your code, not the model. It can’t tell you whether a real model will reach 380.</li>
+          <li>Forgetting that a fake is scripted. It gives its replies in order, whatever you send it.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Recap</span>
+        <h2>What you opened</h2>
+        <ul class="list">
+          <li>A provider’s format shouldn’t reach your agent loop.</li>
+          <li>Your framework has its own format: <code>Message</code> and <code>ToolCall</code>.</li>
+          <li><code>Model</code> is the agreement. Anything with a <code>chat</code> method that takes and returns <code>Message</code>s can drive the agent.</li>
+          <li>Each provider gets one class, which translates at the edge.</li>
+          <li><code>FakeModel</code> lets you test the agent with no model running.</li>
+          <li><code>load_model</code> picks a model from a name, so changing model doesn’t change your code.</li>
+        </ul>
+        <p>A class that translates one interface into another is known as the <a href="https://en.wikipedia.org/wiki/Adapter_pattern">adapter pattern</a>. <code>OllamaModel</code> is an adapter.</p>
+      </div>
+      <div class="next"><span>Next</span><h3>Chapter 14: Tool system</h3></div>
+    </section>
+
+    <footer>
+      <p>Get the code at <a href="https://github.com/WhiteboxAcademy/BuildAnAgentFramework">github.com/WhiteboxAcademy/BuildAnAgentFramework</a>. Code is under the MIT License. Articles and videos are under CC BY 4.0.</p>
+    </footer>
+  </div>
+</main>

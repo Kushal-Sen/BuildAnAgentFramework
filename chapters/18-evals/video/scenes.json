@@ -1,0 +1,71 @@
+{
+  "chapter": "Chapter 18",
+  "scenes": [
+    {"type": "recap", "title": "Previously: reliability", "flow": ["Retry a failed call", "Rescue text tool calls", "Guard against loops", "Wrong answers remain"], "captions": [
+      {"text": "Recap of chapter 17: you wrapped one model in another.", "secs": 7, "focus": 0},
+      {"text": "Retry tries again after a temporary failure, and Fallback uses another model.", "secs": 8, "focus": 1},
+      {"text": "LoopGuard stops the same tool call repeating, again and again.", "secs": 7, "focus": 2},
+      {"text": "None of them fixes a confident wrong answer. So did they help?", "secs": 8, "focus": 3}
+    ]},
+    {"type": "box", "label": "Evals", "inner": ["cases", "+ checks", "+ repeated runs"], "captions": [
+      {"text": "Today's black box: how to measure an agent.", "secs": 4},
+      {"text": "Let's open it.", "secs": 4, "open": true, "shot": "01-box"}
+    ]},
+    {"type": "demo", "file": "code/by_eye.py", "start": "agent = Agent", "end": "print(f\"Run", "output": "video/by_eye.txt", "captions": [
+      {"text": "First, the slow way. Ask the coffee question five times, and read each answer.", "secs": 8, "focus": null, "lines": 0},
+      {"text": "Predict: how many of the five will be right?", "secs": 5, "focus": null, "lines": 0},
+      {"text": "Five out of five, this time. You were the check: you looked for 380.", "secs": 8, "focus": null, "lines": 6, "shot": "02-by-eye"},
+      {"text": "Five questions, two agents, every change. Nobody reads 50 answers twice.", "secs": 8, "focus": null, "lines": 6}
+    ]},
+    {"type": "code", "file": "code/whitebox/evals.py", "start": "class Check:", "end": "def excludes", "captions": [
+      {"text": "So the marking becomes code. A Check is a label and a test.", "secs": 7, "focus": ["label: str", "test: Callable"]},
+      {"text": "Callable means a function. It takes a Result, and says True or False.", "secs": 7, "focus": ["test: Callable", "test: Callable"]},
+      {"text": "lambda writes a small function in one line, with no name.", "secs": 7, "focus": ["return Check", "return Check"], "shot": "03-check"}
+    ]},
+    {"type": "demo", "file": "code/one_case.py", "start": "case = Case(", "end": "print(report.rows", "output": "video/one_case.txt", "captions": [
+      {"text": "A Case is one question and the checks its answer must pass.", "secs": 7, "focus": ["case = Case(", ")"], "lines": 0},
+      {"text": "run_eval runs it five times. A run passes only if every check passes.", "secs": 8, "focus": ["report = run_eval", "report = run_eval"], "lines": 0},
+      {"text": "Five of five. Steps is the average number of model calls.", "secs": 7, "focus": null, "lines": 5, "shot": "04-one-case"},
+      {"text": "Failed runs are kept, with their answers. There are none here.", "secs": 7, "focus": ["print(report.rows", "print(report.rows"], "lines": 6}
+    ]},
+    {"type": "demo", "file": "code/weak_checks.py", "start": "check = contains", "end": "print(f\"{check.test", "output": "video/weak_checks.txt", "captions": [
+      {"text": "Can you trust a check? Try one on answers we wrote ourselves. No model needed.", "secs": 8, "focus": null, "lines": 0},
+      {"text": "Predict: which of these will contains get wrong?", "secs": 6, "focus": null, "lines": 0},
+      {"text": "It passes 1,380 and 3800, and it fails the right answer written in words.", "secs": 8, "focus": null, "lines": 5, "shot": "05-weak"},
+      {"text": "Your eval measures your checks as well as your agent.", "secs": 7, "focus": null, "lines": 5}
+    ]},
+    {"type": "demo", "file": "code/eval_sales.py", "start": "    before = run_eval", "end": "print(compare", "output": "video/eval_compare.txt", "captions": [
+      {"text": "Now five cases, on two agents: the plain model, and chapter 17's safety nets.", "secs": 8, "focus": ["before = run_eval", "label=\"reliable\""], "lines": 0},
+      {"text": "Predict: will the safety nets raise the score?", "secs": 6, "focus": null, "lines": 0},
+      {"text": "Plain scored 23 of 25, and reliable scored 25. Two cases gained one each.", "secs": 8, "focus": null, "lines": 7, "shot": "06-compare"},
+      {"text": "It's tempting to say the safety nets worked. Hold on.", "secs": 6, "focus": null, "lines": 7}
+    ]},
+    {"type": "demo", "file": "code/same_agent.py", "start": "    for number in range", "end": "print(f\"{kind} round", "output": "video/same_plain.txt", "captions": [
+      {"text": "Test the test. Run the same agent, round after round, and change nothing.", "secs": 8, "focus": null, "lines": 0},
+      {"text": "Predict: how far will the score move?", "secs": 6, "focus": null, "lines": 0},
+      {"text": "From 21 to 25, with nothing changed. So 23 and 25 are both normal.", "secs": 9, "focus": null, "lines": 7, "shot": "07-same"},
+      {"text": "A difference means nothing unless it's bigger than an agent against itself.", "secs": 9, "focus": null, "lines": 7}
+    ]},
+    {"type": "demo", "file": "code/same_agent.py", "start": "    if kind == \"reliable\"", "end": "agent = Agent(model", "output": "video/same_reliable.txt", "captions": [
+      {"text": "Now the reliable agent, also six rounds.", "secs": 6, "focus": null, "lines": 0},
+      {"text": "146 of 150, against 141 for plain. The ranges nearly match. It's not proof.", "secs": 9, "focus": null, "lines": 7},
+      {"text": "But all 4 of its failures had the right total. They just skipped add_numbers.", "secs": 9, "focus": null, "lines": 7, "shot": "08-reliable"},
+      {"text": "Plain had 6 runs with no right answer. Read the failures, not just the score.", "secs": 9, "focus": null, "lines": 7}
+    ]},
+    {"type": "demo", "file": "code/judge_test.py", "start": "RUBRIC =", "end": "]", "output": "video/judge_test.txt", "captions": [
+      {"text": "Some things have no number to check. So ask a model to grade: an LLM judge.", "secs": 8, "focus": ["RUBRIC =", "RUBRIC ="], "lines": 0},
+      {"text": "A judge can be wrong too. Test it on six answers we marked by hand.", "secs": 7, "focus": ["(True, \"There is", "(False, \"Friday"], "lines": 0},
+      {"text": "It matched 5 of 6, and our simple code check matched 2.", "secs": 7, "focus": null, "lines": 8, "shot": "09-judge"},
+      {"text": "But it passed \"probably about 127\". Prefer code when code can do the job.", "secs": 8, "focus": null, "lines": 8}
+    ]},
+    {"type": "term", "file": "video/exercise_output.txt", "final": "5 passed", "captions": [
+      {"text": "Your turn. Open exercises.py and complete the five TODOs.", "secs": 6, "lines": 9},
+      {"text": "You'll write a stricter number check, and more. No Ollama needed.", "secs": 6, "lines": 9},
+      {"text": "You've finished when you see 5 passed.", "secs": 6, "lines": 13, "shot": "10-exercises"}
+    ]},
+    {"type": "end", "title": "You opened evals.", "points": ["Cases, checks, repeated runs", "Test your checks too", "Compare an agent with itself first", "Read the failures"], "next": "Next: Chapter 19, embeddings and vector search", "captions": [
+      {"text": "Now you can measure a change, and know when you can't.", "secs": 6},
+      {"text": "Next, Part 4 starts with embeddings and vector search.", "secs": 6}
+    ]}
+  ]
+}

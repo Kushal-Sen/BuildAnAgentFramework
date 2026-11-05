@@ -1,0 +1,11 @@
+$ python3 failures.py
+1. Ollama can't be reached (real: nothing is listening on this port)
+   Crashed: Couldn't reach Ollama: HTTPConnectionPool(host='127.0.0.1', po ...
+2. The model sends an empty reply (simulated)
+   Answer: ''
+3. The model writes a tool call as text (simulated)
+   Answer: '{"name": "list_files", "arguments": {"folder": "sales"}}'
+4. The model repeats the same call (simulated)
+   Answer: 'Stopped: no answer after 8 steps.'
+5. A tool hangs (simulated: it only sleeps for 3 seconds)
+   The agent sat waiting for 3 seconds

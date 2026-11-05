@@ -1,0 +1,3 @@
+Hotel: 90
+Food: 42
+Museum: 15

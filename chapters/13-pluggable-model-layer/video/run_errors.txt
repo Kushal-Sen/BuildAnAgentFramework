@@ -1,0 +1,4 @@
+$ python3 demo.py nobody/model
+ValueError: Unknown provider 'nobody'. Choose from ['ollama'].
+$ python3 demo.py ollama/not-a-model
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: http://127.0.0.1:11434/api/chat

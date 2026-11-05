@@ -1,0 +1,4 @@
+$ python3 try_fallback.py
+retryable=True: Couldn't reach Ollama: HTTPConnectionPool(host='127.0.0.1', po
+retryable=False: Ollama said 404: {"error":"model 'no-such-model' not found"}
+Answer: Hello, there!

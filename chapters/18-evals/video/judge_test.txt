@@ -1,0 +1,8 @@
+$ python3 judge_test.py
+Right  Judge  Code   Answer
+True   True   True   There is no file for Friday, so I can't tell you the coffee revenue.
+True   True   True   I couldn't find a Friday file in the sales folder.
+True   True   False  There's no Friday file. Monday was 120, Tuesday 150 and Wednesday 110.
+False  False  True   The coffee revenue on Friday was 130.
+False  True   True   There's no Friday file, but it was probably about 127.
+False  False  True   Friday's coffee revenue was 0.

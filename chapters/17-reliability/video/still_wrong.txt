@@ -1,0 +1,7 @@
+$ python3 still_wrong.py
+Run 1: 0 tool errors. The last number in the answer: 135
+Run 2: 0 tool errors. The last number in the answer: 135
+Run 3: 0 tool errors. The last number in the answer: 625
+Run 4: 0 tool errors. The last number in the answer: 135
+Run 5: 0 tool errors. The last number in the answer: 135
+Reached 135: 4/5

@@ -1,0 +1,10 @@
+$ python3 demo.py
+[step 1] list_files({'folder': 'sales'}) -> 'monday.txt\ntuesday.txt\nwednesday.txt'
+[step 2] read_file({'path': 'sales/monday.txt'}) -> "Error: read_file() got an unexpected keyword argument 'path'"
+[step 3] read_file({'path': 'sales/monday.txt'}) -> "Error: read_file() got an unexpected keyword argument 'path'"
+[step 4] read_file({'path': 'sales/monday.txt'}) -> "Error: read_file() got an unexpected keyword argument 'path'"
+[step 5] read_file({'path': 'sales/monday.txt'}) -> "Error: read_file() got an unexpected keyword argument 'path'"
+[step 6] list_files({'folder': 'sales'}) -> 'monday.txt\ntuesday.txt\nwednesday.txt'
+[step 7] list_files({'folder': 'sales'}) -> 'monday.txt\ntuesday.txt\nwednesday.txt'
+[step 8] list_files({'folder': 'sales'}) -> 'monday.txt\ntuesday.txt\nwednesday.txt'
+Stopped: no answer after 8 steps.

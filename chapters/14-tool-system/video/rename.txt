@@ -1,0 +1,7 @@
+$ python3 demo.py
+[step 1] list_files({'folder': 'sales'}) -> 'monday.txt\ntuesday.txt\nwednesday.txt'
+[step 2] read_file({'filename': 'sales/monday.txt'}) -> 'Coffee: 120\nTea: 80\n'
+[step 3] read_file({'filename': 'sales/tuesday.txt'}) -> 'Coffee: 150\nTea: 95\n'
+[step 4] read_file({'filename': 'sales/wednesday.txt'}) -> 'Coffee: 110\nTea: 70\n'
+[step 5] add_numbers({'numbers': [120, 150, 110]}) -> '380'
+The total coffee revenue across all the days in the sales folder is 380.

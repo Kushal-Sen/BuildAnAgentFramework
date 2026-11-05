@@ -1,0 +1,10 @@
+$ python3 swap.py
+With OllamaModel
+[step 1] read_file({'path': 'sales/monday.txt'}) -> 'Coffee: 120\nTea: 80\n'
+According to the file, the coffee revenue on Monday was $120.
+
+With FakeModel
+[step 1] read_file({'path': 'sales/monday.txt'}) -> 'Coffee: 120\nTea: 80\n'
+This answer was written in advance.
+The fake was called 2 times.
+On its last call, it saw 4 messages.

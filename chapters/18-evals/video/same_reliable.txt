@@ -1,0 +1,7 @@
+$ python3 same_agent.py reliable 6
+reliable round 1: 25/25
+reliable round 2: 25/25
+reliable round 3: 25/25
+reliable round 4: 22/25  coffee total 3
+reliable round 5: 24/25  coffee total 1
+reliable round 6: 25/25

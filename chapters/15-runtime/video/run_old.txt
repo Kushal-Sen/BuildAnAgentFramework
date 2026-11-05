@@ -1,0 +1,4 @@
+$ python3 old_way.py
+[step 1] read_file({'path': 'sales/monday.txt'}) -> 'Coffee: 120\nTea: 80\n'
+The coffee revenue on Monday was $120.
+I'm not sure what specific information you're asking about on Tuesday. Could you please provide more context or specify what kind of data or information you're interested in regarding Tuesday?

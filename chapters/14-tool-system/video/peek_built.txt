@@ -1,0 +1,20 @@
+5. What @tool built
+{
+ "type": "function",
+ "function": {
+  "name": "read_file",
+  "description": "Read a text file.",
+  "parameters": {
+   "type": "object",
+   "properties": {
+    "path": {
+     "type": "string",
+     "description": "File path, such as sales/monday.txt"
+    }
+   },
+   "required": [
+    "path"
+   ]
+  }
+ }
+}

@@ -1,0 +1,527 @@
+<title>Whitebox: Tracing and Hooks</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a black box header opens onto a white reading column; media breaks wider. */
+:root {
+  --bg: #fbfbf9; --surface: #ffffff; --ink: #16181d; --muted: #5d616b; --rule: #d9dade;
+  --accent: #2a4bd7; --tint: #e7ebfb; --box: #0c0d10; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #101218; --term-ink: #e4e6ec; --term-cmd: #9db1ff;
+  --display: "Bricolage Grotesque", Georgia, serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+    --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+    --term: #08090c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+  --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #08090c; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 400 1.0625rem/1.65 var(--body); }
+.gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 68rem; margin: 0 auto; min-width: 0; }
+.col { max-width: 42rem; display: grid; gap: 1rem; min-width: 0; }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2.6rem, 7vw, 4.4rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; }
+h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); line-height: 1.15; font-weight: 700; }
+h3 { font-size: 1.2rem; line-height: 1.3; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--accent); }
+a:focus-visible, video:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+code { font-family: var(--mono); font-size: 0.92em; }
+
+header.mast { background: var(--box); color: var(--on-box); padding-block: 1.6rem 3rem; }
+.mast .wrap { display: grid; gap: 2.4rem; }
+.brand { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font: 500 1rem var(--display); }
+.brand span:first-child { display: flex; align-items: center; gap: 0.55rem; }
+.brand i { width: 0.95rem; height: 0.95rem; border: 3px solid currentColor; display: block; }
+.brand span:last-child { font: 400 0.85rem var(--mono); color: var(--box-muted); align-self: center; }
+.mast .intro { display: grid; gap: 1rem; max-width: 46rem; }
+.mast .dek { font-size: 1.2rem; color: var(--box-muted); }
+.meta { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+
+main { padding-block: 0 4rem; }
+section { padding-block: 3.2rem 0; display: grid; gap: 1.4rem; }
+.label { font: 600 0.78rem/1.2 var(--mono); color: var(--accent); }
+.lede { font-size: 1.15rem; }
+
+figure { margin: 0; display: grid; gap: 0.5rem; min-width: 0; }
+figcaption { font-size: 0.86rem; color: var(--muted); }
+video { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 1440 / 900; background: #000; }
+
+ol.loop { margin: 0; padding-left: 1.3rem; display: grid; gap: 0.35rem; }
+ol.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 2.4rem; counter-reset: step; }
+ol.steps > li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 1.6rem; align-items: start; counter-increment: step; }
+ol.steps .txt { display: grid; gap: 0.45rem; min-width: 0; }
+ol.steps .txt h3::before { content: counter(step); display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; margin-right: 0.55rem; background: var(--ink); color: var(--bg); font: 600 0.85rem/1 var(--mono); vertical-align: 0.1em; }
+ol.steps img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); }
+@media (max-width: 720px) { ol.steps > li { grid-template-columns: minmax(0, 1fr); } }
+
+pre { margin: 0; background: var(--term); color: var(--term-ink); padding: 1rem 1.1rem; overflow-x: auto; font: 400 0.86rem/1.6 var(--mono); }
+pre .cmd { color: var(--term-cmd); }
+.tablebox { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.98rem; }
+th, td { text-align: left; padding: 0.65rem 0.8rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; color: var(--muted); }
+td { font-variant-numeric: tabular-nums; }
+.fails { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.fails div { background: var(--tint); padding: 1rem 1.1rem; display: grid; gap: 0.3rem; align-content: start; min-width: 0; }
+.list { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.35rem; }
+.next { background: var(--box); color: var(--on-box); padding: 1.4rem 1.5rem; display: grid; gap: 0.3rem; }
+.next span { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--muted); }
+</style>
+
+<header class="mast gutter">
+  <div class="wrap">
+    <div class="brand"><span><i></i>Whitebox Academy</span><span>Build an AI Agent from Scratch</span></div>
+    <div class="intro">
+      <span class="meta">Chapter 16 of 34 · Part 3: From script to framework · About 2 hours</span>
+      <h1>Tracing and hooks</h1>
+      <p class="dek">See inside a run, step in when you need to, and keep a record, all without touching the loop.</p>
+    </div>
+  </div>
+</header>
+
+<main class="gutter">
+  <div class="wrap">
+    <section>
+      <figure>
+        <video controls playsinline preload="metadata" poster="media/05-trace.jpg">
+          <source src="media/video.mp4" type="video/mp4">
+        </video>
+        <figcaption>Chapter video, 6 minutes 14 seconds, no sound. It starts with a 30-second recap, and captions on screen explain each step.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Where we are</span>
+        <h2>You only get the end of the story</h2>
+        <p class="lede">In chapter 15, you wrapped the loop in an <code>Agent</code>. It works, and you can reuse it. But when you call <code>agent.run()</code>, you only see how the run ended. This chapter adds a way to watch every step, stop some of them, and keep a record.</p>
+        <p><a href="https://claude.ai/artifact/1uGgX3WK7v3D5HyfvB782p#start-ollama">Start Ollama</a>, activate the <code>.venv</code> you made in chapter 05, and work in <code>chapters/16-tracing-and-hooks/code</code>. Every script is shown before you run it, except <code>five_runs.py</code>, which is a provided measuring tool.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Try it</span>
+        <h2>A run you can’t see into</h2>
+        <p>So far, we’ve asked for a total. <code>blind.py</code> asks something new:</p>
+      </div>
+      <pre>QUESTION = "Which day had the most coffee revenue?"
+
+agent = Agent(load_model(), toolbox, options={"temperature": 0})
+result = agent.run(QUESTION)
+print("Answer:", result.answer)
+print("Steps:", result.steps)</pre>
+      <p class="col"><strong>Predict:</strong> there are three files to read. How many steps will it take?</p>
+      <pre><span class="cmd">$ python3 blind.py</span>
+Answer: The total coffee revenue for each day is as follows:
+
+- **Monday:** 120
+- **Tuesday:** 150
+- **Wednesday:** 110
+
+The total revenue for coffee across all days is 380 units. 
+
+From the data, it is clear that **Tuesday** had the highest coffee revenue with 150 units sold.
+
+Therefore, the day with the most coffee revenue is **Tuesday**.
+Steps: 7</pre>
+      <div class="col">
+        <p>This is real output from <code>qwen2.5:7b</code>. Tuesday is right. But why seven steps? Listing the folder, reading three files and answering makes five. We ran it five times, and it took seven steps every time.</p>
+        <p>You can’t tell why from here, and neither option so far is good:</p>
+        <ul class="list">
+          <li><strong>Add <code>print</code> lines inside the loop.</strong> Then the framework prints for everyone, and you’re editing the loop for each new question.</li>
+          <li><strong>Use <code>stream()</code> from chapter 15.</strong> Every script needs its own <code>for</code> loop, and an event can only tell you something happened. It can’t stop it.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">The idea</span>
+        <h2>Hooks</h2>
+        <p>A <strong>hook</strong> is an object the agent calls at set moments during a run. Open <code>whitebox/hooks.py</code>:</p>
+      </div>
+      <pre>class Hook:
+    """Override the moments you care about. The rest do nothing."""
+
+    def before_model(self, messages):
+        pass
+
+    def after_model(self, reply):
+        pass
+
+    def before_tool(self, call):
+        """Return text to block this call. The model sees that text as the result."""
+        return None
+
+    def after_tool(self, call, output):
+        pass
+
+    def on_finish(self, result):
+        pass</pre>
+      <p class="col">This is the base class idea from chapter 03 again, with one difference. <code>Model.chat</code> raises <code>NotImplementedError</code>, because every model must provide it. A <code>Hook</code>’s methods do nothing, because a hook only overrides the moments it cares about. <code>Printer</code> cares about two:</p>
+      <pre>class Printer(Hook):
+    """Show each tool call as it happens."""
+
+    def before_tool(self, call):
+        print(f"[tool] {call.name}({call.arguments})")
+
+    def after_tool(self, call, output):
+        print(f"    -&gt; {output!r}")</pre>
+      <p class="col">The <code>Agent</code> has a new <code>hooks</code> setting, which is a list. <code>watched.py</code> is <code>blind.py</code>, with one change:</p>
+      <pre>agent = Agent(load_model(), toolbox, options={"temperature": 0}, hooks=[Printer()])</pre>
+      <pre><span class="cmd">$ python3 watched.py</span>
+[tool] read_file({'path': 'sales/coffee_sales.txt'})
+    -&gt; "Error: [Errno 2] No such file or directory: '.../code/workspace/sales/coffee_sales.txt'"
+[tool] list_files({'folder': 'sales'})
+    -&gt; 'monday.txt\ntuesday.txt\nwednesday.txt'
+[tool] read_file({'path': 'sales/monday.txt'})
+    -&gt; 'Coffee: 120\nTea: 80\n'
+[tool] read_file({'path': 'sales/tuesday.txt'})
+    -&gt; 'Coffee: 150\nTea: 95\n'
+[tool] read_file({'path': 'sales/wednesday.txt'})
+    -&gt; 'Coffee: 110\nTea: 70\n'
+[tool] add_numbers({'numbers': [120, 150, 110]})
+    -&gt; '380'</pre>
+      <div class="col">
+        <p>The answer that followed is the same as before, so we’ve left it out. We’ve also shortened the start of the file path to <code>.../code/</code>, because it showed our own folders.</p>
+        <p>Now the seven steps make sense. The model <strong>guessed a file name</strong> that doesn’t exist, read the error, and recovered by listing the folder. After reading the files, it added the three numbers, which nobody asked for. The answer was right, and the path to it wasn’t what you’d have assumed.</p>
+      </div>
+      <ol class="steps">
+        <li>
+          <div class="txt"><h3>See only the result</h3><p>The answer is right, and it took seven steps. The run itself is a black box.</p></div>
+          <img src="media/02-blind.jpg" alt="blind.py printing an answer and a step count of 7" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Add one hook</h3><p>With <code>hooks=[Printer()]</code>, each tool call appears, including the file the model guessed.</p></div>
+          <img src="media/03-watched.jpg" alt="Printer showing a failed file read, then the calls that followed" loading="lazy" width="1440" height="900">
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Inside the agent</span>
+        <h2>How the agent calls hooks</h2>
+        <p>In <code>whitebox/agent.py</code>, the loop now announces each moment, as in <code>self.notify("before_model", messages)</code>. <code>notify</code> is the only new machinery:</p>
+      </div>
+      <pre>def notify(self, moment, *args):
+    """Call one moment on every hook, and return the first thing a hook says."""
+    answers = [getattr(hook, moment)(*args) for hook in self.hooks]
+    return next((answer for answer in answers if answer is not None), None)</pre>
+      <div class="col">
+        <p>Two pieces of Python here are new:</p>
+        <ul class="list">
+          <li><strong><code>getattr(hook, moment)</code></strong> looks up an attribute by a name held in a string. If <code>moment</code> is <code>"before_tool"</code>, it gives you <code>hook.before_tool</code>, and <code>(*args)</code> then calls it.</li>
+          <li><strong><code>next(..., None)</code></strong> gets the first value from a generator, as in chapter 04. The brackets hold a generator written on one line, in the style of a list comprehension. The second argument is what <code>next</code> returns if there’s nothing to give.</li>
+        </ul>
+        <p>Every hook runs at every moment, even if an earlier hook has already answered. So a <code>Tracer</code> still sees a call that another hook blocks.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Step in</span>
+        <h2>A hook can change a run</h2>
+        <p>So far, hooks only watch. The answer <code>notify</code> returns is what lets them act:</p>
+      </div>
+      <pre>def run_tool(self, call):
+    """Run one tool call, unless a hook blocks it."""
+    output = self.notify("before_tool", call) or self.toolbox.run(call)
+    self.notify("after_tool", call, output)
+    return output</pre>
+      <p class="col"><code>a or b</code> gives you <code>a</code> if it has a value, and only works out <code>b</code> if it doesn’t. So if a hook returns text from <code>before_tool</code>, the tool <strong>never runs</strong>, and that text becomes the result the model reads. <code>Approval</code> uses this to ask a person first:</p>
+      <pre>class Approval(Hook):
+    """Ask a person before running certain tools."""
+
+    def __init__(self, names, ask=input):
+        self.names = names
+        self.ask = ask
+
+    def before_tool(self, call):
+        if call.name not in self.names:
+            return None
+        if self.ask(f"Allow {call.name}({call.arguments})? (y/n) ") == "y":
+            return None
+        return f"Error: a person refused the call to {call.name}"</pre>
+      <p class="col"><code>ask=input</code> is the fake trick from chapter 05. A function is a value, so tests can pass a different <code>ask</code> that doesn’t wait for a keyboard. <code>approve.py</code> adds a <code>save_note</code> tool that really writes a file, and asks the agent to use it:</p>
+      <pre>QUESTION = "Read sales/monday.txt, then save a note with Monday's coffee revenue."
+
+hooks = [Printer(), Approval(["save_note"])]
+agent = Agent(load_model(), toolbox, options={"temperature": 0}, hooks=hooks)
+print("Answer:", agent.run(QUESTION).answer)
+print("Note saved:", NOTE.exists())</pre>
+      <p class="col"><strong>Predict:</strong> Monday’s coffee revenue is 120. What number will the model try to save? Run it, read the request carefully, and type <code>n</code>.</p>
+      <pre><span class="cmd">$ python3 approve.py</span>
+[tool] read_file({'path': 'sales/monday.txt'})
+    -&gt; 'Coffee: 120\nTea: 80\n'
+[tool] save_note({'text': "Monday's coffee revenue is $543.21"})
+Allow save_note({'text': "Monday's coffee revenue is $543.21"})? (y/n) n
+    -&gt; 'Error: a person refused the call to save_note'
+Answer: The content of the file `sales/monday.txt` indicates that on Monday, 120 cups of coffee and 80 cups of tea were sold. However, there was an issue saving the note about Monday's coffee revenue. Let's focus on the sales information for now. If you need any further analysis or have more questions, feel free to ask!
+Note saved: False</pre>
+      <div class="col">
+        <p>$543.21 is a made-up number. The model asked for both tools <strong>in one reply</strong>, as you saw in chapter 11, so it wrote the note before it had read the file.</p>
+        <p>We ran this ten times at temperature 0.7, using a stand-in <code>save_note</code> that wrote no file. In 10 of 10 runs, it asked for both tools in one reply. Only 2 of the 10 notes held the right figure. The others said things like <code>$450</code> and <code>$3456</code>, and one held the placeholder <code>[revenue]</code>.</p>
+      </div>
+      <div class="fails">
+        <div><h3>When we refused</h3><p>In 5 of 5 runs, the final answer said the save hadn’t worked.</p></div>
+        <div><h3>When we approved</h3><p>The wrong text went through. In one run, the note said <code>$345</code> while the answer told us <code>$120</code>.</p></div>
+      </div>
+      <p class="col">So reading the request matters. Saying <code>y</code> without looking saves the wrong number. If you do type <code>y</code>, you’ll find the note in <code>workspace/note.txt</code>, and you can delete it.</p>
+      <figure>
+        <img src="media/04-approve.jpg" alt="The approval prompt showing a made-up revenue of $543.21" loading="lazy" width="1440" height="900">
+      </figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Keep a record</span>
+        <h2>Traces</h2>
+        <p><code>Printer</code>’s output is gone when the run ends. If an agent went wrong last night, you need a <strong>trace</strong>: a saved record of everything a run did.</p>
+        <p>A trace needs two facts we haven’t kept yet: how long things took, and how many tokens they used. Ollama already sends token counts, so <code>Message</code> has two new fields, <code>tokens_in</code> and <code>tokens_out</code>. <code>OllamaModel</code> fills them in from <code>prompt_eval_count</code> and <code>eval_count</code>. As in chapter 13, those Ollama names stop at the edge. <code>{**data["message"], **self.token_counts(data)}</code> in <code>models.py</code> is <code>**</code> from chapter 04 again. Here, it builds a new dictionary from two others.</p>
+        <p><code>Tracer</code> is a hook like the others. These are the parts that matter:</p>
+      </div>
+      <pre>def write(self, kind, **data):
+    with open(self.path, "a") as file:
+        file.write(json.dumps({"kind": kind, **data}) + "\n")
+
+def before_model(self, messages):
+    self.started["model"] = self.clock()
+
+def after_model(self, reply):
+    seconds = round(self.clock() - self.started["model"], 2)
+    self.write("model", seconds=seconds, reply=asdict(reply))</pre>
+      <div class="col">
+        <ul class="list">
+          <li>The file has <strong>one JSON object per line</strong>, which is called JSON Lines. Each line is written as it happens, so if a run crashes, the steps before the crash are still in the file.</li>
+          <li><code>self.clock</code> is <code>time.monotonic</code> by default, a stopwatch that gives seconds. It’s a parameter so a test can pass a fake clock.</li>
+          <li><code>asdict</code> comes with dataclasses, and turns a <code>Message</code> into a plain dictionary that JSON can store.</li>
+          <li><code>open(path, "w").close()</code> in <code>__init__</code> empties the file, so each <code>Tracer</code> starts clean.</li>
+        </ul>
+        <p><code>show_trace</code> reads the file back for a person. The <code>:6.2f</code> in its f-strings means “6 characters wide, with 2 decimal places”, which keeps the columns lined up. <code>demo.py</code> traces our coffee question from chapter 12:</p>
+      </div>
+      <pre>agent = Agent(model, toolbox, options={"temperature": 0}, hooks=[Tracer("trace.jsonl")])
+agent.run(QUESTION)
+show_trace("trace.jsonl")</pre>
+      <p class="col"><strong>Predict:</strong> as the run goes on, will each model call read more tokens, or fewer?</p>
+      <pre><span class="cmd">$ python3 demo.py</span>
+model    2.88s    272 in   20 out  -&gt; list_files
+tool     0.00s  list_files({'folder': 'sales'}) -&gt; 'monday.txt\ntuesday.txt\nwednesday.txt'
+model    4.06s    320 in   24 out  -&gt; read_file
+tool     0.00s  read_file({'path': 'sales/monday.txt'}) -&gt; 'Coffee: 120\nTea: 80\n'
+model    7.62s    374 in   22 out  -&gt; read_file
+tool     0.00s  read_file({'path': 'sales/tuesday.txt'}) -&gt; 'Coffee: 150\nTea: 95\n'
+model    6.87s    427 in   23 out  -&gt; read_file
+tool     0.00s  read_file({'path': 'sales/wednesday.txt'}) -&gt; 'Coffee: 110\nTea: 70\n'
+model    7.06s    481 in   91 out  -&gt; add_numbers
+tool     0.00s  add_numbers({'numbers': [120, 150, 110]}) -&gt; '380'
+model    4.44s    561 in   19 out  -&gt; answer
+finish  32.93s  2634 tokens, 6 steps: The total coffee revenue across all the days in the sales folder is 380.</pre>
+      <div class="col">
+        <p>Your seconds will differ. Ours came from a machine doing other work, so don’t read anything into them.</p>
+        <p>Input tokens climb on every line, from 272 to 561. That’s chapter 12’s lesson as a number: the model remembers nothing, so each call resends the whole conversation. Tools took almost no time, and nearly all the seconds went to the model.</p>
+      </div>
+      <figure>
+        <img src="media/05-trace.jpg" alt="A trace of the coffee question, with input tokens rising on each model call" loading="lazy" width="1440" height="900">
+      </figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Experiment</span>
+        <h2>Use a trace to fix something</h2>
+        <p>Now trace the Tuesday question. <code>traced.py</code> is <code>demo.py</code> with that question.</p>
+      </div>
+      <pre><span class="cmd">$ python3 traced.py</span>
+model    4.94s    265 in   94 out  -&gt; read_file
+tool     0.00s  read_file({'path': 'sales/coffee_sales.txt'}) -&gt; "Error: [Errno 2] No such file or directory: '.../code/workspace/sales/coffee_sales.txt'"
+model    7.09s    431 in   60 out  -&gt; list_files
+tool     0.00s  list_files({'folder': 'sales'}) -&gt; 'monday.txt\ntuesday.txt\nwednesday.txt'
+model   11.58s    501 in   24 out  -&gt; read_file
+tool     0.00s  read_file({'path': 'sales/monday.txt'}) -&gt; 'Coffee: 120\nTea: 80\n'
+model    6.05s    555 in   23 out  -&gt; read_file
+tool     0.00s  read_file({'path': 'sales/tuesday.txt'}) -&gt; 'Coffee: 150\nTea: 95\n'
+model    6.77s    608 in   23 out  -&gt; read_file
+tool     0.00s  read_file({'path': 'sales/wednesday.txt'}) -&gt; 'Coffee: 110\nTea: 70\n'
+model    7.87s    662 in  149 out  -&gt; add_numbers
+tool     0.00s  add_numbers({'numbers': [120, 150, 110]}) -&gt; '380'
+model    8.41s    801 in   93 out  -&gt; answer
+finish  52.71s  4289 tokens, 7 steps: The total coffee revenue for each day is as follows:</pre>
+      <div class="col">
+        <p>The last line goes on with the rest of the answer, which we’ve cut here. This run used 4,289 tokens. The coffee total used 2,634, and it needs the same three files.</p>
+        <p>The first line suggests a cause. The question doesn’t mention the sales folder, and the system prompt doesn’t either, so the model guessed. <code>improved.py</code> adds one sentence, and passes it with <code>system=BETTER</code>:</p>
+      </div>
+      <pre>BETTER = SYSTEM + " Files are in the sales folder."</pre>
+      <p class="col"><strong>Predict:</strong> will it take fewer steps?</p>
+      <pre><span class="cmd">$ python3 improved.py</span>
+model   11.85s    272 in   61 out  -&gt; list_files
+tool     0.00s  list_files({'folder': 'sales'}) -&gt; 'monday.txt\ntuesday.txt\nwednesday.txt'
+model    3.90s    343 in   20 out  -&gt; list_files
+tool     0.00s  list_files({'folder': 'sales'}) -&gt; 'monday.txt\ntuesday.txt\nwednesday.txt'
+model    6.71s    391 in   96 out  -&gt; read_file
+tool     0.00s  read_file({'path': 'sales/monday.txt'}) -&gt; 'Coffee: 120\nTea: 80\n'
+model    5.93s    495 in   24 out  -&gt; read_file
+tool     0.00s  read_file({'path': 'sales/monday.txt'}) -&gt; 'Coffee: 120\nTea: 80\n'
+model    6.93s    549 in   66 out  -&gt; read_file
+tool     0.00s  read_file({'path': 'sales/tuesday.txt'}) -&gt; 'Coffee: 150\nTea: 95\n'
+model   10.39s    625 in   22 out  -&gt; read_file
+tool     0.00s  read_file({'path': 'sales/tuesday.txt'}) -&gt; 'Coffee: 150\nTea: 95\n'
+model    6.12s    678 in   67 out  -&gt; read_file
+tool     0.00s  read_file({'path': 'sales/wednesday.txt'}) -&gt; 'Coffee: 110\nTea: 70\n'
+model    2.70s    754 in   23 out  -&gt; read_file
+tool     0.00s  read_file({'path': 'sales/wednesday.txt'}) -&gt; 'Coffee: 110\nTea: 70\n'
+finish  54.53s  4486 tokens, 8 steps: Stopped: no answer after 8 steps.</pre>
+      <div class="col">
+        <p>The guess is gone, but now it makes <strong>every call twice</strong> and runs out of steps. We ran this four times, and the calls were the same each time. Without the trace, all you’d see is <code>Stopped</code>.</p>
+        <p>So did the fix fail? Those runs were all at temperature 0, where one bad path repeats exactly. Agents don’t always run at temperature 0, so let’s test that. <code>five_runs.py</code> is a provided measuring tool. It runs each prompt five times at temperature 0.7, and it counts with a small <code>Hook</code> of its own. It makes a lot of model calls, so it takes a while.</p>
+        <p><strong>Predict:</strong> which prompt will name Tuesday more often?</p>
+      </div>
+      <pre><span class="cmd">$ python3 five_runs.py</span>
+Original prompt
+  Run 1: 7 steps, 6 tool calls, 0 errors, 3861 tokens
+  Run 2: 7 steps, 6 tool calls, 1 errors, 4119 tokens
+  Run 3: 2 steps, 1 tool calls, 1 errors, 858 tokens
+  Run 4: 2 steps, 1 tool calls, 1 errors, 807 tokens
+  Run 5: 2 steps, 1 tool calls, 1 errors, 795 tokens
+  Named Tuesday: 2/5
+Better prompt
+  Run 1: 7 steps, 6 tool calls, 0 errors, 3508 tokens
+  Run 2: 6 steps, 5 tool calls, 0 errors, 3115 tokens
+  Run 3: 5 steps, 4 tool calls, 0 errors, 2204 tokens
+  Run 4: 6 steps, 6 tool calls, 0 errors, 2889 tokens
+  Run 5: 6 steps, 5 tool calls, 0 errors, 2819 tokens
+  Named Tuesday: 5/5</pre>
+      <p class="col">We ran this batch three times:</p>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th scope="col">Prompt</th><th scope="col">Batch 1</th><th scope="col">Batch 2</th><th scope="col">Batch 3</th><th scope="col">Total</th></tr></thead>
+          <tbody>
+            <tr><td>Original</td><td>2/5</td><td>2/5</td><td>1/5</td><td>5/15</td></tr>
+            <tr><td>Better</td><td>5/5</td><td>5/5</td><td>5/5</td><td>15/15</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col">
+        <p>That changes the story twice. The original prompt, which looked fine at temperature 0, often failed at 0.7. In runs 3 to 5 above, its one tool call failed, and it stopped after 2 steps. And the better prompt, which got stuck at temperature 0, named Tuesday in every run here.</p>
+        <ul class="list">
+          <li><strong>A trace tells you why one run went the way it did.</strong> That’s how we found the guessed file.</li>
+          <li><strong>A trace can’t tell you how often.</strong> One run misled us in both directions.</li>
+          <li><strong>We don’t know why the model repeats itself at temperature 0.</strong> The trace shows what it did, not what caused it.</li>
+        </ul>
+      </div>
+      <ol class="steps">
+        <li>
+          <div class="txt"><h3>Read the first line</h3><p>The trace shows a guessed file, and far more tokens than the coffee total.</p></div>
+          <img src="media/06-mystery.jpg" alt="A trace of the Tuesday question, starting with a failed file read" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Try a fix</h3><p>At temperature 0, the guess goes away, but every call happens twice and the steps run out.</p></div>
+          <img src="media/07-improved.jpg" alt="A trace where each tool call appears twice, ending in Stopped" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>Measure it</h3><p>At temperature 0.7, the better prompt named Tuesday far more often.</p></div>
+          <img src="media/08-five.jpg" alt="Five runs of each prompt, scoring 2 of 5 and 5 of 5" loading="lazy" width="1440" height="900">
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Choosing</span>
+        <h2>What each tool is for</h2>
+      </div>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th scope="col">You want to</th><th scope="col">Use</th></tr></thead>
+          <tbody>
+            <tr><td>Watch a run in the terminal</td><td><code>Printer</code></td></tr>
+            <tr><td>Show a person each piece of text as it arrives</td><td><code>stream()</code> from chapter 15</td></tr>
+            <tr><td>Stop a tool from running</td><td>A hook that returns text from <code>before_tool</code></td></tr>
+            <tr><td>Look at a run after it ended</td><td><code>Tracer</code>, then <code>show_trace</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Reading errors</span>
+        <h2>These are real errors</h2>
+        <p>We caused each of these on purpose.</p>
+      </div>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th scope="col">What happened</th><th scope="col">What you see</th><th scope="col">The fix</th></tr></thead>
+          <tbody>
+            <tr><td>You wrote <code>hooks=Printer()</code></td><td><code>TypeError: 'Printer' object is not iterable</code></td><td><code>hooks</code> is a list: <code>hooks=[Printer()]</code></td></tr>
+            <tr><td>A moment has the wrong parameters</td><td><code>TypeError: Bad.after_model() takes 1 positional argument but 2 were given</code></td><td>Copy the parameters from <code>Hook</code></td></tr>
+            <tr><td>You misspelled a moment, such as <code>after_modle</code></td><td>Nothing. The run works, and your method is never called</td><td>Check the spelling against <code>Hook</code></td></tr>
+            <tr><td>You read a trace that wasn’t written</td><td><code>FileNotFoundError: [Errno 2] No such file or directory: 'nope.jsonl'</code></td><td>Check the path, and which folder you’re in</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Your turn</span>
+        <h2>Exercises</h2>
+        <p>In this chapter’s folder, open <code>exercises.py</code>. You’ll extend the framework with four new hooks and a trace reader:</p>
+        <ol class="loop">
+          <li><code>ToolCounter</code>: count how many times each tool ran.</li>
+          <li><code>TokenMeter</code>: add up the tokens a run used.</li>
+          <li><code>Blocklist</code>: block the tools you name.</li>
+          <li><code>ToolLimit</code>: allow a set number of tool calls in each run.</li>
+          <li><code>summarize_trace</code>: read a trace file, and return its totals.</li>
+        </ol>
+        <p>Then run <code>python3 -m pytest test_exercises.py</code> from <code>chapters/16-tracing-and-hooks</code>. These checks use <code>FakeModel</code>, so Ollama doesn’t need to be running. You’ve finished when you see <code>5 passed</code>. The small <code>pytest.ini</code> file there tells pytest to look in <code>code/</code>, which is how <code>from whitebox import Hook</code> finds the framework.</p>
+        <p>To run the framework’s own tests, go into <code>code/</code> and run <code>python3 -m pytest tests</code>.</p>
+      </div>
+      <div class="col">
+        <h3>Common mistakes</h3>
+        <ul class="list">
+          <li>Returning something from <code>before_tool</code> by accident. Any text you return blocks the tool. A hook that only watches should return nothing.</li>
+          <li>Reading only the final answer. The Tuesday answer was right, and the run still guessed a file and added numbers for no reason.</li>
+          <li>Saying <code>y</code> without reading. <code>Approval</code> only helps if a person checks the request.</li>
+          <li>Trusting one trace. It shows one run. Our two temperature 0 stories both changed at 0.7.</li>
+          <li>Judging speed from one trace. Timings depend on what else your machine is doing.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Recap</span>
+        <h2>What you opened</h2>
+        <ul class="list">
+          <li>A hook is called at set moments, so you can add behavior without editing the loop.</li>
+          <li><code>notify</code> calls every hook, and gives back the first answer that isn’t <code>None</code>.</li>
+          <li>Returning text from <code>before_tool</code> blocks a tool, and the model reads that text as the result.</li>
+          <li><code>Approval</code> puts a person in front of a tool, and that person has to read what it’s about to do.</li>
+          <li>A trace records each step, with its timing and tokens, in a file.</li>
+          <li>A trace shows why one run went the way it did. It can’t show how often.</li>
+        </ul>
+        <p>Ollama’s <a href="https://github.com/ollama/ollama/blob/main/docs/api.md">API documentation</a> lists the counts it returns, including <code>prompt_eval_count</code> and <code>eval_count</code>.</p>
+      </div>
+      <div class="next"><span>Next</span><h3>Chapter 17: Reliability</h3></div>
+    </section>
+
+    <footer>
+      <p>Get the code at <a href="https://github.com/WhiteboxAcademy/BuildAnAgentFramework">github.com/WhiteboxAcademy/BuildAnAgentFramework</a>. Code is under the MIT License. Articles and videos are under CC BY 4.0.</p>
+    </footer>
+  </div>
+</main>

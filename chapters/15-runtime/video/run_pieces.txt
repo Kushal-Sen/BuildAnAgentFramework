@@ -1,0 +1,4 @@
+$ python3 pieces.py
+A| sales| report| is| a| document| that| summarizes| and| analyzes| sales| data|,| including| metrics| such| as| revenue|,| sales| volume|,| and| customer| trends| over| a| specific| period|.| It| helps| businesses| understand| sales| performance| and| make| informed| decisions|.|
+The last thing yielded is the whole Message:
+Message(role='assistant', content='A sales report is a document that summarizes and analyzes sales data, including metrics such as revenue, sales volume, and customer trends over a specific period. It helps businesses understand sales performance and make informed decisions.', tool_calls=[], tool_name=None)

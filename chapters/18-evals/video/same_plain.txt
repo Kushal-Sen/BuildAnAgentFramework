@@ -1,0 +1,7 @@
+$ python3 same_agent.py plain 6
+plain round 1: 24/25  coffee total 1
+plain round 2: 25/25
+plain round 3: 21/25  coffee total 3, tea total 1
+plain round 4: 23/25  coffee total 2
+plain round 5: 24/25  coffee total 1
+plain round 6: 24/25  coffee total 1

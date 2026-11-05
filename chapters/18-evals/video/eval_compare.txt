@@ -1,0 +1,7 @@
+$ python3 eval_sales.py   # the last table
+Case                        plain     reliable
+coffee total                  4/5          5/5  +1
+tea total                     5/5          5/5
+one day                       5/5          5/5
+missing day                   4/5          5/5  +1
+no tool needed                5/5          5/5

@@ -1,0 +1,476 @@
+{
+  "chapter": "Chapter 17",
+  "scenes": [
+    {
+      "type": "recap",
+      "title": "Previously: tracing and hooks",
+      "flow": [
+        "Hooks watch a run",
+        "Printer shows each call",
+        "Approval can block a tool",
+        "Tracer keeps a record"
+      ],
+      "captions": [
+        {
+          "text": "Recap of chapter 16: a hook runs at each moment of a run, outside the loop.",
+          "secs": 8,
+          "focus": 0
+        },
+        {
+          "text": "Printer shows each tool call as it happens.",
+          "secs": 6,
+          "focus": 1
+        },
+        {
+          "text": "Approval asks a person, and can block a tool.",
+          "secs": 7,
+          "focus": 2
+        },
+        {
+          "text": "Tracer records every step. Now you can see a failure. Next, you'll survive one.",
+          "secs": 9,
+          "focus": 3
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "label": "Reliability",
+      "inner": [
+        "model",
+        "+ wrapper",
+        "+ wrapper"
+      ],
+      "captions": [
+        {
+          "text": "Today's black box: an agent that survives failure.",
+          "secs": 4
+        },
+        {
+          "text": "Let's open it.",
+          "secs": 4,
+          "open": true,
+          "shot": "01-box"
+        }
+      ]
+    },
+    {
+      "type": "demo",
+      "file": "code/failures.py",
+      "start": "print(\"2. The model sends",
+      "end": "print(f\"   Answer",
+      "output": "video/failures.txt",
+      "captions": [
+        {
+          "text": "This provided script sets up five failures, with no safety nets. Here's one.",
+          "secs": 8,
+          "focus": null,
+          "lines": 0
+        },
+        {
+          "text": "Predict: which of the five will crash? Which will carry on, as if nothing went wrong?",
+          "secs": 8,
+          "focus": null,
+          "lines": 0
+        },
+        {
+          "text": "A real one: nothing is listening on this port. It crashes, so at least you find out.",
+          "secs": 8,
+          "focus": null,
+          "lines": 3
+        },
+        {
+          "text": "Simulated, as in Part 2: an empty reply, and a tool call written as text.",
+          "secs": 8,
+          "focus": null,
+          "lines": 7,
+          "shot": "02-failures"
+        },
+        {
+          "text": "No crash. The agent hands back nothing, or a line of JSON, as the answer.",
+          "secs": 8,
+          "focus": null,
+          "lines": 7
+        },
+        {
+          "text": "Then repeated calls, and a tool that hangs. Each one wastes the run.",
+          "secs": 8,
+          "focus": null,
+          "lines": 11
+        }
+      ]
+    },
+    {
+      "type": "code",
+      "file": "code/try_retry.py",
+      "start": "class FailsTwice",
+      "end": "return self.model.chat",
+      "captions": [
+        {
+          "text": "Here's the idea of this chapter. FailsTwice is a Model.",
+          "secs": 6,
+          "focus": [
+            "class FailsTwice",
+            "class FailsTwice"
+          ]
+        },
+        {
+          "text": "And it holds a Model.",
+          "secs": 5,
+          "focus": [
+            "def __init__",
+            "self.failures = 2"
+          ]
+        },
+        {
+          "text": "Its last line passes the call along. Before that, it can add any behavior.",
+          "secs": 8,
+          "focus": [
+            "return self.model.chat",
+            "return self.model.chat"
+          ],
+          "shot": "03-wrapper"
+        },
+        {
+          "text": "Code that uses it can't tell the difference. That's a wrapper.",
+          "secs": 7,
+          "focus": null
+        }
+      ]
+    },
+    {
+      "type": "demo",
+      "file": "code/try_retry.py",
+      "start": "model = Retry(",
+      "end": "print(\"Answer:\"",
+      "output": "video/try_retry.txt",
+      "captions": [
+        {
+          "text": "Retry is a wrapper too, so it goes around FailsTwice. The failures are simulated.",
+          "secs": 8,
+          "focus": null,
+          "lines": 1
+        },
+        {
+          "text": "Predict: how long will it wait between tries?",
+          "secs": 6,
+          "focus": null,
+          "lines": 1
+        },
+        {
+          "text": "One second, then two. Then the real model answers.",
+          "secs": 7,
+          "focus": null,
+          "lines": 6,
+          "shot": "04-retry"
+        }
+      ]
+    },
+    {
+      "type": "code",
+      "file": "code/whitebox/reliability.py",
+      "start": "class Retry",
+      "end": "self.wait_or_raise(error, attempt)",
+      "captions": [
+        {
+          "text": "Here's Retry. It's a Model that holds a Model.",
+          "secs": 6,
+          "focus": [
+            "class Retry",
+            "self.sleep = sleep"
+          ]
+        },
+        {
+          "text": "The wait doubles each time: 1, 2, 4. That gives a struggling server room to recover.",
+          "secs": 8,
+          "focus": [
+            "self.sleep(self.delay",
+            "self.sleep(self.delay"
+          ]
+        },
+        {
+          "text": "It gives up at once if retrying can't help, or after the last attempt.",
+          "secs": 7,
+          "focus": [
+            "if not error.retryable",
+            "raise error"
+          ]
+        },
+        {
+          "text": "check_not_empty turns an empty reply into a retryable error.",
+          "secs": 7,
+          "focus": [
+            "return check_not_empty",
+            "return check_not_empty"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "demo",
+      "file": "code/try_fallback.py",
+      "start": "unreachable = ",
+      "end": "print(\"Answer:\"",
+      "output": "video/try_fallback.txt",
+      "captions": [
+        {
+          "text": "Fallback moves on to another model. Both failures here are real.",
+          "secs": 7,
+          "focus": [
+            "unreachable =",
+            "not_installed ="
+          ],
+          "lines": 0
+        },
+        {
+          "text": "Predict: which of these two errors is worth retrying?",
+          "secs": 6,
+          "focus": null,
+          "lines": 0
+        },
+        {
+          "text": "A dead connection might come back. A missing model won't.",
+          "secs": 7,
+          "focus": null,
+          "lines": 3
+        },
+        {
+          "text": "Fallback skips both, and the third model answers.",
+          "secs": 6,
+          "focus": [
+            "model = Fallback",
+            "print(\"Answer:\""
+          ],
+          "lines": 4,
+          "shot": "05-fallback"
+        }
+      ]
+    },
+    {
+      "type": "demo",
+      "file": "code/try_rescue.py",
+      "start": "print(\"Without",
+      "end": "print(Agent(RescueToolCalls",
+      "output": "video/try_rescue.txt",
+      "captions": [
+        {
+          "text": "Next, a tool call written as text. The model here is scripted, and the tool is real.",
+          "secs": 8,
+          "focus": null,
+          "lines": 1
+        },
+        {
+          "text": "Without help, the JSON comes back as the final answer.",
+          "secs": 7,
+          "focus": [
+            "Without RescueToolCalls",
+            "print(Agent(scripted"
+          ],
+          "lines": 3
+        },
+        {
+          "text": "RescueToolCalls turns it into a real call. It only acts on valid JSON naming a real tool.",
+          "secs": 9,
+          "focus": [
+            "With RescueToolCalls",
+            "print(Agent(RescueToolCalls"
+          ],
+          "lines": 7,
+          "shot": "06-rescue"
+        }
+      ]
+    },
+    {
+      "type": "demo",
+      "file": "code/try_guard.py",
+      "start": "model = FakeModel",
+      "end": "print(agent.run",
+      "output": "video/try_guard.txt",
+      "captions": [
+        {
+          "text": "A repeat isn't a connection problem, so LoopGuard is a hook. The model is scripted again.",
+          "secs": 8,
+          "focus": null,
+          "lines": 1
+        },
+        {
+          "text": "Predict: with a limit of 2, what happens on the third identical call?",
+          "secs": 7,
+          "focus": null,
+          "lines": 1
+        },
+        {
+          "text": "It's blocked. The model sees that error as the result.",
+          "secs": 7,
+          "focus": null,
+          "lines": 8,
+          "shot": "07-guard"
+        },
+        {
+          "text": "We couldn't make qwen2.5:7b do this: 17 runs, one call each. It's insurance.",
+          "secs": 8,
+          "focus": null,
+          "lines": 8
+        }
+      ]
+    },
+    {
+      "type": "demo",
+      "file": "code/try_timeout.py",
+      "start": "toolbox = Toolbox",
+      "end": "print(f\"The agent",
+      "output": "video/try_timeout.txt",
+      "captions": [
+        {
+          "text": "with_timeout gives a tool a time limit. This tool takes 3 seconds, and the limit is 1.",
+          "secs": 8,
+          "focus": [
+            "toolbox = Toolbox",
+            "toolbox = Toolbox"
+          ],
+          "lines": 1
+        },
+        {
+          "text": "Predict: the tool prints a line when it finishes. Will that line appear?",
+          "secs": 7,
+          "focus": null,
+          "lines": 1
+        },
+        {
+          "text": "The agent moves on after 1 second, with an error it can read.",
+          "secs": 7,
+          "focus": null,
+          "lines": 3
+        },
+        {
+          "text": "But the tool finished anyway. Python can't kill a thread. Only the waiting stops.",
+          "secs": 8,
+          "focus": null,
+          "lines": 4,
+          "shot": "08-timeout"
+        }
+      ]
+    },
+    {
+      "type": "demo",
+      "file": "code/demo.py",
+      "start": "model = Retry(",
+      "end": "print(agent.run",
+      "output": "video/demo.txt",
+      "captions": [
+        {
+          "text": "Each wrapper is a Model, so they stack. Read them from the inside out.",
+          "secs": 7,
+          "focus": [
+            "model = Retry(",
+            "model = Retry("
+          ],
+          "lines": 1
+        },
+        {
+          "text": "Agent itself didn't change.",
+          "secs": 5,
+          "focus": null,
+          "lines": 1
+        },
+        {
+          "text": "Nothing went wrong, so the safety nets did nothing. That's how it should look.",
+          "secs": 8,
+          "focus": null,
+          "lines": 12,
+          "shot": "09-stack"
+        }
+      ]
+    },
+    {
+      "type": "demo",
+      "file": "code/still_wrong.py",
+      "start": "for run in range(1, 6):",
+      "end": "print(f\"Reached 135",
+      "output": "video/still_wrong.txt",
+      "captions": [
+        {
+          "text": "Now every net is on, with a harder question. The right answer is 135.",
+          "secs": 7,
+          "focus": null,
+          "lines": 1
+        },
+        {
+          "text": "Predict: how many of five runs will reach it? How many tool errors will a miss show?",
+          "secs": 8,
+          "focus": null,
+          "lines": 1
+        },
+        {
+          "text": "Run 3 said 625. That's the total revenue, a different question.",
+          "secs": 7,
+          "focus": null,
+          "lines": 7,
+          "shot": "10-still"
+        },
+        {
+          "text": "Zero tool errors. Nothing crashed, so no safety net had anything to catch.",
+          "secs": 8,
+          "focus": null,
+          "lines": 7
+        },
+        {
+          "text": "Across five batches, it scored 21 of 25. Yours will vary.",
+          "secs": 7,
+          "focus": null,
+          "lines": 7
+        },
+        {
+          "text": "These nets handle runs that fail. They can't judge a run that succeeds.",
+          "secs": 8,
+          "focus": null,
+          "lines": 7
+        }
+      ]
+    },
+    {
+      "type": "term",
+      "file": "video/exercise_output.txt",
+      "final": "5 passed",
+      "captions": [
+        {
+          "text": "Your turn. Open exercises.py and complete the five TODOs.",
+          "secs": 6,
+          "lines": 9
+        },
+        {
+          "text": "You'll write a wrapper, a hook, and a better rescue. The checks need no Ollama.",
+          "secs": 7,
+          "lines": 9
+        },
+        {
+          "text": "You've finished when you see 5 passed.",
+          "secs": 6,
+          "lines": 13,
+          "shot": "11-exercises"
+        }
+      ]
+    },
+    {
+      "type": "end",
+      "title": "You opened reliability.",
+      "points": [
+        "A wrapper is a Model that holds a Model",
+        "Retry only what might recover",
+        "Each net catches one known failure",
+        "None of them catch a wrong answer"
+      ],
+      "next": "Next: Chapter 18, evals",
+      "captions": [
+        {
+          "text": "Your agent now survives what we've seen go wrong.",
+          "secs": 6
+        },
+        {
+          "text": "Next, you'll measure whether a change really helped.",
+          "secs": 6
+        }
+      ]
+    }
+  ]
+}

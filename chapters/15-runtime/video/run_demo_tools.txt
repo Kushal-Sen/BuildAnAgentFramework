@@ -1,0 +1,9 @@
+$ python3 demo.py
+[tool] list_files({'folder': 'sales'})
+    -> 'monday.txt\ntuesday.txt\nwednesday.txt'
+[tool] read_file({'path': 'sales/monday.txt'})
+    -> 'Coffee: 120\nTea: 80\n'
+[tool] read_file({'path': 'sales/tuesday.txt'})
+    -> 'Coffee: 150\nTea: 95\n'
+[tool] read_file({'path': 'sales/wednesday.txt'})
+    -> 'Coffee: 110\nTea: 70\n'

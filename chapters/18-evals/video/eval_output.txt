@@ -1,0 +1,25 @@
+$ python3 eval_sales.py
+plain
+Case                  Passed  Steps
+coffee total             4/5    5.8
+tea total                5/5    6.0
+one day                  5/5    2.0
+missing day              4/5    3.0
+no tool needed           5/5    1.0
+Total                  23/25
+
+reliable
+Case                  Passed  Steps
+coffee total             5/5    6.0
+tea total                5/5    5.8
+one day                  5/5    2.0
+missing day              5/5    2.8
+no tool needed           5/5    1.0
+Total                  25/25
+
+Case                        plain     reliable
+coffee total                  4/5          5/5  +1
+tea total                     5/5          5/5
+one day                       5/5          5/5
+missing day                   4/5          5/5  +1
+no tool needed                5/5          5/5

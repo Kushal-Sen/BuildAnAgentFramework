@@ -1,0 +1,2 @@
+4. A type hint that carries a description
+typing.Annotated[str, 'File path, such as sales/monday.txt']

@@ -1,0 +1,520 @@
+{
+ "chapter": "Chapter 13",
+ "scenes": [
+  {
+   "type": "recap",
+   "title": "Previously: the agent loop",
+   "flow": [
+    "A model in a loop",
+    "Your code runs the tools",
+    "The conversation is its memory",
+    "Always limit the steps"
+   ],
+   "captions": [
+    {
+     "text": "Recap of chapter 12: an agent is a model running in a loop with tools.",
+     "secs": 8,
+     "focus": 0
+    },
+    {
+     "text": "The model picks the next step, and your code runs it.",
+     "secs": 7,
+     "focus": 1
+    },
+    {
+     "text": "You resend the whole conversation, because the model remembers nothing.",
+     "secs": 8,
+     "focus": 2
+    },
+    {
+     "text": "And max_steps stops a confused model from running forever.",
+     "secs": 7,
+     "focus": 3
+    }
+   ]
+  },
+  {
+   "type": "box",
+   "label": "The model layer",
+   "inner": [
+    "Message",
+    "+ Model",
+    "+ translation"
+   ],
+   "captions": [
+    {
+     "text": "Today's black box: the part of an agent that talks to the model.",
+     "secs": 5
+    },
+    {
+     "text": "Let's open it.",
+     "secs": 3,
+     "open": true,
+     "shot": "01-box"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/welded.py",
+   "start": "def boxy_chat",
+   "end": "    }",
+   "output": "video/run_welded.txt",
+   "captions": [
+    {
+     "text": "Boxy is a provider we made up. Each provider has its own format.",
+     "secs": 7,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Boxy asks for a tool with calls, tool and input.",
+     "secs": 6,
+     "focus": [
+      "\"calls\"",
+      "\"calls\""
+     ],
+     "lines": 0
+    },
+    {
+     "text": "We give this reply to chapter 12's loop, unchanged. Predict: what happens?",
+     "secs": 8,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "No crash, and no tool ran. Just an empty answer.",
+     "secs": 7,
+     "focus": null,
+     "lines": 2,
+     "shot": "02-empty"
+    },
+    {
+     "text": "The agent finished, and nothing told us why.",
+     "secs": 6,
+     "focus": null,
+     "lines": 2
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/welded.py",
+   "start": "def run_agent",
+   "end": "return f\"Stopped",
+   "captions": [
+    {
+     "text": "Here's why. The loop looks for tool_calls, and Boxy doesn't send that.",
+     "secs": 8,
+     "focus": [
+      "calls = reply",
+      "return reply"
+     ]
+    },
+    {
+     "text": "It also reads tool names and arguments in Ollama's shape.",
+     "secs": 6,
+     "focus": [
+      "print(f\"[step",
+      "f\"({call"
+     ]
+    },
+    {
+     "text": "And it writes results in Ollama's shape.",
+     "secs": 5,
+     "focus": [
+      "{\"role\": \"tool\"",
+      "{\"role\": \"tool\""
+     ],
+     "shot": "03-welded"
+    },
+    {
+     "text": "Seven lines like these tie the loop to one provider.",
+     "secs": 6,
+     "focus": null
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/whitebox/messages.py",
+   "start": "@dataclass",
+   "end": "tool_name:",
+   "captions": [
+    {
+     "text": "So the framework gets its own format, using dataclasses from chapter 03.",
+     "secs": 7,
+     "focus": null
+    },
+    {
+     "text": "A ToolCall is just a name and some arguments.",
+     "secs": 6,
+     "focus": [
+      "class ToolCall",
+      "arguments: dict"
+     ]
+    },
+    {
+     "text": "A Message says who spoke, what they said, and any tool calls.",
+     "secs": 7,
+     "focus": [
+      "class Message",
+      "tool_name"
+     ],
+     "shot": "04-message"
+    },
+    {
+     "text": "There's nothing here about any provider.",
+     "secs": 5,
+     "focus": null
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/whitebox/models.py",
+   "start": "class Model:",
+   "end": "raise NotImplementedError",
+   "captions": [
+    {
+     "text": "This is the base class idea from chapter 03, applied to models.",
+     "secs": 7,
+     "focus": null
+    },
+    {
+     "text": "A model takes Messages and returns a Message. That's the whole agreement.",
+     "secs": 8,
+     "focus": [
+      "def chat",
+      "def chat"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/whitebox/models.py",
+   "start": "def to_ollama",
+   "end": "return Message(\"assistant\"",
+   "captions": [
+    {
+     "text": "OllamaModel is the first real model. Its job is translation.",
+     "secs": 6,
+     "focus": null
+    },
+    {
+     "text": "Going out, to_ollama turns your Message into Ollama's format.",
+     "secs": 7,
+     "focus": [
+      "def to_ollama",
+      "return data"
+     ],
+     "shot": "05-translate"
+    },
+    {
+     "text": "Coming back, from_ollama does the reverse.",
+     "secs": 6,
+     "focus": [
+      "def from_ollama",
+      "return Message"
+     ]
+    },
+    {
+     "text": "Ollama's format now lives in this one class, at the edge of your code.",
+     "secs": 7,
+     "focus": null
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/peek.py",
+   "start": "ours = Message",
+   "end": "print(ollama.from_ollama",
+   "output": "video/run_peek.txt",
+   "captions": [
+    {
+     "text": "This provided script translates one tool request, there and back.",
+     "secs": 7,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Predict: will what comes back equal what went out?",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Here's the request in your format.",
+     "secs": 5,
+     "focus": null,
+     "lines": 3
+    },
+    {
+     "text": "Here it is in Ollama's format.",
+     "secs": 5,
+     "focus": null,
+     "lines": 5
+    },
+    {
+     "text": "And back again. True: nothing was lost.",
+     "secs": 6,
+     "focus": null,
+     "lines": 7,
+     "shot": "06-peek"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/whitebox/agent.py",
+   "start": "def run_agent",
+   "end": "return f\"Stopped",
+   "captions": [
+    {
+     "text": "Here's the loop now. The steps are the same as in chapter 12.",
+     "secs": 6,
+     "focus": null
+    },
+    {
+     "text": "The model is an argument. The loop just calls model.chat.",
+     "secs": 7,
+     "focus": [
+      "reply = model.chat",
+      "reply = model.chat"
+     ],
+     "shot": "07-loop"
+    },
+    {
+     "text": "It reads your format, so these lines work for any provider.",
+     "secs": 6,
+     "focus": [
+      "if not reply.tool_calls",
+      "messages.append(Message(\"tool\""
+     ]
+    },
+    {
+     "text": "The word Ollama doesn't appear in this file.",
+     "secs": 5,
+     "focus": null
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/demo.py",
+   "start": "if __name__",
+   "end": "print(run_agent",
+   "output": "video/run_demo.txt",
+   "captions": [
+    {
+     "text": "We changed a lot of working code, so behavior shouldn't change.",
+     "secs": 7,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Predict: at temperature 0, will this match chapter 12's output?",
+     "secs": 7,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Same steps, in the same order.",
+     "secs": 6,
+     "focus": null,
+     "lines": 6
+    },
+    {
+     "text": "Same answer, line for line. The model sees the same conversation.",
+     "secs": 7,
+     "focus": null,
+     "lines": 7,
+     "shot": "08-run"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/whitebox/models.py",
+   "start": "class FakeModel",
+   "end": "return self.replies.pop(0)",
+   "captions": [
+    {
+     "text": "Remember the fake trick from chapter 05? It works on models too.",
+     "secs": 7,
+     "focus": null
+    },
+    {
+     "text": "FakeModel gives back replies you wrote in advance.",
+     "secs": 6,
+     "focus": [
+      "return self.replies.pop(0)",
+      "return self.replies.pop(0)"
+     ]
+    },
+    {
+     "text": "And it remembers what it was sent, so tests can check that.",
+     "secs": 6,
+     "focus": [
+      "self.seen.append",
+      "self.seen.append"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/swap.py",
+   "start": "print(\"With OllamaModel\")",
+   "end": "On its last call",
+   "output": "video/run_swap.txt",
+   "captions": [
+    {
+     "text": "This provided script runs the same loop with both models.",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Predict: the fake has no AI in it. Will the tool really run?",
+     "secs": 7,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "The real model reads the file and answers.",
+     "secs": 6,
+     "focus": null,
+     "lines": 4
+    },
+    {
+     "text": "The fake's replies were scripted, but the tool really ran.",
+     "secs": 7,
+     "focus": null,
+     "lines": 8,
+     "shot": "09-swap"
+    },
+    {
+     "text": "The loop can't tell them apart. So tests need no model at all.",
+     "secs": 7,
+     "focus": null,
+     "lines": 10
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/whitebox/models.py",
+   "start": "PROVIDERS = {",
+   "end": "return PROVIDERS[provider]",
+   "captions": [
+    {
+     "text": "Last piece: choose a model by name, such as ollama/qwen2.5:7b.",
+     "secs": 7,
+     "focus": null
+    },
+    {
+     "text": "PROVIDERS is a dictionary of classes, like chapter 10's TOOLS.",
+     "secs": 7,
+     "focus": [
+      "PROVIDERS = {",
+      "PROVIDERS = {"
+     ]
+    },
+    {
+     "text": "partition splits the name at the slash.",
+     "secs": 5,
+     "focus": [
+      "provider, _, name",
+      "provider, _, name"
+     ]
+    },
+    {
+     "text": "Then it builds that provider's class, with that name.",
+     "secs": 6,
+     "focus": [
+      "return PROVIDERS[provider]",
+      "return PROVIDERS[provider]"
+     ],
+     "shot": "10-load"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/demo.py",
+   "start": "if __name__",
+   "end": "print(run_agent",
+   "output": "video/run_errors.txt",
+   "captions": [
+    {
+     "text": "demo.py passes its argument to load_model. Predict: what if the name is wrong?",
+     "secs": 8,
+     "focus": [
+      "model = load_model",
+      "model = load_model"
+     ],
+     "lines": 0
+    },
+    {
+     "text": "This is the last line of the error. load_model says what to do.",
+     "secs": 7,
+     "focus": null,
+     "lines": 2
+    },
+    {
+     "text": "A real provider with a missing model gets as far as asking Ollama.",
+     "secs": 7,
+     "focus": null,
+     "lines": 4
+    }
+   ]
+  },
+  {
+   "type": "term",
+   "file": "video/exercise_output.txt",
+   "final": "5 passed",
+   "captions": [
+    {
+     "text": "Your turn. Open exercises.py, and add Boxy to your framework.",
+     "secs": 6,
+     "lines": 9
+    },
+    {
+     "text": "You'll fix the failure from the start of this chapter, without touching the loop.",
+     "secs": 7,
+     "lines": 9
+    },
+    {
+     "text": "The checks use fake models. You've finished when you see 5 passed.",
+     "secs": 7,
+     "lines": 13,
+     "shot": "11-exercises"
+    }
+   ]
+  },
+  {
+   "type": "end",
+   "title": "You opened the model layer.",
+   "points": [
+    "Your framework has its own format",
+    "Model is the agreement",
+    "Translate at the edge",
+    "Fakes need no model"
+   ],
+   "next": "Next: Chapter 14, the tool system",
+   "captions": [
+    {
+     "text": "The model is now a part you can swap.",
+     "secs": 5
+    },
+    {
+     "text": "Next, each tool gets described only once.",
+     "secs": 5
+    }
+   ]
+  }
+ ]
+}

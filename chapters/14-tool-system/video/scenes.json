@@ -1,0 +1,457 @@
+{
+ "chapter": "Chapter 14",
+ "scenes": [
+  {
+   "type": "recap",
+   "title": "Previously: a replaceable model",
+   "flow": [
+    "One Model class",
+    "Our own Message",
+    "Translate at the edge",
+    "A fake for tests"
+   ],
+   "captions": [
+    {
+     "text": "Recap of chapter 13: the agent now talks to a Model class, not to Ollama.",
+     "secs": 8,
+     "focus": 0
+    },
+    {
+     "text": "Message and ToolCall are the framework's own format.",
+     "secs": 7,
+     "focus": 1
+    },
+    {
+     "text": "OllamaModel translates to and from Ollama's format, at the edge.",
+     "secs": 8,
+     "focus": 2
+    },
+    {
+     "text": "And FakeModel lets tests run with no model at all.",
+     "secs": 7,
+     "focus": 3
+    }
+   ]
+  },
+  {
+   "type": "box",
+   "label": "The tool system",
+   "inner": [
+    "function",
+    "+ @tool",
+    "+ Toolbox"
+   ],
+   "captions": [
+    {
+     "text": "Today's black box: the tool system.",
+     "secs": 4
+    },
+    {
+     "text": "Let's open it.",
+     "secs": 4,
+     "open": true,
+     "shot": "01-box"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "video/drift_edit.py",
+   "start": "# In chapter 13",
+   "end": "),",
+   "captions": [
+    {
+     "text": "Each tool is written twice: a function, and a schema. Let's make them disagree.",
+     "secs": 8,
+     "focus": null
+    },
+    {
+     "text": "Rename path to filename in the function, and leave the schema alone.",
+     "secs": 7,
+     "focus": [
+      "def read_file",
+      "WORKSPACE / filename"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "video/drift_short.py",
+   "start": "# The function says",
+   "end": "{\"path\"",
+   "output": "video/drift.txt",
+   "captions": [
+    {
+     "text": "Predict: what will the model send now?",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Listing the folder works. Then read_file fails.",
+     "secs": 7,
+     "focus": null,
+     "lines": 3
+    },
+    {
+     "text": "The model sees only the schema, so it keeps sending path.",
+     "secs": 7,
+     "focus": null,
+     "lines": 6,
+     "shot": "02-drift"
+    },
+    {
+     "text": "Nothing warned us, and the run used up all its steps.",
+     "secs": 7,
+     "focus": null,
+     "lines": 10
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/peek.py",
+   "start": "print(\"1. The type hints\")",
+   "end": "print(name, \"required\"",
+   "output": "video/peek_function.txt",
+   "captions": [
+    {
+     "text": "Python already knows a lot about a function. This script is provided.",
+     "secs": 7,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Predict: which part of a schema can't Python tell you?",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "__annotations__ gives the types.",
+     "secs": 6,
+     "focus": [
+      "__annotations__"
+     ],
+     "lines": 3
+    },
+    {
+     "text": "__doc__ gives the description.",
+     "secs": 5,
+     "focus": [
+      "__doc__"
+     ],
+     "lines": 5
+    },
+    {
+     "text": "A parameter with no default is a required one.",
+     "secs": 6,
+     "focus": [
+      "inspect.signature",
+      "print(name, \"required\""
+     ],
+     "lines": 8,
+     "shot": "03-peek"
+    },
+    {
+     "text": "Only one thing is missing: a description for each parameter.",
+     "secs": 6,
+     "focus": null,
+     "lines": 8
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/peek.py",
+   "start": "def described",
+   "end": "\"\"\"Read a text file.\"\"\"",
+   "output": "video/peek_annotated.txt",
+   "captions": [
+    {
+     "text": "Annotated holds a type and a note. Python ignores the note.",
+     "secs": 7,
+     "focus": [
+      "Annotated"
+     ],
+     "lines": 0
+    },
+    {
+     "text": "But your program can read it back.",
+     "secs": 6,
+     "focus": null,
+     "lines": 2,
+     "shot": "04-annotated"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/whitebox/tools.py",
+   "start": "def parameters_of",
+   "end": "return {\"type\": \"object\"",
+   "captions": [
+    {
+     "text": "This function turns a signature into a schema.",
+     "secs": 6,
+     "focus": null
+    },
+    {
+     "text": "It goes through the parameters, as peek.py did.",
+     "secs": 6,
+     "focus": [
+      "for name, parameter"
+     ]
+    },
+    {
+     "text": "It splits each hint into a type and a description.",
+     "secs": 6,
+     "focus": [
+      "kind, description"
+     ]
+    },
+    {
+     "text": "No Annotated hint? Then it stops with an error, on purpose.",
+     "secs": 7,
+     "focus": [
+      "if get_origin",
+      "raise ValueError"
+     ],
+     "shot": "05-parameters"
+    },
+    {
+     "text": "No default? Then the parameter is required.",
+     "secs": 6,
+     "focus": [
+      "if parameter.default",
+      "required.append"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/whitebox/tools.py",
+   "start": "@dataclass",
+   "end": "return Tool(function.__name__",
+   "captions": [
+    {
+     "text": "The decorator gives back a Tool: the schema's parts, plus the function.",
+     "secs": 7,
+     "focus": [
+      "class Tool",
+      "function: Callable"
+     ]
+    },
+    {
+     "text": "__call__ means a Tool can still be called like a function.",
+     "secs": 7,
+     "focus": [
+      "def __call__",
+      "return self.function"
+     ]
+    },
+    {
+     "text": "And @tool builds it all from the function you already wrote.",
+     "secs": 7,
+     "focus": [
+      "def tool(function)",
+      "return Tool("
+     ],
+     "shot": "06-tool"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "video/rename_edit.py",
+   "start": "# In this chapter",
+   "end": "return (WORKSPACE",
+   "output": "video/rename.txt",
+   "captions": [
+    {
+     "text": "Now make the same mistake here. There's no second copy to forget.",
+     "secs": 7,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Predict: what will the model send this time?",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "It sends filename. The schema changed with the function.",
+     "secs": 7,
+     "focus": null,
+     "lines": 3,
+     "shot": "07-rename"
+    },
+    {
+     "text": "The same edit that stalled chapter 13's agent now does no harm.",
+     "secs": 7,
+     "focus": null,
+     "lines": 7
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/descriptions.py",
+   "start": "described = toolbox",
+   "end": "print(\"Without:\"",
+   "output": "video/descriptions.txt",
+   "captions": [
+    {
+     "text": "So why is a missing description an error? This is chapter 11's test again.",
+     "secs": 7,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Predict: without descriptions, which path will it choose?",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "With descriptions, it chose the real path 5 times out of 5.",
+     "secs": 7,
+     "focus": null,
+     "lines": 2
+    },
+    {
+     "text": "Without them, it made up a name 5 times out of 5. So @tool insists.",
+     "secs": 8,
+     "focus": null,
+     "lines": 3,
+     "shot": "08-descriptions"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/whitebox/tools.py",
+   "start": "    def run(self, call):",
+   "end": "return f\"Error: {error}\"",
+   "captions": [
+    {
+     "text": "A Toolbox holds the tools, and it's the only thing that runs them.",
+     "secs": 7,
+     "focus": null
+    },
+    {
+     "text": "An unknown tool gets a list of the real ones.",
+     "secs": 6,
+     "focus": [
+      "if tool is None",
+      "there is no tool"
+     ]
+    },
+    {
+     "text": "New here: check compares the arguments with the schema first.",
+     "secs": 7,
+     "focus": [
+      "problem = self.check",
+      "return problem"
+     ],
+     "shot": "09-toolbox"
+    },
+    {
+     "text": "And a tool that raises an error still comes back as text.",
+     "secs": 6,
+     "focus": [
+      "except Exception",
+      "return f\"Error: {error}\""
+     ]
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/bad_calls.py",
+   "start": "CALLS = [",
+   "end": "]",
+   "output": "video/bad_calls.txt",
+   "captions": [
+    {
+     "text": "Here are five calls, as a confused model might send them. No model is involved.",
+     "secs": 8,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Predict: will any of them crash the program?",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "The first is fine. The second names a tool that doesn't exist.",
+     "secs": 7,
+     "focus": null,
+     "lines": 5
+    },
+    {
+     "text": "A missing argument, and then an unknown one.",
+     "secs": 6,
+     "focus": null,
+     "lines": 9,
+     "shot": "10-bad-calls"
+    },
+    {
+     "text": "A missing file. Nothing crashed, and the model can read every failure.",
+     "secs": 7,
+     "focus": null,
+     "lines": 11
+    }
+   ]
+  },
+  {
+   "type": "term",
+   "file": "video/exercise_output.txt",
+   "final": "5 passed",
+   "captions": [
+    {
+     "text": "Your turn. Open exercises.py and complete the five TODOs.",
+     "secs": 6,
+     "lines": 9,
+     "shot": "11-exercises"
+    },
+    {
+     "text": "You'll extend the framework with a new tool and two new toolboxes.",
+     "secs": 6,
+     "lines": 9
+    },
+    {
+     "text": "The checks use a fake model. You've finished when you see 5 passed.",
+     "secs": 6,
+     "lines": 13
+    }
+   ]
+  },
+  {
+   "type": "end",
+   "title": "You opened the tool system.",
+   "points": [
+    "A function already holds its schema",
+    "Annotated adds the descriptions",
+    "@tool writes the schema for you",
+    "Toolbox sends failures back as text"
+   ],
+   "next": "Next: Chapter 15, the runtime",
+   "captions": [
+    {
+     "text": "Each tool is now written once, and it can't disagree with itself.",
+     "secs": 6
+    },
+    {
+     "text": "Next, you'll turn run_agent into a real runtime.",
+     "secs": 6
+    }
+   ]
+  }
+ ]
+}

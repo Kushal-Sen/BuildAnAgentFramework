@@ -1,0 +1,11 @@
+$ python3 bad_calls.py
+read_file({'path': 'sales/monday.txt'})
+    -> 'Coffee: 120\nTea: 80\n'
+open_file({'path': 'sales/monday.txt'})
+    -> 'Error: there is no tool called open_file. You have: list_files, read_file, add_numbers'
+read_file({})
+    -> 'Error: read_file needs path'
+read_file({'path': 'sales/monday.txt', 'encoding': 'utf-8'})
+    -> "Error: read_file doesn't take encoding"
+read_file({'path': 'sales/friday.txt'})
+    -> "Error: [Errno 2] No such file or directory: '.../code/workspace/sales/friday.txt'"

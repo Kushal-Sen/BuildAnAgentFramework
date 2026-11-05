@@ -1,0 +1,13 @@
+$ python3 -m pytest test_exercises.py -q --tb=no
+FFFFF                                                                    [100%]
+=========================== short test summary info ============================
+FAILED test_exercises.py::test_todo_1_tool_counter - AssertionError: assert {...
+FAILED test_exercises.py::test_todo_2_token_meter - assert 0 == 35
+FAILED test_exercises.py::test_todo_3_blocklist - assert ['A', '8'] == ["Erro...
+FAILED test_exercises.py::test_todo_4_tool_limit - AssertionError: assert ['2...
+FAILED test_exercises.py::test_todo_5_summarize_trace - assert None == {'mode...
+5 failed in 0.06s
+
+$ python3 -m pytest test_exercises.py -q --tb=no   # after the TODOs
+.....                                                                    [100%]
+5 passed in 0.05s

@@ -1,0 +1,508 @@
+{
+ "chapter": "Chapter 15",
+ "scenes": [
+  {
+   "type": "recap",
+   "title": "Previously: the tool system",
+   "flow": [
+    "Write a function once",
+    "@tool describes it",
+    "Toolbox checks each call",
+    "Errors go back as text"
+   ],
+   "captions": [
+    {
+     "text": "Recap of chapter 14: you write a tool once, as an ordinary function.",
+     "secs": 7,
+     "focus": 0
+    },
+    {
+     "text": "@tool reads its type hints and docstring, and describes it to the model.",
+     "secs": 8,
+     "focus": 1
+    },
+    {
+     "text": "The Toolbox checks every call before running it.",
+     "secs": 7,
+     "focus": 2
+    },
+    {
+     "text": "Bad calls go back to the model as text, so it can recover.",
+     "secs": 8,
+     "focus": 3
+    }
+   ]
+  },
+  {
+   "type": "box",
+   "label": "The runtime",
+   "inner": [
+    "Agent",
+    "+ stream",
+    "+ history"
+   ],
+   "captions": [
+    {
+     "text": "Today's black box: the runtime that runs your agent.",
+     "secs": 4
+    },
+    {
+     "text": "Let's open it.",
+     "secs": 4,
+     "open": true,
+     "shot": "01-box"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/old_way.py",
+   "start": "print(run_agent(\"What",
+   "end": "print(run_agent(\"And",
+   "output": "video/run_old.txt",
+   "captions": [
+    {
+     "text": "Here's chapter 14's run_agent. We ask about Monday, then ask a follow-up.",
+     "secs": 8,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Predict: will it know what 'And on Tuesday?' means?",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Monday works. The step line came from a print inside the function.",
+     "secs": 7,
+     "focus": null,
+     "lines": 3
+    },
+    {
+     "text": "The follow-up fails. Each call starts a new conversation.",
+     "secs": 7,
+     "focus": null,
+     "lines": 4,
+     "shot": "02-old"
+    },
+    {
+     "text": "And you only saw the words once the whole reply was finished.",
+     "secs": 6,
+     "focus": null,
+     "lines": 4
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/whitebox/models.py",
+   "start": "def stream(self, messages",
+   "end": "class OllamaModel",
+   "captions": [
+    {
+     "text": "First, the silence. Every Model now has a stream method.",
+     "secs": 6,
+     "focus": null
+    },
+    {
+     "text": "It's a generator, like the ones from chapter 04.",
+     "secs": 6,
+     "focus": [
+      "def stream",
+      "def stream"
+     ]
+    },
+    {
+     "text": "This default calls chat, so any model can stream, even a fake one.",
+     "secs": 7,
+     "focus": [
+      "reply = self.chat",
+      "reply = self.chat"
+     ]
+    },
+    {
+     "text": "It yields the text, then the finished Message last.",
+     "secs": 6,
+     "focus": [
+      "yield reply.content",
+      "class OllamaModel"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/whitebox/models.py",
+   "start": "body = self.request_body(messages, tools, options, stream=True)",
+   "end": "yield self.from_ollama",
+   "captions": [
+    {
+     "text": "OllamaModel does better. It asks Ollama to stream.",
+     "secs": 6,
+     "focus": [
+      "body = self",
+      "response = requests"
+     ]
+    },
+    {
+     "text": "Ollama sends one line of JSON per piece.",
+     "secs": 6,
+     "focus": [
+      "for line in",
+      "part = json"
+     ]
+    },
+    {
+     "text": "Each piece of text is yielded as soon as it arrives.",
+     "secs": 6,
+     "focus": [
+      "if part.get(\"content\")",
+      "yield part"
+     ]
+    },
+    {
+     "text": "At the end, the pieces are joined into one Message.",
+     "secs": 6,
+     "focus": [
+      "yield self.from_ollama",
+      "yield self.from_ollama"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/pieces.py",
+   "start": "for piece in",
+   "end": "print(piece, end",
+   "output": "video/run_pieces.txt",
+   "captions": [
+    {
+     "text": "Now watch one reply arrive. A bar marks the end of each piece.",
+     "secs": 7,
+     "focus": null,
+     "lines": 1
+    },
+    {
+     "text": "Most pieces are about a word long.",
+     "secs": 6,
+     "focus": null,
+     "lines": 2,
+     "shot": "03-pieces"
+    },
+    {
+     "text": "The last thing yielded is the whole Message.",
+     "secs": 6,
+     "focus": null,
+     "lines": 4
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/whitebox/agent.py",
+   "start": "class Event:",
+   "end": "result: Result | None",
+   "captions": [
+    {
+     "text": "An agent does more than write text. It also calls tools.",
+     "secs": 6,
+     "focus": null
+    },
+    {
+     "text": "So a run yields Events. kind says what happened.",
+     "secs": 6,
+     "focus": [
+      "kind: str",
+      "kind: str"
+     ]
+    },
+    {
+     "text": "Now the caller decides what to show. The framework doesn't print.",
+     "secs": 7,
+     "focus": null
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/whitebox/agent.py",
+   "start": "class Agent:",
+   "end": "options: dict",
+   "captions": [
+    {
+     "text": "Agent holds the settings you used to pass on every call.",
+     "secs": 6,
+     "focus": null
+    },
+    {
+     "text": "Configure it once, then run it as often as you like.",
+     "secs": 6,
+     "focus": [
+      "model: object",
+      "options: dict"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/whitebox/agent.py",
+   "start": "def stream(self",
+   "end": "yield Event(\"done\", result=Result(answer",
+   "captions": [
+    {
+     "text": "Here's the same loop from chapter 12, written as a generator.",
+     "secs": 6,
+     "focus": null
+    },
+    {
+     "text": "It starts a conversation, or continues one you pass in.",
+     "secs": 6,
+     "focus": [
+      "messages = list",
+      "messages.append(Message(\"user\""
+     ]
+    },
+    {
+     "text": "Text goes straight out as it arrives. The Message is kept.",
+     "secs": 7,
+     "focus": [
+      "for piece in",
+      "yield Event(\"text\""
+     ],
+     "shot": "04-stream"
+    },
+    {
+     "text": "No tool requests? Yield done, with the Result.",
+     "secs": 6,
+     "focus": [
+      "if not reply.tool_calls",
+      "return"
+     ]
+    },
+    {
+     "text": "Otherwise, yield an event before and after each tool.",
+     "secs": 6,
+     "focus": [
+      "for call in",
+      "messages.append(Message(\"tool\""
+     ]
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/demo.py",
+   "start": "for event in agent.stream",
+   "end": "print(f\"    ->",
+   "output": "video/run_demo_tools.txt",
+   "captions": [
+    {
+     "text": "The caller loops over the events and chooses how to show each one.",
+     "secs": 7,
+     "focus": null,
+     "lines": 1
+    },
+    {
+     "text": "Now you can follow each tool call as it happens.",
+     "secs": 7,
+     "focus": null,
+     "lines": 9,
+     "shot": "05-demo"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/demo.py",
+   "start": "for event in agent.stream",
+   "end": "print(f\"    ->",
+   "output": "video/run_demo_answer.txt",
+   "captions": [
+    {
+     "text": "The same run, continued. The model writes text between tool calls.",
+     "secs": 8,
+     "focus": null,
+     "lines": 7
+    },
+    {
+     "text": "So not all the text is the final answer. That's what done is for.",
+     "secs": 8,
+     "focus": null,
+     "lines": 10
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/whitebox/agent.py",
+   "start": "def run(self",
+   "end": "return event.result",
+   "captions": [
+    {
+     "text": "Don't need live updates? run reads the stream for you.",
+     "secs": 6,
+     "focus": null
+    },
+    {
+     "text": "There's only one loop. run is built on stream.",
+     "secs": 6,
+     "focus": [
+      "for event in",
+      "return event.result"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/result.py",
+   "start": "result = agent.run",
+   "end": "print(\"Messages",
+   "output": "video/run_result.txt",
+   "captions": [
+    {
+     "text": "A Result holds more than the answer.",
+     "secs": 5,
+     "focus": null,
+     "lines": 1
+    },
+    {
+     "text": "You get the steps, whether it was stopped, and the whole conversation.",
+     "secs": 7,
+     "focus": null,
+     "lines": 5
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/memory.py",
+   "start": "first = agent.run",
+   "end": "print(\"With",
+   "output": "video/run_memory.txt",
+   "captions": [
+    {
+     "text": "Those messages are how you continue a conversation.",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Pass them back as history. Predict: which follow-up will work?",
+     "secs": 7,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Without history, the model has no idea. With it, it answers 150.",
+     "secs": 8,
+     "focus": null,
+     "lines": 4,
+     "shot": "06-memory"
+    },
+    {
+     "text": "That was 5 out of 5 with history, and 0 out of 5 without.",
+     "secs": 7,
+     "focus": null,
+     "lines": 4
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/chat.py",
+   "start": "history = None",
+   "end": "print(\"Agent:\"",
+   "output": "video/run_chat.txt",
+   "captions": [
+    {
+     "text": "Keep the history in a loop, and you have a chat program.",
+     "secs": 6,
+     "focus": null,
+     "lines": 1
+    },
+    {
+     "text": "Each reply goes into the history, ready for the next question.",
+     "secs": 7,
+     "focus": null,
+     "lines": 8
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/lazy.py",
+   "start": "events = Agent",
+   "end": "print(\"Model calls at the end",
+   "output": "video/run_lazy.txt",
+   "captions": [
+    {
+     "text": "One last surprise, using a fake model. Predict: how many model calls after stream()?",
+     "secs": 9,
+     "focus": null,
+     "lines": 1
+    },
+    {
+     "text": "None. A generator does nothing until you read it.",
+     "secs": 6,
+     "focus": null,
+     "lines": 2
+    },
+    {
+     "text": "Reading is what moves the agent forward, one event at a time.",
+     "secs": 7,
+     "focus": null,
+     "lines": 6,
+     "shot": "07-lazy"
+    }
+   ]
+  },
+  {
+   "type": "term",
+   "file": "video/exercise_output.txt",
+   "final": "5 passed",
+   "captions": [
+    {
+     "text": "Your turn. Open exercises.py and complete the five TODOs.",
+     "secs": 6,
+     "lines": 8
+    },
+    {
+     "text": "You'll extend the runtime with a new model and a conversation class.",
+     "secs": 7,
+     "lines": 8
+    },
+    {
+     "text": "You've finished when you see 5 passed.",
+     "secs": 6,
+     "lines": 12,
+     "shot": "08-exercises"
+    }
+   ]
+  },
+  {
+   "type": "end",
+   "title": "You opened the runtime.",
+   "points": [
+    "An Agent holds the settings",
+    "stream yields each event",
+    "run returns a Result",
+    "History continues a conversation"
+   ],
+   "next": "Next: Chapter 16, tracing and hooks",
+   "captions": [
+    {
+     "text": "Your agent is now a reusable object.",
+     "secs": 6
+    },
+    {
+     "text": "Next, you'll see inside every run.",
+     "secs": 6
+    }
+   ]
+  }
+ ]
+}

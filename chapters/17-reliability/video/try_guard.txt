@@ -1,0 +1,8 @@
+$ python3 try_guard.py
+[tool] list_files({'folder': 'sales'})
+    -> 'monday.txt\ntuesday.txt\nwednesday.txt'
+[tool] list_files({'folder': 'sales'})
+    -> 'monday.txt\ntuesday.txt\nwednesday.txt'
+[tool] list_files({'folder': 'sales'})
+    -> "Error: you've already made this exact call 2 times. Try something else."
+I'll try something else.

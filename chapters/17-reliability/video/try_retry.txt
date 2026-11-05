@@ -1,0 +1,6 @@
+$ python3 try_retry.py
+FailsTwice: simulated failure
+Retry: waiting 1 seconds
+FailsTwice: simulated failure
+Retry: waiting 2 seconds
+Answer: Hello, there!

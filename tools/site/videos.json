@@ -11,5 +11,11 @@
   "09-what-an-agent-is": "U5XiImwdFxY",
   "10-tool-calling-by-hand": "qgcKlwVQQ9A",
   "11-native-tool-calling": "2ZlPsKpdR4E",
-  "12-agent-loop": "PS8Vw-kUxKA"
+  "12-agent-loop": "PS8Vw-kUxKA",
+  "13-pluggable-model-layer": "TngbI_6zc8s",
+  "14-tool-system": "GO8A5MnjCQE",
+  "15-runtime": "n3PXbLxZxiY",
+  "16-tracing-and-hooks": "kVWIUOlLCTc",
+  "17-reliability": "bV3KcN3AG7g",
+  "18-evals": "Wy4mry9O2fE"
 }

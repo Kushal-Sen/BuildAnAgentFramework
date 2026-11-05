@@ -1,0 +1,12 @@
+Answer: The total coffee revenue for each day is as follows:
+
+- **Monday:** 120
+- **Tuesday:** 150
+- **Wednesday:** 110
+
+The total revenue for coffee across all days is 380 units. 
+
+From the data, it is clear that **Tuesday** had the highest coffee revenue with 150 units sold.
+
+Therefore, the day with the most coffee revenue is **Tuesday**.
+Steps: 7

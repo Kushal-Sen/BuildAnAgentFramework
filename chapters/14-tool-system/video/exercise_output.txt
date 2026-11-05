@@ -1,0 +1,13 @@
+$ python3 -m pytest test_exercises.py -q --tb=no
+FFFFF                                                                    [100%]
+=========================== short test summary info ============================
+FAILED test_exercises.py::test_todo_1_average - AssertionError: use @tool
+FAILED test_exercises.py::test_todo_2_signature_line - AssertionError: assert...
+FAILED test_exercises.py::test_todo_3_json_type_with_choices - AssertionError...
+FAILED test_exercises.py::test_todo_4_strict_toolbox - assert "Error: can't.....
+FAILED test_exercises.py::test_todo_5_limited_toolbox - TypeError: Toolbox.__...
+5 failed in 0.08s
+
+$ python3 -m pytest test_exercises.py -q --tb=no   # after the TODOs
+.....                                                                    [100%]
+5 passed in 0.07s

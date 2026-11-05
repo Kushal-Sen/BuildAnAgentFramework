@@ -1,0 +1,4 @@
+$ python3 try_timeout.py
+Error: slow_lookup took longer than 1 seconds
+The agent got its answer after 1 second
+slow_lookup finished, even though nobody is waiting

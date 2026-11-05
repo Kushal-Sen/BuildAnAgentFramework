@@ -1,0 +1,13 @@
+$ python3 -m pytest test_exercises.py -q --tb=no
+FFFFF                                                                    [100%]
+=========================== short test summary info ============================
+FAILED test_exercises.py::test_todo_1_equals_number - AttributeError: 'NoneTy...
+FAILED test_exercises.py::test_todo_2_steps_at_most - AttributeError: 'NoneTy...
+FAILED test_exercises.py::test_todo_3_tool_count - AttributeError: 'NoneType'...
+FAILED test_exercises.py::test_todo_4_failed_checks - assert None == {"contai...
+FAILED test_exercises.py::test_todo_5_clear_changes - assert None == ['sum']
+5 failed in 0.10s
+
+$ python3 -m pytest test_exercises.py -q --tb=no   # after the TODOs
+.....                                                                    [100%]
+5 passed in 0.10s

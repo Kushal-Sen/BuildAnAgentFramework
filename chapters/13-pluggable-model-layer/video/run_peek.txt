@@ -1,0 +1,7 @@
+$ python3 peek.py
+1. Our format
+Message(role='assistant', content='', tool_calls=[ToolCall(name='read_file', arguments={'path': 'sales/monday.txt'})], tool_name=None)
+2. Translated for Ollama
+{'role': 'assistant', 'content': '', 'tool_calls': [{'function': {'name': 'read_file', 'arguments': {'path': 'sales/monday.txt'}}}]}
+3. Translated back
+True

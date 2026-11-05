@@ -1,0 +1,8 @@
+$ python3 peek.py
+1. The type hints
+{'path': <class 'str'>, 'encoding': <class 'str'>, 'return': <class 'str'>}
+2. The docstring
+Read a text file.
+3. The parameters and their defaults
+path required
+encoding default 'utf-8'

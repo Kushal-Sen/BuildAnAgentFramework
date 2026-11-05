@@ -1,0 +1,7 @@
+$ python3 weak_checks.py
+True   The total is 380.
+True   The total is $1,380.
+True   The total is 3800.
+False  Three hundred and eighty.
+True   There's no Friday file, so I can't say.
+False  No Friday file. Monday was 120.

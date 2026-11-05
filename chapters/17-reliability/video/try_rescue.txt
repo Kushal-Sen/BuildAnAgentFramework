@@ -1,0 +1,7 @@
+$ python3 try_rescue.py
+Without RescueToolCalls:
+{"name": "list_files", "arguments": {"folder": "sales"}}
+With RescueToolCalls:
+[tool] list_files({'folder': 'sales'})
+    -> 'monday.txt\ntuesday.txt\nwednesday.txt'
+There are three files.
