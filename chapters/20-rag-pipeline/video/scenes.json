@@ -1,0 +1,101 @@
+{
+  "chapter": "Chapter 20",
+  "scenes": [
+    {"type": "recap", "title": "Previously: embeddings and search", "flow": ["Embed the text", "Compare with cosine", "Store the vectors", "Find the right file"], "captions": [
+      {"text": "Recap of chapter 19: word search failed when a question avoided the document's words.", "secs": 8, "focus": 0},
+      {"text": "So you turned text into vectors, and compared them with cosine.", "secs": 7, "focus": 1},
+      {"text": "VectorStore keeps the vectors, and Index embeds and searches.", "secs": 7, "focus": 2},
+      {"text": "You found the right file, but you still don't have an answer.", "secs": 8, "focus": 3}
+    ]},
+    {"type": "box", "label": "The RAG pipeline", "inner": ["chunks", "+ search", "+ one prompt"], "captions": [
+      {"text": "Today's black box: answering from documents.", "secs": 4},
+      {"text": "Let's open it. But first, try the simplest idea.", "secs": 4, "open": true, "shot": "01-box"}
+    ]},
+    {"type": "demo", "file": "code/paste_try.py", "start": "paste = Paste(", "end": "print(\"tokens_in:\"", "output": "video/paste_default.txt", "captions": [
+      {"text": "Paste the whole handbook into the prompt, and ask two questions.", "secs": 7, "focus": null, "lines": 0},
+      {"text": "Both facts are in the handbook. Predict: will the model get both right?", "secs": 7, "focus": null, "lines": 0},
+      {"text": "The shoe allowance is right. Pasting seems to work.", "secs": 7, "focus": null, "lines": 4},
+      {"text": "But it says E44 isn't there. It is, in grinder-errors.md.", "secs": 7, "focus": null, "lines": 7},
+      {"text": "Five runs each: shoes 5 of 5, E44 0 of 5. It never named its file either.", "secs": 9, "focus": null, "lines": 13, "shot": "02-paste"}
+    ]},
+    {"type": "demo", "file": "code/count_tokens.py", "start": "def tokens", "end": "return model.chat", "output": "video/count_tokens.txt", "captions": [
+      {"text": "There was no error. So measure the handbook, one file at a time.", "secs": 7, "focus": null, "lines": 0},
+      {"text": "4,764 tokens. But tokens_in said 2,050. Ollama cut it, and said nothing.", "secs": 9, "focus": null, "lines": 2, "shot": "03-cut"},
+      {"text": "The start went, and the instructions went with it.", "secs": 7, "focus": null, "lines": 2}
+    ]},
+    {"type": "demo", "file": "code/paste_try.py", "start": "options = {\"temperature\"", "end": "options[\"num_ctx\"]", "output": "video/paste_8192.txt", "captions": [
+      {"text": "The fix is one option: num_ctx sets the size of the window.", "secs": 7, "focus": ["options[\"num_ctx\"]", "options[\"num_ctx\"]"], "lines": 0},
+      {"text": "Predict: what will tokens_in be at 8192?", "secs": 6, "focus": null, "lines": 0},
+      {"text": "5,080 tokens, and 15 of 15. Same model, same text.", "secs": 8, "focus": null, "lines": 13, "shot": "04-fixed"}
+    ]},
+    {"type": "demo", "file": "code/paste_all.py", "start": "num_ctx = int(sys.argv[1])", "end": "cases = [to_case", "output": "video/paste_all.txt", "captions": [
+      {"text": "Now add a year of records. Together that's 69,872 tokens, in 95 files.", "secs": 8, "focus": null, "lines": 0},
+      {"text": "The model's limit is 32,768. Predict: how much gets in at that limit?", "secs": 7, "focus": null, "lines": 0},
+      {"text": "Just 16,386 tokens, 23% of the text. Only the last files survived.", "secs": 9, "focus": null, "lines": 12, "shot": "05-paste-all"},
+      {"text": "Each question ran once, so it's a sample. But the wall is real.", "secs": 7, "focus": null, "lines": 12}
+    ]},
+    {"type": "code", "file": "code/whitebox/rag.py", "start": "def split_text", "end": "return pieces", "captions": [
+      {"text": "You can't send everything, so you must choose. First, cut the documents up.", "secs": 8, "focus": null},
+      {"text": "Split at blank lines, and collect paragraphs in current.", "secs": 7, "focus": ["for paragraph in", "current.append"]},
+      {"text": "When the next paragraph would pass size, the piece is finished.", "secs": 7, "focus": ["if current and", "current = []"], "shot": "06-split"}
+    ]},
+    {"type": "demo", "file": "code/chunks.py", "start": "text = \"One", "end": "print(split_text(text, size=100))", "output": "video/chunks.txt", "captions": [
+      {"text": "Predict: how many pieces will each of these give?", "secs": 6, "focus": null, "lines": 0},
+      {"text": "Three, two and one. A paragraph is never broken.", "secs": 7, "focus": null, "lines": 4},
+      {"text": "All 95 files make 934 chunks at size 60, and 447 at size 120.", "secs": 8, "focus": null, "lines": 10, "shot": "07-chunks"}
+    ]},
+    {"type": "code", "file": "code/whitebox/rag.py", "start": "class Rag:", "end": "return Result(reply.content", "captions": [
+      {"text": "This is the whole pipeline. Search once.", "secs": 6, "focus": ["hits = self.index.search", "hits = self.index.search"]},
+      {"text": "Put the hits in the prompt, with their file names.", "secs": 7, "focus": ["messages = [", "]"]},
+      {"text": "Ask the model once. No loop, and no tools.", "secs": 6, "focus": ["reply = self.model.chat", "return Result"], "shot": "08-rag"}
+    ]},
+    {"type": "demo", "file": "code/ask.py", "start": "result = rag.run", "end": "print(\"tokens_in:\"", "output": "video/ask.txt", "captions": [
+      {"text": "Now the flood, which pasting missed. Predict: how many tokens now?", "secs": 7, "focus": null, "lines": 0},
+      {"text": "It found the February log, and the answer names its file.", "secs": 7, "focus": null, "lines": 7},
+      {"text": "570 tokens, against 16,386 for pasting.", "secs": 6, "focus": null, "lines": 8, "shot": "09-ask"},
+      {"text": "Flood 5 of 5. And it said I don't know about dental, 5 of 5.", "secs": 8, "focus": null, "lines": 13}
+    ]},
+    {"type": "demo", "file": "code/hit.py", "start": "for label, index in", "end": "print(f\"{label:<14}", "output": "video/hit.txt", "captions": [
+      {"text": "A wrong answer could be the search or the model. So measure the search alone.", "secs": 8, "focus": null, "lines": 0},
+      {"text": "hit_rate checks the right file, not the right text. It's a file hit rate.", "secs": 8, "focus": null, "lines": 0},
+      {"text": "Predict: which index finds the most files?", "secs": 5, "focus": null, "lines": 0},
+      {"text": "Whole files lead at k=5, 31 to 28. So why chunk?", "secs": 7, "focus": null, "lines": 6, "shot": "10-hit"}
+    ]},
+    {"type": "demo", "file": "code/eval_all.py", "start": "indexes = {", "end": "print(summary", "output": "video/eval_all.txt", "captions": [
+      {"text": "Score the answers: 42 questions, three runs each, and rag60 twice.", "secs": 8, "focus": null, "lines": 0},
+      {"text": "rag60 scored 99, then 100. rag120 scored 99. Don't pick a winner.", "secs": 8, "focus": null, "lines": 4},
+      {"text": "Whole files: the most files, and the lowest score, 74.", "secs": 7, "focus": null, "lines": 5, "shot": "11-eval"},
+      {"text": "But look at none and records. It's the silent cut again.", "secs": 7, "focus": null, "lines": 5}
+    ]},
+    {"type": "demo", "file": "code/whole_files.py", "start": "rag = Rag(", "end": "print(summary", "output": "video/whole_files.txt", "captions": [
+      {"text": "So give whole files room: num_ctx 16384.", "secs": 6, "focus": ["rag = Rag(", "rag = Rag("], "lines": 0},
+      {"text": "103 of 126, level with chunks. We expected chunks to win. They didn't.", "secs": 9, "focus": null, "lines": 3, "shot": "12-whole"},
+      {"text": "The difference is cost: 7,191 tokens here, and 570 with chunks.", "secs": 8, "focus": null, "lines": 3}
+    ]},
+    {"type": "demo", "file": "code/hit_vs_answer.py", "start": "hit = hit_rate", "end": "print(f\"{name:<24}", "output": "video/hit_vs_answer.txt", "captions": [
+      {"text": "Does a file hit mean a right answer? Print where the two disagree.", "secs": 7, "focus": null, "lines": 0},
+      {"text": "Four found the file and still lost runs. One missed it and passed.", "secs": 8, "focus": null, "lines": 7, "shot": "13-disagree"},
+      {"text": "hair is a false failure: the right answer said tie, and our check wanted tied.", "secs": 9, "focus": null, "lines": 7}
+    ]},
+    {"type": "demo", "file": "code/tidewater.py", "start": "if \"£85\" in hit.text", "end": "print(\"Does this chunk", "output": "video/tidewater.txt", "captions": [
+      {"text": "Tidewater's fee is £85, and the chunk holding it was found.", "secs": 7, "focus": null, "lines": 0},
+      {"text": "But its heading landed in the chunk before. The name nearby is Northline.", "secs": 9, "focus": null, "lines": 7},
+      {"text": "0 of 5. The file hit rate counts this as a success.", "secs": 7, "focus": null, "lines": 11, "shot": "14-tidewater"}
+    ]},
+    {"type": "demo", "file": "code/eval_handbook.py", "start": "setups = {", "end": "\"rag60\": Rag(", "output": "video/eval_handbook.txt", "captions": [
+      {"text": "Is RAG always better? On the handbook, pasting can fit. Predict the winner.", "secs": 8, "focus": null, "lines": 0},
+      {"text": "Pasting at the default window: 38 of 96. The silent cut is the worst result.", "secs": 8, "focus": null, "lines": 2},
+      {"text": "Pasting with room beat RAG here, 83 to 75. RAG won only on gap.", "secs": 8, "focus": null, "lines": 4, "shot": "15-when"},
+      {"text": "If your documents fit, you may not need RAG. Always check tokens_in.", "secs": 8, "focus": null, "lines": 4}
+    ]},
+    {"type": "term", "file": "video/exercise_output.txt", "final": "5 passed", "captions": [
+      {"text": "Your turn. Open exercises.py and complete the five TODOs.", "secs": 6, "lines": 9},
+      {"text": "There's also an optional exercise: paste everything, and report back.", "secs": 7, "lines": 9},
+      {"text": "You've finished when you see 5 passed.", "secs": 6, "lines": 13, "shot": "16-exercises"}
+    ]},
+    {"type": "end", "title": "You opened the RAG pipeline.", "points": ["Check tokens_in for a silent cut", "Chunk, search, then ask once", "A file hit isn't a right answer", "If it fits, you may not need RAG"], "next": "Next: Chapter 21, better chunks", "captions": [
+      {"text": "Now you can answer from documents too big to paste.", "secs": 6},
+      {"text": "Next, you'll improve retrieval, and measure each change.", "secs": 6}
+    ]}
+  ]
+}

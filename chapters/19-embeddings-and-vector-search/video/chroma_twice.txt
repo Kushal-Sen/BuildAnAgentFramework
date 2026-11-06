@@ -1,0 +1,5 @@
+$ python3 chroma_twice.py
+84 rows
+  0.676  uniform.md
+  0.676  uniform.md
+  0.627  refunds.md

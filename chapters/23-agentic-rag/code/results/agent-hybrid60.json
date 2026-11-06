@@ -1,0 +1,354 @@
+{
+  "label": "agent-hybrid60",
+  "rows": [
+    {
+      "name": "direct:drink-recipe",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:float",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:payday",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:milk-charge",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:fridge",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:grounds",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:hot-food",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:loyalty",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:holiday",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:quit",
+      "runs": 3,
+      "passed": 2,
+      "steps": 6,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['2 weeks', 'two weeks']"
+          ],
+          "answer": "According to the staff handbook, as a barista (which is likely a Band C or Band D role), you need to give 4 weeks' written notice to resign. [resignation.md]"
+        }
+      ]
+    },
+    {
+      "name": "gap:feel-ill",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:funeral",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:mice",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:scald",
+      "runs": 3,
+      "passed": 2,
+      "steps": 7,
+      "failures": [
+        {
+          "run": 3,
+          "failed": [
+            "any of ['20']"
+          ],
+          "answer": "I don't know the specific time you should hold your hand under the tap after scalding yourself on the steam wand. However, it's important to cool the burn as quickly as possible and for as long as needed. Typically, running water for several minutes can help. Please seek medical advice if the burn is severe. [closing-checklist.md] [opening-checklist.md] [cash-handling.md]"
+        }
+      ]
+    },
+    {
+      "name": "gap:shoes",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:hair",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "code:e44",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "code:e31",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "code:r5",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "code:ir9",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "code:hr15",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "code:fn6",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "hop:harbour-arrive",
+      "runs": 3,
+      "passed": 1,
+      "steps": 6,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['06:00', '6:00', '6 am', '6am']"
+          ],
+          "answer": "Based on the information provided in the branch-harbour.md file, you should arrive at the Harbour branch by 06:30 on a Monday. [branch-harbour.md]"
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['06:00', '6:00', '6 am', '6am']"
+          ],
+          "answer": "Based on the information provided, you should arrive at the Harbour branch by 06:30 on a Monday, as that is the opening time for Monday through Friday. \n\n[branch-harbour.md]"
+        }
+      ]
+    },
+    {
+      "name": "hop:senior-beans",
+      "runs": 3,
+      "passed": 2,
+      "steps": 6,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['25%']"
+          ],
+          "answer": "As a senior barista (which is likely Band E), you get 30% off retail beans when you are off shift and using your staff card at any branch. [staff-discount.md]"
+        }
+      ]
+    },
+    {
+      "name": "hop:riverside-repair",
+      "runs": 3,
+      "passed": 2,
+      "steps": 6,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['0300 555 0177']"
+          ],
+          "answer": "According to the handbook, you should phone the equipment service contractor listed for the Riverside branch. To find the contact number, you'll need to check the contractor's information in the staff handbook. The general guidance for reporting broken equipment is to first put an out-of-order sign on it and then call the contractor.\n\nThe specific file that contains the contact information for the contractor is not provided in the logs, so I cannot give you the exact number. You will need to search for \"Riverside contractor\" in the staff handbook to find the contact number.\n\nI don't know the specific number, but you should look for \"Riverside contractor\" in the staff handbook. [equipment-repairs.md]"
+        }
+      ]
+    },
+    {
+      "name": "hop:shift-lead-pay",
+      "runs": 3,
+      "passed": 2,
+      "steps": 6,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['14.75']"
+          ],
+          "answer": "The hourly rate for a shift lead is not explicitly stated in the handbook, but based on the information provided, it falls under the highest band, which is Band D at \u00a316.90 per hour. [wages.md]"
+        }
+      ]
+    },
+    {
+      "name": "hop:lead-notice",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "hop:old-mill-repair",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "none:pension",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "none:dental",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "none:wifi",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "none:dogs",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:flood",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:cupping-guest",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:film-crew",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:card-reader",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:ferry-order",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:fennel-min",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:tidewater-fee",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:lantern-price",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "none:records-none",
+      "runs": 3,
+      "passed": 3,
+      "steps": 7,
+      "failures": []
+    },
+    {
+      "name": "none:records-none2",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    }
+  ]
+}

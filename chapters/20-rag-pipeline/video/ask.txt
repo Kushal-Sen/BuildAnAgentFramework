@@ -1,0 +1,13 @@
+$ python3 ask.py
+0.87  log-harbour-2025-02.md
+0.69  log-harbour-2025-09.md
+0.68  log-harbour-2025-01.md
+0.67  log-harbour-2025-02.md
+0.67  log-harbour-2025-08.md
+Answer: The stock worth £640 was lost when the Harbour cellar flooded. [log-harbour-2025-02.md]
+tokens_in: 570
+five runs each
+Case                  Passed  Steps
+records:flood            5/5    1.0
+none:dental              5/5    1.0
+Total                  10/10

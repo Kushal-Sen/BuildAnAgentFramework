@@ -1,0 +1,18 @@
+senior-beans (agent60), 1 searches: senior barista discount retail beans
+    As a senior barista, you get 15% off retail beans when you are off shift and using your staff card at any branch. [staff-discount.md]
+senior-beans (agent60), 1 searches: senior barista discount retail beans
+    According to the staff handbook, a senior barista, which I assume is a Band E, gets 30% off retail beans when off shift and using a staff card.  [staff-discount.md]
+shift-lead-pay (agent60), 1 searches: hourly rate shift lead
+    The hourly rate for a shift lead is not explicitly stated, but based on the information provided, shift leads are likely Band D, with an hourly rate of £16.90. [wages.md]
+lead-notice (agent60), 1 searches: shift lead resignation notice period
+    As a shift lead, if you are a Band E staff member, you must give 8 weeks' notice when you resign. [resignation.md]
+senior-beans (agent60-again), 1 searches: senior barista discount retail beans
+    As a senior barista, you get 30% off retail beans when you are off shift and using your staff card at any branch. [staff-discount.md]
+senior-beans (agent60-again), 1 searches: senior barista discount retail beans
+    As a senior barista, you get 30% off retail beans when you are off shift and using your staff card. [staff-discount.md]
+senior-beans (agent-hybrid60), 1 searches: senior barista discount retail beans
+    As a senior barista (which is likely Band E), you get 30% off retail beans when you are off shift and using your staff card at any branch. [staff-discount.md]
+shift-lead-pay (agent-hybrid60), 1 searches: hourly rate shift lead
+    The hourly rate for a shift lead is not explicitly stated in the handbook, but based on the information provided, it falls under the highest band, which is Band D at £16.90 per hour. [wages.md]
+senior-beans (agent-hybrid60-again), 1 searches: senior barista discount retail beans
+    As a senior barista, you get 30% off retail beans when you are off shift and using your staff card at any branch. [staff-discount.md]

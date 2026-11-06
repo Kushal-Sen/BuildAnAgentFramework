@@ -1,0 +1,12 @@
+$ python3 card_reader.py
+0.720  log-station-2025-12.md
+0.718  log-station-2025-09.md
+0.712  log-station-2025-07.md
+0.693  log-harbour-2025-05.md
+0.692  log-station-2025-12.md
+File hit: (1, 1)
+Answer: I don't know. [log-station-2025-12.md]
+five runs
+Case                  Passed  Steps
+records:card-reader      0/5    1.0
+Total                    0/5

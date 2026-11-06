@@ -37,29 +37,30 @@ Work through the chapters in order and tick each one off as you finish it.
 
 - [ ] 19 Embeddings and vector search
 - [ ] 20 The RAG pipeline
-- [ ] 21 Better retrieval
-- [ ] 22 Agentic RAG
+- [ ] 21 Better chunks
+- [ ] 22 Better search
+- [ ] 23 Agentic RAG
 
 ## Part 5: Agent capabilities (about 10 hours)
 
-- [ ] 23 Context management
-- [ ] 24 Memory
-- [ ] 25 Planning patterns
-- [ ] 26 Durable execution
+- [ ] 24 Context management
+- [ ] 25 Memory
+- [ ] 26 Planning patterns
+- [ ] 27 Durable execution
 
 ## Part 6: MCP (about 4.5 hours)
 
-- [ ] 27 MCP concepts and servers
-- [ ] 28 MCP client
+- [ ] 28 MCP concepts and servers
+- [ ] 29 MCP client
 
 ## Part 7: Multi-agent and production (about 10 hours)
 
-- [ ] 29 Multi-agent systems
-- [ ] 30 Security
-- [ ] 31 Switching to Gemini
-- [ ] 32 Cost and latency
+- [ ] 30 Multi-agent systems
+- [ ] 31 Security
+- [ ] 32 Switching to Gemini
+- [ ] 33 Cost and latency
 
 ## Part 8: Capstone (about 13 hours)
 
-- [ ] 33 Coding agent
-- [ ] 34 Real-world frameworks
+- [ ] 34 Coding agent
+- [ ] 35 Real-world frameworks

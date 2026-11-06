@@ -1,0 +1,5 @@
+$ python3 eval_all.py
+rag60           99/126  direct 24/24  gap 20/24  code 12/18  hop 7/18  none 18/18  records 18/24
+rag60 again    100/126  direct 24/24  gap 21/24  code 12/18  hop 6/18  none 18/18  records 19/24
+rag120          99/126  direct 24/24  gap 18/24  code 15/18  hop 6/18  none 18/18  records 18/24
+whole files     74/126  direct 24/24  gap 17/24  code 15/18  hop 3/18  none 6/18  records 9/24

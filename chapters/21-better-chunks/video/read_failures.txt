@@ -1,0 +1,12 @@
+$ python3 read_failures.py titles60 titles60-again
+Question           Kind     File hit  Text found  Passed
+mice               gap      yes       yes         1/6
+shoes              gap      yes       yes         0/6
+e44                code     no        no          0/6
+fn6                code     no        no          0/6
+harbour-arrive     hop      no        -           1/6
+senior-beans       hop      no        -           0/6
+riverside-repair   hop      no        -           0/6
+shift-lead-pay     hop      no        -           0/6
+lead-notice        hop      no        -           1/6
+tidewater-fee      records  yes       yes         0/6

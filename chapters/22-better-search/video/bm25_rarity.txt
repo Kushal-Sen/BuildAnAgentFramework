@@ -1,0 +1,9 @@
+$ python3 bm25_by_hand.py
+934 chunks
+
+1. Rarity: a word in fewer chunks is worth more
+  the      in 896 chunks, rarity 0.04
+  station  in  16 chunks, rarity 4.04
+  card     in  10 chunks, rarity 4.49
+  reader   in   1 chunks, rarity 6.44
+  fn-6     in   1 chunks, rarity 6.44

@@ -1,0 +1,8 @@
+$ python3 card_titles.py
+Station branch log, December 2025
+
+The card reader on till one failed at 07:40 and stayed  ...
+
+titles=False: rank 111
+titles=True: rank 1
+219 of 934 chunks start with a ## heading, so they get no title

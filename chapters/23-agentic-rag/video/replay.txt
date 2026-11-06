@@ -1,0 +1,1 @@
+replay                101/126  direct 24/24  gap 20/24  code 12/18  hop 3/18  none 18/18  records 24/24

@@ -1,0 +1,5 @@
+$ python3 compare.py
+Group      Questions  Words 1st  Words top 3  Vectors 1st  Vectors top 3  Tied wins
+direct             8          8            8            8              8          0
+reworded           8          2            2            4              5          2
+codes              6          5            6            4              5          1

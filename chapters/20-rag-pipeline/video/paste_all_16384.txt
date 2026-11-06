@@ -1,0 +1,6 @@
+$ python3 paste_all.py 16384 2
+direct:float           FAIL  'Based on the information provided in the logs, the till floa'
+direct:fridge          FAIL  'The log entries provided do not contain specific information'
+
+num_ctx 16384: 0/2 passed, 52 seconds per question
+tokens_in 8,194 of 69,872 (12% of the text)

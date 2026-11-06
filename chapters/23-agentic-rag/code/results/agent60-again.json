@@ -1,0 +1,383 @@
+{
+  "label": "agent60-again",
+  "rows": [
+    {
+      "name": "direct:drink-recipe",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:float",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:payday",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:milk-charge",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:fridge",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:grounds",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:hot-food",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:loyalty",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:holiday",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:quit",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:feel-ill",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:funeral",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:mice",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:scald",
+      "runs": 3,
+      "passed": 3,
+      "steps": 7,
+      "failures": []
+    },
+    {
+      "name": "gap:shoes",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:hair",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "code:e44",
+      "runs": 3,
+      "passed": 1,
+      "steps": 10,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['dose sensor']"
+          ],
+          "answer": "I don't know. The reference to E44 wasn't found in the provided logs. [log-riverside-2025-04.md] [log-riverside-2025-10.md] [log-harbour-2025-08.md]"
+        },
+        {
+          "run": 2,
+          "failed": [
+            "any of ['dose sensor']"
+          ],
+          "answer": "I don't know. The logs mention Elif helping with the loyalty app and practicing latte art, but they do not provide a meaning for E44. [log-riverside-2025-04.md]"
+        }
+      ]
+    },
+    {
+      "name": "code:e31",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "code:r5",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "code:ir9",
+      "runs": 3,
+      "passed": 2,
+      "steps": 6,
+      "failures": [
+        {
+          "run": 3,
+          "failed": [
+            "any of ['data breach']"
+          ],
+          "answer": "Form IR-9 is used to report if personal customer information is lost or sent to the wrong person. It should be reported within 24 hours. [data-protection.md]"
+        }
+      ]
+    },
+    {
+      "name": "code:hr15",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "code:fn6",
+      "runs": 3,
+      "passed": 0,
+      "steps": 6,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['bank']"
+          ],
+          "answer": "I don't know. The logs do not mention FN-6 or its purpose. [log-riverside-2025-02.md]"
+        },
+        {
+          "run": 2,
+          "failed": [
+            "any of ['bank']"
+          ],
+          "answer": "I don't know. The logs do not mention FN-6 or its purpose. [log-riverside-2025-02.md]"
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['bank']"
+          ],
+          "answer": "I don't know. The logs mention cleaning the pastry cabinet but do not specify what FN-6 is used for. [log-riverside-2025-02.md]"
+        }
+      ]
+    },
+    {
+      "name": "hop:harbour-arrive",
+      "runs": 3,
+      "passed": 2,
+      "steps": 6,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['06:00', '6:00', '6 am', '6am']"
+          ],
+          "answer": "Based on the information provided in the handbook, the Harbour branch opens at 06:30 on Mondays. You should arrive at least a few minutes before opening to prepare and ensure everything is set up for customers. [branch-harbour.md]"
+        }
+      ]
+    },
+    {
+      "name": "hop:senior-beans",
+      "runs": 3,
+      "passed": 1,
+      "steps": 6,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['25%']"
+          ],
+          "answer": "As a senior barista, you get 30% off retail beans when you are off shift and using your staff card at any branch. [staff-discount.md]"
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['25%']"
+          ],
+          "answer": "As a senior barista, you get 30% off retail beans when you are off shift and using your staff card. [staff-discount.md]"
+        }
+      ]
+    },
+    {
+      "name": "hop:riverside-repair",
+      "runs": 3,
+      "passed": 3,
+      "steps": 7,
+      "failures": []
+    },
+    {
+      "name": "hop:shift-lead-pay",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "hop:lead-notice",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "hop:old-mill-repair",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "none:pension",
+      "runs": 3,
+      "passed": 3,
+      "steps": 10,
+      "failures": []
+    },
+    {
+      "name": "none:dental",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "none:wifi",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "none:dogs",
+      "runs": 3,
+      "passed": 2,
+      "steps": 11,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "says I don't know"
+          ],
+          "answer": "I don't see any specific mention of allowing dogs or pets in the handbook. The section [food-safety.md] focuses on pest control and food safety, not on visitor policies.\n\nGiven the lack of specific information, it seems that dogs are not allowed inside the Riverside branch. I recommend checking with a manager for the most accurate information. [food-safety.md]"
+        }
+      ]
+    },
+    {
+      "name": "records:flood",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:cupping-guest",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:film-crew",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:card-reader",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:ferry-order",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:fennel-min",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:tidewater-fee",
+      "runs": 3,
+      "passed": 2,
+      "steps": 6,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['85']"
+          ],
+          "answer": "I couldn't find specific information on the cost of a Tidewater call-out in the provided handbook files. [branch-harbour.md] and [branch-old-mill.md] mention Tidewater Espresso Service as the equipment service contractor for the branches, but there's no detail about the call-out cost. \n\nIf you have more context or another location where this information might be found, please provide it. Otherwise, I would recommend checking directly with Tidewater Espresso Service at 0300 555 0142 for the call-out cost. [branch-harbour.md]"
+        }
+      ]
+    },
+    {
+      "name": "records:lantern-price",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "none:records-none",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "none:records-none2",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    }
+  ]
+}

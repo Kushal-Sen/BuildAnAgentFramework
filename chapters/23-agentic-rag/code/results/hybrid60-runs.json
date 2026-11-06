@@ -1,0 +1,1136 @@
+[
+ {
+  "question": "How many grams of coffee and espresso does the house blend recipe use?",
+  "answer": "The house blend recipe uses 18 grams of ground coffee to give 36 grams of espresso. [espresso-recipe.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 565,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How many grams of coffee and espresso does the house blend recipe use?",
+  "answer": "The house blend recipe uses 18 grams of ground coffee to give 36 grams of espresso. [espresso-recipe.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 565,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How many grams of coffee and espresso does the house blend recipe use?",
+  "answer": "The house blend recipe uses 18 grams of ground coffee to give 36 grams of espresso. [espresso-recipe.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 565,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How much is the till float?",
+  "answer": "Each till starts the day with a float of \u00a3150. [cash-handling.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 470,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How much is the till float?",
+  "answer": "The till starts the day with a float of \u00a3150. [cash-handling.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 470,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How much is the till float?",
+  "answer": "Each till starts the day with a float of \u00a3150. [cash-handling.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 470,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "When is payday?",
+  "answer": "Payday is the last Friday of each month. [wages.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 481,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "When is payday?",
+  "answer": "Payday is the last Friday of each month. [wages.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 481,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "When is payday?",
+  "answer": "Payday is the last Friday of each month. [wages.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 481,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How much extra do oat, soya and coconut milk cost?",
+  "answer": "Oat, soya and coconut milk cost 45p extra. [milk-and-alternatives.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 539,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How much extra do oat, soya and coconut milk cost?",
+  "answer": "Oat, soya and coconut milk cost 45p extra. [milk-and-alternatives.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 539,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How much extra do oat, soya and coconut milk cost?",
+  "answer": "Oat, soya and coconut milk cost 45p extra. [milk-and-alternatives.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 539,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What temperature must fridges stay at?",
+  "answer": "Fridges must stay at 5\u00b0C or below. [food-safety.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 465,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What temperature must fridges stay at?",
+  "answer": "Fridges must stay at 5\u00b0C or below. [food-safety.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 465,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What temperature must fridges stay at?",
+  "answer": "Fridges must stay at 5\u00b0C or below. [food-safety.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 465,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "When are coffee grounds collected?",
+  "answer": "Coffee grounds are collected every Tuesday by GreenLoop. [waste-and-recycling.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 499,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "When are coffee grounds collected?",
+  "answer": "Coffee grounds are collected every Tuesday by GreenLoop. [waste-and-recycling.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 499,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "When are coffee grounds collected?",
+  "answer": "Coffee grounds are collected every Tuesday by GreenLoop. [waste-and-recycling.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 499,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What temperature must hot food reach in the centre?",
+  "answer": "Riverside's hot food must reach 75\u00b0C in the centre. [food-safety.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 460,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What temperature must hot food reach in the centre?",
+  "answer": "Riverside's hot food must reach 75\u00b0C in the centre. [food-safety.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 460,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What temperature must hot food reach in the centre?",
+  "answer": "Riverside's hot food must reach 75\u00b0C in the centre, measured with the probe thermometer. [food-safety.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 460,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How many hot drinks until a customer gets a free one on the loyalty card?",
+  "answer": "A customer gets a free drink after collecting ten stamps from hot drinks on the loyalty card. [loyalty-card.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 387,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How many hot drinks until a customer gets a free one on the loyalty card?",
+  "answer": "A customer gets a free drink after collecting 10 stamps from hot drinks on the loyalty card. [loyalty-card.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 387,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How many hot drinks until a customer gets a free one on the loyalty card?",
+  "answer": "A customer gets a free drink after earning 10 stamps from hot drinks on the loyalty card. [loyalty-card.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 387,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How many vacation days do I get as a full-timer?",
+  "answer": "Full-time staff receive 28 days of annual leave each year, including public holidays. [annual-leave.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 447,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How many vacation days do I get as a full-timer?",
+  "answer": "Full-time staff receive 28 days of annual leave each year, including public holidays. [annual-leave.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 447,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How many vacation days do I get as a full-timer?",
+  "answer": "Full-time staff receive 28 days of annual leave each year, including public holidays. [annual-leave.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 447,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "I'm a barista and I want to quit. How much warning do I have to give?",
+  "answer": "It depends on your band:\n- Band A and Band B staff: 2 weeks\n- Band C and Band D staff: 4 weeks\n- Band E staff: 8 weeks\n\n[resignation.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 407,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "I'm a barista and I want to quit. How much warning do I have to give?",
+  "answer": "It depends on your band:\n- Band A and Band B: 2 weeks\n- Band C and Band D: 4 weeks\n- Band E: 8 weeks\n\n[resignation.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 407,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "I'm a barista and I want to quit. How much warning do I have to give?",
+  "answer": "It depends on your band:\n- Band A and Band B staff must give 2 weeks' notice.\n- Band C and Band D staff must give 4 weeks' notice.\n- Band E staff must give 8 weeks' notice.\n\n[resignation.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 407,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "I woke up feeling awful and can't make it in. How do I let my boss know?",
+  "answer": "You should phone your branch manager at least two hours before your shift starts. Don't send a text or use StaffHub for this. [sickness-absence.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 420,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "I woke up feeling awful and can't make it in. How do I let my boss know?",
+  "answer": "If you cannot come to work because you are unwell, phone your branch manager at least two hours before your shift starts. [sickness-absence.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 420,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "I woke up feeling awful and can't make it in. How do I let my boss know?",
+  "answer": "If you cannot come to work because you are unwell, phone your branch manager at least two hours before your shift starts. [sickness-absence.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 420,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "My dad just passed away. How much paid time can I have?",
+  "answer": "You can take up to 5 days of paid leave for the death of a close relative, which includes your dad. [bereavement-leave.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 388,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "My dad just passed away. How much paid time can I have?",
+  "answer": "You are entitled to up to 5 days of paid leave to attend to the bereavement of your dad, as he is considered a close relative. [bereavement-leave.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 388,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "My dad just passed away. How much paid time can I have?",
+  "answer": "You can have up to 5 days of paid leave. [bereavement-leave.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 388,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "I found evidence of mice in the storeroom. Who handles that?",
+  "answer": "I don't know.",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 450,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "I found evidence of mice in the storeroom. Who handles that?",
+  "answer": "I don't know. [food-safety.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 450,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "I found evidence of mice in the storeroom. Who handles that?",
+  "answer": "I don't know.",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 450,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "I scalded my hand on the steam wand. How long should I hold it under the tap?",
+  "answer": "You should hold the scalded hand under running water for 20 minutes. [first-aid.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 517,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "I scalded my hand on the steam wand. How long should I hold it under the tap?",
+  "answer": "You should hold the scalded hand under running water for 20 minutes. [first-aid.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 517,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "I scalded my hand on the steam wand. How long should I hold it under the tap?",
+  "answer": "You should hold the scalded hand under running water for 20 minutes. This is according to the first aid procedure for minor burns. [first-aid.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 517,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "Can I get money back for buying work footwear?",
+  "answer": "Yes, you can get money back for buying work footwear. After your probation, you can claim a shoe allowance of \u00a340 every 12 months, using form FN-3 with a receipt. [uniform.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 388,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "Can I get money back for buying work footwear?",
+  "answer": "Yes, you can get money back for buying work footwear. After your probation, you can claim a shoe allowance of \u00a340 every 12 months, using form FN-3 with a receipt. [uniform.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 388,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "Can I get money back for buying work footwear?",
+  "answer": "Yes, you can get money back for buying work footwear. After your probation, you can claim a shoe allowance of \u00a340 every 12 months, using form FN-3 with a receipt. [uniform.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 388,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "Do I need to do anything about my ponytail at work?",
+  "answer": "Yes, you need to tie back your long hair. According to the uniform guidelines in the [uniform.md] file, long hair must be tied back.",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 373,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "Do I need to do anything about my ponytail at work?",
+  "answer": "According to the uniform policy, long hair must be tied back. Therefore, you should tie back your ponytail at work. [uniform.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 373,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "Do I need to do anything about my ponytail at work?",
+  "answer": "According to the uniform policy, long hair must be tied back. Therefore, you should tie back your ponytail at work. [uniform.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 373,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What does E44 mean?",
+  "answer": "E44 is a dose sensor fault. You should use the backup grinder and report the fault as described in the grinder error codes document. [grinder-errors.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 523,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What does E44 mean?",
+  "answer": "E44 is a dose sensor fault. You should use the backup grinder and report the fault as described in the grinder error codes [grinder-errors.md].",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 523,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What does E44 mean?",
+  "answer": "E44 is a dose sensor fault. Use the backup grinder, and report the fault. [grinder-errors.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 523,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "The grinder shows E31. What do I do?",
+  "answer": "You should leave it switched off for 20 minutes. [grinder-errors.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 397,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "The grinder shows E31. What do I do?",
+  "answer": "If the grinder shows error code E31, you should leave it switched off for 20 minutes.\n\n[I used the file grinder-errors.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 397,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "The grinder shows E31. What do I do?",
+  "answer": "If you encounter the error code E31, which stands for motor overheating, you should leave the grinder switched off for 20 minutes. [grinder-errors.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 397,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What is refund reason code R5 for?",
+  "answer": "R5 is for a price error. [refunds.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 413,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What is refund reason code R5 for?",
+  "answer": "R5 is for a price error. [refunds.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 413,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What is refund reason code R5 for?",
+  "answer": "Refund reason code R5 is for a price error. [refunds.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 413,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What is form IR-9 for?",
+  "answer": "form IR-9 is for reporting data breaches. [data-protection.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 452,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What is form IR-9 for?",
+  "answer": "form IR-9 is for reporting data breaches. [data-protection.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 452,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What is form IR-9 for?",
+  "answer": "form IR-9 is for reporting data breaches. [data-protection.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 452,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What is HR-15?",
+  "answer": "HR-15 is a flexible working request form. [flexible-working.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 521,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What is HR-15?",
+  "answer": "HR-15 is a flexible working request form. [flexible-working.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 521,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What is HR-15?",
+  "answer": "HR-15 is a flexible working request form. [flexible-working.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 521,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What is FN-6 used for?",
+  "answer": "I don't know.",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 499,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What is FN-6 used for?",
+  "answer": "I don't know.",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 499,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What is FN-6 used for?",
+  "answer": "I don't know.",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 499,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "I'm opening the Harbour branch on a Monday. What time do I need to arrive?",
+  "answer": "You need to arrive by 06:30 on Monday. [branch-harbour.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 536,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "I'm opening the Harbour branch on a Monday. What time do I need to arrive?",
+  "answer": "You need to arrive by 06:30 on Monday. [branch-harbour.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 536,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "I'm opening the Harbour branch on a Monday. What time do I need to arrive?",
+  "answer": "You need to arrive by 06:30 on a Monday, as the branch opens at this time. [branch-harbour.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 536,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "I'm a senior barista. What discount do I get on retail beans?",
+  "answer": "You get a 25% discount on retail beans as a senior barista, which is Band C. [staff-discount.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 431,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "I'm a senior barista. What discount do I get on retail beans?",
+  "answer": "According to the staff discount policy, senior baristas (Band C) get 25% off retail beans. [staff-discount.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 431,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "I'm a senior barista. What discount do I get on retail beans?",
+  "answer": "Based on the information provided, as a senior barista (Band C), you get a 25% discount on retail beans. [staff-discount.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 431,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "The espresso machine at Riverside has broken. What number do I call?",
+  "answer": "I don't know. The excerpts do not specify the phone number for the equipment service contractor. They only instruct on how to contact the contractor after putting up an out-of-order sign and noting the repair in StaffHub. [equipment-repairs.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 406,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "The espresso machine at Riverside has broken. What number do I call?",
+  "answer": "I don't know. The excerpts do not provide the specific phone number for the equipment service contractor for Riverside. They only outline the process to follow when equipment breaks, which includes putting an out-of-order sign and contacting the contractor, but the contact details are not given. [equipment-repairs.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 406,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "The espresso machine at Riverside has broken. What number do I call?",
+  "answer": "I don't know. [equipment-repairs.md] mentions calling an equipment service contractor for repairs but does not provide a specific number.",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 406,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What is the hourly rate for a shift lead?",
+  "answer": "I don't know. [wages.md] provides hourly rates for different bands but does not specify a rate for shift leads.",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 406,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What is the hourly rate for a shift lead?",
+  "answer": "I don't know.",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 406,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What is the hourly rate for a shift lead?",
+  "answer": "I don't know.",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 406,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "I'm a shift lead. How much notice must I give when I resign?",
+  "answer": "I don't know. The provided excerpts do not specify the notice period required for shift leads when resigning. [resignation.md] only mentions notice periods for different bands of staff but does not include information for shift leads.",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 389,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "I'm a shift lead. How much notice must I give when I resign?",
+  "answer": "I don't know. [resignation.md] specifies notice periods for different bands of staff but does not mention shift leads.",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 389,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "I'm a shift lead. How much notice must I give when I resign?",
+  "answer": "I don't know. The excerpt about resignation notice periods is for branch staff, not shift leads. [resignation.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 389,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "Who do I call to repair the grinder at Old Mill, and on what number?",
+  "answer": "I don't know. [branch-old-mill.md] mentions the equipment service contractor for the Old Mill branch, but it does not provide a specific contact for grinder repairs. The number given is for Tidewater Espresso Service in general, not for grinder repairs.",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 578,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "Who do I call to repair the grinder at Old Mill, and on what number?",
+  "answer": "I don't know. [branch-old-mill.md] mentions the equipment service contractor for the Old Mill branch, but it does not provide a number for them to call for repairs. The grinder repair information is found in [grinder-errors.md], but it does not specify who to call for assistance.",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 578,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "Who do I call to repair the grinder at Old Mill, and on what number?",
+  "answer": "I don't know. [branch-old-mill.md] mentions the equipment service contractor for the Old Mill branch, but it does not provide a contact number for repairs. The number provided is for Tidewater Espresso Service, but it is not specified whether this is for all equipment repairs or just grinder maintenance.",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 578,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What percentage does Quillon match on pension contributions?",
+  "answer": "I don't know. [loyalty-card.md][welcome.md][social-media.md][resignation.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 379,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What percentage does Quillon match on pension contributions?",
+  "answer": "I don't know. [loyalty-card.md][welcome.md][social-media.md][resignation.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 379,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What percentage does Quillon match on pension contributions?",
+  "answer": "I don't know. [loyalty-card.md] [welcome.md] [social-media.md] [resignation.md] do not provide information about pension contributions.",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 379,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "Does Quillon offer dental insurance?",
+  "answer": "I don't know. [social-media.md] [welcome.md] [resignation.md] [loyalty-card.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 342,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "Does Quillon offer dental insurance?",
+  "answer": "I don't know.",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 342,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "Does Quillon offer dental insurance?",
+  "answer": "I don't know. [social-media.md] [welcome.md] [resignation.md] [loyalty-card.md] does not contain information about dental insurance.",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 342,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What is the customer wifi password at Harbour?",
+  "answer": "I don't know.",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 503,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What is the customer wifi password at Harbour?",
+  "answer": "I don't know. [branch-harbour.md] and the other logs do not contain information about the customer wifi password at Harbour.",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 503,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What is the customer wifi password at Harbour?",
+  "answer": "I don't know.",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 503,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "Are dogs allowed inside the Riverside branch?",
+  "answer": "I don't know.",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 450,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "Are dogs allowed inside the Riverside branch?",
+  "answer": "I don't know.",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 450,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "Are dogs allowed inside the Riverside branch?",
+  "answer": "I don't know.",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 450,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How much stock was lost when the Harbour cellar flooded?",
+  "answer": "\u00a3640 [log-harbour-2025-02.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 576,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How much stock was lost when the Harbour cellar flooded?",
+  "answer": "Stock worth \u00a3640 was lost when the Harbour cellar flooded due to a storm surge. [log-harbour-2025-02.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 576,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How much stock was lost when the Harbour cellar flooded?",
+  "answer": "\u00a3640 worth of stock was lost due to the storm surge flooding the Harbour cellar. [log-harbour-2025-02.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 576,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "Who was the guest at the Riverside cupping club in June 2025?",
+  "answer": "The guest at the Riverside cupping club in June 2025 was Anika Voss. [log-riverside-2025-06.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 600,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "Who was the guest at the Riverside cupping club in June 2025?",
+  "answer": "The guest at the Riverside cupping club in June 2025 was Anika Voss. [log-riverside-2025-06.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 600,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "Who was the guest at the Riverside cupping club in June 2025?",
+  "answer": "The guest at the Riverside cupping club in June 2025 was Anika Voss. [log-riverside-2025-06.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 600,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How much did the film crew pay to use Old Mill?",
+  "answer": "The film crew paid \u00a3350 to use the Old-Mill branch gallery for a morning. [log-old-mill-2025-08.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 530,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How much did the film crew pay to use Old Mill?",
+  "answer": "The film crew paid \u00a3350 to use the Old-Mill branch gallery. [log-old-mill-2025-08.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 530,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How much did the film crew pay to use Old Mill?",
+  "answer": "The film crew paid \u00a3350 to use the Old Mill branch for their location needs. [log-old-mill-2025-08.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 530,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How long was the Station card reader down just before Christmas 2025?",
+  "answer": "The card reader on till one failed at 07:40 and stayed down until 11:15, which was just before Christmas in 2025. [log-station-2025-12.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 468,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How long was the Station card reader down just before Christmas 2025?",
+  "answer": "The card reader on till one failed at 07:40 and stayed down until 11:15 on December 2025, which is just before Christmas. [log-station-2025-12.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 468,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How long was the Station card reader down just before Christmas 2025?",
+  "answer": "The card reader on till one failed at 07:40 and stayed down until 11:15, which means it was down for 4 hours and 35 minutes just before Christmas 2025. [log-station-2025-12.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 468,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How many flat whites did the ferry company order for the Saturday crew breakfast?",
+  "answer": "The ferry company ordered 40 flat whites for the Saturday crew breakfast. [log-harbour-2025-09.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 495,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How many flat whites did the ferry company order for the Saturday crew breakfast?",
+  "answer": "The ferry company ordered 40 flat whites for the Saturday crew breakfast. [log-harbour-2025-09.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 495,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How many flat whites did the ferry company order for the Saturday crew breakfast?",
+  "answer": "The ferry company ordered 40 flat whites for the Saturday crew breakfast. [log-harbour-2025-09.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 495,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What is the minimum order with Fennel Bakehouse?",
+  "answer": "The minimum order with Fennel Bakehouse is \u00a360 per branch. [suppliers.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 529,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What is the minimum order with Fennel Bakehouse?",
+  "answer": "The minimum order with Fennel Bakehouse is \u00a360 per branch. [suppliers.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 529,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What is the minimum order with Fennel Bakehouse?",
+  "answer": "The minimum order with Fennel Bakehouse is \u00a360 per branch. [suppliers.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 529,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How much is a Tidewater call-out?",
+  "answer": "I don't know. [suppliers.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 528,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How much is a Tidewater call-out?",
+  "answer": "I don't know. [suppliers.md] mentions Tidewater Espresso Service as an equipment service contractor but does not provide the call-out fee amount.",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 528,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How much is a Tidewater call-out?",
+  "answer": "The call-out fee for Tidewater Espresso Service is \u00a395, as mentioned for the Northline Service in the suppliers excerpt [suppliers.md].",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 528,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How much is a 250g bag of Lantern?",
+  "answer": "The price of a 250g bag of Lantern is \u00a38.50. [products-beans.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 585,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How much is a 250g bag of Lantern?",
+  "answer": "The price of a 250g bag of Lantern is \u00a38.50. [products-beans.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 585,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How much is a 250g bag of Lantern?",
+  "answer": "The price of a 250g bag of Lantern is \u00a38.50. [products-beans.md]",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 585,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What did the health inspector score the Station branch in 2025?",
+  "answer": "I don't know. [log-station-2025-05.md] [log-station-2025-06.md] [welcome.md] [log-station-2025-03.md] do not contain information about a health inspector's score for the Station branch in 2025.",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 609,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What did the health inspector score the Station branch in 2025?",
+  "answer": "I don't know. [log-station-2025-05.md] [log-station-2025-06.md] [welcome.md] [log-station-2025-03.md] do not contain information about a health inspector's score for the Station branch in 2025.",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 609,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "What did the health inspector score the Station branch in 2025?",
+  "answer": "I don't know.",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 609,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How much did the Riverside roof repair cost in 2025?",
+  "answer": "I don't know. [log-riverside-2025-04.md] [log-riverside-2025-08.md] [log-riverside-2025-02.md] do not mention any roof repairs in 2025.",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 451,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How much did the Riverside roof repair cost in 2025?",
+  "answer": "I don't know. [log-riverside-2025-02.md], [log-riverside-2025-04.md], [log-riverside-2025-08.md] contain information about the branch's daily activities and finances, but there is no mention of a roof repair cost in 2025.",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 451,
+  "searches": [],
+  "seen": ""
+ },
+ {
+  "question": "How much did the Riverside roof repair cost in 2025?",
+  "answer": "I don't know. [log-riverside-2025-04.md], [log-riverside-2025-08.md], [grinder-errors.md], and [uniform.md] do not contain information about a roof repair cost in 2025.",
+  "steps": 1,
+  "stopped": false,
+  "tokens_in": 451,
+  "searches": [],
+  "seen": ""
+ }
+]

@@ -1,0 +1,429 @@
+<title>Whitebox: RAG Pipeline</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a black box header opens onto a white reading column; media breaks wider. */
+:root {
+  --bg: #fbfbf9; --surface: #ffffff; --ink: #16181d; --muted: #5d616b; --rule: #d9dade;
+  --accent: #2a4bd7; --tint: #e7ebfb; --box: #0c0d10; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #101218; --term-ink: #e4e6ec; --term-cmd: #9db1ff;
+  --display: "Bricolage Grotesque", Georgia, serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+    --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+    --term: #08090c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+  --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #08090c; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 400 1.0625rem/1.65 var(--body); }
+.gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 68rem; margin: 0 auto; min-width: 0; }
+.col { max-width: 42rem; display: grid; gap: 1rem; min-width: 0; }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2.6rem, 7vw, 4.4rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; }
+h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); line-height: 1.15; font-weight: 700; }
+h3 { font-size: 1.2rem; line-height: 1.3; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--accent); }
+a:focus-visible, video:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+code { font-family: var(--mono); font-size: 0.92em; }
+
+header.mast { background: var(--box); color: var(--on-box); padding-block: 1.6rem 3rem; }
+.mast .wrap { display: grid; gap: 2.4rem; }
+.brand { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font: 500 1rem var(--display); }
+.brand span:first-child { display: flex; align-items: center; gap: 0.55rem; }
+.brand i { width: 0.95rem; height: 0.95rem; border: 3px solid currentColor; display: block; }
+.brand span:last-child { font: 400 0.85rem var(--mono); color: var(--box-muted); align-self: center; }
+.mast .intro { display: grid; gap: 1rem; max-width: 46rem; }
+.mast .dek { font-size: 1.2rem; color: var(--box-muted); }
+.meta { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+
+main { padding-block: 0 4rem; }
+section { padding-block: 3.2rem 0; display: grid; gap: 1.4rem; }
+.label { font: 600 0.78rem/1.2 var(--mono); color: var(--accent); }
+.lede { font-size: 1.15rem; }
+
+figure { margin: 0; display: grid; gap: 0.5rem; min-width: 0; }
+figcaption { font-size: 0.86rem; color: var(--muted); }
+video { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 1440 / 900; background: #000; }
+
+ol.loop { margin: 0; padding-left: 1.3rem; display: grid; gap: 0.35rem; }
+ol.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 2.4rem; counter-reset: step; }
+ol.steps > li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 1.6rem; align-items: start; counter-increment: step; }
+ol.steps .txt { display: grid; gap: 0.45rem; min-width: 0; }
+ol.steps .txt h3::before { content: counter(step); display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; margin-right: 0.55rem; background: var(--ink); color: var(--bg); font: 600 0.85rem/1 var(--mono); vertical-align: 0.1em; }
+ol.steps img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); }
+@media (max-width: 720px) { ol.steps > li { grid-template-columns: minmax(0, 1fr); } }
+
+pre { margin: 0; background: var(--term); color: var(--term-ink); padding: 1rem 1.1rem; overflow-x: auto; font: 400 0.86rem/1.6 var(--mono); }
+pre .cmd { color: var(--term-cmd); }
+.tablebox { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.98rem; }
+th, td { text-align: left; padding: 0.65rem 0.8rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; color: var(--muted); }
+td { font-variant-numeric: tabular-nums; }
+.fails { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.fails div { background: var(--tint); padding: 1rem 1.1rem; display: grid; gap: 0.3rem; align-content: start; min-width: 0; }
+.list { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.35rem; }
+.next { background: var(--box); color: var(--on-box); padding: 1.4rem 1.5rem; display: grid; gap: 0.3rem; }
+.next span { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--muted); }
+</style>
+
+<header class="mast gutter">
+  <div class="wrap">
+    <div class="brand"><span><i></i>Whitebox Academy</span><span>Build an AI Agent from Scratch</span></div>
+    <div class="intro">
+      <span class="meta">Chapter 20 of 35 · Part 4: RAG · About 2.5 hours, plus some long evals</span>
+      <h1>The RAG pipeline</h1>
+      <p class="dek">Paste documents until pasting fails, build a pipeline that finds the right passages, and learn when you don’t need one.</p>
+    </div>
+  </div>
+</header>
+
+<main class="gutter">
+  <div class="wrap">
+    <section>
+      <figure>
+        <video controls playsinline preload="metadata" poster="media/11-eval.jpg">
+          <source src="media/video.mp4" type="video/mp4">
+        </video>
+        <figcaption>Chapter video, 7 minutes 11 seconds, no sound. It starts with a 30-second recap, and captions on screen explain each step.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Where we are</span>
+        <h2>You found the file, but not the answer</h2>
+        <p class="lede">In chapter 19, you searched the handbook by meaning. You got back the right file, but not an answer.</p>
+        <p>Before you build anything, try the simplest idea there is: paste the documents into the prompt, and ask. It works, and then it doesn’t. <strong>RAG</strong> stands for retrieval-augmented generation. It means: search first, put what you found in the prompt, and let the model answer from it.</p>
+        <p><a href="https://claude.ai/artifact/1uGgX3WK7v3D5HyfvB782p#start-ollama">Start Ollama</a>, activate the <code>.venv</code> from chapter 05, and work in <code>chapters/20-rag-pipeline/code</code>. You need the embedding model from chapter 19, so run <code>ollama pull nomic-embed-text</code> if you don’t have it. This chapter doesn’t use Chroma, so it works on any Python version. The records, <code>questions.py</code>, <code>library.py</code> and the measuring scripts are provided. To check the framework, run <code>python3 -m pytest tests</code> from <code>code</code>. You should see <code>52 passed</code>.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Try it</span>
+        <h2>Paste the handbook</h2>
+        <p><code>paste_try.py</code> pastes all 42 handbook files into the prompt, and asks two questions. Both facts are in the handbook, and the prompt tells the model to name its file. <strong>Predict:</strong> will it get both right?</p>
+      </div>
+      <pre><span class="cmd">$ python3 paste_try.py</span>
+Q: How much is the shoe allowance?
+A: The shoe allowance is £40 every 12 months, which can be claimed using form FN-3 with a receipt.
+tokens_in: 2050
+Q: What does E44 mean?
+A: The reference E44 is not defined in the provided documents. It's not mentioned in any of the sections related to staff policies, procedures, or guidelines. With
+tokens_in: 2050
+five runs each
+Case                  Passed  Steps
+shoes                    5/5    1.0
+e44                      0/5    1.0
+names its file           0/5    1.0
+Total                   5/15</pre>
+      <div class="col">
+        <p>This is real output from <code>qwen2.5:7b</code>, with long answers cut at 160 characters by the script. The shoe question looks perfect. But E44 is in <code>grinder-errors.md</code>, and the model said it isn’t there, in 5 runs of 5. And it never named its file.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">The silent cut</span>
+        <h2>The cut you can’t see</h2>
+        <p>There was no error. <code>count_tokens.py</code> measures each file on its own, so nothing gets cut:</p>
+      </div>
+      <pre><span class="cmd">$ python3 count_tokens.py</span>
+handbook    42 files   4,764 tokens
+records     53 files  65,108 tokens
+together    95 files  69,872 tokens</pre>
+      <div class="col">
+        <p>The handbook is 4,764 tokens, and the model received 2,050. As you saw in chapter 07, Ollama cuts text that doesn’t fit the context window, and carries on. The window is the <code>num_ctx</code> option. Our default was 4,096, and yours may differ, so trust <code>tokens_in</code>.</p>
+        <p><code>uniform.md</code> is near the end of the prompt, and it survived. The instruction to name a file is at the very start, and the model stopped following it. That points to a cut from the front. Now set the window. <strong>Predict:</strong> what will <code>tokens_in</code> be?</p>
+      </div>
+      <pre><span class="cmd">$ python3 paste_try.py 8192</span>
+Q: How much is the shoe allowance?
+A: The shoe allowance is £40 every 12 months, according to the [uniform.md] excerpt.
+tokens_in: 5080
+Q: What does E44 mean?
+A: E44 is a grinder error code that indicates a dose sensor fault. According to the excerpt, you should use the backup grinder and report the fault as a repair. [u
+tokens_in: 5080
+five runs each
+Case                  Passed  Steps
+shoes                    5/5    1.0
+e44                      5/5    1.0
+names its file           5/5    1.0
+Total                  15/15</pre>
+      <ol class="steps">
+        <li>
+          <div class="txt"><h3>Default window</h3><p>2,050 tokens went in. 5 of 15 passed, with no error.</p></div>
+          <img src="media/02-paste.jpg" alt="The pasted handbook passing the shoe question and failing the E44 question" loading="lazy" width="1440" height="900">
+        </li>
+        <li>
+          <div class="txt"><h3>A window of 8192</h3><p>5,080 tokens went in, and 15 of 15 passed.</p></div>
+          <img src="media/04-fixed.jpg" alt="The same script at num_ctx 8192, passing all fifteen runs" loading="lazy" width="1440" height="900">
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">The wall</span>
+        <h2>Add the records</h2>
+        <p>The company also has a year of records. Together with the handbook, that’s 69,872 tokens across 95 files, and <code>ollama show qwen2.5:7b</code> gives a context length of 32,768. So no setting can hold them. <code>paste_all.py</code> tries anyway. The handbook comes first, and <code>suppliers.md</code> comes last. <strong>Predict:</strong> how much of the text gets in?</p>
+      </div>
+      <pre><span class="cmd">$ python3 paste_all.py 32768</span>
+direct:float           FAIL  'Based on the log entries, the till float appears to be recor'
+direct:fridge          FAIL  'Based on the information provided in the log entries, there '
+code:e44               FAIL  'Based on the context provided, E44 likely refers to a specif'
+none:pension           FAIL  'Based on the information provided in the given documents, th'
+records:flood          FAIL  'The log entries do not provide specific details about a floo'
+records:film-crew      FAIL  'Based on the information provided, there is no specific ment'
+records:fennel-min     pass  'The minimum order with Fennel Bakehouse is £60 per branch.'
+records:lantern-price  pass  'The price for a 250g bag of Lantern coffee is £8.50.'
+
+num_ctx 32768: 2/8 passed, 58 seconds per question
+tokens_in 16,386 of 69,872 (23% of the text)</pre>
+      <div class="col">
+        <p>Only 16,386 tokens went in: half the window, and 23% of the text. The two passes are about files at the end of the prompt. Each question ran once, so treat this as a sample and not a score. The check for <code>pension</code> only accepts “I don’t know”, and 60 characters can’t show whether that was a false failure. Our seconds came from a busy machine, so they say nothing about yours.</p>
+        <p>A bigger window takes memory too: <code>ollama ps</code> showed the model at 4.7 GB with a window of 4,096, and 6.6 GB with 32,768. You can’t send everything, so you must choose what to send. That’s retrieval.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">The pieces</span>
+        <h2>Chunks, then the pipeline</h2>
+        <p>A log can run to about 1,000 words, and the question might be about one sentence. So cut each document into smaller pieces, called <strong>chunks</strong>.</p>
+      </div>
+      <pre>def split_text(text, size=120):
+    """Split on blank lines, then join paragraphs until a piece reaches about size words."""
+    pieces, current = [], []
+    for paragraph in re.split(r"\n\s*\n", text.strip()):
+        if current and len(" ".join(current).split()) + len(paragraph.split()) > size:
+            pieces.append("\n\n".join(current))
+            current = []
+        current.append(paragraph)
+    pieces.append("\n\n".join(current))
+    return pieces</pre>
+      <div class="col">
+        <ul class="list">
+          <li><code>re.split(r"\n\s*\n", ...)</code> splits the text at each blank line.</li>
+          <li><code>current</code> collects paragraphs. If the next one would pass <code>size</code> words, the piece is finished.</li>
+          <li>A paragraph is never broken, so one long paragraph can make a chunk bigger than <code>size</code>.</li>
+          <li><code>make_chunks</code> does this for each document, and remembers each chunk’s file in <code>Chunk.source</code>.</li>
+        </ul>
+      </div>
+      <pre><span class="cmd">$ python3 chunks.py</span>
+['One two three.', 'Four five six.', 'Seven eight nine ten eleven.']
+['One two three.\n\nFour five six.', 'Seven eight nine ten eleven.']
+['One two three.\n\nFour five six.\n\nSeven eight nine ten eleven.']
+
+95 files
+size  20: 2980 chunks,  15 words on average
+size  60:  934 chunks,  48 words on average
+size 120:  447 chunks, 102 words on average
+size 300:  219 chunks, 208 words on average</pre>
+      <p class="col">Now the pieces join up. <code>Rag</code> searches once, puts the hits in the prompt, and asks the model once. There’s no loop and no tool.</p>
+      <pre>def run(self, question):
+    hits = self.index.search(question, self.k)
+    messages = [
+        Message("system", RAG_SYSTEM),
+        Message("user", f"Excerpts:\n\n{excerpts(hits)}\n\nQuestion: {question}"),
+    ]
+    reply = self.model.chat(messages, **self.options)
+    return Result(reply.content, messages + [reply], 1)</pre>
+      <p class="col">The flood is one sentence in a log, and pasting missed it. <strong>Predict:</strong> how many tokens will the model need now?</p>
+      <pre><span class="cmd">$ python3 ask.py</span>
+0.87  log-harbour-2025-02.md
+0.69  log-harbour-2025-09.md
+0.68  log-harbour-2025-01.md
+0.67  log-harbour-2025-02.md
+0.67  log-harbour-2025-08.md
+Answer: The stock worth £640 was lost when the Harbour cellar flooded. [log-harbour-2025-02.md]
+tokens_in: 570
+five runs each
+Case                  Passed  Steps
+records:flood            5/5    1.0
+none:dental              5/5    1.0
+Total                  10/10</pre>
+      <p class="col">570 tokens, against 16,386 for pasting. It fits the default window, so nothing is cut and the instructions survive.</p>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Measure it</span>
+        <h2>A file hit rate, then the answers</h2>
+        <p>A wrong answer could come from the search or from the model, so measure them apart. <code>hit_rate</code> needs no chat model. It checks that every needed file is in the top <code>k</code>: <strong>the right file, not the right text</strong>. So we call it a <strong>file hit rate</strong>. <strong>Predict:</strong> which index finds the most files?</p>
+      </div>
+      <pre><span class="cmd">$ python3 hit.py</span>
+36 questions. File hit rate, by k:
+Index           k=1  k=3  k=5
+whole files      21   28   31
+size 120         20   24   28
+size 60          25   28   28</pre>
+      <p class="col">Whole files lead at <code>k=5</code>. So why chunk at all? Check the answers. <code>eval_all.py</code> runs 42 questions three times each, with <code>rag60</code> twice, to compare it with itself. It makes 504 model calls, so it takes a while. If your machine is slow, predict, then read our output below.</p>
+      <pre><span class="cmd">$ python3 eval_all.py</span>
+rag60           99/126  direct 24/24  gap 20/24  code 12/18  hop 7/18  none 18/18  records 18/24
+rag60 again    100/126  direct 24/24  gap 21/24  code 12/18  hop 6/18  none 18/18  records 19/24
+rag120          99/126  direct 24/24  gap 18/24  code 15/18  hop 6/18  none 18/18  records 18/24
+whole files     74/126  direct 24/24  gap 17/24  code 15/18  hop 3/18  none 6/18  records 9/24</pre>
+      <p class="col">The most files, and the lowest score. <code>rag60</code> and <code>rag120</code> are as close as <code>rag60</code> is to itself, so don’t pick a winner. But is 74 fair? Five whole logs don’t fit the default window, so this is the silent cut again. Give them room:</p>
+      <pre><span class="cmd">$ python3 whole_files.py</span>
+whole 16384    103/126  direct 24/24  gap 17/24  code 15/18  hop 5/18  none 18/18  records 24/24
+tokens_in: 7191</pre>
+      <div class="col">
+        <p>74 became 103, level with chunks. We expected chunks to win, and they didn’t. The honest difference is cost: 7,191 tokens for the flood question, against 570. Whole files only worked because these files are small and we raised the window. <strong>On these documents, chunks bought a smaller prompt, not a better score.</strong></p>
+      </div>
+      <figure>
+        <img src="media/11-eval.jpg" alt="Four setups scored on 42 questions, with whole files lowest" loading="lazy" width="1440" height="900">
+      </figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">What failed</span>
+        <h2>The right file isn’t the right answer</h2>
+        <p><code>hit_vs_answer.py</code> prints the questions where the file hit and the six <code>rag60</code> runs disagree:</p>
+      </div>
+      <pre><span class="cmd">$ python3 hit_vs_answer.py</span>
+Question                 File hit  Passed
+mice                     yes       0/6
+hair                     yes       5/6
+old-mill-repair          no        6/6
+card-reader              yes       0/6
+tidewater-fee            yes       1/6</pre>
+      <p class="col">It goes wrong in both directions. <code>old-mill-repair</code> “missed” a file and passed every time, because the number it needed was in the file it did find. <code>card-reader</code> is chapter 21’s problem. Here’s why <code>tidewater-fee</code> failed:</p>
+      <pre><span class="cmd">$ python3 tidewater.py</span>
+0.67 suppliers.md
+Supplies: Machine service, Harbour and Old Mill. Account manager: Marek Dolan. Terms: Call-out fee £85. Invoices are paid within 30 days.
+## Northline Service
+Supplies: Machine service, Riverside and Station. Account manager: Yusuf Kaya. Terms: Call-out fee £95. Invoices are paid within 30 days.
+## GreenLoop
+Does this chunk say Tidewater? False
+five runs
+Case                  Passed  Steps
+records:tidewater-fee     0/5    1.0
+Total                    0/5</pre>
+      <div class="fails">
+        <div><h3>A real failure</h3><p>The answer is £85, but the heading <code>## Tidewater Espresso Service</code> landed at the end of the chunk before. The only name near a fee is Northline. In the saved reports, all 5 failed runs said £95. The file hit rate counts this as a success.</p></div>
+        <div><h3>A false failure</h3><p><code>hair</code> lost a run on “Yes, you need to tie back long hair”. That’s right. Our check wanted the word “tied”. We left the check alone, because the questions were fixed before measuring, so that first <code>rag60</code> row is one point too low.</p></div>
+        <div><h3>A different limit</h3><p>The <code>hop</code> questions need two facts, and <code>Rag</code> searches once.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">The decision</span>
+        <h2>When you don’t need RAG</h2>
+        <p>RAG has a cost: an index, chunk sizes to choose, and failures like these. <code>eval_handbook.py</code> compares it with pasting on the 32 handbook questions, where pasting can fit. <strong>Predict:</strong> which will score highest?</p>
+      </div>
+      <pre><span class="cmd">$ python3 eval_handbook.py</span>
+paste default   38/96  direct 14/24  gap 12/24  code 3/18  hop 9/18  none 0/12
+paste 8192      83/96  direct 24/24  gap 13/24  code 18/18  hop 16/18  none 12/12
+rag60           75/96  direct 24/24  gap 19/24  code 12/18  hop 8/18  none 12/12</pre>
+      <div class="col">
+        <ul class="list">
+          <li><strong>The silent cut is the worst result here.</strong> Same model, same text, one option: 38 against 83.</li>
+          <li><strong>Pasting beat RAG on this small set</strong>, 83 to 75. It won on <code>code</code> and <code>hop</code>, because no search could miss a fact.</li>
+          <li><strong>RAG won on <code>gap</code></strong>, 19 to 13. Of pasting’s 11 failures there, 8 were “I don’t know”, with the answer in the prompt. This is one document set, so don’t take these gaps as general rules.</li>
+        </ul>
+      </div>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th scope="col">Your documents</th><th scope="col">What to do</th></tr></thead>
+          <tbody>
+            <tr><td>Fit in the window with room to spare</td><td>Paste them. Set <code>num_ctx</code>, and check <code>tokens_in</code></td></tr>
+            <tr><td>Too big for the window, or too big for your memory</td><td>Use RAG</td></tr>
+            <tr><td>Fit, but you ask many questions or pay per token</td><td>Weigh the cost: RAG sent 570 tokens, and pasting 5,080</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Reading errors</span>
+        <h2>These are real errors</h2>
+      </div>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th scope="col">What happened</th><th scope="col">What you see</th><th scope="col">The fix</th></tr></thead>
+          <tbody>
+            <tr><td>Ollama isn’t running</td><td><code>whitebox.models.ModelError: Couldn't reach Ollama</code></td><td><a href="https://claude.ai/artifact/1uGgX3WK7v3D5HyfvB782p#start-ollama">Start Ollama</a></td></tr>
+            <tr><td>The embedding model is missing</td><td><code>Ollama said 404: {"error":"model \"nomic-embed-text\" not found, try pulling it first"}</code></td><td><code>ollama pull nomic-embed-text</code></td></tr>
+            <tr><td>You ran <code>hit_vs_answer.py</code> before <code>eval_all.py</code></td><td><code>FileNotFoundError: [Errno 2] No such file or directory: 'rag60.json'</code></td><td>Run <code>eval_all.py</code> first</td></tr>
+            <tr><td>You ran <code>paste_all.py</code> with no number</td><td><code>IndexError: list index out of range</code></td><td>Add a window: <code>python3 paste_all.py 32768</code></td></tr>
+            <tr><td>The text was cut</td><td>No error at all. <code>tokens_in</code> is smaller than your text</td><td>Raise <code>num_ctx</code>, or use RAG</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Your turn</span>
+        <h2>Exercises</h2>
+        <p>From <code>chapters/20-rag-pipeline</code>, open <code>exercises.py</code> and complete the five TODOs:</p>
+        <ol class="loop">
+          <li><code>fits_in_context</code>: estimate whether documents can be pasted.</li>
+          <li><code>fixed_split</code>: split by word count, ignoring paragraphs.</li>
+          <li><code>chunks_per_file</code>: count how many chunks each file made.</li>
+          <li><code>cites</code>: a check that the answer names a file.</li>
+          <li><code>missed</code>: list the questions that <code>hit_rate</code> only counts.</li>
+        </ol>
+        <p>Then run <code>python3 -m pytest test_exercises.py</code> from that folder. These checks use a fake model and a fake embedder, so Ollama doesn’t need to be running. You’ve finished when you see <code>5 passed</code>.</p>
+      </div>
+      <div class="col">
+        <h3>Optional exercise: paste everything, and report back</h3>
+        <p>This one is optional, and nothing later depends on it. It’s heavy for your machine, so close other work first. From <code>code</code>, run <code>python3 paste_all.py 32768</code>. On a machine with 8 GB of memory, use <code>python3 paste_all.py 16384</code> instead.</p>
+        <p>To change the questions, edit <code>NAMES</code> in the script, using 5 to 10 names from <code>questions.py</code>. Compare <code>tokens_in</code> with the 69,872 tokens of text to see the cut, and run <code>ollama ps</code> straight after to see the memory used.</p>
+        <p>We tried 16384 on two questions only. Both failed, <code>tokens_in</code> was 8,194, which is 12% of the text, and <code>ollama ps</code> showed 5.6 GB. The model call gives up after 180 seconds, so a slow machine may print <code>no answer</code>. That’s a useful result too.</p>
+        <p>Share your machine, memory, <code>num_ctx</code>, score, seconds per question and <code>tokens_in</code> in <a href="https://github.com/WhiteboxAcademy/BuildAnAgentFramework/discussions">GitHub Discussions</a>.</p>
+      </div>
+      <div class="col">
+        <h3>Common mistakes</h3>
+        <ul class="list">
+          <li>Trusting a good answer as proof nothing was cut. The shoe question passed 5 of 5 with most of the handbook missing. Check <code>tokens_in</code>.</li>
+          <li>Reaching for RAG before you need it. If the documents fit, pasting is less work, and it scored higher on our handbook.</li>
+          <li>Reading a file hit rate as a success rate. The best file hit rate here came with the worst score.</li>
+          <li>Blaming the search for a cut. Whole files looked terrible until they had room.</li>
+          <li>Picking a chunk size from one run. <code>rag60</code> and <code>rag120</code> were as close as <code>rag60</code> and itself.</li>
+          <li>Forgetting the model has to read the chunk. A chunk with no name in it can give a confident wrong answer.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Recap</span>
+        <h2>What you opened</h2>
+        <ul class="list">
+          <li>Pasting works if the text fits. If it doesn’t, Ollama cuts it from the front with no error, and your instructions can go too.</li>
+          <li><code>num_ctx</code> sets the window, and <code>tokens_in</code> shows what really went in.</li>
+          <li><code>split_text</code> and <code>make_chunks</code> cut documents into pieces, at paragraph breaks.</li>
+          <li><code>Rag</code> searches once, puts the hits in the prompt, and asks the model once.</li>
+          <li><code>hit_rate</code> is a file hit rate: right file, not right text. Measure the answers as well.</li>
+          <li>On our documents, chunks bought a much smaller prompt, not a better score.</li>
+          <li>If your documents fit, you may not need RAG.</li>
+        </ul>
+        <p>The name and the idea come from the 2020 paper <a href="https://arxiv.org/abs/2005.11401">Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks</a>.</p>
+      </div>
+      <div class="next"><span>Next</span><h3>Chapter 21: Better chunks</h3></div>
+    </section>
+
+    <footer>
+      <p>Get the code at <a href="https://github.com/WhiteboxAcademy/BuildAnAgentFramework">github.com/WhiteboxAcademy/BuildAnAgentFramework</a>. Code is under the MIT License. Articles and videos are under CC BY 4.0.</p>
+    </footer>
+  </div>
+</main>

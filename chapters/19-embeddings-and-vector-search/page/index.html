@@ -1,0 +1,576 @@
+<title>Whitebox: Embeddings</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a black box header opens onto a white reading column; media breaks wider. */
+:root {
+  --bg: #fbfbf9; --surface: #ffffff; --ink: #16181d; --muted: #5d616b; --rule: #d9dade;
+  --accent: #2a4bd7; --tint: #e7ebfb; --box: #0c0d10; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #101218; --term-ink: #e4e6ec; --term-cmd: #9db1ff;
+  --display: "Bricolage Grotesque", Georgia, serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+    --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+    --term: #08090c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+  --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #08090c; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 400 1.0625rem/1.65 var(--body); }
+.gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 68rem; margin: 0 auto; min-width: 0; }
+.col { max-width: 42rem; display: grid; gap: 1rem; min-width: 0; }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2.6rem, 7vw, 4.4rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; }
+h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); line-height: 1.15; font-weight: 700; }
+h3 { font-size: 1.2rem; line-height: 1.3; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--accent); }
+a:focus-visible, video:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+code { font-family: var(--mono); font-size: 0.92em; }
+
+header.mast { background: var(--box); color: var(--on-box); padding-block: 1.6rem 3rem; }
+.mast .wrap { display: grid; gap: 2.4rem; }
+.brand { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font: 500 1rem var(--display); }
+.brand span:first-child { display: flex; align-items: center; gap: 0.55rem; }
+.brand i { width: 0.95rem; height: 0.95rem; border: 3px solid currentColor; display: block; }
+.brand span:last-child { font: 400 0.85rem var(--mono); color: var(--box-muted); align-self: center; }
+.mast .intro { display: grid; gap: 1rem; max-width: 46rem; }
+.mast .dek { font-size: 1.2rem; color: var(--box-muted); }
+.meta { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+
+main { padding-block: 0 4rem; }
+section { padding-block: 3.2rem 0; display: grid; gap: 1.4rem; }
+.label { font: 600 0.78rem/1.2 var(--mono); color: var(--accent); }
+.lede { font-size: 1.15rem; }
+
+figure { margin: 0; display: grid; gap: 0.5rem; min-width: 0; }
+figcaption { font-size: 0.86rem; color: var(--muted); }
+video { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 1440 / 900; background: #000; }
+
+ol.loop { margin: 0; padding-left: 1.3rem; display: grid; gap: 0.35rem; }
+ol.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 2.4rem; counter-reset: step; }
+ol.steps > li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 1.6rem; align-items: start; counter-increment: step; }
+ol.steps .txt { display: grid; gap: 0.45rem; min-width: 0; }
+ol.steps .txt h3::before { content: counter(step); display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; margin-right: 0.55rem; background: var(--ink); color: var(--bg); font: 600 0.85rem/1 var(--mono); vertical-align: 0.1em; }
+ol.steps img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); }
+@media (max-width: 720px) { ol.steps > li { grid-template-columns: minmax(0, 1fr); } }
+
+pre { margin: 0; background: var(--term); color: var(--term-ink); padding: 1rem 1.1rem; overflow-x: auto; font: 400 0.86rem/1.6 var(--mono); }
+pre .cmd { color: var(--term-cmd); }
+.tablebox { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.98rem; }
+th, td { text-align: left; padding: 0.65rem 0.8rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; color: var(--muted); }
+td { font-variant-numeric: tabular-nums; }
+.fails { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.fails div { background: var(--tint); padding: 1rem 1.1rem; display: grid; gap: 0.3rem; align-content: start; min-width: 0; }
+.list { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.35rem; }
+.next { background: var(--box); color: var(--on-box); padding: 1.4rem 1.5rem; display: grid; gap: 0.3rem; }
+.next span { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--muted); }
+</style>
+
+<header class="mast gutter">
+  <div class="wrap">
+    <div class="brand"><span><i></i>Whitebox Academy</span><span>Build an AI Agent from Scratch</span></div>
+    <div class="intro">
+      <span class="meta">Chapter 19 of 35 · Part 4: RAG · About 2 hours</span>
+      <h1>Embeddings and vector search</h1>
+      <p class="dek">Search a handbook by meaning, count how far that gets you, and see where it still goes wrong.</p>
+    </div>
+  </div>
+</header>
+
+<main class="gutter">
+  <div class="wrap">
+    <section>
+      <figure>
+        <video controls playsinline preload="metadata" poster="media/07-compare.jpg">
+          <source src="media/video.mp4" type="video/mp4">
+        </video>
+        <figcaption>Chapter video, 6 minutes 49 seconds, no sound. It starts with a 30-second recap, and captions on screen explain each step.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Where we are</span>
+        <h2>Which file holds the answer?</h2>
+        <p class="lede">In chapter 18, you learned to measure an agent. Part 4 gives the agent something new to work with: documents it has never seen.</p>
+        <p>The running example is Quillon Coffee, an invented chain of four coffee shops, with a staff handbook of 42 short files. A new barista has a question, and somewhere in those files is the answer.</p>
+        <p><a href="https://claude.ai/artifact/1uGgX3WK7v3D5HyfvB782p#start-ollama">Start Ollama</a>, activate the <code>.venv</code> from chapter 05, and work in <code>chapters/19-embeddings-and-vector-search/code</code>. This chapter needs a second model, 274 MB here. Pull it, then install the packages from <code>code</code>:</p>
+      </div>
+      <pre><span class="cmd">$ ollama pull nomic-embed-text</span>
+<span class="cmd">$ python3 -m pip install -r requirements.txt</span></pre>
+      <div class="col">
+        <p>The last step uses one more package, Chroma, and it has its own install step there. Nothing before it needs Chroma.</p>
+        <p>The new framework file is <code>whitebox/rag.py</code>. <code>questions.py</code>, <code>misses.py</code>, <code>same_five.py</code>, <code>prefix_check.py</code>, <code>score_range.py</code> and <code>same_results.py</code> are provided measuring tools. To check the framework, run <code>python3 -m pytest tests</code> from <code>code</code>. You should see <code>48 passed</code>, with no Ollama needed.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Try it</span>
+        <h2>Word search</h2>
+        <p>Here’s the obvious way to search. Each file scores one point for each of the question’s words it holds, leaving out common words like “the”. <code>key</code> tells <code>sorted</code> what to sort by, and <code>reverse=True</code> puts the highest first. Files that tie stay in alphabetical order.</p>
+      </div>
+      <pre>def word_search(question, documents, k=3):
+    """Score each file by how many of the question's words it holds. Return the top k."""
+    wanted = [word for word in words(question) if word not in COMMON]
+    scored = []
+    for name, text in documents.items():
+        found = words(text)
+        scored.append((len([word for word in wanted if word in found]), name))
+    return sorted(scored, key=lambda pair: pair[0], reverse=True)[:k]</pre>
+      <p class="col"><strong>Predict:</strong> the first question uses the handbook’s own words, and the second doesn’t. Which files will each one find?</p>
+      <pre><span class="cmd">$ python3 word_search.py</span>
+42 files
+How much is the till float?
+  2  cash-handling.md
+  1  closing-checklist.md
+  1  opening-checklist.md
+Can I get money back for buying work footwear?
+  2  expenses.md
+  1  cash-handling.md
+  1  closing-checklist.md</pre>
+      <div class="col">
+        <p>The first is right. The second is wrong, and it doesn’t say so. The answer is in <code>uniform.md</code>: “After your probation, you can claim a shoe allowance of £40 every 12 months, using form FN-3 with a receipt.” Apart from “can”, that sentence shares no word with the question.</p>
+        <p>You could add “footwear means shoe” to a list, then “vacation means leave”, and on and on. People can ask about anything, in any words, so you’d never finish. What we need is a way to compare <em>meanings</em>.</p>
+      </div>
+      <figure>
+        <img src="media/02-words.jpg" alt="Word search putting expenses.md first for the footwear question" loading="lazy" width="1440" height="900">
+      </figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">The new idea</span>
+        <h2>Text as numbers</h2>
+        <p>An <strong>embedding model</strong> doesn’t write a reply. It reads text and returns a fixed-length list of numbers, called a <strong>vector</strong> or an <strong>embedding</strong>. It was trained so that texts with similar meanings get similar numbers.</p>
+      </div>
+      <pre>embedder = OllamaEmbedder()
+short = embedder.embed_query("footwear")
+long = embedder.embed_query("Can I get money back for buying work footwear? " * 20)
+
+print(len(short), len(long))
+print([round(number, 3) for number in short[:5]])</pre>
+      <p class="col"><strong>Predict:</strong> <code>"..." * 20</code> repeats a string 20 times. Will the longer text give a longer list?</p>
+      <pre><span class="cmd">$ python3 first_vector.py</span>
+768 768
+[-0.025, 0.086, -0.204, 0.012, -0.008]</pre>
+      <p class="col">Both are 768 numbers, so any two texts can be compared. No single number means anything you could name. Only the whole list does, and only next to another list from the same model.</p>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">The new idea</span>
+        <h2>Cosine: how close are two vectors?</h2>
+        <p>Think of a vector as an arrow. Two arrows that point the same way mean two similar texts, and <strong>cosine similarity</strong> measures that.</p>
+      </div>
+      <pre>def cosine(a, b):
+    """How closely two vectors point the same way: 1 is identical, 0 is unrelated."""
+    dot = sum(x * y for x, y in zip(a, b))
+    size = math.sqrt(sum(x * x for x in a)) * math.sqrt(sum(y * y for y in b))
+    return dot / size if size else 0.0</pre>
+      <div class="col">
+        <ul class="list">
+          <li><code>dot</code>, the <strong>dot product</strong>, multiplies the vectors number by number, and adds up the results.</li>
+          <li>An arrow’s length is the square root of the sum of its squares. <code>math.sqrt</code> is Python’s square root.</li>
+          <li>Dividing by both lengths removes length from the answer, so only direction counts.</li>
+        </ul>
+        <p><strong>Predict:</strong> <code>[6, 8]</code> is twice as long as <code>[3, 4]</code>, in the same direction. What will the score be?</p>
+      </div>
+      <pre>pairs = [
+    ([1, 0], [1, 0]),
+    ([3, 4], [6, 8]),
+    ([1, 0], [1, 1]),
+    ([1, 0], [0, 1]),
+    ([1, 0], [-1, 0]),
+]
+for a, b in pairs:
+    print(f"{a!s:8} {b!s:8} {cosine(a, b):.3f}")</pre>
+      <pre><span class="cmd">$ python3 cosine_by_hand.py</span>
+[1, 0]   [1, 0]   1.000
+[3, 4]   [6, 8]   1.000
+[1, 0]   [1, 1]   0.707
+[1, 0]   [0, 1]   0.000
+[1, 0]   [-1, 0]  -1.000</pre>
+      <div class="col">
+        <p>Same direction gives 1, whatever the length. At right angles gives 0. Opposite gives -1. Now real text: the footwear question against three handbook sentences, the first cut short. It shares no useful word with it. <strong>Predict:</strong> which will score highest?</p>
+      </div>
+      <pre>QUESTION = "Can I get money back for buying work footwear?"
+SENTENCES = [
+    "After your probation, you can claim a shoe allowance of £40 every 12 months.",
+    "Retail beans can be refunded within 30 days if unopened, and with a receipt.",
+    "We roast our own beans at the Old Mill roastery every Tuesday and Friday.",
+]
+
+embedder = OllamaEmbedder()
+question = embedder.embed_query(QUESTION)
+vectors = embedder.embed_documents(SENTENCES)
+print(QUESTION)
+for sentence, vector in zip(SENTENCES, vectors):
+    print(f"{cosine(question, vector):.3f}  {sentence}")</pre>
+      <pre><span class="cmd">$ python3 similar.py</span>
+Can I get money back for buying work footwear?
+0.691  After your probation, you can claim a shoe allowance of £40 every 12 months.
+0.614  Retail beans can be refunded within 30 days if unopened, and with a receipt.
+0.476  We roast our own beans at the Old Mill roastery every Tuesday and Friday.</pre>
+      <div class="col">
+        <p>The order is right, and nobody gave the model a list of synonyms. But the roastery sentence has nothing to do with the question, and it still scored 0.476. <code>score_range.py</code> scores 22 test questions against all 42 files:</p>
+      </div>
+      <pre><span class="cmd">$ python3 score_range.py</span>
+924 scores, lowest 0.309, highest 0.829</pre>
+      <p class="col">So a score isn’t a percentage. Compare scores with each other, for one question.</p>
+      <figure>
+        <img src="media/05-similar.jpg" alt="Three handbook sentences scored against the footwear question" loading="lazy" width="1440" height="900">
+      </figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">The pieces</span>
+        <h2>Embedder, store, index</h2>
+        <p>An <code>Embedder</code> has two methods, the same way chapter 13 gave every model a shape. <code>OllamaEmbedder</code> adds the labels <code>nomic-embed-text</code> was trained with: <code>search_document:</code> and <code>search_query:</code>.</p>
+      </div>
+      <pre>def embed_documents(self, texts):
+    return self.embed([f"search_document: {text}" for text in texts])
+
+def embed_query(self, text):
+    return self.embed([f"search_query: {text}"])[0]</pre>
+      <div class="col">
+        <p>Did those labels matter here? On this small set, there’s no evidence either way, so we follow the model’s documentation and keep them.</p>
+      </div>
+      <pre><span class="cmd">$ python3 prefix_check.py</span>
+Group      With prefixes  Without
+direct           8/8          8/8
+reworded         4/8          4/8
+codes            4/6          5/6</pre>
+      <div class="col">
+        <p><code>FakeEmbedder</code> has the same two methods and needs no model. It adds up each word’s letters with <code>ord</code>, and uses <code>%</code> to pick one of 64 slots, so texts sharing words get similar vectors. That’s enough for tests, which only check the plumbing.</p>
+        <p>A <strong>vector store</strong> keeps vectors, and finds the closest. This one is a plain list:</p>
+      </div>
+      <pre>class VectorStore:
+    """Keeps every vector in a list, and compares a query with all of them."""
+
+    def __init__(self):
+        self.rows = []
+
+    def add(self, chunks, vectors):
+        self.rows += [(chunk, vector) for chunk, vector in zip(chunks, vectors)]
+
+    def search(self, vector, k=5):
+        hits = [Hit(chunk.text, chunk.source, cosine(vector, row)) for chunk, row in self.rows]
+        return sorted(hits, key=lambda hit: hit.score, reverse=True)[:k]</pre>
+      <p class="col">That’s the whole of vector search: score every row, sort, and keep the top <code>k</code>. A <code>Chunk</code> is a piece of text and the file it came from, and a <code>Hit</code> is a chunk with a score. <code>Index</code> joins an embedder to a store, so the rest of your code works in plain text:</p>
+      <pre>class Index:
+    """Embeds chunks into a store, and embeds questions to search it."""
+
+    def __init__(self, embedder, store=None):
+        self.embedder = embedder
+        self.store = store if store is not None else VectorStore()
+
+    def add(self, chunks):
+        self.store.add(chunks, self.embedder.embed_documents([chunk.text for chunk in chunks]))
+
+    def search(self, question, k=5):
+        return self.store.search(self.embedder.embed_query(question), k)</pre>
+      <p class="col">In this chapter, each chunk is one whole handbook file. These are the two questions from word search. <strong>Predict:</strong> will the second find <code>uniform.md</code> this time?</p>
+      <pre>documents = load_documents("workspace/handbook")
+chunks = [Chunk(text, name) for name, text in documents.items()]
+
+index = Index(OllamaEmbedder())
+index.add(chunks)
+
+for question in ["How much is the till float?", "Can I get money back for buying work footwear?"]:
+    print(question)
+    for hit in index.search(question, k=3):
+        print(f"  {hit.score:.3f}  {hit.source}")</pre>
+      <pre><span class="cmd">$ python3 search_handbook.py</span>
+How much is the till float?
+  0.747  cash-handling.md
+  0.582  closing-checklist.md
+  0.579  wages.md
+Can I get money back for buying work footwear?
+  0.676  uniform.md
+  0.627  refunds.md
+  0.618  expenses.md</pre>
+      <p class="col">Both are right. Swap in <code>Index(FakeEmbedder())</code>, in <code>fake_search.py</code>, and only that one line changes:</p>
+      <pre><span class="cmd">$ python3 fake_search.py</span>
+How much is the till float?
+  0.535  forms.md
+  0.488  grinder-errors.md
+  0.397  allergens.md
+Can I get money back for buying work footwear?
+  0.331  staff-discount.md
+  0.330  food-safety.md
+  0.330  branch-old-mill.md</pre>
+      <p class="col">The code ran the same way, and both are wrong. All the meaning comes from the embedding model, and none of it from the store.</p>
+      <ol class="steps">
+        <li>
+          <div class="txt"><h3>Search by meaning</h3><p>The footwear question finds <code>uniform.md</code>.</p></div>
+          <img src="media/06-search.jpg" alt="Vector search putting uniform.md first" loading="lazy" width="1440" height="900">
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">The measurement</span>
+        <h2>Count it</h2>
+        <p>Two questions prove nothing. <code>questions.py</code> holds 22, fixed before we measured anything: 8 <strong>direct</strong> questions that use the handbook’s words, 8 <strong>reworded</strong> ones that avoid them, and 6 about exact <strong>codes</strong>.</p>
+      </div>
+      <pre>    for question, right in group:
+        by_words = word_search(question, documents)
+        names = [name for _, name in by_words]
+        by_vectors = [hit.source for hit in index.search(question, k=3)]
+        word_first += names[0] in right
+        word_top3 += any(name in right for name in names)
+        vector_first += by_vectors[0] in right
+        vector_top3 += any(name in right for name in by_vectors)
+        ties += names[0] in right and by_words[0][0] == by_words[1][0]</pre>
+      <p class="col"><code>in</code> gives <code>True</code> or <code>False</code>, and adding <code>True</code> to a number adds 1. <code>any</code> is <code>True</code> if at least one item is. <strong>Predict:</strong> will vectors win all three groups?</p>
+      <pre><span class="cmd">$ python3 compare.py</span>
+Group      Questions  Words 1st  Words top 3  Vectors 1st  Vectors top 3  Tied wins
+direct             8          8            8            8              8          0
+reworded           8          2            2            4              5          2
+codes              6          5            6            4              5          1</pre>
+      <div class="col">
+        <ul class="list">
+          <li><strong>Direct:</strong> a draw. When a question uses the document’s words, word search is fine.</li>
+          <li><strong>Reworded:</strong> the problem we started with. Vectors put the right file first 4 times, and in the top 3 five times. Word search got 2, and both were tied wins, where the alphabet chose.</li>
+          <li><strong>Codes:</strong> vectors didn’t win. Word search had all 6 in its top 3, and vectors had 5.</li>
+        </ul>
+        <p>Two honest limits. Vector search still missed half of the reworded questions as a first result. And this is 22 questions on one handbook, so a gap of one in a group of 6 means little.</p>
+        <p>Is this like chapter 18, where the same agent moved from round to round? <code>same_five.py</code> builds the index five times:</p>
+      </div>
+      <pre><span class="cmd">$ python3 same_five.py</span>
+round 2: 22 of 22 top 3s match round 1
+round 3: 22 of 22 top 3s match round 1
+round 4: 22 of 22 top 3s match round 1
+round 5: 22 of 22 top 3s match round 1</pre>
+      <div class="col">
+        <p>No movement. An embedding has no temperature, so nothing here is sampled. What limits this result isn’t chance between runs. It’s the small number of questions.</p>
+        <p>Now read the misses. <code>misses.py</code> shows where the right file ranked:</p>
+      </div>
+      <pre><span class="cmd">$ python3 misses.py</span>
+rank  4  I'm a barista and I want to quit. How much warning do I have to give?
+rank  3  I woke up feeling awful and can't make it in. How do I let my boss know?
+rank  5  I found evidence of mice in the storeroom. Who handles that?
+rank  4  Do I need to do anything about my ponytail at work?
+rank  2  What is form IR-9 for?
+rank 12  What is FN-6 used for?</pre>
+      <p class="col">Word search only has to match the letters of <code>FN-6</code>, and an embedding gives no such promise. A file gets one vector, so the mice line has to share it with the rest of <code>food-safety.md</code>, the longest file here. That may be why it ranked low, but we haven’t tested it.</p>
+      <figure>
+        <img src="media/07-compare.jpg" alt="Word search and vector search counted on 22 questions" loading="lazy" width="1440" height="900">
+      </figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">The limit</span>
+        <h2>A score isn’t an answer</h2>
+        <p><code>no_answer.py</code> asks four questions the handbook doesn’t cover, then compares their scores with the 16 questions vectors got right. <strong>Predict:</strong> will the scores be clearly lower?</p>
+      </div>
+      <pre>highest = 0
+for question in NOT_IN_HANDBOOK:
+    hit = index.search(question, k=1)[0]
+    highest = max(highest, hit.score)
+    print(f"{hit.score:.3f}  {hit.source:22} {question}")
+
+right = []
+for question, files in DIRECT + REWORDED + CODES:
+    hit = index.search(question, k=1)[0]
+    if hit.source in files:
+        right.append(hit.score)
+below = len([score for score in right if score &lt; highest])
+print(f"{len(right)} right first hits: {below} scored below {highest:.3f}, the highest above")</pre>
+      <pre><span class="cmd">$ python3 no_answer.py</span>
+0.662  loyalty-card.md        What percentage does Quillon match on pension contributions?
+0.659  social-media.md        Does Quillon offer dental insurance?
+0.696  branch-harbour.md      What is the customer wifi password at Harbour?
+0.720  branch-riverside.md    Are dogs allowed inside the Riverside branch?
+16 right first hits: 7 scored below 0.720, the highest above</pre>
+      <div class="col">
+        <p>Search always returns something, because it sorts what exists and returns the top <code>k</code>. On this data, no cut-off works: 7 of the 16 right results scored below the dogs question, which has no answer at all.</p>
+        <p><code>branch-riverside.md</code> really is the closest file to a question about the Riverside branch. <strong>A score measures how close the topic is. It doesn’t say the answer is in the file.</strong></p>
+      </div>
+      <figure>
+        <img src="media/08-no-answer.jpg" alt="Unanswerable questions scoring as high as answerable ones" loading="lazy" width="1440" height="900">
+      </figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Keep the vectors</span>
+        <h2>Save, then swap the store</h2>
+        <p>The vectors don’t change unless the text does, so you can save them. <code>VectorStore</code> has <code>save</code> and <code>load</code>, which write JSON. <code>save_load.py</code> saves the store, loads it into a new one, and searches:</p>
+      </div>
+      <pre>store = VectorStore()
+store.load(SAVED)
+reloaded = Index(OllamaEmbedder(), store)
+hit = reloaded.search(QUESTION, k=1)[0]
+print(f"{hit.score:.3f}  {hit.source}")</pre>
+      <pre><span class="cmd">$ python3 save_load.py</span>
+saved 42 rows, 453,385 bytes
+0.676  uniform.md</pre>
+      <div class="col">
+        <p>A saved vector only makes sense next to vectors from the same model, and a changed document needs embedding again.</p>
+        <p>This step needs Chroma, which needs Python 3.12 to 3.14. Install it with <code>python3 -m pip install -r requirements-chroma.txt</code>. If that fails on your Python version, read this step and skip the runs. Everything else, and the exercises, still works.</p>
+        <p>A <strong>vector database</strong> is a store built for much more than 42 files. It keeps its data on disk, and builds an index so it doesn’t have to compare with every row. Chroma runs inside your Python. 42 rows is far too few to show any difference in speed, and we didn’t measure one. What this shows is how little of your code changes.</p>
+      </div>
+      <pre>class ChromaStore(VectorStore):
+    """The same two methods, backed by the Chroma vector database."""
+
+    def __init__(self, path, name="handbook"):
+        import chromadb
+
+        client = chromadb.PersistentClient(path=str(path))
+        self.collection = client.get_or_create_collection(name, metadata={"hnsw:space": "cosine"})
+
+    def add(self, chunks, vectors):
+        start = self.collection.count()
+        self.collection.add(
+            ids=[str(start + number) for number in range(len(chunks))],
+            embeddings=vectors,
+            documents=[chunk.text for chunk in chunks],
+            metadatas=[{"source": chunk.source} for chunk in chunks],
+        )
+
+    def search(self, vector, k=5):
+        found = self.collection.query(query_embeddings=[vector], n_results=k)
+        rows = zip(found["documents"][0], found["metadatas"][0], found["distances"][0])
+        return [Hit(text, data["source"], 1 - distance) for text, data, distance in rows]</pre>
+      <div class="col">
+        <ul class="list">
+          <li><code>import chromadb</code> is inside <code>__init__</code>, so <code>whitebox</code> still works on a machine without Chroma.</li>
+          <li>A <strong>collection</strong> is one set of rows, like a table. Every row needs a unique string <code>id</code>.</li>
+          <li>Chroma reports <strong>distance</strong>, where smaller is closer, so <code>1 - distance</code> gives our score back.</li>
+        </ul>
+      </div>
+      <pre>store = ChromaStore("handbook_chroma")
+index = Index(OllamaEmbedder(), store)
+if store.collection.count() == 0:
+    index.add(chunks)
+print(f"{store.collection.count()} rows in Chroma")
+
+for hit in index.search("Can I get money back for buying work footwear?", k=3):
+    print(f"  {hit.score:.3f}  {hit.source}")</pre>
+      <pre><span class="cmd">$ python3 search_chroma.py</span>
+42 rows in Chroma
+  0.676  uniform.md
+  0.627  refunds.md
+  0.618  expenses.md
+
+<span class="cmd">$ python3 search_chroma.py   # run it again</span>
+42 rows in Chroma
+  0.676  uniform.md
+  0.627  refunds.md
+  0.618  expenses.md</pre>
+      <p class="col"><code>Index</code> didn’t change. The second run embedded no documents, because the rows were on disk. <code>same_results.py</code> runs all 22 questions through both stores:</p>
+      <pre><span class="cmd">$ python3 same_results.py</span>
+same top 5, in the same order: 22 of 22
+largest score difference: 0.000001</pre>
+      <p class="col">The stores agree here. Chroma’s index can be approximate on big collections, so don’t assume that for every data set. Why the <code>if</code> around <code>add</code>? A database remembers. <strong>Predict:</strong> what happens if you add the same chunks twice?</p>
+      <pre>index.add(chunks)
+index.add(chunks)
+
+print(f"{store.collection.count()} rows")
+for hit in index.search("Can I get money back for buying work footwear?", k=3):
+    print(f"  {hit.score:.3f}  {hit.source}")</pre>
+      <pre><span class="cmd">$ python3 chroma_twice.py</span>
+84 rows
+  0.676  uniform.md
+  0.676  uniform.md
+  0.627  refunds.md</pre>
+      <p class="col">No error. <code>uniform.md</code> fills two of your three results, and <code>expenses.md</code> has been pushed out. Check <code>count()</code> before you add.</p>
+      <figure>
+        <img src="media/09-chroma.jpg" alt="The same search running on Chroma" loading="lazy" width="1440" height="900">
+      </figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Reading errors</span>
+        <h2>These are real errors</h2>
+      </div>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th scope="col">What happened</th><th scope="col">What you see</th><th scope="col">The fix</th></tr></thead>
+          <tbody>
+            <tr><td>Ollama isn’t running</td><td><code>whitebox.models.ModelError: Couldn't reach Ollama</code></td><td><a href="https://claude.ai/artifact/1uGgX3WK7v3D5HyfvB782p#start-ollama">Start Ollama</a></td></tr>
+            <tr><td>You haven’t pulled the embedding model</td><td><code>whitebox.models.ModelError: Ollama said 404: {"error":"model \"nomic-embed-textt\" not found, try pulling it first"}</code> (we used a misspelled name to trigger it)</td><td><code>ollama pull nomic-embed-text</code></td></tr>
+            <tr><td>Chroma isn’t installed</td><td><code>ModuleNotFoundError: No module named 'chromadb'</code></td><td>Install it on Python 3.12 to 3.14, or use <code>VectorStore</code></td></tr>
+            <tr><td>You called <code>save</code> on a <code>ChromaStore</code></td><td><code>AttributeError: 'ChromaStore' object has no attribute 'rows'</code></td><td>Don’t. Chroma is already on disk</td></tr>
+            <tr><td>The query came from a different embedder, in Chroma</td><td><code>chromadb.errors.InvalidArgumentError: Collection expecting embedding with dimension of 768, got 64</code></td><td>Use the same embedder to add and to search</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="fails">
+        <div><h3>No error: the wrong embedder, with the list store</h3><p><code>cosine</code> uses <code>zip</code>, which stops at the shorter list. Searching the saved 768-number vectors with <code>FakeEmbedder</code> ran, and returned <code>allergens.md</code> at 0.072 for the footwear question.</p></div>
+        <div><h3>No error: the wrong folder</h3><p><code>load_documents</code> returns an empty dictionary for a folder that isn’t there, so the scripts print no results. Run them from <code>code</code>.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Your turn</span>
+        <h2>Exercises</h2>
+        <p>From <code>chapters/19-embeddings-and-vector-search</code>, open <code>exercises.py</code> and complete the five TODOs:</p>
+        <ol class="loop">
+          <li><code>unit</code>: scale a vector to length 1.</li>
+          <li><code>above</code>: drop hits below a score.</li>
+          <li><code>best_per_source</code>: keep the best hit from each file, which cleans up duplicates.</li>
+          <li><code>rank_of</code>: find where a file ranked.</li>
+          <li><code>UnitStore</code>: your own store behind the same two methods. <code>Index</code> works with it unchanged.</li>
+        </ol>
+        <p>Then run <code>python3 -m pytest test_exercises.py</code> from that folder. These checks use <code>FakeEmbedder</code>, so Ollama doesn’t need to be running. You’ve finished when you see <code>5 passed</code>.</p>
+      </div>
+      <div class="col">
+        <h3>Common mistakes</h3>
+        <ul class="list">
+          <li>Reading a score as a percentage. Here, the lowest of 924 scores was 0.309. Compare scores for one question.</li>
+          <li>Trusting a top result. Search always returns something, even when no file has the answer.</li>
+          <li>Mixing embedders. Vectors from different models can’t be compared, and the list store won’t warn you.</li>
+          <li>Skipping the prefixes. <code>embed_documents</code> and <code>embed_query</code> add them for you. Calling <code>embed</code> directly doesn’t.</li>
+          <li>Adding to Chroma on every run. It remembers, so check <code>count()</code> first.</li>
+          <li>Assuming vectors beat words everywhere. They didn’t on exact codes here. Measure it on your own questions.</li>
+          <li>Judging from one good question. The footwear question looked perfect. The reworded set got 4 of 8.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Recap</span>
+        <h2>What you opened</h2>
+        <ul class="list">
+          <li>Word search fails when a question avoids the document’s words, and it fails silently.</li>
+          <li>An embedding model turns any text into a fixed-length vector. Similar meaning gives similar vectors.</li>
+          <li><code>cosine</code> measures how closely two vectors point the same way.</li>
+          <li>An <code>Embedder</code> turns text into vectors. A <code>VectorStore</code> keeps and ranks them. An <code>Index</code> joins the two.</li>
+          <li><code>ChromaStore</code> has the same methods, so <code>Index</code> didn’t change.</li>
+          <li>Here, vectors helped most on reworded questions, and didn’t help on exact codes.</li>
+          <li>A score tells you how close a topic is. It doesn’t tell you the answer is there.</li>
+        </ul>
+        <p>The idea that a word’s meaning can be learned as a vector was made popular by the 2013 paper <a href="https://arxiv.org/abs/1301.3781">Efficient Estimation of Word Representations in Vector Space</a>. <a href="https://arxiv.org/abs/2402.01613">Nomic Embed</a> describes the model you used. Chroma’s <code>hnsw</code> setting is named after the search method from <a href="https://arxiv.org/abs/1603.09320">this 2016 paper</a>.</p>
+      </div>
+      <div class="next"><span>Next</span><h3>Chapter 20: The RAG pipeline</h3></div>
+    </section>
+
+    <footer>
+      <p>Get the code at <a href="https://github.com/WhiteboxAcademy/BuildAnAgentFramework">github.com/WhiteboxAcademy/BuildAnAgentFramework</a>. Code is under the MIT License. Articles and videos are under CC BY 4.0.</p>
+    </footer>
+  </div>
+</main>

@@ -1,0 +1,9 @@
+$ python3 hop_fixes.py check
+Question           Runs  Loose  Strict  Both files
+harbour-arrive        5      1       1           0
+senior-beans          5      1       1           0
+riverside-repair      5      4       4           1
+shift-lead-pay        5      3       0           0
+lead-notice           5      5       0           0
+old-mill-repair       5      3       3           0
+Total                30     17       9           1

@@ -1,0 +1,349 @@
+{
+ "chapter": "Chapter 21",
+ "scenes": [
+  {
+   "type": "recap",
+   "title": "Previously: the RAG pipeline",
+   "flow": [
+    "Cut files into chunks",
+    "Search once, then answer",
+    "A file hit isn't an answer",
+    "Chunks bought a smaller prompt"
+   ],
+   "captions": [
+    {
+     "text": "Recap of chapter 20: we cut 95 files into chunks, because they don't fit in a prompt.",
+     "secs": 8,
+     "focus": 0
+    },
+    {
+     "text": "Rag searches once, puts five hits in the prompt, and asks the model once.",
+     "secs": 7,
+     "focus": 1
+    },
+    {
+     "text": "The file hit rate checks for the right file. That isn't the right answer.",
+     "secs": 7,
+     "focus": 2
+    },
+    {
+     "text": "Whole files with room did as well. Chunks saved tokens, and they lost something.",
+     "secs": 8,
+     "focus": 3
+    }
+   ]
+  },
+  {
+   "type": "box",
+   "label": "Better chunks",
+   "inner": [
+    "+ a title",
+    "on every chunk"
+   ],
+   "captions": [
+    {
+     "text": "Today: one repair to the chunks, measured.",
+     "secs": 4
+    },
+    {
+     "text": "It'll work, and it'll cost something.",
+     "secs": 3,
+     "open": true,
+     "shot": "01-box"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/card_reader.py",
+   "start": "for hit in index.search",
+   "end": "print(run_eval",
+   "output": "video/card_reader.txt",
+   "captions": [
+    {
+     "text": "How long was the Station card reader down? The fact is in the index.",
+     "secs": 7,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Predict: will the right file come back? Will the answer be right?",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "The right file came first. The file hit says 1 of 1.",
+     "secs": 6,
+     "focus": null,
+     "lines": 7
+    },
+    {
+     "text": "And the model says it doesn't know, on all five runs.",
+     "secs": 7,
+     "focus": null,
+     "lines": 12,
+     "shot": "02-file-hit"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/find_chunk.py",
+   "start": "for chunk in make_chunks",
+   "end": "print(\"Rank:\"",
+   "output": "video/find_chunk.txt",
+   "captions": [
+    {
+     "text": "Don't guess. Print the chunk that holds the fact.",
+     "secs": 5,
+     "focus": [
+      "for chunk",
+      "print(chunk.text)"
+     ],
+     "lines": 0
+    },
+    {
+     "text": "The answer is here: 07:40 to 11:15. But the word Station isn't.",
+     "secs": 8,
+     "focus": null,
+     "lines": 7,
+     "shot": "03-chunk"
+    },
+    {
+     "text": "Nor is its date. The only date is the next day's heading, left at the bottom.",
+     "secs": 8,
+     "focus": null,
+     "lines": 7
+    },
+    {
+     "text": "So it ranked 111th of 934. Whole files never lost those words. Chunking did.",
+     "secs": 8,
+     "focus": null,
+     "lines": 8
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/library.py",
+   "start": "def holds_answer",
+   "end": "return hit.source in files",
+   "captions": [
+    {
+     "text": "The file hit couldn't see this, so we add a second ruler: text found.",
+     "secs": 7,
+     "focus": null
+    },
+    {
+     "text": "A hit counts only if it's from a right file, and its text holds the answer.",
+     "secs": 7,
+     "focus": [
+      "return hit.source",
+      "return hit.source"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/whitebox/rag.py",
+   "start": "def make_chunks",
+   "end": "return chunks",
+   "captions": [
+    {
+     "text": "Fix one. Take the file's first line, and put it on top of each chunk.",
+     "secs": 7,
+     "focus": [
+      "title = text",
+      "chunks.append"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/card_titles.py",
+   "start": "for titles in",
+   "end": "print(f\"titles=",
+   "output": "video/card_titles.txt",
+   "captions": [
+    {
+     "text": "Predict: it ranked 111th, and we've added one line. Where will it rank now?",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "First. One line gave the chunk \"Station\" and \"December 2025\".",
+     "secs": 7,
+     "focus": null,
+     "lines": 7,
+     "shot": "04-titles"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/eval_setup.py",
+   "start": "for label in sys.argv",
+   "end": "report.save",
+   "output": "video/eval_titles.txt",
+   "captions": [
+    {
+     "text": "Now the answers: 42 questions, three runs each. Each setup runs twice.",
+     "secs": 7,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "plain60 against itself moved 4 points. So look for more than that.",
+     "secs": 7,
+     "focus": null,
+     "lines": 3
+    },
+    {
+     "text": "With titles, the total didn't rise. A fix that worked can hide in a total.",
+     "secs": 8,
+     "focus": null,
+     "lines": 5,
+     "shot": "05-eval-titles"
+    },
+    {
+     "text": "Records rose to 21, twice. But gap fell. One question broke.",
+     "secs": 8,
+     "focus": null,
+     "lines": 5
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/shoes.py",
+   "start": "for titles in",
+   "end": "print(f\"  k=",
+   "output": "video/shoes.txt",
+   "captions": [
+    {
+     "text": "The footwear question went from 6 of 6 to 0 of 6, with the right chunk still first.",
+     "secs": 8,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Alone, the right chunk passes 5 of 5. Add two neighbors, and it's 0 of 5.",
+     "secs": 8,
+     "focus": null,
+     "lines": 9,
+     "shot": "06-shoes"
+    },
+    {
+     "text": "A chunk competes with everything around it. We don't know why this model reacts so.",
+     "secs": 8,
+     "focus": null,
+     "lines": 9
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/eval_setup.py",
+   "start": "\"plain120\"",
+   "end": "\"titles120-again\"",
+   "output": "video/eval_size.txt",
+   "captions": [
+    {
+     "text": "Next, a bigger chunk size. Records reach 24 of 24, twice.",
+     "secs": 7,
+     "focus": null,
+     "lines": 4,
+     "shot": "07-size"
+    },
+    {
+     "text": "But gap fell to 15, twice. It gained in one place, and lost in another.",
+     "secs": 7,
+     "focus": null,
+     "lines": 4
+    },
+    {
+     "text": "Bigger chunks kept the Tidewater heading by luck. It isn't a repair.",
+     "secs": 7,
+     "focus": null,
+     "lines": 4
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/read_failures.py",
+   "start": "hits = index.search(question, 5)",
+   "end": "print(f\"{name:<18}",
+   "output": "video/read_failures.txt",
+   "captions": [
+    {
+     "text": "Read what's left. e44 and fn6: the search missed. That's chapter 22.",
+     "secs": 8,
+     "focus": null,
+     "lines": 12,
+     "shot": "08-failures"
+    },
+    {
+     "text": "hop needs two facts, and one search brings one. That's chapter 23.",
+     "secs": 7,
+     "focus": null,
+     "lines": 12
+    },
+    {
+     "text": "mice, shoes and tidewater: the text was in the prompt, and the answer was still wrong.",
+     "secs": 8,
+     "focus": null,
+     "lines": 12
+    }
+   ]
+  },
+  {
+   "type": "term",
+   "file": "video/exercise_output.txt",
+   "final": "5 passed",
+   "captions": [
+    {
+     "text": "Your turn. Open exercises.py and complete the five TODOs.",
+     "secs": 5,
+     "lines": 9
+    },
+    {
+     "text": "You'll cut at headings, and put titles on every chunk. No Ollama needed.",
+     "secs": 6,
+     "lines": 9
+    },
+    {
+     "text": "You've finished when you see 5 passed.",
+     "secs": 5,
+     "lines": 13,
+     "shot": "09-exercises"
+    }
+   ]
+  },
+  {
+   "type": "end",
+   "title": "You opened better chunks.",
+   "points": [
+    "Print the chunk",
+    "Titles repair what chunks lose",
+    "A fix can break something else",
+    "Read the rows, not the total"
+   ],
+   "next": "Next: Chapter 22, better search",
+   "captions": [
+    {
+     "text": "The fix worked, and it cost something. Now you can tell which.",
+     "secs": 6
+    },
+    {
+     "text": "Next, the search itself, for what it still misses.",
+     "secs": 4
+    }
+   ]
+  }
+ ]
+}

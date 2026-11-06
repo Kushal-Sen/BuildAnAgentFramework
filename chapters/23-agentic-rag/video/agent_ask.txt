@@ -1,0 +1,4 @@
+search 1: shift lead resignation notice period
+Files seen: breaks-and-staff-drinks.md, resignation.md, shifts.md
+Answer: As a shift lead, if you are in Band C or Band D, you must give 4 weeks' notice when resigning. If you are in Band E, you need to give 8 weeks' notice. [resignation.md]
+Model calls: 2

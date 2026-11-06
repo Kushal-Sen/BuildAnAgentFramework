@@ -1,0 +1,7 @@
+$ python3 misses.py
+rank  4  I'm a barista and I want to quit. How much warning do I have to give?
+rank  3  I woke up feeling awful and can't make it in. How do I let my boss know?
+rank  5  I found evidence of mice in the storeroom. Who handles that?
+rank  4  Do I need to do anything about my ponytail at work?
+rank  2  What is form IR-9 for?
+rank 12  What is FN-6 used for?

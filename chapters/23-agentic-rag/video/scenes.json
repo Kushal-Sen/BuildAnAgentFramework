@@ -1,0 +1,112 @@
+{
+  "chapter": "Chapter 23",
+  "scenes": [
+    {"type": "recap", "title": "Previously: better chunks and search", "flow": ["Titles on chunks", "Keyword search", "Hybrid search", "Close scores can't be ranked"], "captions": [
+      {"text": "Recap of chapters 21 and 22: chunks that keep their title found facts basic RAG missed.", "secs": 8, "focus": 0},
+      {"text": "KeywordIndex finds exact words, such as codes, that vectors miss.", "secs": 7, "focus": 1},
+      {"text": "HybridIndex joins the two searches into one ranking.", "secs": 7, "focus": 2},
+      {"text": "And you learned not to rank scores that sit close together.", "secs": 8, "focus": 3}
+    ]},
+    {"type": "box", "label": "Agentic RAG", "inner": ["your index", "+ one tool", "+ the agent loop"], "captions": [
+      {"text": "Today's black box: an agent that does its own searching.", "secs": 5},
+      {"text": "Let's open it. But first, a question one search can't answer.", "secs": 5, "open": true, "shot": "01-box"}
+    ]},
+    {"type": "demo", "file": "code/one_shot.py", "start": "index = build_index", "end": "print(\"Answer:\"", "output": "video/one_shot.txt", "captions": [
+      {"text": "How much notice must a shift lead give? You need their band, then that band's rule.", "secs": 8, "focus": null, "lines": 0},
+      {"text": "Those are two files. Predict: will one search find both?", "secs": 6, "focus": null, "lines": 0},
+      {"text": "It found the rule, and not the band. So the model made one up: Band E, 8 weeks.", "secs": 9, "focus": null, "lines": 6, "shot": "02-one-shot"},
+      {"text": "A shift lead is Band C, so it's 4 weeks. Wrong in 5 runs of 5.", "secs": 7, "focus": null, "lines": 10}
+    ]},
+    {"type": "demo", "file": "code/more_hits.py", "start": "for k in (5", "end": "print(f\"k={k:<4}", "output": "video/more_hits.txt", "captions": [
+      {"text": "Why not fetch more hits? Predict: where does pay-bands.md rank?", "secs": 7, "focus": null, "lines": 0},
+      {"text": "Rank 134 of 934. The question is about resigning, not roles.", "secs": 7, "focus": null, "lines": 1},
+      {"text": "No k passes. And 2,050 tokens at k=134 is chapter 20's silent cut.", "secs": 9, "focus": null, "lines": 5, "shot": "03-more-hits"}
+    ]},
+    {"type": "code", "file": "code/whitebox/rag.py", "start": "def search_tool", "end": "return search_handbook", "captions": [
+      {"text": "So let the agent do the looking. search_tool turns any index into a tool.", "secs": 7, "focus": null},
+      {"text": "The model reads these words, so they're the tool's instructions.", "secs": 7, "focus": ["def search_handbook", "\"\"\"Search the staff"]},
+      {"text": "It runs the search you already have, and returns the same excerpts as Rag.", "secs": 7, "focus": ["return excerpts", "return excerpts"], "shot": "04-tool"}
+    ]},
+    {"type": "code", "file": "code/whitebox/rag.py", "start": "AGENT_SYSTEM = (", "end": "\"If searching doesn't", "captions": [
+      {"text": "The system prompt even names this case: search for a band.", "secs": 7, "focus": ["\"and never answer", "\"such as a band"]}
+    ]},
+    {"type": "loop", "captions": [
+      {"text": "Nothing here is new. It's chapter 12's loop, and the tool is a search.", "secs": 7, "focus": ["ask", "check", "tool"]},
+      {"text": "The model writes the query, and decides whether to go round again.", "secs": 7, "focus": ["check"]}
+    ]},
+    {"type": "demo", "file": "code/agent_ask.py", "start": "result = agent.run", "end": "print(\"Model calls:\"", "output": "video/agent_ask.txt", "captions": [
+      {"text": "The same question, printing every query. Predict: how many searches?", "secs": 7, "focus": null, "lines": 0},
+      {"text": "One. It wrote a tidy query, and never looked up the band.", "secs": 7, "focus": null, "lines": 2, "shot": "05-trace"},
+      {"text": "So it hedged across the bands. 2 model calls: one to search, one to answer.", "secs": 8, "focus": null, "lines": 4}
+    ]},
+    {"type": "demo", "file": "code/eval_agent.py", "start": "for label in sys.argv", "end": "keep.save", "output": "video/eval_agent.txt", "captions": [
+      {"text": "Now measure. 42 questions, three runs each, and each agent twice.", "secs": 7, "focus": null, "lines": 0},
+      {"text": "Keep records what each run searched for, which a Report doesn't. Predict the winner.", "secs": 8, "focus": ["keep = Keep", "keep = Keep"], "lines": 0},
+      {"text": "One-shot setups: 97 to 105. These checks accept \"tie\" and \"ten\", corrected.", "secs": 8, "focus": null, "lines": 5},
+      {"text": "Agents: 112 to 119. Every agent row wins, by at least 7. The clearest gain in Part 4.", "secs": 9, "focus": null, "lines": 9, "shot": "07-eval"},
+      {"text": "Hop looks solved, at 12 to 15 of 18. You've just seen one search. Be suspicious.", "secs": 8, "focus": null, "lines": 9}
+    ]},
+    {"type": "demo", "file": "code/cost.py", "start": "for label in LABELS", "end": "print(f\"{label:<22}", "output": "video/cost.txt", "captions": [
+      {"text": "It isn't free. About 2 model calls per question, against 1.", "secs": 7, "focus": null, "lines": 9},
+      {"text": "And about 900 tokens, against 500. We make no claim about speed: the machine was shared.", "secs": 8, "focus": null, "lines": 9, "shot": "08-cost"}
+    ]},
+    {"type": "demo", "file": "code/failures.py", "start": "else:  # Every agent60", "end": "print(f\"{name_of(run):<17}", "output": "video/failures_again.txt", "captions": [
+      {"text": "agent60 searched more than once in only 9 runs of 252. On hop, just 3 of 36.", "secs": 9, "focus": null, "lines": 9, "shot": "09-again"},
+      {"text": "They retry with new words. None looks up a second fact from the first result.", "secs": 8, "focus": null, "lines": 9}
+    ]},
+    {"type": "demo", "file": "code/replay.py", "start": "keep = Keep(Rag", "end": "print(summary", "output": "video/replay.txt", "captions": [
+      {"text": "So is it the loop, or the query? Give plain Rag the agent's first query.", "secs": 8, "focus": null, "lines": 0},
+      {"text": "101, about 4 above titles60 with no loop. A short query beats a chatty question.", "secs": 8, "focus": null, "lines": 1, "shot": "10-replay"},
+      {"text": "But hop is 3, against the agent's 12. So read those hop passes.", "secs": 7, "focus": null, "lines": 1}
+    ]},
+    {"type": "demo", "file": "code/questions.py", "start": "STRICT = {", "end": "\"old-mill-repair\": (", "output": "video/hop_audit.txt", "captions": [
+      {"text": "An answer listing every band contains \"4 weeks\", so it passed. A stricter check says no.", "secs": 9, "focus": null, "lines": 0},
+      {"text": "Loose 27, strict 14. And 16:00 had passed for 6:00, a bug in our check.", "secs": 9, "focus": null, "lines": 9, "shot": "11-audit"},
+      {"text": "Both repair questions pass, but each branch file holds the number. No hop needed.", "secs": 8, "focus": null, "lines": 9},
+      {"text": "The four real hops: no run saw both files. 0 of 48, across both agents.", "secs": 8, "focus": null, "lines": 9}
+    ]},
+    {"type": "demo", "file": "code/rescore.py", "start": "passed, total = load_report", "end": "strict = sum(", "output": "video/rescore.txt", "captions": [
+      {"text": "Rescore everything. Agents 107 to 114, one-shot 96 to 102. The lead holds.", "secs": 8, "focus": null, "lines": 10, "shot": "12-rescore"},
+      {"text": "But hop is 7 or 8 of 18. The agent made multi-hop look solved, and it wasn't.", "secs": 8, "focus": null, "lines": 10}
+    ]},
+    {"type": "demo", "file": "code/failures.py", "start": "if sys.argv[1] == \"hop\"", "end": "show(run, label)", "output": "video/failures_hop.txt", "captions": [
+      {"text": "Each search found the right rule. Then the model wrote \"I assume\" or \"likely\" and guessed.", "secs": 9, "focus": null, "lines": 8, "shot": "13-failures"}
+    ]},
+    {"type": "demo", "file": "code/failures.py", "start": "elif sys.argv[1] == \"none\"", "end": "show(run, label)", "output": "video/failures_none.txt", "captions": [
+      {"text": "Questions with no answer: 6 failures in 72 runs. Four are declines in other words.", "secs": 9, "focus": null, "lines": 8},
+      {"text": "One ran out of steps. And one, after 6 searches, said dogs aren't allowed.", "secs": 8, "focus": null, "lines": 8, "shot": "14-none"},
+      {"text": "The handbook doesn't say that. It's rare, 1 in 72, but it reads like a policy.", "secs": 8, "focus": null, "lines": 8}
+    ]},
+    {"type": "demo", "file": "code/fixes.py", "start": "CHECK_SYSTEM = AGENT_SYSTEM", "end": "Never guess it", "output": "video/fix_check.txt", "captions": [
+      {"text": "Can we fix it? First, tell it harder. Predict: how many of 30 runs see both files?", "secs": 8, "focus": null, "lines": 0},
+      {"text": "One. The prompt names this exact case, and the model still doesn't do it.", "secs": 8, "focus": null, "lines": 9}
+    ]},
+    {"type": "demo", "file": "code/fixes.py", "start": "hits = self.index.search(question, self.k)", "end": "return answer_from", "output": "video/fix_missing.txt", "captions": [
+      {"text": "Second, stop and ask the model what's missing, in a separate call.", "secs": 7, "focus": null, "lines": 0},
+      {"text": "Worse. It nearly always replies NONE. It can't see what isn't there.", "secs": 8, "focus": null, "lines": 9}
+    ]},
+    {"type": "demo", "file": "code/fixes.py", "start": "asked = [Message(\"user\", ASK_FACTS", "end": "return answer_from(self.model, question, hits, asked + [reply], queries", "output": "video/fix_split.txt", "captions": [
+      {"text": "Third, take the choice away. Ask for the facts first. Your code searches for each one.", "secs": 9, "focus": null, "lines": 0},
+      {"text": "Both files in 11 of 30, and a pass now comes from having the facts.", "secs": 8, "focus": null, "lines": 9, "shot": "15-split"}
+    ]},
+    {"type": "demo", "file": "code/rescore.py", "start": "passed, total = load_report", "end": "strict = sum(", "output": "video/rescore_split.txt", "captions": [
+      {"text": "On everything: 105 and 106. Above one search, and below the agents.", "secs": 8, "focus": null, "lines": 4},
+      {"text": "But on the real hops, both files came back in 12 of 24 runs. For agents, 0 of 48.", "secs": 9, "focus": null, "lines": 4, "shot": "16-split-score"},
+      {"text": "It's a direction, not a result. We wrote that prompt after reading these failures.", "secs": 8, "focus": null, "lines": 4}
+    ]},
+    {"type": "demo", "file": "code/fair.py", "start": "saved = Path", "end": "print((saved / \"eval_handbook", "output": "video/fair.txt", "captions": [
+      {"text": "Be fair: chapter 20's whole files, with a big window, scored 103. One call.", "secs": 8, "focus": null, "lines": 4},
+      {"text": "And the pasted handbook scored hop 16 of 18, with chapter 20's looser checks.", "secs": 8, "focus": null, "lines": 10, "shot": "17-fair"},
+      {"text": "So agents won among these setups. That isn't everything you could build.", "secs": 7, "focus": null, "lines": 10}
+    ]},
+    {"type": "term", "file": "video/exercise_output.txt", "final": "5 passed", "captions": [
+      {"text": "Your turn. Open exercises.py and complete the five TODOs.", "secs": 6, "lines": 9},
+      {"text": "You've finished when you see 5 passed.", "secs": 6, "lines": 13, "shot": "18-exercises"}
+    ]},
+    {"type": "end", "title": "You finished Part 4.", "points": ["19: search by meaning", "20: chunk, search, ask once", "21 and 22: better chunks and search", "23: the agent writes the query"], "next": "Next: Chapter 24, context management", "captions": [
+      {"text": "Part 4: embeddings searched by meaning. Then RAG answered from what they found.", "secs": 8},
+      {"text": "Better chunks and search fixed real failures, and the agent gave the biggest gain.", "secs": 7},
+      {"text": "Agents still didn't chain two facts. Your code can force that search. Measure, then read what failed.", "secs": 7}
+    ]}
+  ]
+}

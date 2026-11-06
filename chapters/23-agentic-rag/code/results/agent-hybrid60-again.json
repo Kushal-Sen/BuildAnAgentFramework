@@ -1,0 +1,369 @@
+{
+  "label": "agent-hybrid60-again",
+  "rows": [
+    {
+      "name": "direct:drink-recipe",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:float",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:payday",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:milk-charge",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:fridge",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:grounds",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:hot-food",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:loyalty",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:holiday",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:quit",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:feel-ill",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:funeral",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:mice",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:scald",
+      "runs": 3,
+      "passed": 2,
+      "steps": 6,
+      "failures": [
+        {
+          "run": 2,
+          "failed": [
+            "any of ['20']"
+          ],
+          "answer": "I don't know the specific cooling time for the steam wand in the staff handbook. Typically, cooling a hot surface like a steam wand under running water can be done for a few minutes, but it's best to refer to any specific guidelines provided by your equipment or training. If there are no specific instructions, cooling it for around 5-10 minutes should be sufficient. Always be cautious and use gloves if available. [closing-checklist.md]"
+        }
+      ]
+    },
+    {
+      "name": "gap:shoes",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:hair",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "code:e44",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "code:e31",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "code:r5",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "code:ir9",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "code:hr15",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "code:fn6",
+      "runs": 3,
+      "passed": 2,
+      "steps": 7,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['bank']"
+          ],
+          "answer": "I still haven't found any mention of FN-6 in the documents I've searched through. Could you please provide more context or specify where you heard about it? I might need to search a different section of the handbook or look into a different log.\n\nI don't know [log-riverside-2025-02.md]."
+        }
+      ]
+    },
+    {
+      "name": "hop:harbour-arrive",
+      "runs": 3,
+      "passed": 0,
+      "steps": 6,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['06:00', '6:00', '6 am', '6am']"
+          ],
+          "answer": "According to the branch handbook, the Harbour branch opens at 06:30 on Mondays. Therefore, you should arrive at or before 06:30 to open the branch on a Monday. [branch-harbour.md]"
+        },
+        {
+          "run": 2,
+          "failed": [
+            "any of ['06:00', '6:00', '6 am', '6am']"
+          ],
+          "answer": "Based on the information provided in the handbook, you should arrive at the Harbour branch by 06:30 on a Monday, as that is the opening time for Monday through Friday. [branch-harbour.md]"
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['06:00', '6:00', '6 am', '6am']"
+          ],
+          "answer": "Based on the information provided in the branch handbook, you need to arrive at the Harbour branch by 06:30 on a Monday to open the branch. [branch-harbour.md]"
+        }
+      ]
+    },
+    {
+      "name": "hop:senior-beans",
+      "runs": 3,
+      "passed": 2,
+      "steps": 6,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['25%']"
+          ],
+          "answer": "As a senior barista, you get 30% off retail beans when you are off shift and using your staff card at any branch. [staff-discount.md]"
+        }
+      ]
+    },
+    {
+      "name": "hop:riverside-repair",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "hop:shift-lead-pay",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "hop:lead-notice",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "hop:old-mill-repair",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "none:pension",
+      "runs": 3,
+      "passed": 2,
+      "steps": 14,
+      "failures": [
+        {
+          "run": 2,
+          "failed": [
+            "says I don't know"
+          ],
+          "answer": "Stopped: no answer after 8 steps."
+        }
+      ]
+    },
+    {
+      "name": "none:dental",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "none:wifi",
+      "runs": 3,
+      "passed": 3,
+      "steps": 9,
+      "failures": []
+    },
+    {
+      "name": "none:dogs",
+      "runs": 3,
+      "passed": 2,
+      "steps": 6,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "says I don't know"
+          ],
+          "answer": "I couldn't find any specific policy regarding dogs in the Riverside branch. The logs do not mention any such rules or exceptions. You might want to check directly with the branch manager, Sam Achebe, or the equipment service contractor, Northline Service, for the most accurate information.\n\n[branch-riverside.md]"
+        }
+      ]
+    },
+    {
+      "name": "records:flood",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:cupping-guest",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:film-crew",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:card-reader",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:ferry-order",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:fennel-min",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:tidewater-fee",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:lantern-price",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "none:records-none",
+      "runs": 3,
+      "passed": 2,
+      "steps": 6,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "says I don't know"
+          ],
+          "answer": "I couldn't find a direct mention of the health inspector's score for the Station branch in 2025. The logs I found do not contain that information. [log-station-2025-12.md] and [log-station-2025-05.md] do not include any health inspection records. \n\nWould you like to try another query or check another year? [branch-station.md] might have some general information about the branch that could be useful."
+        }
+      ]
+    },
+    {
+      "name": "none:records-none2",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    }
+  ]
+}

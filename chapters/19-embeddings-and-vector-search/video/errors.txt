@@ -1,0 +1,23 @@
+$ python3 -c "..."   # save() on a ChromaStore
+AttributeError: 'ChromaStore' object has no attribute 'rows'
+
+$ python3 -c "..."   # a 64-number query against 768-number rows in Chroma
+chromadb.errors.InvalidArgumentError: Collection expecting embedding with dimension of 768, got 64
+
+$ python3 -c "..."   # the same mistake with the list store
+0.072  allergens.md
+0.041  food-safety.md
+0.037  grinder-errors.md
+
+$ python3 -c "..."   # an embedding model that has not been pulled
+whitebox.models.ModelError: Ollama said 404: {"error":"model \"nomic-embed-textt\" not found, try pulling it first"}
+
+$ python3 -c "..."   # Ollama is not there (this used a closed port)
+whitebox.models.ModelError: Couldn't reach Ollama: HTTPConne
+
+$ python3 -c "import chromadb"   # on a Python without Chroma
+ModuleNotFoundError: No module named 'chromadb'
+
+$ cd .. && python3 code/search_handbook.py   # from the wrong folder
+How much is the till float?
+Can I get money back for buying work footwear?

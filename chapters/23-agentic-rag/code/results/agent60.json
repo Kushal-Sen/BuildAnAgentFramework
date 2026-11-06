@@ -1,0 +1,406 @@
+{
+  "label": "agent60",
+  "rows": [
+    {
+      "name": "direct:drink-recipe",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:float",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:payday",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:milk-charge",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:fridge",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:grounds",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:hot-food",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:loyalty",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:holiday",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:quit",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:feel-ill",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:funeral",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:mice",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:scald",
+      "runs": 3,
+      "passed": 2,
+      "steps": 6,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['20']"
+          ],
+          "answer": "I don't know the specific procedure for cooling a scalded hand from the steam wand in the staff handbook. Typically, you should hold the affected area under cool running water for several minutes. However, for precise instructions, it would be best to consult a medical professional or refer to the first aid section of the staff handbook if available.\n\n[equipment-repairs.md] did not provide specific guidance for this situation. Please seek medical advice if your injury is serious."
+        }
+      ]
+    },
+    {
+      "name": "gap:shoes",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:hair",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "code:e44",
+      "runs": 3,
+      "passed": 1,
+      "steps": 10,
+      "failures": [
+        {
+          "run": 2,
+          "failed": [
+            "any of ['dose sensor']"
+          ],
+          "answer": "I don't know. The logs mentioning E44 did not provide enough context or information. [log-riverside-2025-04.md] [log-riverside-2025-10.md] [log-harbour-2025-08.md]"
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['dose sensor']"
+          ],
+          "answer": "I don't know. The logs do not contain information about what E44 refers to. [log-riverside-2025-04.md] [log-riverside-2025-10.md] [log-harbour-2025-08.md]"
+        }
+      ]
+    },
+    {
+      "name": "code:e31",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "code:r5",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "code:ir9",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "code:hr15",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "code:fn6",
+      "runs": 3,
+      "passed": 0,
+      "steps": 6,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['bank']"
+          ],
+          "answer": "I don't know. The entries about FN-6 were not found in the provided logs. [log-riverside-2025-02.md] [log-riverside-2025-08.md]"
+        },
+        {
+          "run": 2,
+          "failed": [
+            "any of ['bank']"
+          ],
+          "answer": "I don't know. The logs do not mention what FN-6 is used for. [log-riverside-2025-02.md] [log-riverside-2025-08.md]"
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['bank']"
+          ],
+          "answer": "I don't know. The logs do not mention FN-6 or its usage. [log-riverside-2025-02.md] [log-riverside-2025-08.md]"
+        }
+      ]
+    },
+    {
+      "name": "hop:harbour-arrive",
+      "runs": 3,
+      "passed": 1,
+      "steps": 6,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['06:00', '6:00', '6 am', '6am']"
+          ],
+          "answer": "Based on the information provided in the Harbour branch handbook, you should arrive at the branch by 06:30 on a Monday, as that is the start of their opening hours. [branch-harbour.md]"
+        },
+        {
+          "run": 2,
+          "failed": [
+            "any of ['06:00', '6:00', '6 am', '6am']"
+          ],
+          "answer": "Based on the information in the staff handbook, you should arrive at the Harbour branch by 06:30 on a Monday to open the branch. [branch-harbour.md]"
+        }
+      ]
+    },
+    {
+      "name": "hop:senior-beans",
+      "runs": 3,
+      "passed": 1,
+      "steps": 6,
+      "failures": [
+        {
+          "run": 2,
+          "failed": [
+            "any of ['25%']"
+          ],
+          "answer": "As a senior barista, you get 15% off retail beans when you are off shift and using your staff card at any branch. [staff-discount.md]"
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['25%']"
+          ],
+          "answer": "According to the staff handbook, a senior barista, which I assume is a Band E, gets 30% off retail beans when off shift and using a staff card.\n\n[staff-discount.md]"
+        }
+      ]
+    },
+    {
+      "name": "hop:riverside-repair",
+      "runs": 3,
+      "passed": 3,
+      "steps": 8,
+      "failures": []
+    },
+    {
+      "name": "hop:shift-lead-pay",
+      "runs": 3,
+      "passed": 2,
+      "steps": 6,
+      "failures": [
+        {
+          "run": 2,
+          "failed": [
+            "any of ['14.75']"
+          ],
+          "answer": "The hourly rate for a shift lead is not explicitly stated, but based on the information provided, shift leads are likely Band D, with an hourly rate of \u00a316.90. [wages.md]"
+        }
+      ]
+    },
+    {
+      "name": "hop:lead-notice",
+      "runs": 3,
+      "passed": 2,
+      "steps": 6,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['4 weeks', 'four weeks']"
+          ],
+          "answer": "As a shift lead, if you are a Band E staff member, you must give 8 weeks' notice when you resign. [resignation.md]"
+        }
+      ]
+    },
+    {
+      "name": "hop:old-mill-repair",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "none:pension",
+      "runs": 3,
+      "passed": 2,
+      "steps": 8,
+      "failures": [
+        {
+          "run": 3,
+          "failed": [
+            "says I don't know"
+          ],
+          "answer": "I've searched the handbook multiple times, but I couldn't find any information about the percentage that Quillon matches on pension contributions. \n\n[log-old-mill-2025-04.md] [log-old-mill-2025-12.md] [log-riverside-2025-03.md]"
+        }
+      ]
+    },
+    {
+      "name": "none:dental",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "none:wifi",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "none:dogs",
+      "runs": 3,
+      "passed": 2,
+      "steps": 6,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "says I don't know"
+          ],
+          "answer": "I couldn't find any specific pet policy mentioned in the logs for the Riverside branch. The logs do not provide information about allowing dogs inside the branch. I would recommend checking the current staff handbook or contacting the branch directly for the most accurate information.\n\n[log-riverside-2025-11.md]"
+        }
+      ]
+    },
+    {
+      "name": "records:flood",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:cupping-guest",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:film-crew",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:card-reader",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:ferry-order",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:fennel-min",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:tidewater-fee",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:lantern-price",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "none:records-none",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "none:records-none2",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    }
+  ]
+}

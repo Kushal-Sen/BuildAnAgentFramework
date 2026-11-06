@@ -1,0 +1,2 @@
+$ ollama show qwen2.5:7b
+    context length      32768     

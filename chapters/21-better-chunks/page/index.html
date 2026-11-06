@@ -1,0 +1,573 @@
+<title>Whitebox: Better chunks</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a black box header opens onto a white reading column; media breaks wider. */
+:root {
+  --bg: #fbfbf9; --surface: #ffffff; --ink: #16181d; --muted: #5d616b; --rule: #d9dade;
+  --accent: #2a4bd7; --tint: #e7ebfb; --box: #0c0d10; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #101218; --term-ink: #e4e6ec; --term-cmd: #9db1ff;
+  --display: "Bricolage Grotesque", Georgia, serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+    --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+    --term: #08090c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+  --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #08090c; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 400 1.0625rem/1.65 var(--body); }
+.gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 68rem; margin: 0 auto; min-width: 0; }
+.col { max-width: 42rem; display: grid; gap: 1rem; min-width: 0; }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2.6rem, 7vw, 4.4rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; }
+h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); line-height: 1.15; font-weight: 700; }
+h3 { font-size: 1.2rem; line-height: 1.3; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--accent); }
+a:focus-visible, video:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+code { font-family: var(--mono); font-size: 0.92em; }
+
+header.mast { background: var(--box); color: var(--on-box); padding-block: 1.6rem 3rem; }
+.mast .wrap { display: grid; gap: 2.4rem; }
+.brand { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font: 500 1rem var(--display); }
+.brand span:first-child { display: flex; align-items: center; gap: 0.55rem; }
+.brand i { width: 0.95rem; height: 0.95rem; border: 3px solid currentColor; display: block; }
+.brand span:last-child { font: 400 0.85rem var(--mono); color: var(--box-muted); align-self: center; }
+.mast .intro { display: grid; gap: 1rem; max-width: 46rem; }
+.mast .dek { font-size: 1.2rem; color: var(--box-muted); }
+.meta { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+
+main { padding-block: 0 4rem; }
+section { padding-block: 3.2rem 0; display: grid; gap: 1.4rem; }
+.label { font: 600 0.78rem/1.2 var(--mono); color: var(--accent); }
+.lede { font-size: 1.15rem; }
+
+figure { margin: 0; display: grid; gap: 0.5rem; min-width: 0; }
+figcaption { font-size: 0.86rem; color: var(--muted); }
+video { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 1440 / 900; background: #000; }
+
+ol.loop { margin: 0; padding-left: 1.3rem; display: grid; gap: 0.35rem; }
+ol.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 2.4rem; counter-reset: step; }
+ol.steps > li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 1.6rem; align-items: start; counter-increment: step; }
+ol.steps .txt { display: grid; gap: 0.45rem; min-width: 0; }
+ol.steps .txt h3::before { content: counter(step); display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; margin-right: 0.55rem; background: var(--ink); color: var(--bg); font: 600 0.85rem/1 var(--mono); vertical-align: 0.1em; }
+ol.steps img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); }
+@media (max-width: 720px) { ol.steps > li { grid-template-columns: minmax(0, 1fr); } }
+
+pre { margin: 0; background: var(--term); color: var(--term-ink); padding: 1rem 1.1rem; overflow-x: auto; font: 400 0.86rem/1.6 var(--mono); }
+pre .cmd { color: var(--term-cmd); }
+.tablebox { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.98rem; }
+th, td { text-align: left; padding: 0.65rem 0.8rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; color: var(--muted); }
+td { font-variant-numeric: tabular-nums; }
+.fails { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.fails div { background: var(--tint); padding: 1rem 1.1rem; display: grid; gap: 0.3rem; align-content: start; min-width: 0; }
+.list { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.35rem; }
+.next { background: var(--box); color: var(--on-box); padding: 1.4rem 1.5rem; display: grid; gap: 0.3rem; }
+.next span { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--muted); }
+</style>
+
+<header class="mast gutter">
+  <div class="wrap">
+    <div class="brand"><span><i></i>Whitebox Academy</span><span>Build an AI Agent from Scratch</span></div>
+    <div class="intro">
+      <span class="meta">Chapter 21 of 35 · Part 4: RAG · About 2 hours</span>
+      <h1>Better chunks</h1>
+      <p class="dek">Repair what chunking lost, and learn to tell a real gain from noise.</p>
+    </div>
+  </div>
+</header>
+
+<main class="gutter">
+  <div class="wrap">
+    <section>
+      <figure>
+        <video controls playsinline preload="metadata" poster="media/03-chunk.jpg">
+          <source src="media/video.mp4" type="video/mp4">
+        </video>
+        <figcaption>Chapter video, 4 minutes 10 seconds, no sound. It starts with a 30-second recap, and captions on screen explain each step.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Where we are</span>
+        <h2>Where we are</h2>
+      </div>
+      <div class="col">
+        <p>In chapter 20, you built the pipeline: cut documents into chunks, search once, and answer from the hits. You also saw that a file hit isn’t a right answer, and that whole files with enough room did as well as chunks. Chunks bought a smaller prompt, not a better score. They also cost something: a cut can separate a fact from the words that tell you what it’s about.</p>
+        <p>This chapter repairs that, with one idea: give every chunk its title. You’ll measure it, and you’ll see that a fix that works can still break something else. Chapter 22 then improves the search itself.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Setup</span>
+        <h2>Before you start</h2>
+      </div>
+      <div class="col">
+        <p><a href="https://claude.ai/artifact/1uGgX3WK7v3D5HyfvB782p#start-ollama">Start Ollama</a>, and activate the <code>.venv</code> you made in chapter 05. You need <code>nomic-embed-text</code> from chapter 19. If you don’t have it:</p>
+      </div>
+      <pre><span class="cmd">$ ollama pull nomic-embed-text</span></pre>
+      <div class="col">
+        <p>You’ll work in <code>chapters/21-better-chunks/code</code>. This chapter doesn’t use Chroma, so it runs on any Python version the course supports.</p>
+        <p><code>whitebox/rag.py</code> has one change: a <code>titles</code> option on <code>make_chunks</code>. These things are provided, and you don’t need to change them:</p>
+        <ul class="list">
+          <li><code>questions.py</code> holds chapter 20’s 42 questions, with two checks corrected, because both marked right answers wrong. <code>hair</code> now accepts “tie” as well as “tied”, and <code>loyalty</code> accepts “ten” as well as “tenth” and “10”. Every score in this chapter uses these checks.</li>
+          <li><code>library.py</code> has the small helpers the scripts share. You’ll meet them as they come up.</li>
+          <li><code>results/</code> holds our saved runs of this chapter’s evals. A script that reads results uses your own file if you’ve made one, and ours if you haven’t. So <strong>you can follow the whole chapter without the long evals.</strong></li>
+          <li><code>retrieval.py</code>, <code>tidewater_sizes.py</code>, <code>read_failures.py</code>, <code>all_setups.py</code> and <code>try_headings.py</code> are measuring scripts. Each section says what the script does and shows the part that matters.</li>
+        </ul>
+        <p><strong>The setup names say what’s in them.</strong> <code>plain60</code> is chapter 20’s <code>Rag</code> on chunks of about 60 words, which chapter 20 called <code>rag60</code>. <code>titles60</code> adds titles. <code>plain120</code> and <code>titles120</code> use chunks of about 120 words. A name ending in <code>-again</code> is the same setup, run a second time.</p>
+        <p>To check the framework itself, run this from <code>code</code>:</p>
+      </div>
+      <pre><span class="cmd">$ python3 -m pytest tests</span></pre>
+      <div class="col">
+        <p>You should see <code>53 passed</code>. These tests use a fake model, so they don’t need Ollama.</p>
+        <p>Your scores will differ a little from ours, because the model samples at temperature 0.7.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Lesson</span>
+        <h2>A fact the pipeline can’t find</h2>
+      </div>
+      <div class="col">
+        <p>Chapter 20 left one failure for this chapter. Open <code>card_reader.py</code>:</p>
+      </div>
+      <pre>index = build_index(all_documents(), 60)
+rag = Rag(load_model(), index, k=5, options={"temperature": 0.7})
+
+for hit in index.search(QUESTION, 5):
+    print(f"{hit.score:.3f}  {hit.source}")
+print("File hit:", hit_rate(index, [(QUESTION, [FILE])], 5))
+
+print("Answer:", rag.run(QUESTION).answer)
+case = [to_case(row) for row in RECORDS if row[0] == "card-reader"]
+print(run_eval(rag, case, runs=5, label="five runs").table())</pre>
+      <div class="col">
+        <p>The question is “How long was the Station card reader down just before Christmas 2025?”. The file that holds the answer is <code>log-station-2025-12.md</code>, and it’s in the index.</p>
+        <p><strong>Predict:</strong> will the right file come back? Will the answer be right?</p>
+      </div>
+      <pre><span class="cmd">$ python3 card_reader.py</span></pre>
+      <pre>0.720  log-station-2025-12.md
+0.718  log-station-2025-09.md
+0.712  log-station-2025-07.md
+0.693  log-harbour-2025-05.md
+0.692  log-station-2025-12.md
+File hit: (1, 1)
+Answer: I don't know. [log-station-2025-12.md]
+five runs
+Case                  Passed  Steps
+records:card-reader      0/5    1.0
+Total                    0/5</pre>
+      <div class="col">
+        <p>The right file came first, and came back twice. <code>hit_rate</code> says 1 of 1. The model said “I don’t know”, and it failed all five runs. It even cited the right file.</p>
+        <p>That “I don’t know” is the system working as it should. The model only answers from what it’s given. So what was it given?</p>
+      </div>
+      <figure><img src="media/02-file-hit.jpg" alt="The right file found, and the question failing five runs of five" loading="lazy" width="1440" height="900"></figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Lesson</span>
+        <h2>Look at the chunk</h2>
+      </div>
+      <div class="col">
+        <p>Never guess at a retrieval failure. Print the chunk. <code>find_chunk.py</code> finds the chunk with the fact in it, then uses <code>rank_of_text</code>, a helper from <code>library.py</code>, which searches every chunk and returns where the first one holding a phrase came:</p>
+      </div>
+      <pre>for chunk in make_chunks(documents, 60):
+    if "card reader" in chunk.text:
+        print(chunk.source)
+        print(chunk.text)
+        print()
+        print("Holds 'Station':", "Station" in chunk.text)
+
+index = build_index(documents, 60)
+print("Rank:", rank_of_text(index, QUESTION, "card reader"), "of", len(index.store.rows))</pre>
+      <pre><span class="cmd">$ python3 find_chunk.py</span></pre>
+      <pre>log-station-2025-12.md
+The card reader on till one failed at 07:40 and stayed down until 11:15. We took cash only on that till and lost roughly £300 of trade. Heavy showers. Good trade all afternoon. Elif restocked the takeaway lids and cups. Elif practised latte art with the spare milk.
+
+## Wednesday 24 December 2025
+
+Holds 'Station': False
+Rank: 111 of 934</pre>
+      <div class="col">
+        <p>The answer is right there: 07:40 to 11:15. But read it the way the embedding model does:</p>
+        <ul class="list">
+          <li><strong>It doesn’t say “Station”.</strong> That word is in the file’s title, on line 1, far from this chunk.</li>
+          <li><strong>It doesn’t have its own date.</strong> This happened on Tuesday 23 December, and that heading landed at the end of the chunk before. The only date here is the next day’s heading, left at the bottom.</li>
+          <li><strong>Most of it is about something else.</strong> Weather, pace, lids and latte art.</li>
+        </ul>
+        <p>So the chunk ranked 111th of 934. It’s the same limit you saw with Tidewater in chapter 20: <code>split_text</code> doesn’t know what a heading is. Whole files didn’t have this problem, because a whole file keeps its title and its dates. Chunking lost them, so this is what we have to repair.</p>
+      </div>
+      <figure><img src="media/03-chunk.jpg" alt="The chunk holding the fact, with no branch name and only the next day’s date" loading="lazy" width="1440" height="900"></figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Lesson</span>
+        <h2>Two rulers</h2>
+      </div>
+      <div class="col">
+        <p><code>hit_rate</code> said this question was fine, so it can’t guide this work. We need a stricter ruler. <code>library.py</code> has one. A <strong>ruler</strong> here just means a way of measuring:</p>
+      </div>
+      <pre>def holds_answer(hit, row):
+    """True if this hit came from a right file, and its text holds one of the row's answers."""
+    name, kind, question, answers, files = row
+    return hit.source in files and any(answer.lower() in hit.text.lower() for answer in answers)
+
+
+def text_found(index, rows, k=5):
+    """Like hit_rate, but a question only counts if a hit holds the answer text."""
+    found = 0
+    for row in rows:
+        found += any(holds_answer(hit, row) for hit in index.search(row[2], k))
+    return found, len(rows)</pre>
+      <div class="col">
+        <p><code>hit_rate</code> asks “did the right <em>file</em> come back?”. <code>text_found</code> asks “did the <em>text with the answer</em> come back?”. <code>retrieval.py</code> prints both, at three values of <code>k</code>, with no chat model. The setup names are keys in a dictionary at the top of the script, and <code>sys.argv[1:]</code> is the list of names you typed after the script’s name.</p>
+        <p>File hit uses the 36 questions that name a file. Text found leaves out the 6 <code>hop</code> questions, because their answer needs two files, which leaves 30.</p>
+      </div>
+      <pre><span class="cmd">$ python3 retrieval.py plain60</span></pre>
+      <pre>             File hit, of 36    Text found, of 30
+Setup         k=1  k=3  k=5      k=1  k=3  k=5
+plain60        25   28   28       24   27   27</pre>
+      <div class="col">
+        <p>Different questions, so don’t subtract the columns. What you can do is ask which questions pass one ruler and fail the other. The card reader is one, and it’s why we keep both.</p>
+        <p>Text found is still a loose ruler. It looks for a short string like “85”, and you’ll see in section 5 that a chunk can hold the string and still mislead the model. So we’ll use three measures, from cheapest to most honest: file hit, text found, and the eval’s score on real answers.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Lesson</span>
+        <h2>Fix one: give every chunk its title</h2>
+      </div>
+      <div class="col">
+        <p>The chunk is missing the words that say what it’s about. The file’s first line has them, so copy that line onto every chunk. That’s the whole change to <code>make_chunks</code>:</p>
+      </div>
+      <pre>def make_chunks(documents, size=120, titles=False):
+    """Split documents into chunks. With titles, each chunk starts with its document's title."""
+    chunks = []
+    for name, text in documents.items():
+        title = text.splitlines()[0].lstrip("# ")
+        for piece in split_text(text, size):
+            starts_with_title = piece.startswith("#")
+            chunks.append(Chunk(f"{title}\n\n{piece}" if titles and not starts_with_title else piece, name))
+    return chunks</pre>
+      <div class="col">
+        <ul class="list">
+          <li><code>text.splitlines()[0]</code> is the first line, and <code>lstrip("# ")</code> removes any <code>#</code> and spaces from its left.</li>
+          <li>A piece that already starts with <code>#</code> is left alone, so a chunk doesn’t get its title twice. This check also skips chunks that start with a <code>##</code> heading, like <code>## Monday 1 December 2025</code>. The script below counts them.</li>
+        </ul>
+        <p><code>card_titles.py</code> builds the index both ways. The loop runs <code>titles</code> as <code>False</code>, then <code>True</code>:</p>
+      </div>
+      <pre>chunks = make_chunks(documents, 60, titles=True)
+titled = next(chunk for chunk in chunks if "card reader" in chunk.text)
+print(titled.text[:90], "...")
+print()
+
+for titles in (False, True):
+    index = build_index(documents, 60, titles)
+    print(f"titles={titles}: rank {rank_of_text(index, QUESTION, 'card reader')}")
+
+skipped = [chunk for chunk in chunks if chunk.text.startswith("##")]
+print(f"{len(skipped)} of {len(chunks)} chunks start with a ## heading, so they get no title")</pre>
+      <div class="col">
+        <p><code>next(...)</code> takes the first item a loop gives, and <code>[:90]</code> keeps the first 90 characters.</p>
+        <p><strong>Predict:</strong> it ranked 111th. We added one line of text. Where will it rank now?</p>
+      </div>
+      <pre><span class="cmd">$ python3 card_titles.py</span></pre>
+      <pre>Station branch log, December 2025
+
+The card reader on till one failed at 07:40 and stayed  ...
+
+titles=False: rank 111
+titles=True: rank 1
+219 of 934 chunks start with a ## heading, so they get no title</pre>
+      <div class="col">
+        <p>From 111th to first. One line gave the chunk “Station” and “December 2025”. The last line is a limit of this version: those 219 chunks keep their date heading, but don’t say which branch they’re from. Exercise 3 fixes that.</p>
+        <p>The title goes into the vector, and it goes into the prompt too, so the model reads it as well. The cost is a few extra tokens on each chunk.</p>
+        <p>Now the rulers:</p>
+      </div>
+      <pre><span class="cmd">$ python3 retrieval.py plain60 titles60</span></pre>
+      <pre>             File hit, of 36    Text found, of 30
+Setup         k=1  k=3  k=5      k=1  k=3  k=5
+plain60        25   28   28       24   27   27
+titles60       26   28   28       26   28   28</pre>
+      <div class="col">
+        <p>See the top-5 columns. <strong>File hit didn’t move, and text found went up by one.</strong> File hit couldn’t see this fix at all.</p>
+      </div>
+      <figure><img src="media/04-titles.jpg" alt="The card reader chunk moving from rank 111 to rank 1" loading="lazy" width="1440" height="900"></figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Lesson</span>
+        <h2>Did the answers improve?</h2>
+      </div>
+      <div class="col">
+        <p>Rulers aren’t answers. Open <code>eval_setup.py</code>. It’s chapter 20’s eval, with a dictionary of setups. Each value is a <code>lambda</code>, so the index is only built if you ask for it:</p>
+      </div>
+      <pre>SETUPS = {
+    "plain60": lambda: build_index(documents, 60),
+    "plain60-again": lambda: build_index(documents, 60),
+    "titles60": lambda: build_index(documents, 60, titles=True),
+    "titles60-again": lambda: build_index(documents, 60, titles=True),
+    ...
+}
+
+for label in sys.argv[1:]:
+    rag = Rag(model, SETUPS[label](), 5, {"temperature": 0.7})
+    report = run_eval(rag, cases, runs=3, label=label)
+    print(summary(report), flush=True)
+    report.save(f"{label}.json")</pre>
+      <div class="col">
+        <p>The <code>-again</code> setups are the same thing run twice. That’s chapter 18’s rule: compare a setup with itself first.</p>
+        <p><strong>Predict:</strong> will titles beat <code>plain60</code> by more than <code>plain60</code> beats itself?</p>
+        <p>All four setups make 504 model calls, so you don’t have to run them. To see it work, run one setup, which is 126 calls:</p>
+      </div>
+      <pre><span class="cmd">$ python3 eval_setup.py titles60</span></pre>
+      <div class="col">
+        <p>Here’s our full run, from <code>results/</code>:</p>
+      </div>
+      <pre>plain60        102/126  direct 24/24  gap 21/24  code 12/18  hop 8/18  none 18/18  records 19/24
+plain60-again   98/126  direct 24/24  gap 21/24  code 12/18  hop 5/18  none 18/18  records 18/24
+titles60        98/126  direct 24/24  gap 19/24  code 12/18  hop 4/18  none 18/18  records 21/24
+titles60-again  97/126  direct 24/24  gap 18/24  code 12/18  hop 4/18  none 18/18  records 21/24</pre>
+      <div class="col">
+        <p>The total didn’t improve. The same setup moved 4 points against itself, so 98 and 97 against 102 and 98 says nothing. If you only read the totals, you’d say titles do nothing.</p>
+        <p>Read the rows. <code>records</code> went from 19 and 18 to 21 in both runs: that’s <code>card-reader</code>, from 0 of 6 to 6 of 6. The fix worked. But <code>gap</code> went down, from 21 and 21 to 19 and 18, and most of that is one question: <code>shoes</code> went from 6 of 6 to 0 of 6. <strong>Titles fixed one question and broke another.</strong></p>
+        <p>Leave the <code>hop</code> column alone for now. It moves a lot from run to run, and chapter 23 looks at what’s in it.</p>
+        <p>This isn’t noise. Six out of six, then none. <code>uniform.md</code> is still the first hit, in both setups. What changed? <code>shoes.py</code> tests it, by changing <code>k</code> with and without titles, five runs each:</p>
+      </div>
+      <pre>for titles in (False, True):
+    index = build_index(documents, 60, titles)
+    print(f"titles={titles}:", ", ".join(hit.source for hit in index.search(QUESTION, 5)))
+    for k in (1, 3, 5):
+        report = run_eval(Rag(model, index, k, {"temperature": 0.7}), [case], runs=5, label="")
+        print(f"  k={k}: {report.rows[0].passed}/5")</pre>
+      <pre><span class="cmd">$ python3 shoes.py</span></pre>
+      <pre>titles=False: uniform.md, resignation.md, log-riverside-2025-12.md, refunds.md, log-riverside-2025-03.md
+  k=1: 5/5
+  k=3: 5/5
+  k=5: 4/5
+titles=True: uniform.md, refunds.md, resignation.md, uniform.md, expenses.md
+  k=1: 5/5
+  k=3: 0/5
+  k=5: 0/5</pre>
+      <div class="col">
+        <p>With the right chunk alone, titles pass 5 of 5. Add the next two hits, and it’s 0 of 5, with the right chunk still first. Without titles, the neighbors were mostly logs. With titles, they’re <code>refunds.md</code> and <code>resignation.md</code>, which look more relevant, and the model answers “I don’t know”. We’ve shown the neighbors matter. We haven’t shown why this model reacts that way, and it’s fine to leave that open. The lesson: <strong>a chunk in the prompt is competing with everything around it.</strong></p>
+        <p>And Tidewater? Still 0 of 6. The title of <code>suppliers.md</code> is “Suppliers”, which doesn’t say Tidewater. Titles carry the file’s name, not the section’s, so they can’t repair a heading cut off inside a file. Exercise 1 goes after the cause.</p>
+      </div>
+      <figure><img src="media/06-shoes.jpg" alt="The footwear question passing alone and failing with neighbors" loading="lazy" width="1440" height="900"></figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Lesson</span>
+        <h2>Does chunk size matter?</h2>
+      </div>
+      <div class="col">
+        <p>Chapter 20 said size 60 and size 120 were too close to call. With titles on, is that still true?</p>
+      </div>
+      <pre><span class="cmd">$ python3 retrieval.py titles60 titles120</span>
+<span class="cmd">$ python3 eval_setup.py plain120 titles120 titles120-again</span></pre>
+      <pre>             File hit, of 36    Text found, of 30
+Setup         k=1  k=3  k=5      k=1  k=3  k=5
+titles60       26   28   28       26   28   28
+titles120      22   26   28       21   26   28
+
+plain120        99/126  direct 24/24  gap 19/24  code 15/18  hop 5/18  none 18/18  records 18/24
+titles120       98/126  direct 24/24  gap 15/24  code 15/18  hop 2/18  none 18/18  records 24/24
+titles120-again 101/126  direct 24/24  gap 15/24  code 15/18  hop 5/18  none 18/18  records 24/24</pre>
+      <div class="col">
+        <p>The totals are as close as ever, and <code>titles120</code> moved 3 points against itself. So don’t pick a size from them. Read the rows again. Three things held across both <code>titles120</code> runs:</p>
+        <ul class="list">
+          <li><code>records</code> reached 24/24.</li>
+          <li><code>code</code> was 15/18, against 12/18.</li>
+          <li><code>gap</code> was 15/24, the lowest here, against 18 and 19. Bigger chunks lost <code>quit</code> as well as <code>shoes</code>.</li>
+        </ul>
+        <p>So size 120 gained in one place and lost in another. Why did records improve? <code>tidewater_sizes.py</code> looks at the chunk with Tidewater’s fee:</p>
+      </div>
+      <pre><span class="cmd">$ python3 tidewater_sizes.py</span></pre>
+      <pre>size 60: 47 words, says Tidewater: False
+size 120: 118 words, says Tidewater: True</pre>
+      <div class="col">
+        <p>The bigger chunk happens to reach back past the heading. That’s a lucky cut, and it isn’t a repair. On other documents, 120 would cut somewhere else. Look at the first table too: at <code>k=1</code>, bigger chunks were worse, 21 against 26. As in chapter 20, chunk size isn’t something to pick from these numbers.</p>
+      </div>
+      <figure><img src="media/07-size.jpg" alt="Bigger chunks reaching 24 of 24 on records and lowering gap" loading="lazy" width="1440" height="900"></figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Lesson</span>
+        <h2>Read what’s left</h2>
+      </div>
+      <div class="col">
+        <p><code>all_setups.py</code> prints every saved report, with no model calls:</p>
+      </div>
+      <pre><span class="cmd">$ python3 all_setups.py</span></pre>
+      <pre>plain60        102/126  direct 24/24  gap 21/24  code 12/18  hop 8/18  none 18/18  records 19/24
+plain60-again   98/126  direct 24/24  gap 21/24  code 12/18  hop 5/18  none 18/18  records 18/24
+titles60        98/126  direct 24/24  gap 19/24  code 12/18  hop 4/18  none 18/18  records 21/24
+titles60-again  97/126  direct 24/24  gap 18/24  code 12/18  hop 4/18  none 18/18  records 21/24
+plain120        99/126  direct 24/24  gap 19/24  code 15/18  hop 5/18  none 18/18  records 18/24
+titles120       98/126  direct 24/24  gap 15/24  code 15/18  hop 2/18  none 18/18  records 24/24
+titles120-again 101/126  direct 24/24  gap 15/24  code 15/18  hop 5/18  none 18/18  records 24/24</pre>
+      <div class="col">
+        <p>All seven totals sit between 97 and 102, and repeats of one setup differed by 4, 1 and 3. So <strong>these totals can’t be ranked.</strong> Three runs on 42 questions can’t separate setups this close. Here’s what the rows can support:</p>
+        <ul class="list">
+          <li><strong>Titles fixed what they were aimed at.</strong> Records rose to at least 21 in every setup with titles, and <code>card-reader</code> went from none to all.</li>
+          <li><strong>Titles also broke <code>shoes</code></strong>, for a reason we tested but can’t fully explain.</li>
+          <li><strong>Size 120 lifted <code>code</code> and <code>records</code>, and lowered <code>gap</code>.</strong></li>
+        </ul>
+        <p>And compare with chapter 20: titles got the records back to where whole files with room already were. That’s a repair of what chunks lost. It isn’t a gain over not chunking.</p>
+        <p>Finally, read what’s still failing. <code>read_failures.py</code> lists every question that lost a run in the two <code>titles60</code> reports:</p>
+      </div>
+      <pre><span class="cmd">$ python3 read_failures.py titles60 titles60-again</span></pre>
+      <pre>Question           Kind     File hit  Text found  Passed
+mice               gap      yes       yes         1/6
+shoes              gap      yes       yes         0/6
+e44                code     no        no          0/6
+fn6                code     no        no          0/6
+harbour-arrive     hop      no        -           1/6
+senior-beans       hop      no        -           0/6
+riverside-repair   hop      no        -           0/6
+shift-lead-pay     hop      no        -           0/6
+lead-notice        hop      no        -           1/6
+tidewater-fee      records  yes       yes         0/6</pre>
+      <div class="col">
+        <p>Three kinds of failure, and each needs a different fix:</p>
+        <ul class="list">
+          <li><strong><code>e44</code>, <code>fn6</code>:</strong> the search missed. Chapter 22 is about these.</li>
+          <li><strong><code>hop</code>:</strong> these need two facts, and one search brings one. Chapter 23 is about these.</li>
+          <li><strong><code>mice</code>, <code>shoes</code>, <code>tidewater-fee</code>:</strong> both rulers say yes, and the answer is still wrong. The text was in the prompt. For Tidewater it’s the “85” with no name beside it. For <code>mice</code>, the chunk says “pest contractor”, and the model didn’t connect that to mice. Only the eval on real answers saw these.</li>
+        </ul>
+        <p>So file hit, text found and the eval each see more than the one before, and each costs more.</p>
+      </div>
+      <figure><img src="media/08-failures.jpg" alt="The questions still failing with titles on" loading="lazy" width="1440" height="900"></figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Reading errors</span>
+        <h2>Reading errors</h2>
+      </div>
+      <div class="col">
+        <p>We triggered each of these for real, and the output is shortened.</p>
+        <table>
+          <thead><tr><th>What happened</th><th>What you see</th><th>The fix</th></tr></thead>
+          <tbody>
+            <tr><td>Ollama isn’t running</td><td><code>whitebox.models.ModelError: Couldn't reach Ollama</code></td><td><a href="https://claude.ai/artifact/1uGgX3WK7v3D5HyfvB782p#start-ollama">Start Ollama</a></td></tr>
+            <tr><td>You named a report that doesn’t exist</td><td><code>FileNotFoundError: [Errno 2] No such file or directory: 'results/nothing.json'</code></td><td>Use a name from <code>eval_setup.py</code></td></tr>
+            <tr><td>You misspelled a setup</td><td><code>KeyError: 'title60'</code></td><td>Use a name from <code>SETUPS</code></td></tr>
+            <tr><td>You ran <code>try_headings.py</code> before TODO 1</td><td><code>TypeError: 'NoneType' object is not iterable</code></td><td>Finish <code>split_at_headings</code></td></tr>
+            <tr><td>A document was empty</td><td><code>IndexError: list index out of range</code></td><td><code>make_chunks</code> reads each file’s first line, so remove the empty file</td></tr>
+          </tbody>
+        </table>
+        <p>One mistake gives no error at all: <strong><code>python3 eval_setup.py</code> with no names</strong> runs nothing, and prints nothing.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Your turn</span>
+        <h2>Exercises</h2>
+      </div>
+      <div class="col">
+        <p>From <code>chapters/21-better-chunks</code>, open <code>exercises.py</code> and complete the five TODOs:</p>
+        <ol class="list">
+          <li><code>split_at_headings</code>: keep a heading with the text below it, which is the cause behind Tidewater.</li>
+          <li><code>file_but_no_text</code>: list the questions that pass the file ruler and fail the text ruler.</li>
+          <li><code>title_every_chunk</code>: put the title on the chunks that <code>make_chunks</code> skips, the 219 from section 4.</li>
+          <li><code>chunks_with</code>: find the chunks that hold a phrase, as <code>find_chunk.py</code> does.</li>
+          <li><code>with_overlap</code>: repeat the end of each piece at the start of the next, so a cut loses less.</li>
+        </ol>
+        <p>The <code>sys.path</code> line at the top of <code>exercises.py</code> is provided. It lets the file find the <code>whitebox</code> package inside <code>code/</code>.</p>
+        <p>Then check your work from <code>chapters/21-better-chunks</code>. These checks use a fake embedder, so Ollama doesn’t need to be running:</p>
+      </div>
+      <pre><span class="cmd">$ python3 -m pytest test_exercises.py</span></pre>
+      <div class="col">
+        <p>You’ve finished when you see <code>5 passed</code>. Worked answers are in <code>exercises.py</code>.</p>
+        <p><strong>After TODO 1,</strong> see what it does. <code>try_headings.py</code> runs the eval on chunks cut at headings, without titles and then with them. It makes 252 model calls, so this one is optional. From <code>code</code>:</p>
+      </div>
+      <pre><span class="cmd">$ python3 try_headings.py</span></pre>
+      <pre>headings60     100/126  direct 24/24  gap 19/24  code 11/18  hop 7/18  none 18/18  records 21/24
+  card reader rank: 23
+  records:card-reader: 0/3
+  records:tidewater-fee: 3/3
+both60         103/126  direct 24/24  gap 21/24  code 12/18  hop 4/18  none 18/18  records 24/24
+  card reader rank: 1
+  records:card-reader: 3/3
+  records:tidewater-fee: 3/3</pre>
+      <div class="col">
+        <p>Each fix covers what the other can’t. Cutting at headings alone fixed Tidewater, and left the card reader at rank 23, because a day’s chunk still doesn’t say “Station”. Titles alone did the opposite. Together, records reach 24/24 at size 60, with no lucky cut. The totals of 100 and 103 are one run each, inside the noise, so this isn’t a new winner. It’s the two causes, both repaired.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Watch out</span>
+        <h2>Common mistakes</h2>
+      </div>
+      <div class="col">
+        <ul class="list">
+          <li><strong>Trusting one run.</strong> <code>plain60</code> scored 102, then 98, on the same setup.</li>
+          <li><strong>Reading only the total.</strong> Titles’ total didn’t move, while one question went from none to all and another from all to none.</li>
+          <li><strong>Trusting a file hit.</strong> The card reader was a file hit on every failed run.</li>
+          <li><strong>Trusting text found.</strong> Tidewater’s fee was in the prompt, and the model still said £95.</li>
+          <li><strong>Guessing at a retrieval failure.</strong> Print the chunk.</li>
+          <li><strong>Copying these results.</strong> This is one set of documents, one model and 42 questions. Measure on yours.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Recap</span>
+        <h2>Recap</h2>
+      </div>
+      <div class="col">
+        <ul class="list">
+          <li>Chunking can cut a fact off from the words that say what it’s about. Print the chunk.</li>
+          <li><code>titles=True</code> copies the file’s title onto its chunks. It repaired the card reader, and changed what sat next to other chunks.</li>
+          <li>File hit, text found and the eval are three rulers. Each sees more than the one before.</li>
+          <li>Bigger chunks kept one heading by luck, and lost elsewhere. Don’t pick a size from these numbers.</li>
+          <li>Setups a few points apart can’t be ranked. Read the rows.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Further reading</span>
+        <h2>Where this comes from</h2>
+      </div>
+      <div class="col">
+        <p>Adding a document’s context to its chunks is an old idea. Anthropic’s <a href="https://www.anthropic.com/news/contextual-retrieval">Contextual Retrieval</a> describes a stronger version.</p>
+      </div>
+      <div class="next"><span>Next</span><h3>Chapter 22: Better search</h3></div>
+    </section>
+
+    <footer>
+      <p>Get the code at <a href="https://github.com/WhiteboxAcademy/BuildAnAgentFramework">github.com/WhiteboxAcademy/BuildAnAgentFramework</a>. Code is under the MIT License. Articles and videos are under CC BY 4.0.</p>
+    </footer>
+  </div>
+</main>

@@ -1,0 +1,468 @@
+{
+  "label": "hybrid60",
+  "rows": [
+    {
+      "name": "direct:drink-recipe",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "direct:float",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "direct:payday",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "direct:milk-charge",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "direct:fridge",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "direct:grounds",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "direct:hot-food",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "direct:loyalty",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "gap:holiday",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "gap:quit",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "gap:feel-ill",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "gap:funeral",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "gap:mice",
+      "runs": 3,
+      "passed": 0,
+      "steps": 3,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['Halden']"
+          ],
+          "answer": "I don't know. [food-safety.md]"
+        },
+        {
+          "run": 2,
+          "failed": [
+            "any of ['Halden']"
+          ],
+          "answer": "I don't know. [food-safety.md]"
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['Halden']"
+          ],
+          "answer": "I don't know. [food-safety.md]"
+        }
+      ]
+    },
+    {
+      "name": "gap:scald",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "gap:shoes",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "gap:hair",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "code:e44",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "code:e31",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "code:r5",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "code:ir9",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "code:hr15",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "code:fn6",
+      "runs": 3,
+      "passed": 0,
+      "steps": 3,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['bank']"
+          ],
+          "answer": "I don't know."
+        },
+        {
+          "run": 2,
+          "failed": [
+            "any of ['bank']"
+          ],
+          "answer": "I don't know."
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['bank']"
+          ],
+          "answer": "I don't know."
+        }
+      ]
+    },
+    {
+      "name": "hop:harbour-arrive",
+      "runs": 3,
+      "passed": 1,
+      "steps": 3,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['06:00', '6:00', '6 am', '6am']"
+          ],
+          "answer": "You need to arrive by 06:30 on a Monday. [branch-harbour.md]"
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['06:00', '6:00', '6 am', '6am']"
+          ],
+          "answer": "You need to arrive by 06:30 on Monday. [branch-harbour.md]"
+        }
+      ]
+    },
+    {
+      "name": "hop:senior-beans",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "hop:riverside-repair",
+      "runs": 3,
+      "passed": 0,
+      "steps": 3,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['0300 555 0177']"
+          ],
+          "answer": "I don't know. [equipment-repairs.md] mentions contacting the equipment service contractor for repairs, but it does not provide the specific number to call."
+        },
+        {
+          "run": 2,
+          "failed": [
+            "any of ['0300 555 0177']"
+          ],
+          "answer": "I don't know. The excerpts do not specify the number to call for equipment repairs. They only provide instructions on how to report the issue and who to contact for approval, but not the actual contact number. [equipment-repairs.md]"
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['0300 555 0177']"
+          ],
+          "answer": "I don't know. The provided excerpts do not specify the phone number for the equipment service contractor. They only instruct on how to report the issue and who can approve repairs. [equipment-repairs.md]"
+        }
+      ]
+    },
+    {
+      "name": "hop:shift-lead-pay",
+      "runs": 3,
+      "passed": 0,
+      "steps": 3,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['14.75']"
+          ],
+          "answer": "I don't know."
+        },
+        {
+          "run": 2,
+          "failed": [
+            "any of ['14.75']"
+          ],
+          "answer": "I don't know. [wages.md] provides hourly rates for bands A to D but does not specify a rate for a shift lead."
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['14.75']"
+          ],
+          "answer": "I don't know. [wages.md] provides hourly rates for bands A to D but does not specify a rate for shift leads."
+        }
+      ]
+    },
+    {
+      "name": "hop:lead-notice",
+      "runs": 3,
+      "passed": 0,
+      "steps": 3,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['4 weeks', 'four weeks']"
+          ],
+          "answer": "I don't know. The excerpt does not specify the notice period required for shift leads to resign. [resignation.md]"
+        },
+        {
+          "run": 2,
+          "failed": [
+            "any of ['4 weeks', 'four weeks']"
+          ],
+          "answer": "I don't know. The provided excerpts do not specify the notice period required for shift leads to give when resigning."
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['4 weeks', 'four weeks']"
+          ],
+          "answer": "I don't know. The excerpt does not provide information about the notice period for shift leads resigning. [resignation.md] specifies notice periods for different bands of staff but does not mention shift leads."
+        }
+      ]
+    },
+    {
+      "name": "hop:old-mill-repair",
+      "runs": 3,
+      "passed": 0,
+      "steps": 3,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['0300 555 0142']"
+          ],
+          "answer": "I don't know. [branch-old-mill.md] mentions the equipment service contractor for the Old Mill branch, but it does not provide a specific contact for grinder repairs. The contact given, Tidewater Espresso Service, is for equipment service in general, not specifically for grinder repairs."
+        },
+        {
+          "run": 2,
+          "failed": [
+            "any of ['0300 555 0142']"
+          ],
+          "answer": "I don't know. [branch-old-mill.md] mentions the equipment service contractor for the Old Mill branch, but it does not provide a specific contact for grinder repairs."
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['0300 555 0142']"
+          ],
+          "answer": "I don't know. [branch-old-mill.md] provides the contact number for the equipment service contractor, Tidewater Espresso Service, but it does not specify that this contractor handles grinder repairs or provide a specific contact person for grinder issues."
+        }
+      ]
+    },
+    {
+      "name": "none:pension",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "none:dental",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "none:wifi",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "none:dogs",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "records:flood",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "records:cupping-guest",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "records:film-crew",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "records:card-reader",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "records:ferry-order",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "records:fennel-min",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "records:tidewater-fee",
+      "runs": 3,
+      "passed": 0,
+      "steps": 3,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['85']"
+          ],
+          "answer": "I don't know. [suppliers.md]"
+        },
+        {
+          "run": 2,
+          "failed": [
+            "any of ['85']"
+          ],
+          "answer": "I don't know. [suppliers.md]"
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['85']"
+          ],
+          "answer": "Tidewater Espresso Service has a call-out fee of \u00a395. This can be inferred from the suppliers information provided in [suppliers.md]."
+        }
+      ]
+    },
+    {
+      "name": "records:lantern-price",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "none:records-none",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "none:records-none2",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    }
+  ]
+}

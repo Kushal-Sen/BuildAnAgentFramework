@@ -1,0 +1,12 @@
+I'm a shift lead. How much notice must I give when I resign?
+  searches 1  both files False  only 4 weeks False  ['shift lead resignation notice period']
+  searches 1  both files False  only 4 weeks False  ['shift lead resignation notice period']
+  searches 1  both files False  only 4 weeks False  ['shift lead resignation notice period']
+  searches 1  both files False  only 4 weeks False  ['shift lead resignation notice period']
+  searches 1  both files False  only 4 weeks False  ['shift lead resignation notice period']
+What band is a shift lead, and how much notice must that band give when they resign?
+  searches 1  both files False  only 4 weeks False  ['shift lead band resignation notice period']
+  searches 1  both files True   only 4 weeks True   ['shift lead band resignation notice']
+  searches 1  both files False  only 4 weeks False  ['shift lead band resignation notice period']
+  searches 1  both files True   only 4 weeks True   ['shift lead band resignation notice']
+  searches 1  both files False  only 4 weeks True   ['shift lead band resignation notice period']

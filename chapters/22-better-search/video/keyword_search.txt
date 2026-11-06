@@ -1,0 +1,12 @@
+$ python3 keyword_search.py
+What does E44 mean?
+   5.94  welcome.md
+   5.56  grinder-errors.md
+How long was the Station card reader down just before Christmas 2025?
+  15.61  log-station-2025-12.md
+   7.32  loyalty-card.md
+   6.70  uniform.md
+Can I get money back for buying work footwear?
+  14.00  loyalty-card.md
+  13.63  expenses.md
+  12.48  shifts.md

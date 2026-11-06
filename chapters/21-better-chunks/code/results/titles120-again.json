@@ -1,0 +1,483 @@
+{
+  "label": "titles120-again",
+  "rows": [
+    {
+      "name": "direct:drink-recipe",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "direct:float",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "direct:payday",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "direct:milk-charge",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "direct:fridge",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "direct:grounds",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "direct:hot-food",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "direct:loyalty",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "gap:holiday",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "gap:quit",
+      "runs": 3,
+      "passed": 0,
+      "steps": 3,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['2 weeks', 'two weeks']"
+          ],
+          "answer": "You need to give 4 weeks' notice if you are Band C or Band D staff. [resignation.md]"
+        },
+        {
+          "run": 2,
+          "failed": [
+            "any of ['2 weeks', 'two weeks']"
+          ],
+          "answer": "You need to give 4 weeks' notice if you are Band C or Band D staff. [resignation.md]"
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['2 weeks', 'two weeks']"
+          ],
+          "answer": "You need to give 4 weeks' notice if you are Band C or Band D staff. [resignation.md]"
+        }
+      ]
+    },
+    {
+      "name": "gap:feel-ill",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "gap:funeral",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "gap:mice",
+      "runs": 3,
+      "passed": 0,
+      "steps": 3,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['Halden']"
+          ],
+          "answer": "I don't know. [suppliers.md] and [log-old-mill-2025-12.md] and [log-old-mill-2025-03.md] do not mention any pest control or mouse issues. The [accidents-and-incidents.md] only mentions reporting incidents but does not specify who handles pest issues."
+        },
+        {
+          "run": 2,
+          "failed": [
+            "any of ['Halden']"
+          ],
+          "answer": "I don't know. [suppliers.md] and [log-old-mill-2025-12.md] and [log-old-mill-2025-03.md] do not mention mice or pest control services. [allergens.md] is unrelated to the question. [accidents-and-incidents.md] deals with reporting incidents but does not specify who handles pest issues."
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['Halden']"
+          ],
+          "answer": "I don't know. [suppliers.md] and the other files do not contain information about pest control or mice in the storeroom."
+        }
+      ]
+    },
+    {
+      "name": "gap:scald",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "gap:shoes",
+      "runs": 3,
+      "passed": 0,
+      "steps": 3,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['40']"
+          ],
+          "answer": "I don't know. [expenses.md] discusses claiming work expenses, but it does not mention footwear as a reimbursable item."
+        },
+        {
+          "run": 2,
+          "failed": [
+            "any of ['40']"
+          ],
+          "answer": "I don't know. [expenses.md] discusses claiming work expenses, but it does not mention footwear as a reimbursable item."
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['40']"
+          ],
+          "answer": "No, you cannot get money back for buying work footwear using the provided excerpts. The only mention of footwear is regarding a shoe allowance after the probation period has ended, but this is for non-slip shoes and not for initial purchase expenses. [expenses.md] discusses work expenses claims but does not include an allowance or reimbursement for initial footwear costs."
+        }
+      ]
+    },
+    {
+      "name": "gap:hair",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "code:e44",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "code:e31",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "code:r5",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "code:ir9",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "code:hr15",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "code:fn6",
+      "runs": 3,
+      "passed": 0,
+      "steps": 3,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['bank']"
+          ],
+          "answer": "I don't know."
+        },
+        {
+          "run": 2,
+          "failed": [
+            "any of ['bank']"
+          ],
+          "answer": "I don't know."
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['bank']"
+          ],
+          "answer": "I don't know."
+        }
+      ]
+    },
+    {
+      "name": "hop:harbour-arrive",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "hop:senior-beans",
+      "runs": 3,
+      "passed": 0,
+      "steps": 3,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['25%']"
+          ],
+          "answer": "I don't know. [staff-discount.md] mentions discounts for different bands but does not specify a discount percentage for senior baristas."
+        },
+        {
+          "run": 2,
+          "failed": [
+            "any of ['25%']"
+          ],
+          "answer": "I don't know. [staff-discount.md] provides discounts for different staff bands but does not specify a discount for senior baristas."
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['25%']"
+          ],
+          "answer": "Based on the information provided, a senior barista would receive a discount of 30% off retail beans. This can be deduced from the staff discount excerpt, which states the discount levels for different bands, with Band E (senior baristas) receiving a 30% discount on retail beans.\n\n[staff-discount.md]"
+        }
+      ]
+    },
+    {
+      "name": "hop:riverside-repair",
+      "runs": 3,
+      "passed": 0,
+      "steps": 3,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['0300 555 0177']"
+          ],
+          "answer": "I don't know. [branch-riverside.md] mentions an equipment service contractor, Northline Service, but there's no information provided about what to do if the espresso machine breaks, or what number to call in that scenario."
+        },
+        {
+          "run": 2,
+          "failed": [
+            "any of ['0300 555 0177']"
+          ],
+          "answer": "I don't know. [branch-riverside.md] mentions an equipment service contractor, Northline Service, but there is no information provided about what to do if the espresso machine breaks."
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['0300 555 0177']"
+          ],
+          "answer": "I don't know. [branch-riverside.md] mentions an equipment service contractor, Northline Service, but there is no mention of the espresso machine breaking or needing repair."
+        }
+      ]
+    },
+    {
+      "name": "hop:shift-lead-pay",
+      "runs": 3,
+      "passed": 0,
+      "steps": 3,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['14.75']"
+          ],
+          "answer": "I don't know. [wages.md] provides hourly rates for different bands but does not specify a rate for a shift lead."
+        },
+        {
+          "run": 2,
+          "failed": [
+            "any of ['14.75']"
+          ],
+          "answer": "I don't know. [wages.md] mentions Band E as salaried but does not specify an hourly rate for shift leads."
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['14.75']"
+          ],
+          "answer": "I don't know. [wages.md] mentions hourly rates for different bands but does not specify an hourly rate for a shift lead."
+        }
+      ]
+    },
+    {
+      "name": "hop:lead-notice",
+      "runs": 3,
+      "passed": 0,
+      "steps": 3,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['4 weeks', 'four weeks']"
+          ],
+          "answer": "You must give 8 weeks' notice when resigning as a shift lead, which corresponds to Band E staff according to the resignation guidelines. [resignation.md]"
+        },
+        {
+          "run": 2,
+          "failed": [
+            "any of ['4 weeks', 'four weeks']"
+          ],
+          "answer": "You must give 8 weeks' notice when resigning as a shift lead, which indicates you are Band E staff, according to the document [resignation.md]."
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['4 weeks', 'four weeks']"
+          ],
+          "answer": "You must give 8 weeks' notice when resigning as a shift lead, which corresponds to Band E staff according to the excerpt from [resignation.md]."
+        }
+      ]
+    },
+    {
+      "name": "hop:old-mill-repair",
+      "runs": 3,
+      "passed": 2,
+      "steps": 3,
+      "failures": [
+        {
+          "run": 3,
+          "failed": [
+            "any of ['0300 555 0142']"
+          ],
+          "answer": "I don't know. [branch-old-mill.md] mentions that Tidewater Espresso Service is the equipment service contractor for the Old Mill branch, but it does not provide a specific issue for the grinder or the number to call for repair."
+        }
+      ]
+    },
+    {
+      "name": "none:pension",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "none:dental",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "none:wifi",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "none:dogs",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "records:flood",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "records:cupping-guest",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "records:film-crew",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "records:card-reader",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "records:ferry-order",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "records:fennel-min",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "records:tidewater-fee",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "records:lantern-price",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "none:records-none",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "none:records-none2",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    }
+  ]
+}

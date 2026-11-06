@@ -1,0 +1,13 @@
+$ python3 paste_try.py
+Q: How much is the shoe allowance?
+A: The shoe allowance is £40 every 12 months, which can be claimed using form FN-3 with a receipt.
+tokens_in: 2050
+Q: What does E44 mean?
+A: The reference E44 is not defined in the provided documents. It's not mentioned in any of the sections related to staff policies, procedures, or guidelines. With
+tokens_in: 2050
+five runs each
+Case                  Passed  Steps
+shoes                    5/5    1.0
+e44                      0/5    1.0
+names its file           0/5    1.0
+Total                   5/15

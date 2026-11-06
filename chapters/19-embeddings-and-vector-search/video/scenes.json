@@ -1,0 +1,97 @@
+{
+  "chapter": "Chapter 19",
+  "scenes": [
+    {"type": "recap", "title": "Previously: evals", "flow": ["Cases and checks", "Repeated runs", "An agent against itself", "Read the failures"], "captions": [
+      {"text": "Recap of chapter 18: an eval is fixed cases with automatic checks.", "secs": 7, "focus": 0},
+      {"text": "You run each case several times, because one run tells you little.", "secs": 7, "focus": 1},
+      {"text": "A difference only counts if it's bigger than an agent against itself.", "secs": 8, "focus": 2},
+      {"text": "And the failures tell you more than the score. Today, Part 4 begins.", "secs": 8, "focus": 3}
+    ]},
+    {"type": "box", "label": "Embeddings", "inner": ["text as numbers", "+ cosine", "+ a vector store"], "captions": [
+      {"text": "Today's black box: searching by meaning.", "secs": 4},
+      {"text": "Let's open it.", "secs": 4, "open": true, "shot": "01-box"}
+    ]},
+    {"type": "demo", "file": "code/word_search.py", "start": "def word_search", "end": "return sorted", "output": "video/word_search.txt", "captions": [
+      {"text": "Quillon Coffee, an invented chain, has a handbook of 42 files. Which holds the answer?", "secs": 8, "focus": null, "lines": 0},
+      {"text": "Start with word search. Each file scores one point for each question word it holds.", "secs": 8, "focus": ["wanted =", "scored.append"], "lines": 0},
+      {"text": "Predict: two questions. The first uses the handbook's words. The second doesn't.", "secs": 7, "focus": null, "lines": 0},
+      {"text": "The till float is right. The footwear question is wrong, and nothing says so.", "secs": 8, "focus": null, "lines": 10, "shot": "02-words"},
+      {"text": "The answer is in uniform.md, under \"shoe allowance\". It never says \"footwear\".", "secs": 8, "focus": null, "lines": 10}
+    ]},
+    {"type": "demo", "file": "code/first_vector.py", "start": "embedder = OllamaEmbedder", "end": "print([round", "output": "video/first_vector.txt", "captions": [
+      {"text": "An embedding model doesn't reply. It turns text into a list of numbers: a vector.", "secs": 8, "focus": ["short =", "long ="], "lines": 0},
+      {"text": "Predict: will 20 repeated sentences give a longer list than one word?", "secs": 6, "focus": null, "lines": 0},
+      {"text": "No. Both are 768 numbers, so any two texts can be compared.", "secs": 7, "focus": null, "lines": 3, "shot": "03-vector"},
+      {"text": "Similar meanings get similar numbers. That's what the model was trained to do.", "secs": 7, "focus": null, "lines": 3}
+    ]},
+    {"type": "code", "file": "code/whitebox/rag.py", "start": "def cosine", "end": "return dot / size", "captions": [
+      {"text": "To compare vectors, think of them as arrows. Cosine asks: same direction?", "secs": 7, "focus": null},
+      {"text": "The dot product multiplies them number by number, and adds it all up.", "secs": 7, "focus": ["dot = sum", "dot = sum"]},
+      {"text": "Dividing by both lengths removes length, so only direction counts.", "secs": 7, "focus": ["size = math", "return dot"]}
+    ]},
+    {"type": "demo", "file": "code/cosine_by_hand.py", "start": "pairs = [", "end": "print(f", "output": "video/cosine_by_hand.txt", "captions": [
+      {"text": "Vectors small enough to check by hand. Predict: what will [3, 4] and [6, 8] score?", "secs": 8, "focus": ["([3, 4]", "([3, 4]"], "lines": 0},
+      {"text": "1, because they point the same way. Length doesn't count.", "secs": 7, "focus": null, "lines": 6, "shot": "04-cosine"},
+      {"text": "At right angles gives 0. Opposite gives -1.", "secs": 6, "focus": null, "lines": 6}
+    ]},
+    {"type": "demo", "file": "code/similar.py", "start": "QUESTION =", "end": "]", "output": "video/similar.txt", "captions": [
+      {"text": "Now real text. The footwear question, against three handbook sentences.", "secs": 7, "focus": ["QUESTION =", "]"], "lines": 0},
+      {"text": "Predict: the first sentence shares no useful word. Which will score highest?", "secs": 7, "focus": ["\"After your", "\"After your"], "lines": 0},
+      {"text": "The shoe allowance wins, and nobody gave the model a list of synonyms.", "secs": 8, "focus": null, "lines": 5, "shot": "05-similar"},
+      {"text": "But the roastery still scores 0.476. A score isn't a percentage.", "secs": 8, "focus": null, "lines": 5}
+    ]},
+    {"type": "code", "file": "code/whitebox/rag.py", "start": "class VectorStore", "end": "reverse=True)[:k]", "captions": [
+      {"text": "A vector store keeps vectors, and finds the closest. This one is a plain list.", "secs": 8, "focus": ["def add", "self.rows +="]},
+      {"text": "That's all of vector search: score every row, sort, keep the top k.", "secs": 8, "focus": ["def search", "reverse=True"]}
+    ]},
+    {"type": "code", "file": "code/whitebox/rag.py", "start": "class Index", "end": "return self.store.search", "captions": [
+      {"text": "Index joins an embedder to a store, so your code works in plain text.", "secs": 7, "focus": ["def __init__", "self.store ="]},
+      {"text": "Documents get embedded once. Each question gets embedded when you ask it.", "secs": 8, "focus": ["def add", "return self.store.search"]}
+    ]},
+    {"type": "demo", "file": "code/search_handbook.py", "start": "documents = load_documents", "end": "print(f", "output": "video/search_handbook.txt", "captions": [
+      {"text": "One chunk for each whole file, then the same two questions.", "secs": 7, "focus": ["documents =", "index.add"], "lines": 0},
+      {"text": "Predict: will the footwear question find uniform.md this time?", "secs": 6, "focus": null, "lines": 0},
+      {"text": "Yes, in first place. Word search put expenses.md first.", "secs": 8, "focus": null, "lines": 9, "shot": "06-search"}
+    ]},
+    {"type": "demo", "file": "code/compare.py", "start": "for question, right in group", "end": "ties +=", "output": "video/compare.txt", "captions": [
+      {"text": "Two questions prove nothing. Here are 22, fixed before we measured.", "secs": 7, "focus": null, "lines": 0},
+      {"text": "Each search gets a point for a right file first, and in its top 3.", "secs": 7, "focus": ["word_first +=", "vector_top3"], "lines": 0},
+      {"text": "Predict: will vectors win all three groups?", "secs": 6, "focus": null, "lines": 0},
+      {"text": "Direct questions: a draw, 8 of 8 each.", "secs": 6, "focus": null, "lines": 4},
+      {"text": "Reworded: vectors got 4 first, words got 2. Both of those were ties.", "secs": 8, "focus": null, "lines": 4, "shot": "07-compare"},
+      {"text": "Codes: vectors didn't win. And they still missed half the reworded questions.", "secs": 8, "focus": null, "lines": 4},
+      {"text": "Rebuilt five times, every top 3 matched. The limit here is 22 questions.", "secs": 8, "focus": null, "lines": 4}
+    ]},
+    {"type": "demo", "file": "code/no_answer.py", "start": "highest = 0", "end": "print(f\"{hit.score", "output": "video/no_answer.txt", "captions": [
+      {"text": "Now four questions the handbook can't answer.", "secs": 6, "focus": null, "lines": 0},
+      {"text": "Predict: will their scores be clearly lower?", "secs": 5, "focus": null, "lines": 0},
+      {"text": "No. Search always returns something, and dogs scored 0.720.", "secs": 7, "focus": null, "lines": 5, "shot": "08-no-answer"},
+      {"text": "The script also checks the 16 right answers. 7 scored below that, so no cut-off works.", "secs": 9, "focus": null, "lines": 6},
+      {"text": "A score says how close the topic is. It doesn't say the answer is there.", "secs": 8, "focus": null, "lines": 6}
+    ]},
+    {"type": "code", "file": "code/whitebox/rag.py", "start": "class ChromaStore", "end": "1 - distance", "captions": [
+      {"text": "Chroma is a real vector database. Same add, same search.", "secs": 7, "focus": ["class ChromaStore", "\"\"\"The same"]},
+      {"text": "Importing it here means whitebox works without it. Chroma needs Python 3.12 to 3.14.", "secs": 9, "focus": ["import chromadb", "import chromadb"]},
+      {"text": "Chroma reports distance, so 1 minus distance gives our score back.", "secs": 7, "focus": ["return [Hit", "return [Hit"]}
+    ]},
+    {"type": "demo", "file": "code/search_chroma.py", "start": "store = ChromaStore", "end": "print(f\"  {hit", "output": "video/search_chroma.txt", "captions": [
+      {"text": "Index didn't change. Only the store did.", "secs": 6, "focus": ["store = ChromaStore", "index = Index"], "lines": 0},
+      {"text": "Same scores as the list store. All 22 questions gave the same top 5.", "secs": 8, "focus": null, "lines": 5, "shot": "09-chroma"},
+      {"text": "Run it again, and no documents get embedded. The rows are on disk.", "secs": 8, "focus": null, "lines": 11}
+    ]},
+    {"type": "demo", "file": "code/chroma_twice.py", "start": "index.add(chunks)", "end": "print(f\"  {hit", "output": "video/chroma_twice.txt", "captions": [
+      {"text": "A database remembers. Predict: what if you add the same chunks twice?", "secs": 7, "focus": ["index.add(chunks)", "index.add(chunks)"], "lines": 0},
+      {"text": "84 rows, and no error. uniform.md fills two of your three results.", "secs": 8, "focus": null, "lines": 5},
+      {"text": "So check the count before you add.", "secs": 5, "focus": null, "lines": 5}
+    ]},
+    {"type": "term", "file": "video/exercise_output.txt", "final": "5 passed", "captions": [
+      {"text": "Your turn. Open exercises.py and complete the five TODOs.", "secs": 6, "lines": 9},
+      {"text": "You'll build your own store behind the same methods. No Ollama needed.", "secs": 7, "lines": 9},
+      {"text": "You've finished when you see 5 passed.", "secs": 6, "lines": 13, "shot": "10-exercises"}
+    ]},
+    {"type": "end", "title": "You opened embeddings.", "points": ["Text becomes a vector", "Cosine compares direction", "An index joins embedder and store", "A score isn't an answer"], "next": "Next: Chapter 20, the RAG pipeline", "captions": [
+      {"text": "Now you can search by meaning, and you know where it goes wrong.", "secs": 6},
+      {"text": "Next, the search results go to the model.", "secs": 5}
+    ]}
+  ]
+}

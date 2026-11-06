@@ -1,0 +1,9 @@
+$ python3 hop_fixes.py missing
+Question           Runs  Loose  Strict  Both files
+harbour-arrive        5      0       0           0
+senior-beans          5      1       1           1
+riverside-repair      5      0       0           0
+shift-lead-pay        5      0       0           0
+lead-notice           5      1       1           0
+old-mill-repair       5      5       5           0
+Total                30      7       7           1

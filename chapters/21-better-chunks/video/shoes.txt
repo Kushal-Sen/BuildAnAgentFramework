@@ -1,0 +1,9 @@
+$ python3 shoes.py
+titles=False: uniform.md, resignation.md, log-riverside-2025-12.md, refunds.md, log-riverside-2025-03.md
+  k=1: 5/5
+  k=3: 5/5
+  k=5: 4/5
+titles=True: uniform.md, refunds.md, resignation.md, uniform.md, expenses.md
+  k=1: 5/5
+  k=3: 0/5
+  k=5: 0/5

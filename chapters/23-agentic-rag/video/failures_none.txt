@@ -1,0 +1,12 @@
+pension (agent60), 3 searches: pension contribution match percentage
+    I've searched the handbook multiple times, but I couldn't find any information about the percentage that Quillon matches on pension contributions.   [log-old-mill-2025-04.md] [log-old-mill-2025-12.md] [log-riverside-2025-03.md]
+dogs (agent60), 1 searches: Riverside branch pet policy
+    I couldn't find any specific pet policy mentioned in the logs for the Riverside branch. The logs do not provide information about allowing dogs inside the branch. I would recommend checking the current staff handbook or contacting the branch directly for the most accura
+dogs (agent60-again), 6 searches: Riverside branch pet policy
+    I don't see any specific mention of allowing dogs or pets in the handbook. The section [food-safety.md] focuses on pest control and food safety, not on visitor policies.  Given the lack of specific information, it seems that dogs are not allowed inside the Riverside bra
+pension (agent-hybrid60-again), 8 searches: pension contribution match percentage
+    Stopped: no answer after 8 steps.
+dogs (agent-hybrid60-again), 1 searches: Riverside branch dog policy
+    I couldn't find any specific policy regarding dogs in the Riverside branch. The logs do not mention any such rules or exceptions. You might want to check directly with the branch manager, Sam Achebe, or the equipment service contractor, Northline Service, for the most a
+records-none (agent-hybrid60-again), 1 searches: health inspector Station branch 2025 score
+    I couldn't find a direct mention of the health inspector's score for the Station branch in 2025. The logs I found do not contain that information. [log-station-2025-12.md] and [log-station-2025-05.md] do not include any health inspection records.   Would you like to try

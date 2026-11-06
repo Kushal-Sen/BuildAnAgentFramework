@@ -1,0 +1,5 @@
+$ python3 retrieval.py plain60 titles60
+             File hit, of 36    Text found, of 30
+Setup         k=1  k=3  k=5      k=1  k=3  k=5
+plain60        25   28   28       24   27   27
+titles60       26   28   28       26   28   28

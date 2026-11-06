@@ -1,0 +1,6 @@
+$ python3 retrieval.py titles60 keyword60 hybrid60
+             File hit, of 36    Text found, of 30
+Setup         k=1  k=3  k=5      k=1  k=3  k=5
+titles60       26   28   28       26   28   28
+keyword60      16   21   24       16   20   22
+hybrid60       22   25   30       22   25   29

@@ -85,7 +85,7 @@ footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--rule
   <div class="wrap">
     <div class="brand"><span><i></i>Whitebox Academy</span><span>Build an AI Agent from Scratch</span></div>
     <div class="intro">
-      <span class="meta">Chapter 14 of 34 · Part 3: From script to framework · About 2.5 hours</span>
+      <span class="meta">Chapter 14 of 35 · Part 3: From script to framework · About 2.5 hours</span>
       <h1>Tool system</h1>
       <p class="dek">Write each tool once. An <code>@tool</code> decorator describes it to the model, and a <code>Toolbox</code> checks every call.</p>
     </div>
@@ -358,7 +358,7 @@ read_file({'path': 'sales/friday.txt'})
           <li>Writing a vague description. <code>Annotated[str, "A path"]</code> passes the check, but it doesn’t help. Show the model an example.</li>
           <li>Forgetting <code>@tool</code>. A plain function has no <code>.name</code>, so <code>Toolbox</code> fails when you create it.</li>
           <li>Writing poor error messages in a tool. <code>Toolbox.run</code> turns them into text, and the model has to read them.</li>
-          <li>Thinking a check means it’s safe. <code>check</code> only compares names, and <code>read_file</code> can still read any path it’s given. Chapter 30 deals with that.</li>
+          <li>Thinking a check means it’s safe. <code>check</code> only compares names, and <code>read_file</code> can still read any path it’s given. Chapter 31 deals with that.</li>
         </ul>
       </div>
     </section>

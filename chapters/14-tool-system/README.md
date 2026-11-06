@@ -504,7 +504,7 @@ You've finished when you see `5 passed`. Worked answers are in
 - **Raising errors for the model.** Inside a tool, a raised exception is fine, because `Toolbox.run`
   turns it into text. Make the message useful, because the model will read it.
 - **Thinking a check means it's safe.** `check` only compares names. `read_file` can still read any
-  path it's given. Chapter 30 deals with that.
+  path it's given. Chapter 31 deals with that.
 
 ## Recap
 

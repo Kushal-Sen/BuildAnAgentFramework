@@ -1,0 +1,2 @@
+$ python3 score_range.py
+924 scores, lowest 0.309, highest 0.829

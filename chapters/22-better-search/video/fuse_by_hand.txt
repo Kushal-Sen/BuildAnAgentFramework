@@ -1,0 +1,17 @@
+$ python3 fuse_by_hand.py
+How long was the Station card reader down just before Christmas 2025?
+  vector scores:  0.73 down to 0.70
+  keyword scores: 17.05 down to 4.93
+  Fused   Vector Keyword  File
+  0.0328      1       1  log-station-2025-12.md
+  0.0161      2       -  log-station-2025-03.md
+  0.0161      -       2  loyalty-card.md
+  0.0159      3       -  log-station-2025-12.md
+What does E44 mean?
+  vector scores:  0.56 down to 0.51
+  keyword scores: 5.93 down to 5.61
+  Fused   Vector Keyword  File
+  0.0164      1       -  log-riverside-2025-04.md
+  0.0164      -       1  welcome.md
+  0.0161      2       -  log-riverside-2025-10.md
+  0.0161      -       2  grinder-errors.md

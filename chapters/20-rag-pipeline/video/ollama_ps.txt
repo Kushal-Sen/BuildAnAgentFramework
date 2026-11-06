@@ -1,0 +1,14 @@
+$ ollama ps   # after a short call with no num_ctx
+NAME                       ID              SIZE      PROCESSOR    CONTEXT    UNTIL              
+qwen2.5:7b                 845dbda0ea48    4.7 GB    100% GPU     4096       4 minutes from now    
+nomic-embed-text:latest    0a109f422b47    370 MB    100% GPU     2048       4 minutes from now    
+
+$ ollama ps   # after paste_all.py 32768
+NAME                       ID              SIZE      PROCESSOR    CONTEXT    UNTIL              
+qwen2.5:7b                 845dbda0ea48    6.6 GB    100% GPU     32768      4 minutes from now    
+nomic-embed-text:latest    0a109f422b47    370 MB    100% GPU     2048       4 minutes from now    
+
+$ ollama ps   # after paste_all.py 16384 2
+NAME                       ID              SIZE      PROCESSOR    CONTEXT    UNTIL              
+qwen2.5:7b                 845dbda0ea48    5.6 GB    100% GPU     16384      4 minutes from now    
+nomic-embed-text:latest    0a109f422b47    370 MB    100% GPU     2048       3 minutes from now    

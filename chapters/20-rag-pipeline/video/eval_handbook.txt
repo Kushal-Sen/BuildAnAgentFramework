@@ -1,0 +1,4 @@
+$ python3 eval_handbook.py
+paste default   38/96  direct 14/24  gap 12/24  code 3/18  hop 9/18  none 0/12
+paste 8192      83/96  direct 24/24  gap 13/24  code 18/18  hop 16/18  none 12/12
+rag60           75/96  direct 24/24  gap 19/24  code 12/18  hop 8/18  none 12/12

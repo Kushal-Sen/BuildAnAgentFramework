@@ -1,0 +1,318 @@
+{
+ "chapter": "Chapter 22",
+ "scenes": [
+  {
+   "type": "recap",
+   "title": "Previously: better chunks",
+   "flow": [
+    "Print the chunk",
+    "Titles on every chunk",
+    "Three rulers",
+    "Read what failed"
+   ],
+   "captions": [
+    {
+     "text": "Recap of chapter 21: printing a chunk showed what the cut had lost.",
+     "secs": 8,
+     "focus": 0
+    },
+    {
+     "text": "Titles gave every chunk back its file title, and fixed the card reader.",
+     "secs": 7,
+     "focus": 1
+    },
+    {
+     "text": "File hit, text found and the eval each see more than the one before.",
+     "secs": 7,
+     "focus": 2
+    },
+    {
+     "text": "And two code questions still fail, because the search never finds them.",
+     "secs": 8,
+     "focus": 3
+    }
+   ]
+  },
+  {
+   "type": "box",
+   "label": "Better search",
+   "inner": [
+    "+ BM25",
+    "+ rank fusion",
+    "+ a reranker"
+   ],
+   "captions": [
+    {
+     "text": "Today: three popular upgrades, one at a time, each one measured.",
+     "secs": 4
+    },
+    {
+     "text": "Not all of them will work.",
+     "secs": 3,
+     "open": true,
+     "shot": "01-box"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/whitebox/rag.py",
+   "start": "def score(self, question_words",
+   "end": "return total",
+   "captions": [
+    {
+     "text": "Now keyword search. BM25 scores a chunk by the question's words it holds.",
+     "secs": 7,
+     "focus": null
+    },
+    {
+     "text": "It has three ideas, and they're all on this one line.",
+     "secs": 5,
+     "focus": [
+      "total += self.rarity",
+      "total += self.rarity"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/bm25_by_hand.py",
+   "start": "for word in (",
+   "end": "print(f\"  {word",
+   "output": "video/bm25_rarity.txt",
+   "captions": [
+    {
+     "text": "One: rarity. \"the\" is in 896 of 934 chunks, so it's worth almost nothing.",
+     "secs": 7,
+     "focus": null,
+     "lines": 9,
+     "shot": "02-bm25"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/bm25_by_hand.py",
+   "start": "for found in (",
+   "end": "print(f\"  found",
+   "output": "video/bm25_saturation.txt",
+   "captions": [
+    {
+     "text": "Two: saturation. Each repeat of a word is worth less than the last.",
+     "secs": 6,
+     "focus": null,
+     "lines": 7
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/bm25_by_hand.py",
+   "start": "for ratio in (",
+   "end": "print(f\"  {ratio",
+   "output": "video/bm25_length.txt",
+   "captions": [
+    {
+     "text": "Three: length. One match counts for more in a short chunk.",
+     "secs": 6,
+     "focus": null,
+     "lines": 4
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/rare_words.py",
+   "start": "for word in (",
+   "end": "print(f\"{word",
+   "output": "video/rare_words.txt",
+   "captions": [
+    {
+     "text": "Predict: a question about FN-6. The code is in one chunk. Will it come first?",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "No. \"what\" is just as rare as FN-6 here, because the logs rarely say it.",
+     "secs": 8,
+     "focus": null,
+     "lines": 10,
+     "shot": "03-rare-words"
+    },
+    {
+     "text": "Alone, the code comes first. Rarity is measured against your documents.",
+     "secs": 7,
+     "focus": null,
+     "lines": 13
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/whitebox/rag.py",
+   "start": "class HybridIndex",
+   "end": "reverse=True)[:k]",
+   "captions": [
+    {
+     "text": "Vector scores and keyword scores aren't on the same scale, so you can't add them.",
+     "secs": 7,
+     "focus": null
+    },
+    {
+     "text": "So keep only the ranks. Each list gives a chunk 1 over 60 plus its rank.",
+     "secs": 7,
+     "focus": [
+      "for rank, hit",
+      "best.score +="
+     ]
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/fuse_by_hand.py",
+   "start": "ranks = f\"",
+   "end": "print(f\"  {hit.score",
+   "output": "video/fuse_by_hand.txt",
+   "captions": [
+    {
+     "text": "First in both lists scores 1/61 twice. A chunk both lists like comes top.",
+     "secs": 7,
+     "focus": null,
+     "lines": 9,
+     "shot": "04-fusion"
+    },
+    {
+     "text": "When the lists share nothing, fusion deals them out, turn by turn.",
+     "secs": 7,
+     "focus": null,
+     "lines": 17
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/eval_setup.py",
+   "start": "\"hybrid-plain60\"",
+   "end": "\"hybrid60\"",
+   "output": "video/eval_hybrid.txt",
+   "captions": [
+    {
+     "text": "Hybrid with titles: code rose from 12 to 15, and footwear came back.",
+     "secs": 7,
+     "focus": null,
+     "lines": 3,
+     "shot": "05-hybrid"
+    },
+    {
+     "text": "hop stayed at 4. It was still one search.",
+     "secs": 6,
+     "focus": null,
+     "lines": 3
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/rerank_one.py",
+   "start": "for question, code in QUESTIONS",
+   "end": "print(\"  Model calls",
+   "output": "video/rerank_one.txt",
+   "captions": [
+    {
+     "text": "Last, a Reranker. It fetches 15 hits, and asks the model to score each one.",
+     "secs": 7,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "That's 15 extra model calls for each question. And it can't see past those 15.",
+     "secs": 8,
+     "focus": null,
+     "lines": 9,
+     "shot": "06-rerank"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/all_setups.py",
+   "start": "for label in ORDER",
+   "end": "print(summary",
+   "output": "video/all_setups.txt",
+   "captions": [
+    {
+     "text": "All ten runs together, 97 to 103. Repeats of one setup moved by up to 4.",
+     "secs": 8,
+     "focus": null,
+     "lines": 11,
+     "shot": "07-all-setups"
+    },
+    {
+     "text": "Reranking cost six times the calls, with no clear gain. Don't rank setups this close.",
+     "secs": 8,
+     "focus": null,
+     "lines": 11
+    },
+    {
+     "text": "Our advice: start with titles. Add hybrid if people ask about exact codes.",
+     "secs": 8,
+     "focus": null,
+     "lines": 11
+    },
+    {
+     "text": "Look across the hop column. One search can't join two facts. That's chapter 23.",
+     "secs": 8,
+     "focus": null,
+     "lines": 11
+    }
+   ]
+  },
+  {
+   "type": "term",
+   "file": "video/exercise_output.txt",
+   "final": "5 passed",
+   "captions": [
+    {
+     "text": "Your turn. Open exercises.py and complete the five TODOs.",
+     "secs": 5,
+     "lines": 9
+    },
+    {
+     "text": "You'll work out BM25 by hand, and fuse ranks. No Ollama needed.",
+     "secs": 6,
+     "lines": 9
+    },
+    {
+     "text": "You've finished when you see 5 passed.",
+     "secs": 5,
+     "lines": 13,
+     "shot": "08-exercises"
+    }
+   ]
+  },
+  {
+   "type": "end",
+   "title": "You opened better search.",
+   "points": [
+    "BM25 rewards rare words",
+    "Rank fusion joins rankings",
+    "A reranker can only reorder",
+    "Measure, then read the rows"
+   ],
+   "next": "Next: Chapter 23, agentic RAG",
+   "captions": [
+    {
+     "text": "Each upgrade helped some questions and cost others. Now you can tell which.",
+     "secs": 6
+    },
+    {
+     "text": "Next, the agent decides what to search for.",
+     "secs": 4
+    }
+   ]
+  }
+ ]
+}

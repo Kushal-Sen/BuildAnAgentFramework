@@ -1,0 +1,9 @@
+$ python3 fake_search.py
+How much is the till float?
+  0.535  forms.md
+  0.488  grinder-errors.md
+  0.397  allergens.md
+Can I get money back for buying work footwear?
+  0.331  staff-discount.md
+  0.330  food-safety.md
+  0.330  branch-old-mill.md

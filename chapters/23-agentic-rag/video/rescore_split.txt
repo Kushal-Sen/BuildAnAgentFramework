@@ -1,0 +1,4 @@
+$ python3 rescore.py split60 split60-again
+Setup                      Old  Old hop   Strict  Strict hop
+split60                105/126     5/18  105/126        5/18
+split60-again          106/126     4/18  106/126        4/18

@@ -1,0 +1,454 @@
+{
+  "label": "titles120",
+  "rows": [
+    {
+      "name": "direct:drink-recipe",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "direct:float",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "direct:payday",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "direct:milk-charge",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "direct:fridge",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "direct:grounds",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "direct:hot-food",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "direct:loyalty",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "gap:holiday",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "gap:quit",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "gap:feel-ill",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "gap:funeral",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "gap:mice",
+      "runs": 3,
+      "passed": 0,
+      "steps": 3,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['Halden']"
+          ],
+          "answer": "I don't know. [suppliers.md] does not mention any supplier that deals with pest control, which would typically handle mouse issues. The available information does not provide a clear answer to who handles pest control for the establishment."
+        },
+        {
+          "run": 2,
+          "failed": [
+            "any of ['Halden']"
+          ],
+          "answer": "I don't know. [suppliers.md] and [log-old-mill-2025-12.md] and [log-old-mill-2025-03.md] do not mention mice or pest control services, and [accidents-and-incidents.md] only covers reporting incidents without specifying who handles them. [allergens.md] is about allergens and not related to pests."
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['Halden']"
+          ],
+          "answer": "I don't know. [suppliers.md] does not mention any suppliers that deal with pest control, and there is no information provided about internal procedures for handling pest issues."
+        }
+      ]
+    },
+    {
+      "name": "gap:scald",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "gap:shoes",
+      "runs": 3,
+      "passed": 1,
+      "steps": 3,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['40']"
+          ],
+          "answer": "I don't know. [expenses.md] discusses claiming for work expenses using form FN-3, but it does not mention anything about reimbursing costs for footwear specifically."
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['40']"
+          ],
+          "answer": "I don't know. [expenses.md] discusses claiming work expenses, but it does not mention footwear as a reimbursable item."
+        }
+      ]
+    },
+    {
+      "name": "gap:hair",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "code:e44",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "code:e31",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "code:r5",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "code:ir9",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "code:hr15",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "code:fn6",
+      "runs": 3,
+      "passed": 0,
+      "steps": 3,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['bank']"
+          ],
+          "answer": "I don't know."
+        },
+        {
+          "run": 2,
+          "failed": [
+            "any of ['bank']"
+          ],
+          "answer": "I don't know. [first-aid.md] and the log files do not contain information about FN-6 or its usage."
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['bank']"
+          ],
+          "answer": "I don't know."
+        }
+      ]
+    },
+    {
+      "name": "hop:harbour-arrive",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "hop:senior-beans",
+      "runs": 3,
+      "passed": 0,
+      "steps": 3,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['25%']"
+          ],
+          "answer": "[staff-discount.md] I don't know."
+        },
+        {
+          "run": 2,
+          "failed": [
+            "any of ['25%']"
+          ],
+          "answer": "I don't know. [staff-discount.md] provides discounts for different staff bands but does not specify a discount for senior baristas."
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['25%']"
+          ],
+          "answer": "I don't know. [staff-discount.md] mentions discounts for different bands but does not specify a discount for senior baristas."
+        }
+      ]
+    },
+    {
+      "name": "hop:riverside-repair",
+      "runs": 3,
+      "passed": 0,
+      "steps": 3,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['0300 555 0177']"
+          ],
+          "answer": "I don't know. [branch-riverside.md] mentions an equipment service contractor, Northline Service, but it does not provide a number for this service."
+        },
+        {
+          "run": 2,
+          "failed": [
+            "any of ['0300 555 0177']"
+          ],
+          "answer": "I don't know. [branch-riverside.md] mentions an equipment service contractor, Northline Service, but there is no information about what to do if the espresso machine breaks."
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['0300 555 0177']"
+          ],
+          "answer": "I don't know. [branch-riverside.md] mentions an equipment service contractor, Northline Service, but there's no information about what to do if the espresso machine breaks specifically."
+        }
+      ]
+    },
+    {
+      "name": "hop:shift-lead-pay",
+      "runs": 3,
+      "passed": 0,
+      "steps": 3,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['14.75']"
+          ],
+          "answer": "I don't know. [wages.md] provides hourly rates for different bands but does not specify a rate for a shift lead, who is not mentioned in terms of pay band."
+        },
+        {
+          "run": 2,
+          "failed": [
+            "any of ['14.75']"
+          ],
+          "answer": "I don't know. [wages.md] mentions rates for different bands but does not specify a rate for a shift lead."
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['14.75']"
+          ],
+          "answer": "I don't know. [wages.md] mentions Band E as being salaried, but the hourly rate for shift leads (which Band E likely represents) is not specified in the given excerpts."
+        }
+      ]
+    },
+    {
+      "name": "hop:lead-notice",
+      "runs": 3,
+      "passed": 1,
+      "steps": 3,
+      "failures": [
+        {
+          "run": 2,
+          "failed": [
+            "any of ['4 weeks', 'four weeks']"
+          ],
+          "answer": "According to the excerpt from [resignation.md], Band E staff must give 8 weeks' notice when resigning."
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['4 weeks', 'four weeks']"
+          ],
+          "answer": "According to the excerpt, Band E staff must give 8 weeks' notice when resigning. [resignation.md]"
+        }
+      ]
+    },
+    {
+      "name": "hop:old-mill-repair",
+      "runs": 3,
+      "passed": 1,
+      "steps": 3,
+      "failures": [
+        {
+          "run": 2,
+          "failed": [
+            "any of ['0300 555 0142']"
+          ],
+          "answer": "I don't know. [branch-old-mill.md] mentions that equipment service contractor Tidewater Espresso Service can be contacted for grinder issues, but it does not provide a specific contact number for the grinder."
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['0300 555 0142']"
+          ],
+          "answer": "I don't know. [branch-old-mill.md] mentions that Tidewater Espresso Service is the equipment service contractor, but it does not provide a specific issue related to the grinder or give a contact number for repairs."
+        }
+      ]
+    },
+    {
+      "name": "none:pension",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "none:dental",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "none:wifi",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "none:dogs",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "records:flood",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "records:cupping-guest",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "records:film-crew",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "records:card-reader",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "records:ferry-order",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "records:fennel-min",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "records:tidewater-fee",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "records:lantern-price",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "none:records-none",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    },
+    {
+      "name": "none:records-none2",
+      "runs": 3,
+      "passed": 3,
+      "steps": 3,
+      "failures": []
+    }
+  ]
+}

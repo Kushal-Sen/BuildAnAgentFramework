@@ -1,0 +1,10 @@
+# The failure saved in rag60.json for gap:hair
+[
+  {
+    "run": 3,
+    "failed": [
+      "any of ['tied']"
+    ],
+    "answer": "Yes, you need to tie back long hair according to the excerpt in [uniform.md]."
+  }
+]

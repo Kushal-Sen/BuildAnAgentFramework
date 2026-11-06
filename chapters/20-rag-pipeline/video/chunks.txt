@@ -1,0 +1,10 @@
+$ python3 chunks.py
+['One two three.', 'Four five six.', 'Seven eight nine ten eleven.']
+['One two three.\n\nFour five six.', 'Seven eight nine ten eleven.']
+['One two three.\n\nFour five six.\n\nSeven eight nine ten eleven.']
+
+95 files
+size  20: 2980 chunks,  15 words on average
+size  60:  934 chunks,  48 words on average
+size 120:  447 chunks, 102 words on average
+size 300:  219 chunks, 208 words on average

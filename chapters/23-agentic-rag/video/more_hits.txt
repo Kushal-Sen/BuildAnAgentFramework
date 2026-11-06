@@ -1,0 +1,10 @@
+pay-bands.md first appears at rank 134 of 934
+k=5    passed 0/5  tokens_in 423
+k=10   passed 0/5  tokens_in 732
+k=20   passed 0/5  tokens_in 1465
+k=134  passed 0/5  tokens_in 2050
+ - The policy for resignation notice periods is not detailed in the provided logs, tips, closing checklist, suppl
+ - Based on the provided information and common practices in retail and hospitality, shift leads are typically ex
+ - Based on the information provided in the "Job roles and bands" document, there isn't specific guidance on noti
+ - Based on the information provided in the `pay-bands.md` document, the role of Shift Lead falls under Band C. H
+ - Based on the job roles and bands provided, there is no specific information given about the notice period for 

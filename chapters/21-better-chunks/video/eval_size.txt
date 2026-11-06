@@ -1,0 +1,4 @@
+$ python3 eval_setup.py plain120 titles120 titles120-again
+plain120        99/126  direct 24/24  gap 19/24  code 15/18  hop 5/18  none 18/18  records 18/24
+titles120       98/126  direct 24/24  gap 15/24  code 15/18  hop 2/18  none 18/18  records 24/24
+titles120-again 101/126  direct 24/24  gap 15/24  code 15/18  hop 5/18  none 18/18  records 24/24

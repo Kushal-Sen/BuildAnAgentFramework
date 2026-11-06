@@ -1,0 +1,13 @@
+$ python3 rare_words.py
+what   in   1 chunks, rarity 6.44
+is     in  33 chunks, rarity 3.33
+fn-6   in   1 chunks, rarity 6.44
+used   in   4 chunks, rarity 5.34
+for    in  30 chunks, rarity 3.42
+
+What is FN-6 used for?
+  14.93  welcome.md
+  11.16  parental-leave.md
+  10.79  staff-discount.md
+FN-6
+   6.38  forms.md

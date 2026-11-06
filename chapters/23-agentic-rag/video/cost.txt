@@ -1,0 +1,18 @@
+Setup                   Calls  Tokens in  Stopped   (calls and tokens per question)
+titles60                 1.00        509        0
+titles60-again           1.00        509        0
+titles120                1.00        811        0
+hybrid60                 1.00        473        0
+agent60                  2.06        874        0
+agent60-again            2.12        965        0
+agent-hybrid60           2.02        808        0
+agent-hybrid60-again     2.10        905        1
+
+agent60, both runs: how many searches did each run make?
+Kind       Runs  None   One  More
+direct       48     0    48     0
+gap          48     0    47     1
+code         36     0    34     2
+hop          36     0    33     3
+none         36     0    33     3
+records      48     0    48     0

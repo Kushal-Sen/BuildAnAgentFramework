@@ -1,0 +1,20 @@
+agent60 + agent60-again
+Question           Runs  Loose  Strict  Both files  Searched again
+harbour-arrive        6      3       0           0               0
+senior-beans          6      2       2           0               0
+riverside-repair      6      6       6           0               3
+shift-lead-pay        6      5       0           0               0
+lead-notice           6      5       0           0               0
+old-mill-repair       6      6       6           0               0
+Total                36     27      14           0
+
+agent-hybrid60 + agent-hybrid60-again
+Question           Runs  Loose  Strict  Both files  Searched again
+harbour-arrive        6      1       0           0               0
+senior-beans          6      4       4           0               0
+riverside-repair      6      5       5           5               0
+shift-lead-pay        6      5       0           0               0
+lead-notice           6      6       1           0               0
+old-mill-repair       6      6       6           0               0
+Total                36     27      16           5
+

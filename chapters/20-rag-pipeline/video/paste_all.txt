@@ -1,0 +1,12 @@
+$ python3 paste_all.py 32768
+direct:float           FAIL  'Based on the log entries, the till float appears to be recor'
+direct:fridge          FAIL  'Based on the information provided in the log entries, there '
+code:e44               FAIL  'Based on the context provided, E44 likely refers to a specif'
+none:pension           FAIL  'Based on the information provided in the given documents, th'
+records:flood          FAIL  'The log entries do not provide specific details about a floo'
+records:film-crew      FAIL  'Based on the information provided, there is no specific ment'
+records:fennel-min     pass  'The minimum order with Fennel Bakehouse is £60 per branch.'
+records:lantern-price  pass  'The price for a 250g bag of Lantern coffee is £8.50.'
+
+num_ctx 32768: 2/8 passed, 58 seconds per question
+tokens_in 16,386 of 69,872 (23% of the text)

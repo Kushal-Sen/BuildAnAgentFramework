@@ -1,0 +1,10 @@
+Setup                      Old  Old hop   Strict  Strict hop
+titles60                97/126     4/18   96/126        3/18
+titles60-again          98/126     5/18   96/126        3/18
+titles120              105/126     5/18  102/126        2/18
+hybrid60               102/126     3/18  102/126        3/18
+replay                 101/126     3/18  101/126        3/18
+agent60                112/126    12/18  107/126        7/18
+agent60-again          115/126    15/18  107/126        7/18
+agent-hybrid60         119/126    13/18  114/126        8/18
+agent-hybrid60-again   117/126    14/18  111/126        8/18

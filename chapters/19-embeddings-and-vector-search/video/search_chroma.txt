@@ -1,0 +1,11 @@
+$ python3 search_chroma.py
+42 rows in Chroma
+  0.676  uniform.md
+  0.627  refunds.md
+  0.618  expenses.md
+
+$ python3 search_chroma.py   # run it again
+42 rows in Chroma
+  0.676  uniform.md
+  0.627  refunds.md
+  0.618  expenses.md

@@ -294,6 +294,6 @@ everything from chapters 09 to 12.
 ## Where this comes from
 
 The think, act, observe pattern was popularized by the 2022 paper
-[ReAct](https://arxiv.org/abs/2210.03629). Chapter 25 compares it with other planning patterns.
+[ReAct](https://arxiv.org/abs/2210.03629). Chapter 26 compares it with other planning patterns.
 
 **Next:** chapter 13, where you'll make the model replaceable.

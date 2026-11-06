@@ -1,0 +1,4 @@
+$ python3 count_tokens.py
+handbook    42 files   4,764 tokens
+records     53 files  65,108 tokens
+together    95 files  69,872 tokens

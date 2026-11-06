@@ -1,0 +1,510 @@
+<title>Whitebox: Better search</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a black box header opens onto a white reading column; media breaks wider. */
+:root {
+  --bg: #fbfbf9; --surface: #ffffff; --ink: #16181d; --muted: #5d616b; --rule: #d9dade;
+  --accent: #2a4bd7; --tint: #e7ebfb; --box: #0c0d10; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #101218; --term-ink: #e4e6ec; --term-cmd: #9db1ff;
+  --display: "Bricolage Grotesque", Georgia, serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+    --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+    --term: #08090c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+  --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #08090c; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 400 1.0625rem/1.65 var(--body); }
+.gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 68rem; margin: 0 auto; min-width: 0; }
+.col { max-width: 42rem; display: grid; gap: 1rem; min-width: 0; }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2.6rem, 7vw, 4.4rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; }
+h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); line-height: 1.15; font-weight: 700; }
+h3 { font-size: 1.2rem; line-height: 1.3; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--accent); }
+a:focus-visible, video:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+code { font-family: var(--mono); font-size: 0.92em; }
+
+header.mast { background: var(--box); color: var(--on-box); padding-block: 1.6rem 3rem; }
+.mast .wrap { display: grid; gap: 2.4rem; }
+.brand { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font: 500 1rem var(--display); }
+.brand span:first-child { display: flex; align-items: center; gap: 0.55rem; }
+.brand i { width: 0.95rem; height: 0.95rem; border: 3px solid currentColor; display: block; }
+.brand span:last-child { font: 400 0.85rem var(--mono); color: var(--box-muted); align-self: center; }
+.mast .intro { display: grid; gap: 1rem; max-width: 46rem; }
+.mast .dek { font-size: 1.2rem; color: var(--box-muted); }
+.meta { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+
+main { padding-block: 0 4rem; }
+section { padding-block: 3.2rem 0; display: grid; gap: 1.4rem; }
+.label { font: 600 0.78rem/1.2 var(--mono); color: var(--accent); }
+.lede { font-size: 1.15rem; }
+
+figure { margin: 0; display: grid; gap: 0.5rem; min-width: 0; }
+figcaption { font-size: 0.86rem; color: var(--muted); }
+video { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 1440 / 900; background: #000; }
+
+ol.loop { margin: 0; padding-left: 1.3rem; display: grid; gap: 0.35rem; }
+ol.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 2.4rem; counter-reset: step; }
+ol.steps > li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 1.6rem; align-items: start; counter-increment: step; }
+ol.steps .txt { display: grid; gap: 0.45rem; min-width: 0; }
+ol.steps .txt h3::before { content: counter(step); display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; margin-right: 0.55rem; background: var(--ink); color: var(--bg); font: 600 0.85rem/1 var(--mono); vertical-align: 0.1em; }
+ol.steps img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); }
+@media (max-width: 720px) { ol.steps > li { grid-template-columns: minmax(0, 1fr); } }
+
+pre { margin: 0; background: var(--term); color: var(--term-ink); padding: 1rem 1.1rem; overflow-x: auto; font: 400 0.86rem/1.6 var(--mono); }
+pre .cmd { color: var(--term-cmd); }
+.tablebox { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.98rem; }
+th, td { text-align: left; padding: 0.65rem 0.8rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; color: var(--muted); }
+td { font-variant-numeric: tabular-nums; }
+.fails { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.fails div { background: var(--tint); padding: 1rem 1.1rem; display: grid; gap: 0.3rem; align-content: start; min-width: 0; }
+.list { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.35rem; }
+.next { background: var(--box); color: var(--on-box); padding: 1.4rem 1.5rem; display: grid; gap: 0.3rem; }
+.next span { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--muted); }
+</style>
+
+<header class="mast gutter">
+  <div class="wrap">
+    <div class="brand"><span><i></i>Whitebox Academy</span><span>Build an AI Agent from Scratch</span></div>
+    <div class="intro">
+      <span class="meta">Chapter 22 of 35 · Part 4: RAG · About 2 hours</span>
+      <h1>Better search</h1>
+      <p class="dek">Learn how keyword search and rank fusion work, what reranking can’t do, and what’s worth keeping.</p>
+    </div>
+  </div>
+</header>
+
+<main class="gutter">
+  <div class="wrap">
+    <section>
+      <figure>
+        <video controls playsinline preload="metadata" poster="media/05-hybrid.jpg">
+          <source src="media/video.mp4" type="video/mp4">
+        </video>
+        <figcaption>Chapter video, 3 minutes 23 seconds, no sound. It starts with a 30-second recap, and captions on screen explain each step.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Where we are</span>
+        <h2>Where we are</h2>
+      </div>
+      <div class="col">
+        <p>In chapter 21, you gave chunks their titles back, and you read what still failed. Two questions failed for a plain reason: <code>e44</code> and <code>fn6</code> ask about exact codes, and the right chunk never came back. Titles can’t help when the search doesn’t find the chunk.</p>
+        <p>This chapter improves the search itself, with three ideas you’ll hear about often: keyword search, rank fusion and reranking. You’ll change one thing at a time, and measure each. Not all of them will work.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Setup</span>
+        <h2>Before you start</h2>
+      </div>
+      <div class="col">
+        <p><a href="https://claude.ai/artifact/1uGgX3WK7v3D5HyfvB782p#start-ollama">Start Ollama</a>, and activate the <code>.venv</code> you made in chapter 05. You need <code>nomic-embed-text</code> from chapter 19. If you don’t have it:</p>
+      </div>
+      <pre><span class="cmd">$ ollama pull nomic-embed-text</span></pre>
+      <div class="col">
+        <p>You’ll work in <code>chapters/22-better-search/code</code>. This chapter doesn’t use Chroma, so it runs on any Python version the course supports.</p>
+        <p><code>whitebox/rag.py</code> has three new pieces: <code>KeywordIndex</code>, <code>HybridIndex</code> and <code>Reranker</code>. These things are provided, and you don’t need to change them:</p>
+        <ul class="list">
+          <li><code>questions.py</code> and <code>library.py</code> are the ones you know from chapter 21. <code>library.py</code> adds <code>build_keyword</code> and <code>build_hybrid</code>, which put the same chunks in a new kind of index, and <code>Remember</code>, explained in section 3.</li>
+          <li><code>results/</code> holds our saved runs, including chapter 21’s. A script that reads results uses your own file if you’ve made one, and ours if you haven’t. So <strong>you can follow the whole chapter without the long evals.</strong></li>
+          <li><code>retrieval.py</code>, <code>bm25_by_hand.py</code>, <code>keyword_search.py</code>, <code>rare_words.py</code>, <code>fuse_by_hand.py</code> and <code>all_setups.py</code> are measuring scripts. Each section says what the script does and shows the part that matters.</li>
+        </ul>
+        <p>To check the framework itself, run this from <code>code</code>:</p>
+      </div>
+      <pre><span class="cmd">$ python3 -m pytest tests</span></pre>
+      <div class="col">
+        <p>You should see <code>58 passed</code>. These tests use a fake model, so they don’t need Ollama.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Lesson</span>
+        <h2>Keyword search: BM25</h2>
+      </div>
+      <div class="col">
+        <p>Chapter 19 showed that vectors weren’t better on exact codes. <code>E44</code> and <code>FN-6</code> still fail, and the right file isn’t even in the top 5. An embedding doesn’t promise to keep the letters of a code.</p>
+        <p>Chapter 19’s <code>word_search</code> did find codes, but it was crude. It counted matching words, so “the” counted as much as “E44”. <strong>BM25</strong> is the standard way to do this properly. It’s from the 1990s, and it has three ideas. All three are in one line of <code>KeywordIndex</code>:</p>
+      </div>
+      <pre>def rarity(self, word):
+    total = len(self.chunks)
+    return math.log(1 + (total - self.seen_in[word] + 0.5) / (self.seen_in[word] + 0.5))
+
+def score(self, question_words, counts, average):
+    length = sum(counts.values())
+    total = 0.0
+    for word in question_words:
+        found = counts[word]
+        scale = 1 - self.b + self.b * length / average
+        total += self.rarity(word) * found * (self.k1 + 1) / (found + self.k1 * scale)
+    return total</pre>
+      <div class="col">
+        <p><code>counts</code> is a <code>Counter</code>, a dictionary that counts things, so <code>counts[word]</code> is how often the word is in this chunk, and 0 if it isn’t. <code>seen_in[word]</code> is how many chunks hold it. Take the three ideas one at a time. <code>bm25_by_hand.py</code> prints each with real numbers. It needs no model:</p>
+      </div>
+      <pre><span class="cmd">$ python3 bm25_by_hand.py</span></pre>
+      <pre>934 chunks
+
+1. Rarity: a word in fewer chunks is worth more
+  the      in 896 chunks, rarity 0.04
+  station  in  16 chunks, rarity 4.04
+  card     in  10 chunks, rarity 4.49
+  reader   in   1 chunks, rarity 6.44
+  fn-6     in   1 chunks, rarity 6.44
+
+2. Saturation: repeats are worth less and less
+  found   1 times: 1.00
+  found   2 times: 1.43
+  found   3 times: 1.67
+  found   5 times: 1.92
+  found  10 times: 2.17
+  found 100 times: 2.46
+
+3. Length: one match counts for more in a short chunk
+  0.5x the average length: 1.29
+    1x the average length: 1.00
+    2x the average length: 0.69</pre>
+      <div class="col">
+        <ol class="list">
+          <li><strong>Rarity.</strong> <code>math.log</code> squashes big ratios into small numbers. “the” is in 896 of 934 chunks, so finding it says almost nothing: 0.04. “reader” is in one chunk, so finding it says a lot: 6.44. No list of common words is needed. The documents themselves say what’s common.</li>
+          <li><strong>Saturation.</strong> The second “E44” in a chunk tells you less than the first. <code>k1</code> (1.5 here) sets how fast this flattens. With <code>k1</code> at 1.5, it can never pass 2.5, however many times a word repeats.</li>
+          <li><strong>Length.</strong> A long chunk holds more words by chance, so a match there counts for less. <code>scale</code> is 1 for an average chunk, and <code>b</code> (0.75) sets how much length matters.</li>
+        </ol>
+        <p>A chunk’s score is the sum, over the question’s words, of rarity times the other two. That’s all of BM25. <code>KeywordIndex.search</code> scores every chunk, and drops those that score 0, so unlike vector search, it can return nothing at all.</p>
+        <p><code>keyword_search.py</code> runs three questions: a code, the card reader on untitled chunks, and the footwear question from chapter 19. <strong>Predict:</strong> which will it get right?</p>
+      </div>
+      <pre><span class="cmd">$ python3 keyword_search.py</span></pre>
+      <pre>What does E44 mean?
+   5.94  welcome.md
+   5.56  grinder-errors.md
+How long was the Station card reader down just before Christmas 2025?
+  15.61  log-station-2025-12.md
+   7.32  loyalty-card.md
+   6.70  uniform.md
+Can I get money back for buying work footwear?
+  14.00  loyalty-card.md
+  13.63  expenses.md
+  12.48  shifts.md</pre>
+      <div class="col">
+        <ul class="list">
+          <li><strong>Card reader:</strong> first, with no title, and far ahead. Vectors ranked this chunk 111th. “reader” is in one chunk in the whole collection.</li>
+          <li><strong>Footwear:</strong> wrong, as you’d expect. The words aren’t in the document.</li>
+          <li><strong>E44:</strong> second, behind <code>welcome.md</code>. A question with a code in it, and the welcome page wins?</li>
+        </ul>
+        <p>Why? <code>rare_words.py</code> looks at the rarity of each word in a question, and tries the code alone:</p>
+      </div>
+      <pre><span class="cmd">$ python3 rare_words.py</span></pre>
+      <pre>what   in   1 chunks, rarity 6.44
+is     in  33 chunks, rarity 3.33
+fn-6   in   1 chunks, rarity 6.44
+used   in   4 chunks, rarity 5.34
+for    in  30 chunks, rarity 3.42
+
+What is FN-6 used for?
+  14.93  welcome.md
+  11.16  parental-leave.md
+  10.79  staff-discount.md
+FN-6
+   6.38  forms.md</pre>
+      <div class="col">
+        <p>“what” is in one chunk of 934, so it’s exactly as rare as “FN-6”. That sounds wrong until you remember what’s in the collection: 53 of the 95 files are records, mostly logs written in clipped notes, like “Foggy start. Busy from the first hour.” Logs rarely say “what” or “is”. So BM25 was right about these documents, and useless for this question. The welcome page has “what” in it and “is” four times, and it won.</p>
+        <p>The code alone comes first. So <strong>rarity is measured against your documents, not English.</strong> Exercise 3 fixes this with a short list of common words, which is what chapter 19 did.</p>
+        <p>How does keyword search do overall? And can we keep the best of both?</p>
+      </div>
+      <figure><img src="media/03-rare-words.jpg" alt="BM25 treating the word what as being as rare as FN-6" loading="lazy" width="1440" height="900"></figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Lesson</span>
+        <h2>Rank fusion: HybridIndex</h2>
+      </div>
+      <div class="col">
+        <p>Vectors are good at meaning. Keywords are good at rare, exact words. Run both and join the results. But how? <code>fuse_by_hand.py</code> prints both kinds of score for two questions:</p>
+      </div>
+      <pre><span class="cmd">$ python3 fuse_by_hand.py</span></pre>
+      <pre>How long was the Station card reader down just before Christmas 2025?
+  vector scores:  0.73 down to 0.70
+  keyword scores: 17.05 down to 4.93
+  Fused   Vector Keyword  File
+  0.0328      1       1  log-station-2025-12.md
+  0.0161      2       -  log-station-2025-03.md
+  0.0161      -       2  loyalty-card.md
+  0.0159      3       -  log-station-2025-12.md
+What does E44 mean?
+  vector scores:  0.56 down to 0.51
+  keyword scores: 5.93 down to 5.61
+  Fused   Vector Keyword  File
+  0.0164      1       -  log-riverside-2025-04.md
+  0.0164      -       1  welcome.md
+  0.0161      2       -  log-riverside-2025-10.md
+  0.0161      -       2  grinder-errors.md</pre>
+      <div class="col">
+        <p>Look at the first two lines of each. Vector scores are around 0.5 to 0.7, and keyword scores run from about 5 to 17. Add them, and the keyword score would decide everything. And a keyword score of 5.93 doesn’t mean the same thing on two questions.</p>
+        <p>So throw the scores away, and keep the <strong>ranks</strong>. First is first in any system. That’s <strong>reciprocal rank fusion</strong>:</p>
+      </div>
+      <pre>def search(self, question, k=5):
+    found = {}
+    for index in self.indexes:
+        for rank, hit in enumerate(index.search(question, self.depth), start=1):
+            best = found.setdefault(hit.text, Hit(hit.text, hit.source, 0.0))
+            best.score += 1 / (self.damping + rank)
+    return sorted(found.values(), key=lambda hit: hit.score, reverse=True)[:k]</pre>
+      <div class="col">
+        <ul class="list">
+          <li>Each index gives its top 20 (<code>depth</code>).</li>
+          <li>A chunk earns <code>1 / (60 + rank)</code> from each list it’s in. <code>setdefault</code> gets the chunk’s entry, and creates it the first time.</li>
+          <li><code>damping</code> is that 60. It keeps first place from being worth far more than second: 1/61 against 1/62.</li>
+        </ul>
+        <p>Now check the table by hand. The card reader chunk is first in both, so 1/61 + 1/61 = 0.0328. <strong>A chunk that both lists like beats a chunk that only one list loves.</strong> That’s the point of fusion.</p>
+        <p>The second table shows the catch. The lists share nothing in their top places, so fusion deals them out in turn: vector first, keyword first, vector second, keyword second. <code>grinder-errors.md</code> is fourth, and that’s good enough for <code>k=5</code>. But it also means half of your top 5 can come from a search that had nothing useful to say.</p>
+        <p><code>HybridIndex</code> has the same <code>add</code> and <code>search</code> as <code>Index</code>, so <code>Rag</code> and <code>hit_rate</code> don’t change. That’s the shape from chapter 19 paying off.</p>
+      </div>
+      <pre><span class="cmd">$ python3 retrieval.py titles60 keyword60 hybrid60</span></pre>
+      <pre>             File hit, of 36    Text found, of 30
+Setup         k=1  k=3  k=5      k=1  k=3  k=5
+titles60       26   28   28       26   28   28
+keyword60      16   21   24       16   20   22
+hybrid60       22   25   30       22   25   29</pre>
+      <div class="col">
+        <p>Keyword search alone is well behind. Hybrid is better at <code>k=5</code>, by one or two questions, and <strong>worse at <code>k=1</code> and <code>k=3</code></strong>, because of that dealing. Since <code>Rag</code> uses 5, the eval should like it.</p>
+        <p><strong>Predict:</strong> will hybrid beat <code>titles60</code> on answers? Both setups make 252 model calls, so you don’t have to run them.</p>
+      </div>
+      <pre><span class="cmd">$ python3 eval_setup.py hybrid-plain60 hybrid60</span></pre>
+      <pre>hybrid-plain60  99/126  direct 24/24  gap 15/24  code 15/18  hop 6/18  none 18/18  records 21/24
+hybrid60       103/126  direct 24/24  gap 21/24  code 15/18  hop 4/18  none 18/18  records 21/24</pre>
+      <div class="col">
+        <p><code>hybrid60</code> has titles, and <code>hybrid-plain60</code> doesn’t. Compare <code>hybrid60</code> with chapter 21’s <code>titles60</code>, which scored 98 and 97:</p>
+        <ul class="list">
+          <li><strong><code>code</code> rose from 12 to 15.</strong> <code>e44</code> went from 0 of 6 to 3 of 3, which is what keywords are for.</li>
+          <li><strong><code>gap</code> rose from 19 and 18 to 21.</strong> <code>shoes</code> is back to 3 of 3.</li>
+          <li><strong><code>hop</code> didn’t improve, at 4 of 18.</strong> It’s still one search.</li>
+        </ul>
+        <p>The total is 5 or 6 points up, on one run. <code>plain60</code> moved 4 against itself, so the total alone doesn’t prove much. The two questions that changed are better evidence, because they changed for a reason you can name.</p>
+        <p><code>FN-6</code> still fails. Its chunk is 13th in keywords and nowhere in the vector top 20, so 1/73 isn’t enough. <code>hybrid-plain60</code> is worth a look too. It fixed the card reader with no titles at all, because keyword search found it. But its <code>gap</code> of 15 was as low as we measured, so that fix wasn’t free either.</p>
+      </div>
+      <figure><img src="media/05-hybrid.jpg" alt="Hybrid search raising code and gap questions" loading="lazy" width="1440" height="900"></figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Lesson</span>
+        <h2>Reranking</h2>
+      </div>
+      <div class="col">
+        <p>One more idea. Vectors compare a question and a chunk that were embedded separately. A chat model can read them together. So take more hits than you need, and have the model score each one:</p>
+      </div>
+      <pre>def judge(self, question, hit):
+    prompt = (
+        f"Question: {question}\n\nPassage:\n{hit.text}\n\n"
+        "Does the passage help answer the question? Reply with one number from 0 (no) to 10 (yes)."
+    )
+    reply = self.model.chat([Message("user", prompt)], temperature=0)
+    found = re.search(r"\d+", reply.content)
+    return int(found.group()) if found else 0
+
+def search(self, question, k=5):
+    hits = self.index.search(question, self.depth)
+    scored = [Hit(hit.text, hit.source, self.judge(question, hit)) for hit in hits]
+    return sorted(scored, key=lambda hit: hit.score, reverse=True)[:k]</pre>
+      <div class="col">
+        <ul class="list">
+          <li><code>depth</code> is 15, so one search makes 15 model calls.</li>
+          <li><code>re.search(r"\d+", ...)</code> finds the first number in the reply. If there’s none, the score is 0.</li>
+          <li><code>temperature=0</code> keeps the judge as steady as it can be.</li>
+          <li><code>Reranker</code> has the same <code>add</code> and <code>search</code>, so it wraps any index.</li>
+        </ul>
+        <p><code>rerank_one.py</code> tries the two codes that vectors missed, and counts the calls. <code>Counted</code> is a small wrapper like the ones in chapter 17: it passes each <code>chat</code> on, and adds 1.</p>
+      </div>
+      <pre>for question, code in QUESTIONS:
+    model.calls = 0
+    print(question)
+    print("  Vector rank:", rank_of_text(index, question, code))
+    hits = reranker.search(question, 15)
+    print("  Reranked rank:", next((place for place, hit in enumerate(hits, 1) if code in hit.text), None))
+    print("  Model calls:", model.calls)</pre>
+      <div class="col">
+        <p><strong>Predict:</strong> can a judge rescue a chunk at rank 22?</p>
+      </div>
+      <pre><span class="cmd">$ python3 rerank_one.py</span></pre>
+      <pre>What does E44 mean?
+  Vector rank: 22
+  Reranked rank: None
+  Model calls: 15
+What is FN-6 used for?
+  Vector rank: 629
+  Reranked rank: None
+  Model calls: 15</pre>
+      <div class="col">
+        <p>No. A reranker only reorders what it’s given. It can’t see past <code>depth</code>, so a chunk at rank 22 never reaches the judge. <strong>Reranking can’t fix a search that missed.</strong></p>
+        <p>Now the eval. <code>Remember</code>, in <code>library.py</code>, keeps each question’s result, so the three runs of a question don’t judge it three times. That makes 42 × 15 + 126 = 756 model calls, against 126 for <code>titles60</code>, so you don’t have to run this one.</p>
+        <p><strong>Predict:</strong> six times the calls. Will it score more?</p>
+      </div>
+      <pre><span class="cmd">$ python3 eval_setup.py rerank60</span>
+<span class="cmd">$ python3 retrieval.py titles60 rerank60</span></pre>
+      <pre>rerank60       102/126  direct 24/24  gap 20/24  code 12/18  hop 6/18  none 18/18  records 22/24
+
+             File hit, of 36    Text found, of 30
+Setup         k=1  k=3  k=5      k=1  k=3  k=5
+titles60       26   28   28       26   28   28
+rerank60       27   28   28       27   28   28</pre>
+      <div class="col">
+        <p>Six times the calls, and 102 against 98 and 97. That’s about as far as <code>plain60</code> moved against itself, so we can’t say it helped, and we can’t say it hurt. The judge did what it’s meant to do: one more question got the right hit first, 27 against 26. But <code>Rag</code> puts five hits in the prompt, and at <code>k=5</code> neither ruler moved at all. It might matter more if you could only afford one or two hits. We didn’t test that.</p>
+      </div>
+      <figure><img src="media/06-rerank.jpg" alt="The reranker making fifteen model calls and missing a chunk ranked 22" loading="lazy" width="1440" height="900"></figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Lesson</span>
+        <h2>All of it together</h2>
+      </div>
+      <div class="col">
+        <p><code>all_setups.py</code> prints every saved report, chapter 21’s as well, with no model calls:</p>
+      </div>
+      <pre><span class="cmd">$ python3 all_setups.py</span></pre>
+      <pre>plain60        102/126  direct 24/24  gap 21/24  code 12/18  hop 8/18  none 18/18  records 19/24
+plain60-again   98/126  direct 24/24  gap 21/24  code 12/18  hop 5/18  none 18/18  records 18/24
+titles60        98/126  direct 24/24  gap 19/24  code 12/18  hop 4/18  none 18/18  records 21/24
+titles60-again  97/126  direct 24/24  gap 18/24  code 12/18  hop 4/18  none 18/18  records 21/24
+plain120        99/126  direct 24/24  gap 19/24  code 15/18  hop 5/18  none 18/18  records 18/24
+titles120       98/126  direct 24/24  gap 15/24  code 15/18  hop 2/18  none 18/18  records 24/24
+titles120-again 101/126  direct 24/24  gap 15/24  code 15/18  hop 5/18  none 18/18  records 24/24
+hybrid-plain60  99/126  direct 24/24  gap 15/24  code 15/18  hop 6/18  none 18/18  records 21/24
+hybrid60       103/126  direct 24/24  gap 21/24  code 15/18  hop 4/18  none 18/18  records 21/24
+rerank60       102/126  direct 24/24  gap 20/24  code 12/18  hop 6/18  none 18/18  records 22/24</pre>
+      <div class="col">
+        <p>All ten totals sit between 97 and 103, and repeats of one setup differed by up to 4. So <strong>these totals can’t be ranked.</strong> Three runs on 42 questions can’t separate setups this close, and this is one set of documents.</p>
+        <p>What the rows can support:</p>
+        <ul class="list">
+          <li><strong>Keywords and size 120 both lifted <code>code</code>,</strong> from 12 to 15.</li>
+          <li><strong>Hybrid search brought <code>shoes</code> back,</strong> with titles on.</li>
+          <li><strong>Reranking cost six times the model calls, with no clear gain.</strong> Calls aren’t time, since a judge call is short, and we made no timing claims because this machine was shared.</li>
+          <li><strong><code>hop</code> stayed low everywhere, and it moved around.</strong> One search can’t follow one fact to the next. That’s chapter 23.</li>
+        </ul>
+        <h3>What we’d use</h3>
+        <p>You’ll want an answer, so here’s ours, with the same warning: one model, one set of documents.</p>
+        <table>
+          <thead><tr><th>Your situation</th><th>What to try first</th></tr></thead>
+          <tbody>
+            <tr><td>Starting out</td><td><code>Rag</code> with titles. It’s simple, and it repaired a real failure</td></tr>
+            <tr><td>People ask about exact codes, names or numbers</td><td>Add <code>HybridIndex</code>. That’s what it fixed here</td></tr>
+            <tr><td>You’re thinking about a reranker</td><td>Measure first. Here it cost six times the calls for no clear gain</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figure><img src="media/07-all-setups.jpg" alt="All ten eval runs side by side" loading="lazy" width="1440" height="900"></figure>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Reading errors</span>
+        <h2>Reading errors</h2>
+      </div>
+      <div class="col">
+        <p>We triggered each of these for real, and the output is shortened.</p>
+        <table>
+          <thead><tr><th>What happened</th><th>What you see</th><th>The fix</th></tr></thead>
+          <tbody>
+            <tr><td>Ollama isn’t running</td><td><code>whitebox.models.ModelError: Couldn't reach Ollama</code></td><td><a href="https://claude.ai/artifact/1uGgX3WK7v3D5HyfvB782p#start-ollama">Start Ollama</a></td></tr>
+            <tr><td>You misspelled a setup</td><td><code>KeyError: 'hybrid6'</code></td><td>Use a name from <code>SETUPS</code></td></tr>
+            <tr><td>You searched an empty <code>KeywordIndex</code></td><td><code>ZeroDivisionError: division by zero</code></td><td>Call <code>add</code> first. The average length divides by the number of chunks</td></tr>
+          </tbody>
+        </table>
+        <p>One mistake gives no error at all: <strong><code>KeywordIndex</code> can return fewer than <code>k</code> hits,</strong> or none, because it drops chunks that score 0.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Your turn</span>
+        <h2>Exercises</h2>
+      </div>
+      <div class="col">
+        <p>From <code>chapters/22-better-search</code>, open <code>exercises.py</code> and complete the five TODOs:</p>
+        <ol class="list">
+          <li><code>rarity</code>: BM25’s rarity, by hand.</li>
+          <li><code>saturation</code>: what a word found many times is worth.</li>
+          <li><code>QuestionWords</code>: a <code>KeywordIndex</code> that ignores common question words, for the problem in section 1.</li>
+          <li><code>fuse</code>: rank fusion by hand, on lists of names.</li>
+          <li><code>Router</code>: your own index behind the same <code>add</code> and <code>search</code>. It sends questions with codes to keywords.</li>
+        </ol>
+        <p>The <code>sys.path</code> line at the top of <code>exercises.py</code> is provided. It lets the file find the <code>whitebox</code> package inside <code>code/</code>.</p>
+        <p>Then check your work from <code>chapters/22-better-search</code>. These checks use a fake embedder, so Ollama doesn’t need to be running:</p>
+      </div>
+      <pre><span class="cmd">$ python3 -m pytest test_exercises.py</span></pre>
+      <div class="col">
+        <p>You’ve finished when you see <code>5 passed</code>. Worked answers are in <code>exercises.py</code>.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Watch out</span>
+        <h2>Common mistakes</h2>
+      </div>
+      <div class="col">
+        <ul class="list">
+          <li><strong>Adding raw scores from two searches.</strong> They’re on different scales. Use ranks.</li>
+          <li><strong>Assuming a keyword search finds codes.</strong> Here, “what” counted as much as “FN-6”.</li>
+          <li><strong>Reranking a search that missed.</strong> The judge only sees the top <code>depth</code>.</li>
+          <li><strong>Reading a close total as a win.</strong> Look for the questions that changed, and why.</li>
+          <li><strong>Counting calls as time.</strong> A judge call is short. Measure both on your own machine.</li>
+          <li><strong>Copying these results.</strong> This is one set of documents, one model and 42 questions. Measure on yours.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Recap</span>
+        <h2>Recap</h2>
+      </div>
+      <div class="col">
+        <ul class="list">
+          <li>BM25 scores rare words, with less for repeats and for long chunks. Rarity depends on your documents.</li>
+          <li><code>HybridIndex</code> joins rankings with <code>1 / (60 + rank)</code>, because raw scores can’t be compared.</li>
+          <li>A chunk both lists like beats a chunk only one list loves.</li>
+          <li><code>Reranker</code> asks a model to score each hit. It can’t see past <code>depth</code>, and it showed no clear gain here.</li>
+          <li>Setups a few points apart can’t be ranked. Read the rows.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="col">
+        <span class="label">Further reading</span>
+        <h2>Where this comes from</h2>
+      </div>
+      <div class="col">
+        <p>BM25 comes from the Okapi work of Stephen Robertson and colleagues in the 1990s, and <a href="https://doi.org/10.1561/1500000019">The Probabilistic Relevance Framework: BM25 and Beyond</a> explains it in full. Reciprocal rank fusion, with the same 60, comes from the 2009 paper <a href="https://doi.org/10.1145/1571941.1572114">Reciprocal Rank Fusion outperforms Condorcet and individual Rank Learning Methods</a>.</p>
+      </div>
+      <div class="next"><span>Next</span><h3>Chapter 23: Agentic RAG</h3></div>
+    </section>
+
+    <footer>
+      <p>Get the code at <a href="https://github.com/WhiteboxAcademy/BuildAnAgentFramework">github.com/WhiteboxAcademy/BuildAnAgentFramework</a>. Code is under the MIT License. Articles and videos are under CC BY 4.0.</p>
+    </footer>
+  </div>
+</main>

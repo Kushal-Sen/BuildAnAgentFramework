@@ -1,0 +1,5 @@
+$ python3 similar.py
+Can I get money back for buying work footwear?
+0.691  After your probation, you can claim a shoe allowance of £40 every 12 months.
+0.614  Retail beans can be refunded within 30 days if unopened, and with a receipt.
+0.476  We roast our own beans at the Old Mill roastery every Tuesday and Friday.

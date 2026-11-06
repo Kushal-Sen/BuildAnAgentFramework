@@ -1,0 +1,6 @@
+$ python3 no_answer.py
+0.662  loyalty-card.md        What percentage does Quillon match on pension contributions?
+0.659  social-media.md        Does Quillon offer dental insurance?
+0.696  branch-harbour.md      What is the customer wifi password at Harbour?
+0.720  branch-riverside.md    Are dogs allowed inside the Riverside branch?
+16 right first hits: 7 scored below 0.720, the highest above

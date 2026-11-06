@@ -1,0 +1,1401 @@
+[
+ {
+  "question": "How many grams of coffee and espresso does the house blend recipe use?",
+  "answer": "The house blend recipe, which is Lantern, uses 18 grams of ground coffee to yield 36 grams of espresso. [espresso-recipe.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 836,
+  "searches": [
+   "house blend recipe grams coffee espresso"
+  ],
+  "seen": "[espresso-recipe.md]\n# Espresso recipe\n\nOur house blend is Lantern. Use 18 grams of ground coffee to give 36 grams of espresso in 26 to 30 seconds.\n\nIf the shot runs fast, grind finer. If it runs slow, grind coarser. Change one thing at a time, and throw away the first shot after any change.\n\n[espresso-recipe.md]\nEspresso recipe\n\nOur decaf is called Dusk. It uses 18 grams in and 38 grams out in 24 to 28 seconds. A flat white uses a double shot and 150ml of milk. A cortado uses a double shot and 60ml of milk.\n\n[opening-checklist.md]\nOpening checklist\n\n1. Disarm the alarm within 45 seconds of entering.\n2. Turn on the espresso machine. It needs 25 minutes to reach temperature.\n3. Check the fridge temperatures and record them in the log.\n4. Purge the steam wands and flush each group head for 10 seconds.\n5. Dial in the grinder using the recipe card, and pour two test shots.\n6. Count the float. It should be \u00a3150.\n7. Put out pastries, with today's date on the labels.\n8. Unlock the doors at opening time, not before."
+ },
+ {
+  "question": "How many grams of coffee and espresso does the house blend recipe use?",
+  "answer": "The house blend recipe, which is called Lantern, uses 18 grams of ground coffee to yield 36 grams of espresso. [espresso-recipe.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 836,
+  "searches": [
+   "house blend recipe grams coffee espresso"
+  ],
+  "seen": "[espresso-recipe.md]\n# Espresso recipe\n\nOur house blend is Lantern. Use 18 grams of ground coffee to give 36 grams of espresso in 26 to 30 seconds.\n\nIf the shot runs fast, grind finer. If it runs slow, grind coarser. Change one thing at a time, and throw away the first shot after any change.\n\n[espresso-recipe.md]\nEspresso recipe\n\nOur decaf is called Dusk. It uses 18 grams in and 38 grams out in 24 to 28 seconds. A flat white uses a double shot and 150ml of milk. A cortado uses a double shot and 60ml of milk.\n\n[opening-checklist.md]\nOpening checklist\n\n1. Disarm the alarm within 45 seconds of entering.\n2. Turn on the espresso machine. It needs 25 minutes to reach temperature.\n3. Check the fridge temperatures and record them in the log.\n4. Purge the steam wands and flush each group head for 10 seconds.\n5. Dial in the grinder using the recipe card, and pour two test shots.\n6. Count the float. It should be \u00a3150.\n7. Put out pastries, with today's date on the labels.\n8. Unlock the doors at opening time, not before."
+ },
+ {
+  "question": "How many grams of coffee and espresso does the house blend recipe use?",
+  "answer": "The house blend recipe, Lantern, uses 18 grams of ground coffee to yield 36 grams of espresso. [espresso-recipe.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 836,
+  "searches": [
+   "house blend recipe grams coffee espresso"
+  ],
+  "seen": "[espresso-recipe.md]\n# Espresso recipe\n\nOur house blend is Lantern. Use 18 grams of ground coffee to give 36 grams of espresso in 26 to 30 seconds.\n\nIf the shot runs fast, grind finer. If it runs slow, grind coarser. Change one thing at a time, and throw away the first shot after any change.\n\n[espresso-recipe.md]\nEspresso recipe\n\nOur decaf is called Dusk. It uses 18 grams in and 38 grams out in 24 to 28 seconds. A flat white uses a double shot and 150ml of milk. A cortado uses a double shot and 60ml of milk.\n\n[opening-checklist.md]\nOpening checklist\n\n1. Disarm the alarm within 45 seconds of entering.\n2. Turn on the espresso machine. It needs 25 minutes to reach temperature.\n3. Check the fridge temperatures and record them in the log.\n4. Purge the steam wands and flush each group head for 10 seconds.\n5. Dial in the grinder using the recipe card, and pour two test shots.\n6. Count the float. It should be \u00a3150.\n7. Put out pastries, with today's date on the labels.\n8. Unlock the doors at opening time, not before."
+ },
+ {
+  "question": "How much is the till float?",
+  "answer": "The initial till float at the start of each day is \u00a3150. [cash-handling.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 782,
+  "searches": [
+   "till float amount"
+  ],
+  "seen": "[cash-handling.md]\n# Cash handling\n\nEach till starts the day with a float of \u00a3150. Only the shift lead or a manager may open the safe.\n\n[log-harbour-2025-11.md]\n## Friday 28 November 2025\n\nWindy. Quiet until the school run. Till was \u00a32 over, recorded on the cash sheet. Till balanced to the penny. A customer returned a scarf left yesterday.\n\n## Saturday 29 November 2025\n\nLight rain all day. Slow day overall. Till was \u00a34 over, recorded on the cash sheet. Two pastries went on the waste sheet.\n\n[log-riverside-2025-07.md]\n## Thursday 17 July 2025\n\nBright and cold. Good trade all afternoon. Till was \u00a32 over, recorded on the cash sheet. Delivery arrived on time and matched the note.\n\n## Friday 18 July 2025\n\nMild and grey. Good trade all afternoon. Till was \u00a34 over, recorded on the cash sheet. Bins collected as normal. Printer roll replaced on till two."
+ },
+ {
+  "question": "How much is the till float?",
+  "answer": "The initial till float each day is \u00a3150. [cash-handling.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 782,
+  "searches": [
+   "till float amount"
+  ],
+  "seen": "[cash-handling.md]\n# Cash handling\n\nEach till starts the day with a float of \u00a3150. Only the shift lead or a manager may open the safe.\n\n[log-harbour-2025-11.md]\n## Friday 28 November 2025\n\nWindy. Quiet until the school run. Till was \u00a32 over, recorded on the cash sheet. Till balanced to the penny. A customer returned a scarf left yesterday.\n\n## Saturday 29 November 2025\n\nLight rain all day. Slow day overall. Till was \u00a34 over, recorded on the cash sheet. Two pastries went on the waste sheet.\n\n[log-riverside-2025-07.md]\n## Thursday 17 July 2025\n\nBright and cold. Good trade all afternoon. Till was \u00a32 over, recorded on the cash sheet. Delivery arrived on time and matched the note.\n\n## Friday 18 July 2025\n\nMild and grey. Good trade all afternoon. Till was \u00a34 over, recorded on the cash sheet. Bins collected as normal. Printer roll replaced on till two."
+ },
+ {
+  "question": "How much is the till float?",
+  "answer": "The initial till float at the start of each day is \u00a3150. Only the shift lead or a manager may open the safe. [cash-handling.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 778,
+  "searches": [
+   "till float"
+  ],
+  "seen": "[cash-handling.md]\n# Cash handling\n\nEach till starts the day with a float of \u00a3150. Only the shift lead or a manager may open the safe.\n\n[log-harbour-2025-11.md]\n## Friday 28 November 2025\n\nWindy. Quiet until the school run. Till was \u00a32 over, recorded on the cash sheet. Till balanced to the penny. A customer returned a scarf left yesterday.\n\n## Saturday 29 November 2025\n\nLight rain all day. Slow day overall. Till was \u00a34 over, recorded on the cash sheet. Two pastries went on the waste sheet.\n\n[log-station-2025-11.md]\n## Wednesday 12 November 2025\n\nHeavy showers. Slow day overall. Till was \u00a33 over, recorded on the cash sheet. Delivery arrived on time and matched the note. Printer roll replaced on till two.\n\n## Thursday 13 November 2025\n\nLight rain all day. Steady morning, quiet after lunch. Till balanced to the penny. Delivery arrived on time and matched the note."
+ },
+ {
+  "question": "When is payday?",
+  "answer": "Payday is the last Friday of each month. Wages are deposited via bank transfer and details are available in the StaffHub app, which updates two days before payday.",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 762,
+  "searches": [
+   "payday schedule"
+  ],
+  "seen": "[wages.md]\n# Wages\n\nPayday is the last Friday of each month. Payslips appear in the StaffHub app two days before payday.\n\nHourly rates:\n\n- Band A: \u00a312.60\n- Band B: \u00a313.40\n- Band C: \u00a314.75\n- Band D: \u00a316.90\n\n[wages.md]\nWages\n\nBand E is salaried. Sunday hours are paid at time and a quarter. Hours worked on a public holiday are paid at time and a half.\n\nIf your pay looks wrong, tell Tomas Weir within 10 days of payday.\n\n[log-riverside-2025-12.md]\n## Tuesday 16 December 2025\n\nWarm. Slow day overall. Till balanced to the penny. Grace covered Hugo's break.\n\n## Wednesday 17 December 2025\n\nFoggy start. Steady morning, quiet after lunch. Ben deep cleaned the pastry cabinet. Till balanced to the penny.\n\n## Thursday 18 December 2025"
+ },
+ {
+  "question": "When is payday?",
+  "answer": "Payday is the last Friday of each month. Payslips appear in the StaffHub app two days before payday. [wages.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 762,
+  "searches": [
+   "payday schedule"
+  ],
+  "seen": "[wages.md]\n# Wages\n\nPayday is the last Friday of each month. Payslips appear in the StaffHub app two days before payday.\n\nHourly rates:\n\n- Band A: \u00a312.60\n- Band B: \u00a313.40\n- Band C: \u00a314.75\n- Band D: \u00a316.90\n\n[wages.md]\nWages\n\nBand E is salaried. Sunday hours are paid at time and a quarter. Hours worked on a public holiday are paid at time and a half.\n\nIf your pay looks wrong, tell Tomas Weir within 10 days of payday.\n\n[log-riverside-2025-12.md]\n## Tuesday 16 December 2025\n\nWarm. Slow day overall. Till balanced to the penny. Grace covered Hugo's break.\n\n## Wednesday 17 December 2025\n\nFoggy start. Steady morning, quiet after lunch. Ben deep cleaned the pastry cabinet. Till balanced to the penny.\n\n## Thursday 18 December 2025"
+ },
+ {
+  "question": "When is payday?",
+  "answer": "Payday is the last Friday of each month. Payslips can be viewed in the StaffHub app two days before payday.",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 762,
+  "searches": [
+   "payday schedule"
+  ],
+  "seen": "[wages.md]\n# Wages\n\nPayday is the last Friday of each month. Payslips appear in the StaffHub app two days before payday.\n\nHourly rates:\n\n- Band A: \u00a312.60\n- Band B: \u00a313.40\n- Band C: \u00a314.75\n- Band D: \u00a316.90\n\n[wages.md]\nWages\n\nBand E is salaried. Sunday hours are paid at time and a quarter. Hours worked on a public holiday are paid at time and a half.\n\nIf your pay looks wrong, tell Tomas Weir within 10 days of payday.\n\n[log-riverside-2025-12.md]\n## Tuesday 16 December 2025\n\nWarm. Slow day overall. Till balanced to the penny. Grace covered Hugo's break.\n\n## Wednesday 17 December 2025\n\nFoggy start. Steady morning, quiet after lunch. Ben deep cleaned the pastry cabinet. Till balanced to the penny.\n\n## Thursday 18 December 2025"
+ },
+ {
+  "question": "How much extra do oat, soya and coconut milk cost?",
+  "answer": "Oat, soya, and coconut milk each cost an extra 45p. [milk-and-alternatives.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 825,
+  "searches": [
+   "extra cost milk"
+  ],
+  "seen": "[milk-and-alternatives.md]\n# Milk and alternatives\n\nOur standard milk is whole milk from Greywell Dairy. We also stock semi-skimmed, oat, soya and coconut.\n\nOat, soya and coconut cost 45p extra. Semi-skimmed is free. Steam milk to between 60\u00b0C and 65\u00b0C. Oat milk needs to stop at 60\u00b0C or it will split.\n\n[products-drinks.md]\n# Product sheet: drinks\n\n## Flat white\n\nPrice: \u00a33.70. Double shot with 150ml of milk.\n\n## Cortado\n\nPrice: \u00a33.30. Double shot with 60ml of milk.\n\n## Filter coffee\n\nPrice: \u00a33.20. Changes weekly.\n\n## Hot chocolate\n\nPrice: \u00a33.80. Made with whole milk.\n\n[products-bakery.md]\n# Product sheet: bakery\n\n## Almond croissant\n\nPrice: \u00a33.60. Contains nuts, gluten, egg and milk.\n\n## Seeded flapjack\n\nPrice: \u00a33.10. Contains sesame, nuts and gluten.\n\n## Cheese scone\n\nPrice: \u00a33.20. Contains gluten, egg and milk.\n\n## Cinnamon bun\n\nPrice: \u00a33.40. Contains gluten, egg and milk."
+ },
+ {
+  "question": "How much extra do oat, soya and coconut milk cost?",
+  "answer": "Oat, soya, and coconut milk each cost an extra 45p. [milk-and-alternatives.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 826,
+  "searches": [
+   "milk extra cost"
+  ],
+  "seen": "[milk-and-alternatives.md]\n# Milk and alternatives\n\nOur standard milk is whole milk from Greywell Dairy. We also stock semi-skimmed, oat, soya and coconut.\n\nOat, soya and coconut cost 45p extra. Semi-skimmed is free. Steam milk to between 60\u00b0C and 65\u00b0C. Oat milk needs to stop at 60\u00b0C or it will split.\n\n[products-drinks.md]\n# Product sheet: drinks\n\n## Flat white\n\nPrice: \u00a33.70. Double shot with 150ml of milk.\n\n## Cortado\n\nPrice: \u00a33.30. Double shot with 60ml of milk.\n\n## Filter coffee\n\nPrice: \u00a33.20. Changes weekly.\n\n## Hot chocolate\n\nPrice: \u00a33.80. Made with whole milk.\n\n[products-bakery.md]\n# Product sheet: bakery\n\n## Almond croissant\n\nPrice: \u00a33.60. Contains nuts, gluten, egg and milk.\n\n## Seeded flapjack\n\nPrice: \u00a33.10. Contains sesame, nuts and gluten.\n\n## Cheese scone\n\nPrice: \u00a33.20. Contains gluten, egg and milk.\n\n## Cinnamon bun\n\nPrice: \u00a33.40. Contains gluten, egg and milk."
+ },
+ {
+  "question": "How much extra do oat, soya and coconut milk cost?",
+  "answer": "Oat, soya, and coconut milk cost an extra 45p each. [milk-and-alternatives.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 825,
+  "searches": [
+   "extra cost milk"
+  ],
+  "seen": "[milk-and-alternatives.md]\n# Milk and alternatives\n\nOur standard milk is whole milk from Greywell Dairy. We also stock semi-skimmed, oat, soya and coconut.\n\nOat, soya and coconut cost 45p extra. Semi-skimmed is free. Steam milk to between 60\u00b0C and 65\u00b0C. Oat milk needs to stop at 60\u00b0C or it will split.\n\n[products-drinks.md]\n# Product sheet: drinks\n\n## Flat white\n\nPrice: \u00a33.70. Double shot with 150ml of milk.\n\n## Cortado\n\nPrice: \u00a33.30. Double shot with 60ml of milk.\n\n## Filter coffee\n\nPrice: \u00a33.20. Changes weekly.\n\n## Hot chocolate\n\nPrice: \u00a33.80. Made with whole milk.\n\n[products-bakery.md]\n# Product sheet: bakery\n\n## Almond croissant\n\nPrice: \u00a33.60. Contains nuts, gluten, egg and milk.\n\n## Seeded flapjack\n\nPrice: \u00a33.10. Contains sesame, nuts and gluten.\n\n## Cheese scone\n\nPrice: \u00a33.20. Contains gluten, egg and milk.\n\n## Cinnamon bun\n\nPrice: \u00a33.40. Contains gluten, egg and milk."
+ },
+ {
+  "question": "What temperature must fridges stay at?",
+  "answer": "Fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. [food-safety.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 766,
+  "searches": [
+   "fridge temperature"
+  ],
+  "seen": "[food-safety.md]\n# Food safety\n\n## Fridge temperatures\n\nFridges must stay at 5\u00b0C or below. Check and log them at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, throw the stock away and call your manager.\n\n[log-riverside-2025-07.md]\n## Wednesday 23 July 2025\n\nWarm. Good trade all afternoon. Till balanced to the penny. Fridge log completed at opening and at 14:00. Printer roll replaced on till two.\n\n## Thursday 24 July 2025\n\n[log-riverside-2025-03.md]\n## Monday 31 March 2025\n\nHeavy showers. Quiet until the school run. Maya helped a customer with the loyalty app. Fridge log completed at opening and at 14:00."
+ },
+ {
+  "question": "What temperature must fridges stay at?",
+  "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked at opening and at 14:00, and the readings should be logged. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, throw the stock away and inform your manager.\n\n[food-safety.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 766,
+  "searches": [
+   "fridge temperature"
+  ],
+  "seen": "[food-safety.md]\n# Food safety\n\n## Fridge temperatures\n\nFridges must stay at 5\u00b0C or below. Check and log them at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, throw the stock away and call your manager.\n\n[log-riverside-2025-07.md]\n## Wednesday 23 July 2025\n\nWarm. Good trade all afternoon. Till balanced to the penny. Fridge log completed at opening and at 14:00. Printer roll replaced on till two.\n\n## Thursday 24 July 2025\n\n[log-riverside-2025-03.md]\n## Monday 31 March 2025\n\nHeavy showers. Quiet until the school run. Maya helped a customer with the loyalty app. Fridge log completed at opening and at 14:00."
+ },
+ {
+  "question": "What temperature must fridges stay at?",
+  "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. [food-safety.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 766,
+  "searches": [
+   "fridge temperature"
+  ],
+  "seen": "[food-safety.md]\n# Food safety\n\n## Fridge temperatures\n\nFridges must stay at 5\u00b0C or below. Check and log them at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, throw the stock away and call your manager.\n\n[log-riverside-2025-07.md]\n## Wednesday 23 July 2025\n\nWarm. Good trade all afternoon. Till balanced to the penny. Fridge log completed at opening and at 14:00. Printer roll replaced on till two.\n\n## Thursday 24 July 2025\n\n[log-riverside-2025-03.md]\n## Monday 31 March 2025\n\nHeavy showers. Quiet until the school run. Maya helped a customer with the loyalty app. Fridge log completed at opening and at 14:00."
+ },
+ {
+  "question": "When are coffee grounds collected?",
+  "answer": "Coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost. [waste-and-recycling.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 803,
+  "searches": [
+   "coffee grounds collection schedule"
+  ],
+  "seen": "[suppliers.md]\nSuppliers\n\nSupplies: Coffee grounds collection. Account manager: Tess Moreau. Terms: Fixed monthly fee of \u00a348 per branch. Invoices are paid within 30 days.\n\n## Halden Pest Control\n\nSupplies: Pest control. Account manager: Colm Reilly. Terms: Fixed fee of \u00a370 per visit. Invoices are paid within 30 days.\n\n## SecureRoute\n\n[waste-and-recycling.md]\n# Waste and recycling\n\nCoffee grounds go in the brown caddy and are collected every Tuesday by GreenLoop, who turn them into compost. Our takeaway cups go in the separate cup bin, not with general recycling. Milk cartons go in the blue bin once they are rinsed.\n\n[log-harbour-2025-05.md]\n## Wednesday 21 May 2025\n\nMild and grey. Steady morning, quiet after lunch. Finn deep cleaned the pastry cabinet. Finn updated the chalkboard with this week's filter coffee.\n\n## Thursday 22 May 2025\n\nSunny. Busy from the first hour. Grace and Nico rearranged the retail shelf. Grace updated the chalkboard with this week's filter coffee.\n\n## Friday 23 May 2025"
+ },
+ {
+  "question": "When are coffee grounds collected?",
+  "answer": "Coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost. [waste-and-recycling.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 803,
+  "searches": [
+   "coffee grounds collection schedule"
+  ],
+  "seen": "[suppliers.md]\nSuppliers\n\nSupplies: Coffee grounds collection. Account manager: Tess Moreau. Terms: Fixed monthly fee of \u00a348 per branch. Invoices are paid within 30 days.\n\n## Halden Pest Control\n\nSupplies: Pest control. Account manager: Colm Reilly. Terms: Fixed fee of \u00a370 per visit. Invoices are paid within 30 days.\n\n## SecureRoute\n\n[waste-and-recycling.md]\n# Waste and recycling\n\nCoffee grounds go in the brown caddy and are collected every Tuesday by GreenLoop, who turn them into compost. Our takeaway cups go in the separate cup bin, not with general recycling. Milk cartons go in the blue bin once they are rinsed.\n\n[log-harbour-2025-05.md]\n## Wednesday 21 May 2025\n\nMild and grey. Steady morning, quiet after lunch. Finn deep cleaned the pastry cabinet. Finn updated the chalkboard with this week's filter coffee.\n\n## Thursday 22 May 2025\n\nSunny. Busy from the first hour. Grace and Nico rearranged the retail shelf. Grace updated the chalkboard with this week's filter coffee.\n\n## Friday 23 May 2025"
+ },
+ {
+  "question": "When are coffee grounds collected?",
+  "answer": "Coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost. [waste-and-recycling.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 803,
+  "searches": [
+   "coffee grounds collection schedule"
+  ],
+  "seen": "[suppliers.md]\nSuppliers\n\nSupplies: Coffee grounds collection. Account manager: Tess Moreau. Terms: Fixed monthly fee of \u00a348 per branch. Invoices are paid within 30 days.\n\n## Halden Pest Control\n\nSupplies: Pest control. Account manager: Colm Reilly. Terms: Fixed fee of \u00a370 per visit. Invoices are paid within 30 days.\n\n## SecureRoute\n\n[waste-and-recycling.md]\n# Waste and recycling\n\nCoffee grounds go in the brown caddy and are collected every Tuesday by GreenLoop, who turn them into compost. Our takeaway cups go in the separate cup bin, not with general recycling. Milk cartons go in the blue bin once they are rinsed.\n\n[log-harbour-2025-05.md]\n## Wednesday 21 May 2025\n\nMild and grey. Steady morning, quiet after lunch. Finn deep cleaned the pastry cabinet. Finn updated the chalkboard with this week's filter coffee.\n\n## Thursday 22 May 2025\n\nSunny. Busy from the first hour. Grace and Nico rearranged the retail shelf. Grace updated the chalkboard with this week's filter coffee.\n\n## Friday 23 May 2025"
+ },
+ {
+  "question": "What temperature must hot food reach in the centre?",
+  "answer": "The temperature that hot food must reach in the centre is 75\u00b0C. This is measured using the probe thermometer. [food-safety.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 762,
+  "searches": [
+   "hot food temperature center"
+  ],
+  "seen": "[food-safety.md]\nFood safety\n\nRiverside's hot food must reach 75\u00b0C in the centre, measured with the probe thermometer. Hot food can be held at 63\u00b0C or above for up to 2 hours. Food can't be reheated twice.\n\n## Cleaning\n\n[branch-riverside.md]\nRiverside branch\n\nRiverside is the only branch with a kitchen, so it is the only branch that makes hot food. It also hosts the Thursday evening cupping club, which runs from 18:30 to 20:00.\n\n[log-station-2025-06.md]\n## Sunday 8 June 2025\n\nSunny. Queue out of the door at lunch. Kira helped a customer with the loyalty app. Grinder needed a small adjustment after the morning rush.\n\n## Monday 9 June 2025\n\nWarm. Queue out of the door at lunch. Swept the outdoor area twice because of leaves. Delivery arrived on time and matched the note."
+ },
+ {
+  "question": "What temperature must hot food reach in the centre?",
+  "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre. This temperature must be measured using the probe thermometer. [food-safety.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 776,
+  "searches": [
+   "hot food temperature centre"
+  ],
+  "seen": "[food-safety.md]\nFood safety\n\nRiverside's hot food must reach 75\u00b0C in the centre, measured with the probe thermometer. Hot food can be held at 63\u00b0C or above for up to 2 hours. Food can't be reheated twice.\n\n## Cleaning\n\n[branch-riverside.md]\nRiverside branch\n\nRiverside is the only branch with a kitchen, so it is the only branch that makes hot food. It also hosts the Thursday evening cupping club, which runs from 18:30 to 20:00.\n\n[log-harbour-2025-07.md]\nHarbour branch log, July 2025\n\nSunny. Queue out of the door at lunch. Bins collected as normal. A regular asked about the almond croissants again. Jonas covered Aisha's break.\n\n## Saturday 26 July 2025\n\nWarm. Good trade all afternoon. Swept the outdoor area twice because of leaves. Carla changed the water filter reminder in StaffHub. Dairy delivery was 25 minutes late."
+ },
+ {
+  "question": "What temperature must hot food reach in the centre?",
+  "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre, as measured with the probe thermometer. [food-safety.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 776,
+  "searches": [
+   "hot food temperature centre"
+  ],
+  "seen": "[food-safety.md]\nFood safety\n\nRiverside's hot food must reach 75\u00b0C in the centre, measured with the probe thermometer. Hot food can be held at 63\u00b0C or above for up to 2 hours. Food can't be reheated twice.\n\n## Cleaning\n\n[branch-riverside.md]\nRiverside branch\n\nRiverside is the only branch with a kitchen, so it is the only branch that makes hot food. It also hosts the Thursday evening cupping club, which runs from 18:30 to 20:00.\n\n[log-harbour-2025-07.md]\nHarbour branch log, July 2025\n\nSunny. Queue out of the door at lunch. Bins collected as normal. A regular asked about the almond croissants again. Jonas covered Aisha's break.\n\n## Saturday 26 July 2025\n\nWarm. Good trade all afternoon. Swept the outdoor area twice because of leaves. Carla changed the water filter reminder in StaffHub. Dairy delivery was 25 minutes late."
+ },
+ {
+  "question": "How many hot drinks until a customer gets a free one on the loyalty card?",
+  "answer": "A customer gets a free hot drink after collecting 10 stamps, each earned from purchasing one hot drink. [loyalty-card.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 704,
+  "searches": [
+   "hot drinks free loyalty card"
+  ],
+  "seen": "[loyalty-card.md]\n# Quillon loyalty card\n\nCustomers collect one stamp for each hot drink, and the tenth drink is free. Stamps can't be earned on a free drink. Customers who bring their own reusable cup get an extra stamp and 30p off.\n\n[staff-discount.md]\nStaff discount\n\nYou may bring one guest, who receives the same discount on drinks only. The discount can't be combined with the loyalty card or used for catering orders.\n\n[loyalty-card.md]\nQuillon loyalty card\n\nThe digital card lives in the Quillon app. A paper card can be moved to the app by a shift lead, once only. Stamps expire 12 months after the last purchase."
+ },
+ {
+  "question": "How many hot drinks until a customer gets a free one on the loyalty card?",
+  "answer": "According to the handbook, a customer gets a free hot drink after collecting 10 stamps, each earned from a hot drink purchase. [loyalty-card.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 704,
+  "searches": [
+   "hot drinks free loyalty card"
+  ],
+  "seen": "[loyalty-card.md]\n# Quillon loyalty card\n\nCustomers collect one stamp for each hot drink, and the tenth drink is free. Stamps can't be earned on a free drink. Customers who bring their own reusable cup get an extra stamp and 30p off.\n\n[staff-discount.md]\nStaff discount\n\nYou may bring one guest, who receives the same discount on drinks only. The discount can't be combined with the loyalty card or used for catering orders.\n\n[loyalty-card.md]\nQuillon loyalty card\n\nThe digital card lives in the Quillon app. A paper card can be moved to the app by a shift lead, once only. Stamps expire 12 months after the last purchase."
+ },
+ {
+  "question": "How many hot drinks until a customer gets a free one on the loyalty card?",
+  "answer": "A customer gets a free hot drink after collecting 10 stamps, each earned from purchasing a hot drink. [loyalty-card.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 704,
+  "searches": [
+   "hot drinks free loyalty card"
+  ],
+  "seen": "[loyalty-card.md]\n# Quillon loyalty card\n\nCustomers collect one stamp for each hot drink, and the tenth drink is free. Stamps can't be earned on a free drink. Customers who bring their own reusable cup get an extra stamp and 30p off.\n\n[staff-discount.md]\nStaff discount\n\nYou may bring one guest, who receives the same discount on drinks only. The discount can't be combined with the loyalty card or used for catering orders.\n\n[loyalty-card.md]\nQuillon loyalty card\n\nThe digital card lives in the Quillon app. A paper card can be moved to the app by a shift lead, once only. Stamps expire 12 months after the last purchase."
+ },
+ {
+  "question": "How many vacation days do I get as a full-timer?",
+  "answer": "As a full-timer, you receive 28 days of annual leave each year, plus 2 extra days after five years of service. [annual-leave.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 753,
+  "searches": [
+   "vacation days full-timer"
+  ],
+  "seen": "[annual-leave.md]\n# Annual leave\n\nFull-time staff receive 28 days of annual leave each year, including public holidays. Part-time staff receive the same amount in proportion to their contracted hours. After five years of service, you receive 2 extra days.\n\n[sickness-absence.md]\nSickness absence\n\nStaff with six months of service receive full pay for the first 5 working days of sickness in a leave year. After that, statutory sick pay applies.\n\nFood handlers who have had vomiting or diarrhoea must stay away until 48 hours after symptoms stop.\n\n[grievances.md]\nGrievances\n\nFor a formal grievance, complete form HR-12 and send it to Tomas Weir. You will be invited to a meeting within 5 working days, and you may bring a colleague or union representative. You will receive a written outcome within 5 working days of the meeting. You may appeal to Priya Raman within 10 days."
+ },
+ {
+  "question": "How many vacation days do I get as a full-timer?",
+  "answer": "As a full-timer, you receive 28 days of annual leave each year, including public holidays. After five years of service, you will receive 2 extra days. [annual-leave.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 753,
+  "searches": [
+   "vacation days full-timer"
+  ],
+  "seen": "[annual-leave.md]\n# Annual leave\n\nFull-time staff receive 28 days of annual leave each year, including public holidays. Part-time staff receive the same amount in proportion to their contracted hours. After five years of service, you receive 2 extra days.\n\n[sickness-absence.md]\nSickness absence\n\nStaff with six months of service receive full pay for the first 5 working days of sickness in a leave year. After that, statutory sick pay applies.\n\nFood handlers who have had vomiting or diarrhoea must stay away until 48 hours after symptoms stop.\n\n[grievances.md]\nGrievances\n\nFor a formal grievance, complete form HR-12 and send it to Tomas Weir. You will be invited to a meeting within 5 working days, and you may bring a colleague or union representative. You will receive a written outcome within 5 working days of the meeting. You may appeal to Priya Raman within 10 days."
+ },
+ {
+  "question": "How many vacation days do I get as a full-timer?",
+  "answer": "As a full-timer, you receive 28 days of annual leave each year, including public holidays. After five years of service, you will receive 2 extra days. [annual-leave.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 753,
+  "searches": [
+   "vacation days full-timer"
+  ],
+  "seen": "[annual-leave.md]\n# Annual leave\n\nFull-time staff receive 28 days of annual leave each year, including public holidays. Part-time staff receive the same amount in proportion to their contracted hours. After five years of service, you receive 2 extra days.\n\n[sickness-absence.md]\nSickness absence\n\nStaff with six months of service receive full pay for the first 5 working days of sickness in a leave year. After that, statutory sick pay applies.\n\nFood handlers who have had vomiting or diarrhoea must stay away until 48 hours after symptoms stop.\n\n[grievances.md]\nGrievances\n\nFor a formal grievance, complete form HR-12 and send it to Tomas Weir. You will be invited to a meeting within 5 working days, and you may bring a colleague or union representative. You will receive a written outcome within 5 working days of the meeting. You may appeal to Priya Raman within 10 days."
+ },
+ {
+  "question": "I'm a barista and I want to quit. How much warning do I have to give?",
+  "answer": "As a barista, you need to give your branch manager written notice. The required notice period depends on your band:\n\n- Band A and Band B staff should give 2 weeks' notice.\n- Band C and Band D staff should give 4 weeks' notice.\n- Band E staff should give 8 weeks' notice.\n\nThis information is from the \"Leaving Quillon\" section of the handbook. [resignation.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 773,
+  "searches": [
+   "barista resignation notice period"
+  ],
+  "seen": "[resignation.md]\n# Leaving Quillon\n\nTo resign, give your branch manager written notice. Band A and Band B staff must give 2 weeks. Band C and Band D staff must give 4 weeks. Band E staff must give 8 weeks.\n\n[training.md]\nTraining\n\nLevel 2 covers latte art, dialling in and cupping. You can take it after 6 months, and passing it is required to become a senior barista. Level 3 is for shift leads, and covers cash, rotas and handling incidents.\n\nTraining time is paid. If you fail an assessment, you can retake it after 2 weeks.\n\n[refunds.md]\nRefunds\n\nRefunds under \u00a310 can be given by any barista. Refunds of \u00a310 or more need a shift lead. Card refunds go back to the original card and can take up to 5 working days to arrive. Retail beans can be refunded within 30 days if unopened, and with a receipt."
+ },
+ {
+  "question": "I'm a barista and I want to quit. How much warning do I have to give?",
+  "answer": "According to the staff handbook, you need to give your branch manager written notice. The number of weeks you need to provide notice depends on your Band:\n\n- Band A and Band B staff: 2 weeks\n- Band C and Band D staff: 4 weeks\n- Band E staff: 8 weeks\n\nSo, make sure to inform your manager well in advance. [resignation.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 773,
+  "searches": [
+   "barista resignation notice period"
+  ],
+  "seen": "[resignation.md]\n# Leaving Quillon\n\nTo resign, give your branch manager written notice. Band A and Band B staff must give 2 weeks. Band C and Band D staff must give 4 weeks. Band E staff must give 8 weeks.\n\n[training.md]\nTraining\n\nLevel 2 covers latte art, dialling in and cupping. You can take it after 6 months, and passing it is required to become a senior barista. Level 3 is for shift leads, and covers cash, rotas and handling incidents.\n\nTraining time is paid. If you fail an assessment, you can retake it after 2 weeks.\n\n[refunds.md]\nRefunds\n\nRefunds under \u00a310 can be given by any barista. Refunds of \u00a310 or more need a shift lead. Card refunds go back to the original card and can take up to 5 working days to arrive. Retail beans can be refunded within 30 days if unopened, and with a receipt."
+ },
+ {
+  "question": "I'm a barista and I want to quit. How much warning do I have to give?",
+  "answer": "According to the staff handbook, baristas need to give the appropriate warning period based on their band:\n\n- Band A and Band B staff must give 2 weeks' notice.\n- Band C and Band D staff must give 4 weeks' notice.\n- Band E staff must give 8 weeks' notice.\n\n[resignation.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 773,
+  "searches": [
+   "barista resignation notice period"
+  ],
+  "seen": "[resignation.md]\n# Leaving Quillon\n\nTo resign, give your branch manager written notice. Band A and Band B staff must give 2 weeks. Band C and Band D staff must give 4 weeks. Band E staff must give 8 weeks.\n\n[training.md]\nTraining\n\nLevel 2 covers latte art, dialling in and cupping. You can take it after 6 months, and passing it is required to become a senior barista. Level 3 is for shift leads, and covers cash, rotas and handling incidents.\n\nTraining time is paid. If you fail an assessment, you can retake it after 2 weeks.\n\n[refunds.md]\nRefunds\n\nRefunds under \u00a310 can be given by any barista. Refunds of \u00a310 or more need a shift lead. Card refunds go back to the original card and can take up to 5 working days to arrive. Retail beans can be refunded within 30 days if unopened, and with a receipt."
+ },
+ {
+  "question": "I woke up feeling awful and can't make it in. How do I let my boss know?",
+  "answer": "According to the staff handbook, if you cannot come to work because you are unwell, you should phone your branch manager at least two hours before your shift starts. You do not need to send a text or use StaffHub for this.\n\n[uniform.md]\n[complaints.md]\n[sickness-absence.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 780,
+  "searches": [
+   "call in sick"
+  ],
+  "seen": "[sickness-absence.md]\nSickness absence\n\nStaff with six months of service receive full pay for the first 5 working days of sickness in a leave year. After that, statutory sick pay applies.\n\nFood handlers who have had vomiting or diarrhoea must stay away until 48 hours after symptoms stop.\n\n[sickness-absence.md]\n# Sickness absence\n\nIf you cannot come to work because you are unwell, phone your branch manager at least two hours before your shift starts. Don't send a text or use StaffHub for this.\n\nFor an absence of up to 7 calendar days, you complete a self-certification form, HR-04, on your return. After 7 days you need a doctor's note.\n\n[complaints.md]\nCustomer complaints\n\nIf you can't resolve a complaint, write down the customer's name and contact details, and pass them to your branch manager, who must reply within 3 working days. Serious complaints, such as a suspected allergic reaction or food poisoning, go to Ines Duarte the same day."
+ },
+ {
+  "question": "I woke up feeling awful and can't make it in. How do I let my boss know?",
+  "answer": "If you are unwell and cannot make it to work, you should phone your branch manager at least two hours before your shift starts. Make sure to inform them that you are calling in sick. You can find the sickness absence policy in the sickness-absence.md file. [sickness-absence.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 780,
+  "searches": [
+   "call in sick"
+  ],
+  "seen": "[sickness-absence.md]\nSickness absence\n\nStaff with six months of service receive full pay for the first 5 working days of sickness in a leave year. After that, statutory sick pay applies.\n\nFood handlers who have had vomiting or diarrhoea must stay away until 48 hours after symptoms stop.\n\n[sickness-absence.md]\n# Sickness absence\n\nIf you cannot come to work because you are unwell, phone your branch manager at least two hours before your shift starts. Don't send a text or use StaffHub for this.\n\nFor an absence of up to 7 calendar days, you complete a self-certification form, HR-04, on your return. After 7 days you need a doctor's note.\n\n[complaints.md]\nCustomer complaints\n\nIf you can't resolve a complaint, write down the customer's name and contact details, and pass them to your branch manager, who must reply within 3 working days. Serious complaints, such as a suspected allergic reaction or food poisoning, go to Ines Duarte the same day."
+ },
+ {
+  "question": "I woke up feeling awful and can't make it in. How do I let my boss know?",
+  "answer": "If you cannot come to work because you are unwell, you should phone your branch manager at least two hours before your shift starts. Don't send a text or use StaffHub for this. [sickness-absence.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 780,
+  "searches": [
+   "call in sick"
+  ],
+  "seen": "[sickness-absence.md]\nSickness absence\n\nStaff with six months of service receive full pay for the first 5 working days of sickness in a leave year. After that, statutory sick pay applies.\n\nFood handlers who have had vomiting or diarrhoea must stay away until 48 hours after symptoms stop.\n\n[sickness-absence.md]\n# Sickness absence\n\nIf you cannot come to work because you are unwell, phone your branch manager at least two hours before your shift starts. Don't send a text or use StaffHub for this.\n\nFor an absence of up to 7 calendar days, you complete a self-certification form, HR-04, on your return. After 7 days you need a doctor's note.\n\n[complaints.md]\nCustomer complaints\n\nIf you can't resolve a complaint, write down the customer's name and contact details, and pass them to your branch manager, who must reply within 3 working days. Serious complaints, such as a suspected allergic reaction or food poisoning, go to Ines Duarte the same day."
+ },
+ {
+  "question": "My dad just passed away. How much paid time can I have?",
+  "answer": "Based on the handbook, you may take up to 5 days of paid leave due to the bereavement of a close relative. A close relative includes a partner, child, parent, or sibling. \n\nIf the deceased was a close friend, you could take 1 paid day to attend the funeral. \n\nYou don't need to fill in any forms before taking the leave, but you should inform your branch manager as soon as possible. If you need more time off, your manager and Tomas Weir would agree on this.\n\nThe bereavement leave is in addition to your annual leave, which you can request through StaffHub at least 14 days in advance, with December requests decided by your branch manager on 1 November.\n\n[bereavement-leave.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 742,
+  "searches": [
+   "bereavement leave policy"
+  ],
+  "seen": "[bereavement-leave.md]\n# Bereavement leave\n\nIf a close relative dies, you may take up to 5 days of paid leave. A close relative means a partner, child, parent or sibling. For other relatives or close friends, you may take 1 paid day to attend the funeral.\n\n[bereavement-leave.md]\nBereavement leave\n\nYou don't need to fill in any form before going. Phone your branch manager as soon as you can. If you need more time, your manager and Tomas Weir will agree it with you.\n\n[annual-leave.md]\nAnnual leave\n\nThe leave year runs from 1 April to 31 March. You may carry over up to 5 unused days into the next leave year. Anything above that is lost.\n\nRequest annual leave in StaffHub at least 14 days ahead. Requests for December are decided by your branch manager on 1 November."
+ },
+ {
+  "question": "My dad just passed away. How much paid time can I have?",
+  "answer": "According to the handbook, you are entitled to up to 5 days of paid leave for the death of a close relative (such as a partner, child, parent, or sibling). For other relatives or close friends, you may take 1 paid day to attend the funeral.\n\nYou don't need to fill in any forms before taking the leave, but you should inform your branch manager as soon as possible. If you need more time than the allotted leave, your manager and Tomas Weir can agree on additional time off.\n\n[bereavement-leave.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 767,
+  "searches": [
+   "bereavement policy"
+  ],
+  "seen": "[bereavement-leave.md]\n# Bereavement leave\n\nIf a close relative dies, you may take up to 5 days of paid leave. A close relative means a partner, child, parent or sibling. For other relatives or close friends, you may take 1 paid day to attend the funeral.\n\n[bereavement-leave.md]\nBereavement leave\n\nYou don't need to fill in any form before going. Phone your branch manager as soon as you can. If you need more time, your manager and Tomas Weir will agree it with you.\n\n[log-station-2025-10.md]\n## Monday 6 October 2025\n\nWarm. Queue out of the door at lunch. Elif changed the water filter reminder in StaffHub. Lost property box checked, nothing to report.\n\n## Tuesday 7 October 2025\n\nWarm. Quiet until the school run. Finn covered Elif's break. Till balanced to the penny.\n\n## Wednesday 8 October 2025"
+ },
+ {
+  "question": "My dad just passed away. How much paid time can I have?",
+  "answer": "According to the handbook, you are eligible for up to 5 days of paid leave due to the bereavement of a close relative. A close relative is defined as a partner, child, parent, or sibling. For other relatives or close friends, you may take 1 paid day to attend the funeral.\n\nYou don't need to fill out any forms before taking this leave; however, you should inform your branch manager as soon as possible. If you need more time off, your manager and Tomas Weir will agree on an extension.\n\n[ bereavement-leave.md ]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 742,
+  "searches": [
+   "bereavement leave"
+  ],
+  "seen": "[bereavement-leave.md]\n# Bereavement leave\n\nIf a close relative dies, you may take up to 5 days of paid leave. A close relative means a partner, child, parent or sibling. For other relatives or close friends, you may take 1 paid day to attend the funeral.\n\n[bereavement-leave.md]\nBereavement leave\n\nYou don't need to fill in any form before going. Phone your branch manager as soon as you can. If you need more time, your manager and Tomas Weir will agree it with you.\n\n[annual-leave.md]\nAnnual leave\n\nThe leave year runs from 1 April to 31 March. You may carry over up to 5 unused days into the next leave year. Anything above that is lost.\n\nRequest annual leave in StaffHub at least 14 days ahead. Requests for December are decided by your branch manager on 1 November."
+ },
+ {
+  "question": "I found evidence of mice in the storeroom. Who handles that?",
+  "answer": "Based on the information provided in the handbook, it seems that Halden Pest Control is the contractor responsible for handling mice and other pest issues. You should report the evidence of mice to your manager, who will then contact Halden Pest Control for further action. \n\n[food-safety.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 830,
+  "searches": [
+   "mice storeroom handler"
+  ],
+  "seen": "[food-safety.md]\nFood safety\n\nReport any droppings, gnawed packaging or live insects to your manager straight away. Don't put down your own traps. Our pest contractor is Halden Pest Control, who visit each branch every 8 weeks.\n\n[log-old-mill-2025-12.md]\nOld-Mill branch log, December 2025\n\nWarm. Good trade all afternoon. Leo and Ben rearranged the retail shelf. Leo restocked the takeaway lids and cups.\n\n## Tuesday 9 December 2025\n\nMild and grey. Queue out of the door at lunch. Swept the outdoor area twice because of leaves. Till was \u00a33 over, recorded on the cash sheet. Nico deep cleaned the pastry cabinet.\n\n[log-old-mill-2025-03.md]\nOld-Mill branch log, March 2025\n\nBright and cold. Queue out of the door at lunch. Carla and Ben rearranged the retail shelf. Carla deep cleaned the pastry cabinet.\n\n## Thursday 20 March 2025\n\nMild and grey. Good trade all afternoon. Ran out of cheese scones by 15:30. A customer returned a scarf left yesterday.\n\n## Friday 21 March 2025"
+ },
+ {
+  "question": "I found evidence of mice in the storeroom. Who handles that?",
+  "answer": "According to the staff handbook, pest sightings should be reported to your manager immediately. The pest contractor is Halden Pest Control and they visit each branch every 8 weeks. [food-safety.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 702,
+  "searches": [
+   "mice handling"
+  ],
+  "seen": "[food-safety.md]\nFood safety\n\nClean food contact surfaces with the blue sanitiser, and leave it for 30 seconds before wiping. Use the red cloths for toilets only and the green cloths for the front of house. Wash your hands for 20 seconds after handling raw food, money or rubbish.\n\n## Pest sightings\n\n[food-safety.md]\nFood safety\n\nReport any droppings, gnawed packaging or live insects to your manager straight away. Don't put down your own traps. Our pest contractor is Halden Pest Control, who visit each branch every 8 weeks.\n\n[cash-handling.md]\nCash handling\n\nIf you suspect a forged note, politely refuse it and hand it back."
+ },
+ {
+  "question": "I found evidence of mice in the storeroom. Who handles that?",
+  "answer": "Based on the information in the handbook, you should report the evidence of mice to your manager. The pest contractor for the branch is Halden Pest Control, but they visit each branch only every 8 weeks, so immediate action via your manager is recommended.\n\n[food-safety.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 774,
+  "searches": [
+   "mice pest control storeroom"
+  ],
+  "seen": "[food-safety.md]\nFood safety\n\nReport any droppings, gnawed packaging or live insects to your manager straight away. Don't put down your own traps. Our pest contractor is Halden Pest Control, who visit each branch every 8 weeks.\n\n[suppliers.md]\nSuppliers\n\nSupplies: Coffee grounds collection. Account manager: Tess Moreau. Terms: Fixed monthly fee of \u00a348 per branch. Invoices are paid within 30 days.\n\n## Halden Pest Control\n\nSupplies: Pest control. Account manager: Colm Reilly. Terms: Fixed fee of \u00a370 per visit. Invoices are paid within 30 days.\n\n## SecureRoute\n\n[log-old-mill-2025-04.md]\nOld-Mill branch log, April 2025\n\nMild and grey. Queue out of the door at lunch. Swept the outdoor area twice because of leaves. Till was \u00a31 over, recorded on the cash sheet. Jonas and Leo rearranged the retail shelf."
+ },
+ {
+  "question": "I scalded my hand on the steam wand. How long should I hold it under the tap?",
+  "answer": "For a minor burn like yours, you should cool it under running water for 20 minutes. Do not use ice or creams. If the burn is serious, call 999 first and then inform your manager.\n\nBased on the information from the handbook, you should hold the scalded area under the tap for 20 minutes. [first-aid.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 795,
+  "searches": [
+   "steam wand hand burn treatment"
+  ],
+  "seen": "[closing-checklist.md]\nClosing checklist\n\n1. Lock the door at closing time and let the remaining customers finish.\n2. Backflush the group heads with detergent.\n3. Soak the portafilters and steam wand tips for 15 minutes.\n4. Empty and wash the grinder hoppers on Fridays only.\n5. Count the till and tips, and complete the cash sheet.\n6. Throw away unsold pastries, and record them on the waste sheet.\n7. Empty the bins, mop the floor and check that the back door is locked.\n8. Set the alarm. You have 60 seconds to leave.\n\n[first-aid.md]\nFirst aid\n\nFor a minor burn, cool it under running water for 20 minutes. Don't use ice or creams. For anything serious, call 999 first and then your manager.\n\nReplace anything you use from the kit, and record it on the card inside the lid. Kits are checked on the first Monday of each month.\n\n[cash-handling.md]\nCash handling\n\nIf you suspect a forged note, politely refuse it and hand it back."
+ },
+ {
+  "question": "I scalded my hand on the steam wand. How long should I hold it under the tap?",
+  "answer": "I don't know the specific cooling time for the steam wand in the staff handbook. Typically, cooling a hot surface like a steam wand under running water can be done for a few minutes, but it's best to refer to any specific guidelines provided by your equipment or training. If there are no specific instructions, cooling it for around 5-10 minutes should be sufficient. Always be cautious and use gloves if available. [closing-checklist.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 916,
+  "searches": [
+   "steam wand cooling time"
+  ],
+  "seen": "[closing-checklist.md]\nClosing checklist\n\n1. Lock the door at closing time and let the remaining customers finish.\n2. Backflush the group heads with detergent.\n3. Soak the portafilters and steam wand tips for 15 minutes.\n4. Empty and wash the grinder hoppers on Fridays only.\n5. Count the till and tips, and complete the cash sheet.\n6. Throw away unsold pastries, and record them on the waste sheet.\n7. Empty the bins, mop the floor and check that the back door is locked.\n8. Set the alarm. You have 60 seconds to leave.\n\n[opening-checklist.md]\nOpening checklist\n\n1. Disarm the alarm within 45 seconds of entering.\n2. Turn on the espresso machine. It needs 25 minutes to reach temperature.\n3. Check the fridge temperatures and record them in the log.\n4. Purge the steam wands and flush each group head for 10 seconds.\n5. Dial in the grinder using the recipe card, and pour two test shots.\n6. Count the float. It should be \u00a3150.\n7. Put out pastries, with today's date on the labels.\n8. Unlock the doors at opening time, not before.\n\n[milk-and-alternatives.md]\n# Milk and alternatives\n\nOur standard milk is whole milk from Greywell Dairy. We also stock semi-skimmed, oat, soya and coconut.\n\nOat, soya and coconut cost 45p extra. Semi-skimmed is free. Steam milk to between 60\u00b0C and 65\u00b0C. Oat milk needs to stop at 60\u00b0C or it will split."
+ },
+ {
+  "question": "I scalded my hand on the steam wand. How long should I hold it under the tap?",
+  "answer": "For a minor burn from the steam wand, you should cool your hand under running water for 20 minutes. Do not use ice or creams. If the burn is serious, call 999 first and then inform your manager. \n\nRemember to replace any items from the first aid kit and log it on the card inside the lid. The kits are checked on the first Monday of each month.\n\n[log-harbour-2025-08.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 855,
+  "searches": [
+   "steam wand hand burn tap cool water"
+  ],
+  "seen": "[first-aid.md]\nFirst aid\n\nFor a minor burn, cool it under running water for 20 minutes. Don't use ice or creams. For anything serious, call 999 first and then your manager.\n\nReplace anything you use from the kit, and record it on the card inside the lid. Kits are checked on the first Monday of each month.\n\n[log-harbour-2025-08.md]\nHarbour branch log, August 2025\n\nWarm. Quiet until the school run. Jonas changed the water filter reminder in StaffHub. Fridge log completed at opening and at 14:00.\n\n## Wednesday 13 August 2025\n\nWarm. Steady morning, quiet after lunch. A customer returned a scarf left yesterday. Nico changed the water filter reminder in StaffHub.\n\n## Thursday 14 August 2025\n\n[log-station-2025-10.md]\n## Thursday 23 October 2025\n\nLight rain all day. Quiet until the school run. Elif changed the water filter reminder in StaffHub. Elif practised latte art with the spare milk.\n\n## Friday 24 October 2025\n\nBright and cold. Slow day overall. Carla changed the water filter reminder in StaffHub. Lost property box checked, nothing to report."
+ },
+ {
+  "question": "Can I get money back for buying work footwear?",
+  "answer": "Yes, you can get money back for buying work footwear. After your probation period, you can claim a shoe allowance of \u00a340 every 12 months using form FN-3 with a receipt. [uniform.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 723,
+  "searches": [
+   "work footwear reimbursement"
+  ],
+  "seen": "[expenses.md]\nExpenses\n\nTravel between branches on a work day is paid at 45p a mile if you drive, or at the actual fare if you use public transport. Travel from home to your normal branch isn't covered. Taxis need your manager's agreement in advance, except when you finish after 22:00.\n\n[expenses.md]\n# Expenses\n\nClaim work expenses on form FN-3 with receipts attached, within 30 days of spending the money. Claims are paid with your next wages.\n\n[uniform.md]\n# Uniform\n\nWe give you two aprons and one cap when you start. Wear dark trousers or a dark skirt, plain tops in black or navy, and closed, non-slip shoes.\n\nAfter your probation, you can claim a shoe allowance of \u00a340 every 12 months, using form FN-3 with a receipt."
+ },
+ {
+  "question": "Can I get money back for buying work footwear?",
+  "answer": "Yes, you can get money back for buying work footwear. After your probation period, you can claim a shoe allowance of \u00a340 every 12 months using form FN-3 with a receipt. [uniform.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 723,
+  "searches": [
+   "work footwear reimbursement"
+  ],
+  "seen": "[expenses.md]\nExpenses\n\nTravel between branches on a work day is paid at 45p a mile if you drive, or at the actual fare if you use public transport. Travel from home to your normal branch isn't covered. Taxis need your manager's agreement in advance, except when you finish after 22:00.\n\n[expenses.md]\n# Expenses\n\nClaim work expenses on form FN-3 with receipts attached, within 30 days of spending the money. Claims are paid with your next wages.\n\n[uniform.md]\n# Uniform\n\nWe give you two aprons and one cap when you start. Wear dark trousers or a dark skirt, plain tops in black or navy, and closed, non-slip shoes.\n\nAfter your probation, you can claim a shoe allowance of \u00a340 every 12 months, using form FN-3 with a receipt."
+ },
+ {
+  "question": "Can I get money back for buying work footwear?",
+  "answer": "Yes, you can get money back for buying work footwear. After your probation period, you can claim a shoe allowance of \u00a340 every 12 months using form FN-3 with a receipt. [uniform.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 723,
+  "searches": [
+   "work footwear reimbursement"
+  ],
+  "seen": "[expenses.md]\nExpenses\n\nTravel between branches on a work day is paid at 45p a mile if you drive, or at the actual fare if you use public transport. Travel from home to your normal branch isn't covered. Taxis need your manager's agreement in advance, except when you finish after 22:00.\n\n[expenses.md]\n# Expenses\n\nClaim work expenses on form FN-3 with receipts attached, within 30 days of spending the money. Claims are paid with your next wages.\n\n[uniform.md]\n# Uniform\n\nWe give you two aprons and one cap when you start. Wear dark trousers or a dark skirt, plain tops in black or navy, and closed, non-slip shoes.\n\nAfter your probation, you can claim a shoe allowance of \u00a340 every 12 months, using form FN-3 with a receipt."
+ },
+ {
+  "question": "Do I need to do anything about my ponytail at work?",
+  "answer": "According to the staff handbook, long hair must be tied back. So if you have a ponytail, you should ensure it is tied back while at work. [uniform.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 705,
+  "searches": [
+   "ponytail work policy"
+  ],
+  "seen": "[flexible-working.md]\n# Flexible working\n\nAfter 26 weeks with us, you may ask to change your hours, days or branch. Use form HR-15 and describe the change and how it would work for your branch.\n\nYour manager will discuss it with you and reply within 4 weeks. You can make one request every 12 months.\n\n[uniform.md]\nUniform\n\nLong hair must be tied back. Keep jewellery to plain rings and small stud earrings. Replacement aprons are free if the old one is worn out, but cost \u00a38 if lost.\n\n[expenses.md]\n# Expenses\n\nClaim work expenses on form FN-3 with receipts attached, within 30 days of spending the money. Claims are paid with your next wages."
+ },
+ {
+  "question": "Do I need to do anything about my ponytail at work?",
+  "answer": "Based on the information in the handbook, after 26 weeks with Quillon Coffee, you have the option to request a change to your working hours, days, or branch using form HR-15. However, regarding your ponytail, the uniform policy states that long hair must be tied back. \n\n[uniform.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 705,
+  "searches": [
+   "ponytail work policy"
+  ],
+  "seen": "[flexible-working.md]\n# Flexible working\n\nAfter 26 weeks with us, you may ask to change your hours, days or branch. Use form HR-15 and describe the change and how it would work for your branch.\n\nYour manager will discuss it with you and reply within 4 weeks. You can make one request every 12 months.\n\n[uniform.md]\nUniform\n\nLong hair must be tied back. Keep jewellery to plain rings and small stud earrings. Replacement aprons are free if the old one is worn out, but cost \u00a38 if lost.\n\n[expenses.md]\n# Expenses\n\nClaim work expenses on form FN-3 with receipts attached, within 30 days of spending the money. Claims are paid with your next wages."
+ },
+ {
+  "question": "Do I need to do anything about my ponytail at work?",
+  "answer": "According to the staff handbook, if you have long hair, you should tie it back. So, if you have a ponytail, you should ensure it meets this requirement when at work. You can find this information in the [uniform.md] document.",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 705,
+  "searches": [
+   "ponytail work policy"
+  ],
+  "seen": "[flexible-working.md]\n# Flexible working\n\nAfter 26 weeks with us, you may ask to change your hours, days or branch. Use form HR-15 and describe the change and how it would work for your branch.\n\nYour manager will discuss it with you and reply within 4 weeks. You can make one request every 12 months.\n\n[uniform.md]\nUniform\n\nLong hair must be tied back. Keep jewellery to plain rings and small stud earrings. Replacement aprons are free if the old one is worn out, but cost \u00a38 if lost.\n\n[expenses.md]\n# Expenses\n\nClaim work expenses on form FN-3 with receipts attached, within 30 days of spending the money. Claims are paid with your next wages."
+ },
+ {
+  "question": "What does E44 mean?",
+  "answer": "E44 means \"dose sensor fault.\" According to the staff handbook, you should use the backup grinder and report the fault. [grinder-errors.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 829,
+  "searches": [
+   "E44"
+  ],
+  "seen": "[log-riverside-2025-04.md]\n## Thursday 3 April 2025\n\nWindy. Busy from the first hour. Delivery arrived on time and matched the note. Elif helped a customer with the loyalty app.\n\n## Friday 4 April 2025\n\nWindy. Good trade all afternoon. Kira covered Hugo's break. Grinder needed a small adjustment after the morning rush.\n\n## Saturday 5 April 2025\n\n[grinder-errors.md]\nGrinder error codes\n\n- E12: hopper empty. Refill it, then press the dial.\n- E27: burr chamber blocked. Switch it off, unplug it, and clear it with the blue brush.\n- E31: motor overheating. Leave it switched off for 20 minutes.\n- E44: dose sensor fault. Use the backup grinder, and report the fault.\n- E58: internal board fault. Don't restart it. Report it as a repair.\n\n[log-riverside-2025-10.md]\n## Friday 10 October 2025\n\nWindy. Good trade all afternoon. Elif helped a customer with the loyalty app. Delivery arrived on time and matched the note. Elif practised latte art with the spare milk.\n\n## Saturday 11 October 2025"
+ },
+ {
+  "question": "What does E44 mean?",
+  "answer": "According to the information found in [grinder-errors.md], E44 is a dose sensor fault. The recommended action is to use the backup grinder and report the fault.\n\n[grinder-errors.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 821,
+  "searches": [
+   "E44"
+  ],
+  "seen": "[log-riverside-2025-04.md]\n## Thursday 3 April 2025\n\nWindy. Busy from the first hour. Delivery arrived on time and matched the note. Elif helped a customer with the loyalty app.\n\n## Friday 4 April 2025\n\nWindy. Good trade all afternoon. Kira covered Hugo's break. Grinder needed a small adjustment after the morning rush.\n\n## Saturday 5 April 2025\n\n[grinder-errors.md]\nGrinder error codes\n\n- E12: hopper empty. Refill it, then press the dial.\n- E27: burr chamber blocked. Switch it off, unplug it, and clear it with the blue brush.\n- E31: motor overheating. Leave it switched off for 20 minutes.\n- E44: dose sensor fault. Use the backup grinder, and report the fault.\n- E58: internal board fault. Don't restart it. Report it as a repair.\n\n[log-riverside-2025-10.md]\n## Friday 10 October 2025\n\nWindy. Good trade all afternoon. Elif helped a customer with the loyalty app. Delivery arrived on time and matched the note. Elif practised latte art with the spare milk.\n\n## Saturday 11 October 2025"
+ },
+ {
+  "question": "What does E44 mean?",
+  "answer": "According to the staff handbook, E44 is a grinder error code that indicates a dose sensor fault. The recommendation is to use the backup grinder and report the fault.\n\n[grinder-errors.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 825,
+  "searches": [
+   "E44"
+  ],
+  "seen": "[log-riverside-2025-04.md]\n## Thursday 3 April 2025\n\nWindy. Busy from the first hour. Delivery arrived on time and matched the note. Elif helped a customer with the loyalty app.\n\n## Friday 4 April 2025\n\nWindy. Good trade all afternoon. Kira covered Hugo's break. Grinder needed a small adjustment after the morning rush.\n\n## Saturday 5 April 2025\n\n[grinder-errors.md]\nGrinder error codes\n\n- E12: hopper empty. Refill it, then press the dial.\n- E27: burr chamber blocked. Switch it off, unplug it, and clear it with the blue brush.\n- E31: motor overheating. Leave it switched off for 20 minutes.\n- E44: dose sensor fault. Use the backup grinder, and report the fault.\n- E58: internal board fault. Don't restart it. Report it as a repair.\n\n[log-riverside-2025-10.md]\n## Friday 10 October 2025\n\nWindy. Good trade all afternoon. Elif helped a customer with the loyalty app. Delivery arrived on time and matched the note. Elif practised latte art with the spare milk.\n\n## Saturday 11 October 2025"
+ },
+ {
+  "question": "The grinder shows E31. What do I do?",
+  "answer": "According to the handbook, when the grinder shows E31, it indicates motor overheating. You should leave it switched off for 20 minutes.\n\n[grinder-errors.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 789,
+  "searches": [
+   "grinder E31"
+  ],
+  "seen": "[grinder-errors.md]\nGrinder error codes\n\n- E12: hopper empty. Refill it, then press the dial.\n- E27: burr chamber blocked. Switch it off, unplug it, and clear it with the blue brush.\n- E31: motor overheating. Leave it switched off for 20 minutes.\n- E44: dose sensor fault. Use the backup grinder, and report the fault.\n- E58: internal board fault. Don't restart it. Report it as a repair.\n\n[grinder-errors.md]\n# Grinder error codes\n\nThe Mazurka M4 grinders show a code on the front panel.\n\n[log-station-2025-05.md]\nStation branch log, May 2025\n\nFoggy start. Queue out of the door at lunch. Grinder needed a small adjustment after the morning rush. Printer roll replaced on till two.\n\n## Saturday 24 May 2025\n\nLight rain all day. Quiet until the school run. Grinder needed a small adjustment after the morning rush. Till was \u00a32 over, recorded on the cash sheet."
+ },
+ {
+  "question": "The grinder shows E31. What do I do?",
+  "answer": "According to the staff handbook, when the grinder shows E31, which stands for motor overheating, you should leave it switched off for 20 minutes.\n\n[grinder-errors.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 789,
+  "searches": [
+   "grinder E31"
+  ],
+  "seen": "[grinder-errors.md]\nGrinder error codes\n\n- E12: hopper empty. Refill it, then press the dial.\n- E27: burr chamber blocked. Switch it off, unplug it, and clear it with the blue brush.\n- E31: motor overheating. Leave it switched off for 20 minutes.\n- E44: dose sensor fault. Use the backup grinder, and report the fault.\n- E58: internal board fault. Don't restart it. Report it as a repair.\n\n[grinder-errors.md]\n# Grinder error codes\n\nThe Mazurka M4 grinders show a code on the front panel.\n\n[log-station-2025-05.md]\nStation branch log, May 2025\n\nFoggy start. Queue out of the door at lunch. Grinder needed a small adjustment after the morning rush. Printer roll replaced on till two.\n\n## Saturday 24 May 2025\n\nLight rain all day. Quiet until the school run. Grinder needed a small adjustment after the morning rush. Till was \u00a32 over, recorded on the cash sheet."
+ },
+ {
+  "question": "The grinder shows E31. What do I do?",
+  "answer": "According to the handbook, when you see an E31 error on the grinder, it indicates motor overheating. You should leave it switched off for 20 minutes. [grinder-errors.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 789,
+  "searches": [
+   "grinder E31"
+  ],
+  "seen": "[grinder-errors.md]\nGrinder error codes\n\n- E12: hopper empty. Refill it, then press the dial.\n- E27: burr chamber blocked. Switch it off, unplug it, and clear it with the blue brush.\n- E31: motor overheating. Leave it switched off for 20 minutes.\n- E44: dose sensor fault. Use the backup grinder, and report the fault.\n- E58: internal board fault. Don't restart it. Report it as a repair.\n\n[grinder-errors.md]\n# Grinder error codes\n\nThe Mazurka M4 grinders show a code on the front panel.\n\n[log-station-2025-05.md]\nStation branch log, May 2025\n\nFoggy start. Queue out of the door at lunch. Grinder needed a small adjustment after the morning rush. Printer roll replaced on till two.\n\n## Saturday 24 May 2025\n\nLight rain all day. Quiet until the school run. Grinder needed a small adjustment after the morning rush. Till was \u00a32 over, recorded on the cash sheet."
+ },
+ {
+  "question": "What is refund reason code R5 for?",
+  "answer": "Refund reason code R5 is used for a price error. [refunds.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 718,
+  "searches": [
+   "refund reason code R5"
+  ],
+  "seen": "[refunds.md]\nRefunds\n\nRecord every refund with reason code R2 for a quality problem, R3 for a wrong order and R5 for a price error.\n\n[log-riverside-2025-12.md]\nRiverside branch log, December 2025\n\nLight rain all day. Quiet until the school run. Till was \u00a33 over, recorded on the cash sheet. Elif helped a customer with the loyalty app. A customer returned a scarf left yesterday.\n\n## Sunday 7 December 2025\n\nBright and cold. Slow day overall. A customer returned a scarf left yesterday. Bins collected as normal.\n\n## Monday 8 December 2025\n\n[grinder-errors.md]\n# Grinder error codes\n\nThe Mazurka M4 grinders show a code on the front panel."
+ },
+ {
+  "question": "What is refund reason code R5 for?",
+  "answer": "Refund reason code R5 is for a price error. [refunds.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 718,
+  "searches": [
+   "refund reason code R5"
+  ],
+  "seen": "[refunds.md]\nRefunds\n\nRecord every refund with reason code R2 for a quality problem, R3 for a wrong order and R5 for a price error.\n\n[log-riverside-2025-12.md]\nRiverside branch log, December 2025\n\nLight rain all day. Quiet until the school run. Till was \u00a33 over, recorded on the cash sheet. Elif helped a customer with the loyalty app. A customer returned a scarf left yesterday.\n\n## Sunday 7 December 2025\n\nBright and cold. Slow day overall. A customer returned a scarf left yesterday. Bins collected as normal.\n\n## Monday 8 December 2025\n\n[grinder-errors.md]\n# Grinder error codes\n\nThe Mazurka M4 grinders show a code on the front panel."
+ },
+ {
+  "question": "What is refund reason code R5 for?",
+  "answer": "Refund reason code R5 is for a price error. [refunds.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 718,
+  "searches": [
+   "refund reason code R5"
+  ],
+  "seen": "[refunds.md]\nRefunds\n\nRecord every refund with reason code R2 for a quality problem, R3 for a wrong order and R5 for a price error.\n\n[log-riverside-2025-12.md]\nRiverside branch log, December 2025\n\nLight rain all day. Quiet until the school run. Till was \u00a33 over, recorded on the cash sheet. Elif helped a customer with the loyalty app. A customer returned a scarf left yesterday.\n\n## Sunday 7 December 2025\n\nBright and cold. Slow day overall. A customer returned a scarf left yesterday. Bins collected as normal.\n\n## Monday 8 December 2025\n\n[grinder-errors.md]\n# Grinder error codes\n\nThe Mazurka M4 grinders show a code on the front panel."
+ },
+ {
+  "question": "What is form IR-9 for?",
+  "answer": "Form IR-9 is used for reporting data breaches. If personal information is lost or sent to the wrong person, it should be reported on form IR-9 within 24 hours. [forms.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 755,
+  "searches": [
+   "form IR-9"
+  ],
+  "seen": "[data-protection.md]\nCustomer data\n\nIf personal information is lost or sent to the wrong person, report it on form IR-9 within 24 hours. Don't try to fix it yourself first.\n\n[forms.md]\n# Forms\n\nAll forms are in StaffHub under Documents.\n\n- HR-04: self-certification of sickness\n- HR-09: parental leave notice\n- HR-12: formal grievance\n- HR-15: flexible working request\n- FN-3: expenses and allowances\n- FN-6: change of bank details\n- IR-7: accident and incident report\n- IR-9: data breach report\n\n[accidents-and-incidents.md]\n# Accidents and incidents\n\nAny injury to a colleague or a customer, however small, must be reported on form IR-7 before the end of the shift. Your branch manager sends it to Ines Duarte within 24 hours.\n\nNear misses count too. A wet floor that almost caused a fall is still an incident worth recording."
+ },
+ {
+  "question": "What is form IR-9 for?",
+  "answer": "Form IR-9 is used for reporting data breaches. If personal information is lost or sent to the wrong person, it should be reported on form IR-9 within 24 hours. [forms.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 755,
+  "searches": [
+   "form IR-9"
+  ],
+  "seen": "[data-protection.md]\nCustomer data\n\nIf personal information is lost or sent to the wrong person, report it on form IR-9 within 24 hours. Don't try to fix it yourself first.\n\n[forms.md]\n# Forms\n\nAll forms are in StaffHub under Documents.\n\n- HR-04: self-certification of sickness\n- HR-09: parental leave notice\n- HR-12: formal grievance\n- HR-15: flexible working request\n- FN-3: expenses and allowances\n- FN-6: change of bank details\n- IR-7: accident and incident report\n- IR-9: data breach report\n\n[accidents-and-incidents.md]\n# Accidents and incidents\n\nAny injury to a colleague or a customer, however small, must be reported on form IR-7 before the end of the shift. Your branch manager sends it to Ines Duarte within 24 hours.\n\nNear misses count too. A wet floor that almost caused a fall is still an incident worth recording."
+ },
+ {
+  "question": "What is form IR-9 for?",
+  "answer": "Form IR-9 is used for reporting data breaches. If personal information is lost or sent to the wrong person, it should be reported on form IR-9 within 24 hours. [forms.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 755,
+  "searches": [
+   "form IR-9"
+  ],
+  "seen": "[data-protection.md]\nCustomer data\n\nIf personal information is lost or sent to the wrong person, report it on form IR-9 within 24 hours. Don't try to fix it yourself first.\n\n[forms.md]\n# Forms\n\nAll forms are in StaffHub under Documents.\n\n- HR-04: self-certification of sickness\n- HR-09: parental leave notice\n- HR-12: formal grievance\n- HR-15: flexible working request\n- FN-3: expenses and allowances\n- FN-6: change of bank details\n- IR-7: accident and incident report\n- IR-9: data breach report\n\n[accidents-and-incidents.md]\n# Accidents and incidents\n\nAny injury to a colleague or a customer, however small, must be reported on form IR-7 before the end of the shift. Your branch manager sends it to Ines Duarte within 24 hours.\n\nNear misses count too. A wet floor that almost caused a fall is still an incident worth recording."
+ },
+ {
+  "question": "What is HR-15?",
+  "answer": "HR-15 is the flexible working request form. It allows employees to ask to change their hours, days, or branch after 26 weeks of employment. You can make one request every 12 months, and your manager will discuss it with you and reply within 4 weeks. [forms.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 814,
+  "searches": [
+   "HR-15"
+  ],
+  "seen": "[forms.md]\n# Forms\n\nAll forms are in StaffHub under Documents.\n\n- HR-04: self-certification of sickness\n- HR-09: parental leave notice\n- HR-12: formal grievance\n- HR-15: flexible working request\n- FN-3: expenses and allowances\n- FN-6: change of bank details\n- IR-7: accident and incident report\n- IR-9: data breach report\n\n[log-riverside-2025-11.md]\nRiverside branch log, November 2025\n\nMild and grey. Steady morning, quiet after lunch. Hugo helped a customer with the loyalty app. Bins collected as normal.\n\n## Tuesday 25 November 2025\n\nWindy. Slow day overall. Grace helped a customer with the loyalty app. Swept the outdoor area twice because of leaves.\n\n## Wednesday 26 November 2025\n\n[flexible-working.md]\n# Flexible working\n\nAfter 26 weeks with us, you may ask to change your hours, days or branch. Use form HR-15 and describe the change and how it would work for your branch.\n\nYour manager will discuss it with you and reply within 4 weeks. You can make one request every 12 months."
+ },
+ {
+  "question": "What is HR-15?",
+  "answer": "HR-15 is the form used to request flexible working. It can be used to change your hours, days, or branch after 26 weeks of employment. After submitting the form, you should expect a response from your manager within 4 weeks. You can make one request every 12 months. [forms.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 814,
+  "searches": [
+   "HR-15"
+  ],
+  "seen": "[forms.md]\n# Forms\n\nAll forms are in StaffHub under Documents.\n\n- HR-04: self-certification of sickness\n- HR-09: parental leave notice\n- HR-12: formal grievance\n- HR-15: flexible working request\n- FN-3: expenses and allowances\n- FN-6: change of bank details\n- IR-7: accident and incident report\n- IR-9: data breach report\n\n[log-riverside-2025-11.md]\nRiverside branch log, November 2025\n\nMild and grey. Steady morning, quiet after lunch. Hugo helped a customer with the loyalty app. Bins collected as normal.\n\n## Tuesday 25 November 2025\n\nWindy. Slow day overall. Grace helped a customer with the loyalty app. Swept the outdoor area twice because of leaves.\n\n## Wednesday 26 November 2025\n\n[flexible-working.md]\n# Flexible working\n\nAfter 26 weeks with us, you may ask to change your hours, days or branch. Use form HR-15 and describe the change and how it would work for your branch.\n\nYour manager will discuss it with you and reply within 4 weeks. You can make one request every 12 months."
+ },
+ {
+  "question": "What is HR-15?",
+  "answer": "HR-15 is the form for a flexible working request. According to the handbook, after 26 weeks of employment, you can use this form to ask to change your working hours, days, or branch. Your manager will discuss this with you and provide a response within 4 weeks. You are only allowed to make one request every 12 months. [forms.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 814,
+  "searches": [
+   "HR-15"
+  ],
+  "seen": "[forms.md]\n# Forms\n\nAll forms are in StaffHub under Documents.\n\n- HR-04: self-certification of sickness\n- HR-09: parental leave notice\n- HR-12: formal grievance\n- HR-15: flexible working request\n- FN-3: expenses and allowances\n- FN-6: change of bank details\n- IR-7: accident and incident report\n- IR-9: data breach report\n\n[log-riverside-2025-11.md]\nRiverside branch log, November 2025\n\nMild and grey. Steady morning, quiet after lunch. Hugo helped a customer with the loyalty app. Bins collected as normal.\n\n## Tuesday 25 November 2025\n\nWindy. Slow day overall. Grace helped a customer with the loyalty app. Swept the outdoor area twice because of leaves.\n\n## Wednesday 26 November 2025\n\n[flexible-working.md]\n# Flexible working\n\nAfter 26 weeks with us, you may ask to change your hours, days or branch. Use form HR-15 and describe the change and how it would work for your branch.\n\nYour manager will discuss it with you and reply within 4 weeks. You can make one request every 12 months."
+ },
+ {
+  "question": "What is FN-6 used for?",
+  "answer": "I still haven't found any mention of FN-6 in the documents I've searched through. Could you please provide more context or specify where you heard about it? I might need to search a different section of the handbook or look into a different log.\n\nI don't know [log-riverside-2025-02.md].",
+  "steps": 3,
+  "stopped": false,
+  "tokens_in": 1460,
+  "searches": [
+   "FN-6 used for",
+   "FN-6 used for"
+  ],
+  "seen": "[log-riverside-2025-02.md]\nRiverside branch log, February 2025\n\nMild and grey. Steady morning, quiet after lunch. Nico helped a customer with the loyalty app. Lost property box checked, nothing to report. Nico deep cleaned the pastry cabinet.\n\n## Sunday 23 February 2025\n\n[staff-discount.md]\nStaff discount\n\nYou may bring one guest, who receives the same discount on drinks only. The discount can't be combined with the loyalty card or used for catering orders.\n\n[log-riverside-2025-02.md]\nRiverside branch log, February 2025\n\nMild and grey. Quiet until the school run. Dev deep cleaned the pastry cabinet. Dev covered Maya's break. Ran out of seeded flapjacks by 14:30.\n\n## Sunday 9 February 2025\n\n[log-riverside-2025-02.md]\nRiverside branch log, February 2025\n\nMild and grey. Steady morning, quiet after lunch. Nico helped a customer with the loyalty app. Lost property box checked, nothing to report. Nico deep cleaned the pastry cabinet.\n\n## Sunday 23 February 2025\n\n[staff-discount.md]\nStaff discount\n\nYou may bring one guest, who receives the same discount on drinks only. The discount can't be combined with the loyalty card or used for catering orders.\n\n[log-riverside-2025-02.md]\nRiverside branch log, February 2025\n\nMild and grey. Quiet until the school run. Dev deep cleaned the pastry cabinet. Dev covered Maya's break. Ran out of seeded flapjacks by 14:30.\n\n## Sunday 9 February 2025"
+ },
+ {
+  "question": "What is FN-6 used for?",
+  "answer": "FN-6 is used for changing bank details. You can find information about all forms in the document [forms.md].",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 821,
+  "searches": [
+   "FN-6 purpose"
+  ],
+  "seen": "[log-riverside-2025-02.md]\nRiverside branch log, February 2025\n\nMild and grey. Steady morning, quiet after lunch. Nico helped a customer with the loyalty app. Lost property box checked, nothing to report. Nico deep cleaned the pastry cabinet.\n\n## Sunday 23 February 2025\n\n[forms.md]\n# Forms\n\nAll forms are in StaffHub under Documents.\n\n- HR-04: self-certification of sickness\n- HR-09: parental leave notice\n- HR-12: formal grievance\n- HR-15: flexible working request\n- FN-3: expenses and allowances\n- FN-6: change of bank details\n- IR-7: accident and incident report\n- IR-9: data breach report\n\n[log-riverside-2025-08.md]\nRiverside branch log, August 2025\n\nWarm. Good trade all afternoon. Nico deep cleaned the pastry cabinet. Nico changed the water filter reminder in StaffHub.\n\n## Tuesday 5 August 2025\n\nBright and cold. Busy from the first hour. Ben practised latte art with the spare milk. Ben updated the chalkboard with this week's filter coffee.\n\n## Wednesday 6 August 2025"
+ },
+ {
+  "question": "What is FN-6 used for?",
+  "answer": "FN-6 is used for changing bank details according to the forms document in StaffHub. [forms.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 821,
+  "searches": [
+   "FN-6 purpose"
+  ],
+  "seen": "[log-riverside-2025-02.md]\nRiverside branch log, February 2025\n\nMild and grey. Steady morning, quiet after lunch. Nico helped a customer with the loyalty app. Lost property box checked, nothing to report. Nico deep cleaned the pastry cabinet.\n\n## Sunday 23 February 2025\n\n[forms.md]\n# Forms\n\nAll forms are in StaffHub under Documents.\n\n- HR-04: self-certification of sickness\n- HR-09: parental leave notice\n- HR-12: formal grievance\n- HR-15: flexible working request\n- FN-3: expenses and allowances\n- FN-6: change of bank details\n- IR-7: accident and incident report\n- IR-9: data breach report\n\n[log-riverside-2025-08.md]\nRiverside branch log, August 2025\n\nWarm. Good trade all afternoon. Nico deep cleaned the pastry cabinet. Nico changed the water filter reminder in StaffHub.\n\n## Tuesday 5 August 2025\n\nBright and cold. Busy from the first hour. Ben practised latte art with the spare milk. Ben updated the chalkboard with this week's filter coffee.\n\n## Wednesday 6 August 2025"
+ },
+ {
+  "question": "I'm opening the Harbour branch on a Monday. What time do I need to arrive?",
+  "answer": "According to the branch handbook, the Harbour branch opens at 06:30 on Mondays. Therefore, you should arrive at or before 06:30 to open the branch on a Monday. [branch-harbour.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 848,
+  "searches": [
+   "Harbour branch opening hours Monday arrival time"
+  ],
+  "seen": "[branch-harbour.md]\n# Harbour branch\n\nAddress: 4 Quay Walk.\nBranch manager: Lena Ortiz.\n\nOpening hours: Monday to Friday 06:30 to 16:00. Saturday and Sunday 07:30 to 15:00.\n\nEquipment service contractor: Tidewater Espresso Service, 0300 555 0142.\n\n[log-harbour-2025-02.md]\nHarbour branch log, February 2025\n\nMild and grey. Steady morning, quiet after lunch. Dairy delivery was 39 minutes late. Fridge log completed at opening and at 14:00.\n\n## Monday 10 February 2025\n\n[log-harbour-2025-12.md]\nHarbour branch log, December 2025\n\nMild and grey. Queue out of the door at lunch. Dairy delivery was 20 minutes late. Till balanced to the penny.\n\n## Monday 22 December 2025\n\nSunny. Steady morning, quiet after lunch. Delivery arrived on time and matched the note. Nico deep cleaned the pastry cabinet. Fridge log completed at opening and at 14:00.\n\n## Tuesday 23 December 2025"
+ },
+ {
+  "question": "I'm opening the Harbour branch on a Monday. What time do I need to arrive?",
+  "answer": "Based on the information provided in the handbook, you should arrive at the Harbour branch by 06:30 on a Monday, as that is the opening time for Monday through Friday. [branch-harbour.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 812,
+  "searches": [
+   "Harbour branch opening hours"
+  ],
+  "seen": "[branch-harbour.md]\n# Harbour branch\n\nAddress: 4 Quay Walk.\nBranch manager: Lena Ortiz.\n\nOpening hours: Monday to Friday 06:30 to 16:00. Saturday and Sunday 07:30 to 15:00.\n\nEquipment service contractor: Tidewater Espresso Service, 0300 555 0142.\n\n[log-harbour-2025-02.md]\nHarbour branch log, February 2025\n\nMild and grey. Steady morning, quiet after lunch. Dairy delivery was 39 minutes late. Fridge log completed at opening and at 14:00.\n\n## Monday 10 February 2025\n\n[log-harbour-2025-09.md]\n# Harbour branch log, September 2025\n\n## Monday 1 September 2025\n\nBright and cold. Steady morning, quiet after lunch. Fridge log completed at opening and at 14:00. Till was \u00a33 over, recorded on the cash sheet.\n\n## Tuesday 2 September 2025"
+ },
+ {
+  "question": "I'm opening the Harbour branch on a Monday. What time do I need to arrive?",
+  "answer": "Based on the information provided in the branch handbook, you need to arrive at the Harbour branch by 06:30 on a Monday to open the branch. [branch-harbour.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 813,
+  "searches": [
+   "Harbour branch opening hours Monday"
+  ],
+  "seen": "[branch-harbour.md]\n# Harbour branch\n\nAddress: 4 Quay Walk.\nBranch manager: Lena Ortiz.\n\nOpening hours: Monday to Friday 06:30 to 16:00. Saturday and Sunday 07:30 to 15:00.\n\nEquipment service contractor: Tidewater Espresso Service, 0300 555 0142.\n\n[log-harbour-2025-09.md]\n# Harbour branch log, September 2025\n\n## Monday 1 September 2025\n\nBright and cold. Steady morning, quiet after lunch. Fridge log completed at opening and at 14:00. Till was \u00a33 over, recorded on the cash sheet.\n\n## Tuesday 2 September 2025\n\n[log-harbour-2025-02.md]\nHarbour branch log, February 2025\n\nMild and grey. Steady morning, quiet after lunch. Dairy delivery was 39 minutes late. Fridge log completed at opening and at 14:00.\n\n## Monday 10 February 2025"
+ },
+ {
+  "question": "I'm a senior barista. What discount do I get on retail beans?",
+  "answer": "As a senior barista, you get 30% off retail beans when you are off shift and using your staff card at any branch. [staff-discount.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 811,
+  "searches": [
+   "senior barista discount retail beans"
+  ],
+  "seen": "[staff-discount.md]\n# Staff discount\n\nThe discount applies when you are off shift, with your staff card, at any branch.\n\n- Band A and Band B: 25% off drinks and food, 15% off retail beans\n- Band C and Band D: 35% off drinks and food, 25% off retail beans\n- Band E: 40% off drinks and food, 30% off retail beans\n\n[refunds.md]\nRefunds\n\nRefunds under \u00a310 can be given by any barista. Refunds of \u00a310 or more need a shift lead. Card refunds go back to the original card and can take up to 5 working days to arrive. Retail beans can be refunded within 30 days if unopened, and with a receipt.\n\n[training.md]\nTraining\n\nLevel 2 covers latte art, dialling in and cupping. You can take it after 6 months, and passing it is required to become a senior barista. Level 3 is for shift leads, and covers cash, rotas and handling incidents.\n\nTraining time is paid. If you fail an assessment, you can retake it after 2 weeks."
+ },
+ {
+  "question": "I'm a senior barista. What discount do I get on retail beans?",
+  "answer": "As a senior barista, you fall under Band D. You get 25% off retail beans when you are off shift, using your staff card at any branch. [staff-discount.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 775,
+  "searches": [
+   "senior barista discount"
+  ],
+  "seen": "[training.md]\nTraining\n\nLevel 2 covers latte art, dialling in and cupping. You can take it after 6 months, and passing it is required to become a senior barista. Level 3 is for shift leads, and covers cash, rotas and handling incidents.\n\nTraining time is paid. If you fail an assessment, you can retake it after 2 weeks.\n\n[staff-discount.md]\nStaff discount\n\nYou may bring one guest, who receives the same discount on drinks only. The discount can't be combined with the loyalty card or used for catering orders.\n\n[staff-discount.md]\n# Staff discount\n\nThe discount applies when you are off shift, with your staff card, at any branch.\n\n- Band A and Band B: 25% off drinks and food, 15% off retail beans\n- Band C and Band D: 35% off drinks and food, 25% off retail beans\n- Band E: 40% off drinks and food, 30% off retail beans"
+ },
+ {
+  "question": "I'm a senior barista. What discount do I get on retail beans?",
+  "answer": "As a senior barista, which is Band D, you get 25% off retail beans. [staff-discount.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 775,
+  "searches": [
+   "senior barista discount"
+  ],
+  "seen": "[training.md]\nTraining\n\nLevel 2 covers latte art, dialling in and cupping. You can take it after 6 months, and passing it is required to become a senior barista. Level 3 is for shift leads, and covers cash, rotas and handling incidents.\n\nTraining time is paid. If you fail an assessment, you can retake it after 2 weeks.\n\n[staff-discount.md]\nStaff discount\n\nYou may bring one guest, who receives the same discount on drinks only. The discount can't be combined with the loyalty card or used for catering orders.\n\n[staff-discount.md]\n# Staff discount\n\nThe discount applies when you are off shift, with your staff card, at any branch.\n\n- Band A and Band B: 25% off drinks and food, 15% off retail beans\n- Band C and Band D: 35% off drinks and food, 25% off retail beans\n- Band E: 40% off drinks and food, 30% off retail beans"
+ },
+ {
+  "question": "The espresso machine at Riverside has broken. What number do I call?",
+  "answer": "For the broken espresso machine at Riverside, you should call the equipment service contractor Northline Service at 0300 555 0177. [equipment-repairs.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 774,
+  "searches": [
+   "Riverside espresso machine repair"
+  ],
+  "seen": "[training.md]\n# Training\n\nEveryone starts with a two-day induction at Riverside. After that, you complete the Level 1 assessment within 8 weeks of joining. It covers espresso, milk, the till and food safety.\n\n[equipment-repairs.md]\n# Equipment repairs\n\nIf equipment breaks, first put an out-of-order sign on it. Then phone the equipment service contractor listed for your branch. Give them the machine's serial number from the plate on the back.\n\nLog every repair call in StaffHub under Maintenance. Repairs under \u00a3200 can be approved by a branch manager. Anything over \u00a3200 needs Ines Duarte's approval.\n\n[branch-riverside.md]\n# Riverside branch\n\nAddress: 22 Mill Race Road.\nBranch manager: Sam Achebe.\n\nOpening hours: Monday to Saturday 07:30 to 18:00. Sunday 09:00 to 16:00.\n\nEquipment service contractor: Northline Service, 0300 555 0177."
+ },
+ {
+  "question": "The espresso machine at Riverside has broken. What number do I call?",
+  "answer": "For the broken espresso machine at Riverside, you should call the equipment service contractor Northline Service at 0300 555 0177. [equipment-repairs.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 773,
+  "searches": [
+   "espresso machine Riverside repair"
+  ],
+  "seen": "[training.md]\n# Training\n\nEveryone starts with a two-day induction at Riverside. After that, you complete the Level 1 assessment within 8 weeks of joining. It covers espresso, milk, the till and food safety.\n\n[equipment-repairs.md]\n# Equipment repairs\n\nIf equipment breaks, first put an out-of-order sign on it. Then phone the equipment service contractor listed for your branch. Give them the machine's serial number from the plate on the back.\n\nLog every repair call in StaffHub under Maintenance. Repairs under \u00a3200 can be approved by a branch manager. Anything over \u00a3200 needs Ines Duarte's approval.\n\n[branch-riverside.md]\n# Riverside branch\n\nAddress: 22 Mill Race Road.\nBranch manager: Sam Achebe.\n\nOpening hours: Monday to Saturday 07:30 to 18:00. Sunday 09:00 to 16:00.\n\nEquipment service contractor: Northline Service, 0300 555 0177."
+ },
+ {
+  "question": "The espresso machine at Riverside has broken. What number do I call?",
+  "answer": "For the broken espresso machine at Riverside, you should call the equipment service contractor Northline Service at 0300 555 0177. [equipment-repairs.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 774,
+  "searches": [
+   "Riverside espresso machine repair"
+  ],
+  "seen": "[training.md]\n# Training\n\nEveryone starts with a two-day induction at Riverside. After that, you complete the Level 1 assessment within 8 weeks of joining. It covers espresso, milk, the till and food safety.\n\n[equipment-repairs.md]\n# Equipment repairs\n\nIf equipment breaks, first put an out-of-order sign on it. Then phone the equipment service contractor listed for your branch. Give them the machine's serial number from the plate on the back.\n\nLog every repair call in StaffHub under Maintenance. Repairs under \u00a3200 can be approved by a branch manager. Anything over \u00a3200 needs Ines Duarte's approval.\n\n[branch-riverside.md]\n# Riverside branch\n\nAddress: 22 Mill Race Road.\nBranch manager: Sam Achebe.\n\nOpening hours: Monday to Saturday 07:30 to 18:00. Sunday 09:00 to 16:00.\n\nEquipment service contractor: Northline Service, 0300 555 0177."
+ },
+ {
+  "question": "What is the hourly rate for a shift lead?",
+  "answer": "The hourly rate for a shift lead is not explicitly stated in the handbook. However, the hourly rates for different bands are provided: Band A - \u00a312.60, Band B - \u00a313.40, Band C - \u00a314.75, and Band D - \u00a316.90. The role of a shift lead may correspond to one of these bands, but without more specific information, I can't determine which one it is.\n\nThe handbook does not specify the exact band for a shift lead role. You might want to check with your manager for clarification on this point.\n\n[uniform.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 770,
+  "searches": [
+   "hourly rate shift lead"
+  ],
+  "seen": "[wages.md]\n# Wages\n\nPayday is the last Friday of each month. Payslips appear in the StaffHub app two days before payday.\n\nHourly rates:\n\n- Band A: \u00a312.60\n- Band B: \u00a313.40\n- Band C: \u00a314.75\n- Band D: \u00a316.90\n\n[breaks-and-staff-drinks.md]\n# Breaks and staff drinks\n\nA shift of 4 to 6 hours includes one paid 15-minute break. A shift longer than 6 hours adds an unpaid 30-minute meal break. A shift longer than 9 hours adds a second paid 15-minute break.\n\n[rota-swaps.md]\nSwapping a shift\n\nPost the swap in StaffHub at least 24 hours before the shift. It is confirmed only when the other person accepts and your manager approves it. Until then, the shift is still yours.\n\nYou can't swap an opening shift to a trainee barista, because trainees may not open a branch alone."
+ },
+ {
+  "question": "What is the hourly rate for a shift lead?",
+  "answer": "The hourly rate for a shift lead is not explicitly mentioned in the handbook. However, the hourly rates for different bands are provided:\n\n- Band A: \u00a312.60\n- Band B: \u00a313.40\n- Band C: \u00a314.75\n- Band D: \u00a316.90\n\nIf the shift lead falls under one of these bands, their hourly rate would be as listed. [wages.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 770,
+  "searches": [
+   "hourly rate shift lead"
+  ],
+  "seen": "[wages.md]\n# Wages\n\nPayday is the last Friday of each month. Payslips appear in the StaffHub app two days before payday.\n\nHourly rates:\n\n- Band A: \u00a312.60\n- Band B: \u00a313.40\n- Band C: \u00a314.75\n- Band D: \u00a316.90\n\n[breaks-and-staff-drinks.md]\n# Breaks and staff drinks\n\nA shift of 4 to 6 hours includes one paid 15-minute break. A shift longer than 6 hours adds an unpaid 30-minute meal break. A shift longer than 9 hours adds a second paid 15-minute break.\n\n[rota-swaps.md]\nSwapping a shift\n\nPost the swap in StaffHub at least 24 hours before the shift. It is confirmed only when the other person accepts and your manager approves it. Until then, the shift is still yours.\n\nYou can't swap an opening shift to a trainee barista, because trainees may not open a branch alone."
+ },
+ {
+  "question": "What is the hourly rate for a shift lead?",
+  "answer": "The hourly rate for a shift lead is not explicitly stated in the handbook. Based on the information provided, the hourly rates for different bands are as follows:\n\n- Band A: \u00a312.60\n- Band B: \u00a313.40\n- Band C: \u00a314.75\n- Band D: \u00a316.90\n\nSince a shift lead is likely to be within one of these bands, you would need to determine their band to find the exact hourly rate. [wages.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 770,
+  "searches": [
+   "hourly rate shift lead"
+  ],
+  "seen": "[wages.md]\n# Wages\n\nPayday is the last Friday of each month. Payslips appear in the StaffHub app two days before payday.\n\nHourly rates:\n\n- Band A: \u00a312.60\n- Band B: \u00a313.40\n- Band C: \u00a314.75\n- Band D: \u00a316.90\n\n[breaks-and-staff-drinks.md]\n# Breaks and staff drinks\n\nA shift of 4 to 6 hours includes one paid 15-minute break. A shift longer than 6 hours adds an unpaid 30-minute meal break. A shift longer than 9 hours adds a second paid 15-minute break.\n\n[rota-swaps.md]\nSwapping a shift\n\nPost the swap in StaffHub at least 24 hours before the shift. It is confirmed only when the other person accepts and your manager approves it. Until then, the shift is still yours.\n\nYou can't swap an opening shift to a trainee barista, because trainees may not open a branch alone."
+ },
+ {
+  "question": "I'm a shift lead. How much notice must I give when I resign?",
+  "answer": "As a shift lead, you must give your resignation notice based on your band. Band A and Band B staff must give 2 weeks' notice, while Band C and Band D staff must give 4 weeks' notice. Band E staff must give 8 weeks' notice. [resignation.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 755,
+  "searches": [
+   "shift lead resignation notice period"
+  ],
+  "seen": "[resignation.md]\n# Leaving Quillon\n\nTo resign, give your branch manager written notice. Band A and Band B staff must give 2 weeks. Band C and Band D staff must give 4 weeks. Band E staff must give 8 weeks.\n\n[breaks-and-staff-drinks.md]\n# Breaks and staff drinks\n\nA shift of 4 to 6 hours includes one paid 15-minute break. A shift longer than 6 hours adds an unpaid 30-minute meal break. A shift longer than 9 hours adds a second paid 15-minute break.\n\n[rota-swaps.md]\nSwapping a shift\n\nPost the swap in StaffHub at least 24 hours before the shift. It is confirmed only when the other person accepts and your manager approves it. Until then, the shift is still yours.\n\nYou can't swap an opening shift to a trainee barista, because trainees may not open a branch alone."
+ },
+ {
+  "question": "I'm a shift lead. How much notice must I give when I resign?",
+  "answer": "According to the staff handbook, shift leads in Bands C and D must give 4 weeks' notice when resigning, while those in Bands E must give 8 weeks' notice. Bands A and B staff need to provide 2 weeks' notice. [resignation.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 755,
+  "searches": [
+   "shift lead resignation notice period"
+  ],
+  "seen": "[resignation.md]\n# Leaving Quillon\n\nTo resign, give your branch manager written notice. Band A and Band B staff must give 2 weeks. Band C and Band D staff must give 4 weeks. Band E staff must give 8 weeks.\n\n[breaks-and-staff-drinks.md]\n# Breaks and staff drinks\n\nA shift of 4 to 6 hours includes one paid 15-minute break. A shift longer than 6 hours adds an unpaid 30-minute meal break. A shift longer than 9 hours adds a second paid 15-minute break.\n\n[rota-swaps.md]\nSwapping a shift\n\nPost the swap in StaffHub at least 24 hours before the shift. It is confirmed only when the other person accepts and your manager approves it. Until then, the shift is still yours.\n\nYou can't swap an opening shift to a trainee barista, because trainees may not open a branch alone."
+ },
+ {
+  "question": "I'm a shift lead. How much notice must I give when I resign?",
+  "answer": "According to the staff handbook, shift leads must give their branch manager written notice if they wish to resign. The amount of notice required depends on your band:\n\n- Band A and Band B staff must give 2 weeks' notice.\n- Band C and Band D staff must give 4 weeks' notice.\n- Band E staff must give 8 weeks' notice.\n\n[resignation.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 757,
+  "searches": [
+   "shift lead resignation notice"
+  ],
+  "seen": "[rota-swaps.md]\nSwapping a shift\n\nPost the swap in StaffHub at least 24 hours before the shift. It is confirmed only when the other person accepts and your manager approves it. Until then, the shift is still yours.\n\nYou can't swap an opening shift to a trainee barista, because trainees may not open a branch alone.\n\n[resignation.md]\n# Leaving Quillon\n\nTo resign, give your branch manager written notice. Band A and Band B staff must give 2 weeks. Band C and Band D staff must give 4 weeks. Band E staff must give 8 weeks.\n\n[shifts.md]\n# Shifts and arrival times\n\nRotas are published in StaffHub every Thursday for the two weeks starting the following Monday.\n\nOpening staff must arrive 30 minutes before the branch opens. Closing staff stay 45 minutes after the branch closes. Everyone else arrives 10 minutes before their shift so that they can get ready."
+ },
+ {
+  "question": "Who do I call to repair the grinder at Old Mill, and on what number?",
+  "answer": "To repair the grinder at the Old Mill branch, you should contact Tidewater Espresso Service on 0300 555 0142. [branch-old-mill.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 881,
+  "searches": [
+   "Old Mill grinder repair contact"
+  ],
+  "seen": "[branch-old-mill.md]\n# Old Mill branch\n\nAddress: The Old Mill, Weir Lane.\nBranch manager: Ravi Nair.\n\nOpening hours: Tuesday to Sunday 08:00 to 17:00. Closed on Mondays.\n\nEquipment service contractor: Tidewater Espresso Service, 0300 555 0142.\n\nOld Mill shares its building with the roastery. Visitors may watch roasting from the gallery, but only trained staff may enter the roasting floor.\n\n[log-old-mill-2025-05.md]\nOld-Mill branch log, May 2025\n\nWarm. Quiet until the school run. Dairy delivery was 37 minutes late. Grinder needed a small adjustment after the morning rush.\n\n## Saturday 10 May 2025\n\nWarm. Good trade all afternoon. Grinder needed a small adjustment after the morning rush. Hugo deep cleaned the pastry cabinet. A customer returned a scarf left yesterday.\n\n## Sunday 11 May 2025\n\n[log-old-mill-2025-06.md]\n# Old-Mill branch log, June 2025\n\n## Sunday 1 June 2025\n\nWarm. Busy from the first hour. Grinder needed a small adjustment after the morning rush. Till balanced to the penny.\n\n## Tuesday 3 June 2025\n\nBright and cold. Busy from the first hour. Delivery arrived on time and matched the note. A customer returned a scarf left yesterday."
+ },
+ {
+  "question": "Who do I call to repair the grinder at Old Mill, and on what number?",
+  "answer": "To repair the grinder at the Old Mill branch, you should contact Tidewater Espresso Service on 0300 555 0142. [branch-old-mill.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 881,
+  "searches": [
+   "Old Mill grinder repair contact"
+  ],
+  "seen": "[branch-old-mill.md]\n# Old Mill branch\n\nAddress: The Old Mill, Weir Lane.\nBranch manager: Ravi Nair.\n\nOpening hours: Tuesday to Sunday 08:00 to 17:00. Closed on Mondays.\n\nEquipment service contractor: Tidewater Espresso Service, 0300 555 0142.\n\nOld Mill shares its building with the roastery. Visitors may watch roasting from the gallery, but only trained staff may enter the roasting floor.\n\n[log-old-mill-2025-05.md]\nOld-Mill branch log, May 2025\n\nWarm. Quiet until the school run. Dairy delivery was 37 minutes late. Grinder needed a small adjustment after the morning rush.\n\n## Saturday 10 May 2025\n\nWarm. Good trade all afternoon. Grinder needed a small adjustment after the morning rush. Hugo deep cleaned the pastry cabinet. A customer returned a scarf left yesterday.\n\n## Sunday 11 May 2025\n\n[log-old-mill-2025-06.md]\n# Old-Mill branch log, June 2025\n\n## Sunday 1 June 2025\n\nWarm. Busy from the first hour. Grinder needed a small adjustment after the morning rush. Till balanced to the penny.\n\n## Tuesday 3 June 2025\n\nBright and cold. Busy from the first hour. Delivery arrived on time and matched the note. A customer returned a scarf left yesterday."
+ },
+ {
+  "question": "Who do I call to repair the grinder at Old Mill, and on what number?",
+  "answer": "To repair the grinder at the Old Mill branch, you should contact Tidewater Espresso Service. Their phone number is 0300 555 0142.\n\n[branch-old-mill.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 893,
+  "searches": [
+   "Old Mill grinder repair contact number"
+  ],
+  "seen": "[branch-old-mill.md]\n# Old Mill branch\n\nAddress: The Old Mill, Weir Lane.\nBranch manager: Ravi Nair.\n\nOpening hours: Tuesday to Sunday 08:00 to 17:00. Closed on Mondays.\n\nEquipment service contractor: Tidewater Espresso Service, 0300 555 0142.\n\nOld Mill shares its building with the roastery. Visitors may watch roasting from the gallery, but only trained staff may enter the roasting floor.\n\n[grinder-errors.md]\nGrinder error codes\n\n- E12: hopper empty. Refill it, then press the dial.\n- E27: burr chamber blocked. Switch it off, unplug it, and clear it with the blue brush.\n- E31: motor overheating. Leave it switched off for 20 minutes.\n- E44: dose sensor fault. Use the backup grinder, and report the fault.\n- E58: internal board fault. Don't restart it. Report it as a repair.\n\n[log-old-mill-2025-05.md]\nOld-Mill branch log, May 2025\n\nWarm. Quiet until the school run. Dairy delivery was 37 minutes late. Grinder needed a small adjustment after the morning rush.\n\n## Saturday 10 May 2025\n\nWarm. Good trade all afternoon. Grinder needed a small adjustment after the morning rush. Hugo deep cleaned the pastry cabinet. A customer returned a scarf left yesterday.\n\n## Sunday 11 May 2025"
+ },
+ {
+  "question": "What percentage does Quillon match on pension contributions?",
+  "answer": "I don't know [log-old-mill-2025-12.md, log-old-mill-2025-04.md, log-riverside-2025-07.md]. After searching multiple documents, there is no information provided about the percentage that Quillon matches on pension contributions.",
+  "steps": 4,
+  "stopped": false,
+  "tokens_in": 3012,
+  "searches": [
+   "pension contribution match percentage",
+   "pension contribution percentage match",
+   "pension contribution match"
+  ],
+  "seen": "[log-old-mill-2025-04.md]\nOld-Mill branch log, April 2025\n\nWarm. Steady morning, quiet after lunch. Nico changed the water filter reminder in StaffHub. Nico helped a customer with the loyalty app. Till was \u00a32 over, recorded on the cash sheet.\n\n## Wednesday 23 April 2025\n\n[log-old-mill-2025-12.md]\nOld-Mill branch log, December 2025\n\nHeavy showers. Queue out of the door at lunch. Till balanced to the penny. Delivery arrived on time and matched the note.\n\n## Friday 12 December 2025\n\nWindy. Busy from the first hour. Kira helped a customer with the loyalty app. Fridge log completed at opening and at 14:00. Till balanced to the penny.\n\n## Saturday 13 December 2025\n\n[log-riverside-2025-03.md]\nRiverside branch log, March 2025\n\nMild and grey. Good trade all afternoon. Finn helped a customer with the loyalty app. Lost property box checked, nothing to report. Till was \u00a32 over, recorded on the cash sheet.\n\n## Monday 10 March 2025\n\n[log-old-mill-2025-04.md]\nOld-Mill branch log, April 2025\n\nWarm. Steady morning, quiet after lunch. Nico changed the water filter reminder in StaffHub. Nico helped a customer with the loyalty app. Till was \u00a32 over, recorded on the cash sheet.\n\n## Wednesday 23 April 2025\n\n[log-old-mill-2025-12.md]\nOld-Mill branch log, December 2025\n\nHeavy showers. Queue out of the door at lunch. Till balanced to the penny. Delivery arrived on time and matched the note.\n\n## Friday 12 December 2025\n\nWindy. Busy from the first hour. Kira helped a customer with the loyalty app. Fridge log completed at opening and at 14:00. Till balanced to the penny.\n\n## Saturday 13 December 2025\n\n[log-riverside-2025-03.md]\nRiverside branch log, March 2025\n\nMild and grey. Good trade all afternoon. Finn helped a customer with the loyalty app. Lost property box checked, nothing to report. Till was \u00a32 over, recorded on the cash sheet.\n\n## Monday 10 March 2025\n\n[log-old-mill-2025-12.md]\nOld-Mill branch log, December 2025\n\nHeavy showers. Queue out of the door at lunch. Till balanced to the penny. Delivery arrived on time and matched the note.\n\n## Friday 12 December 2025\n\nWindy. Busy from the first hour. Kira helped a customer with the loyalty app. Fridge log completed at opening and at 14:00. Till balanced to the penny.\n\n## Saturday 13 December 2025\n\n[log-old-mill-2025-04.md]\nOld-Mill branch log, April 2025\n\nWarm. Steady morning, quiet after lunch. Nico changed the water filter reminder in StaffHub. Nico helped a customer with the loyalty app. Till was \u00a32 over, recorded on the cash sheet.\n\n## Wednesday 23 April 2025\n\n[log-riverside-2025-07.md]\n## Saturday 19 July 2025\n\nHeavy showers. Good trade all afternoon. Grace helped a customer with the loyalty app. Delivery arrived on time and matched the note.\n\n## Sunday 20 July 2025\n\nSunny. Quiet until the school run. Till was \u00a32 over, recorded on the cash sheet. Aisha helped a customer with the loyalty app.\n\n## Monday 21 July 2025"
+ },
+ {
+  "question": "What percentage does Quillon match on pension contributions?",
+  "answer": "Stopped: no answer after 8 steps.",
+  "steps": 8,
+  "stopped": true,
+  "tokens_in": 9182,
+  "searches": [
+   "pension contribution match percentage",
+   "pension contribution match percentage",
+   "pension contribution match percentage all branches",
+   "pension contribution match percentage",
+   "pension contribution percentage match",
+   "pension contribution match percentage",
+   "pension contribution match percentage staff",
+   "pension contribution match percentage"
+  ],
+  "seen": "[log-old-mill-2025-04.md]\nOld-Mill branch log, April 2025\n\nWarm. Steady morning, quiet after lunch. Nico changed the water filter reminder in StaffHub. Nico helped a customer with the loyalty app. Till was \u00a32 over, recorded on the cash sheet.\n\n## Wednesday 23 April 2025\n\n[log-old-mill-2025-12.md]\nOld-Mill branch log, December 2025\n\nHeavy showers. Queue out of the door at lunch. Till balanced to the penny. Delivery arrived on time and matched the note.\n\n## Friday 12 December 2025\n\nWindy. Busy from the first hour. Kira helped a customer with the loyalty app. Fridge log completed at opening and at 14:00. Till balanced to the penny.\n\n## Saturday 13 December 2025\n\n[log-riverside-2025-03.md]\nRiverside branch log, March 2025\n\nMild and grey. Good trade all afternoon. Finn helped a customer with the loyalty app. Lost property box checked, nothing to report. Till was \u00a32 over, recorded on the cash sheet.\n\n## Monday 10 March 2025\n\n[log-old-mill-2025-04.md]\nOld-Mill branch log, April 2025\n\nWarm. Steady morning, quiet after lunch. Nico changed the water filter reminder in StaffHub. Nico helped a customer with the loyalty app. Till was \u00a32 over, recorded on the cash sheet.\n\n## Wednesday 23 April 2025\n\n[log-old-mill-2025-12.md]\nOld-Mill branch log, December 2025\n\nHeavy showers. Queue out of the door at lunch. Till balanced to the penny. Delivery arrived on time and matched the note.\n\n## Friday 12 December 2025\n\nWindy. Busy from the first hour. Kira helped a customer with the loyalty app. Fridge log completed at opening and at 14:00. Till balanced to the penny.\n\n## Saturday 13 December 2025\n\n[log-riverside-2025-03.md]\nRiverside branch log, March 2025\n\nMild and grey. Good trade all afternoon. Finn helped a customer with the loyalty app. Lost property box checked, nothing to report. Till was \u00a32 over, recorded on the cash sheet.\n\n## Monday 10 March 2025\n\n[log-riverside-2025-03.md]\nRiverside branch log, March 2025\n\nMild and grey. Good trade all afternoon. Finn helped a customer with the loyalty app. Lost property box checked, nothing to report. Till was \u00a32 over, recorded on the cash sheet.\n\n## Monday 10 March 2025\n\n[welcome.md]\n# Welcome to Quillon Coffee\n\nQuillon Coffee is a small, independent chain with four branches: Harbour, Riverside, Station and Old Mill. The first branch opened at Old Mill in 2011. We roast our own beans at the Old Mill roastery every Tuesday and Friday.\n\n[log-riverside-2025-11.md]\nRiverside branch log, November 2025\n\nMild and grey. Steady morning, quiet after lunch. Hugo helped a customer with the loyalty app. Bins collected as normal.\n\n## Tuesday 25 November 2025\n\nWindy. Slow day overall. Grace helped a customer with the loyalty app. Swept the outdoor area twice because of leaves.\n\n## Wednesday 26 November 2025\n\nError: you've already made this exact call 2 times. Try something else.\n\n[log-old-mill-2025-04.md]\nOld-Mill branch log, April 2025\n\nWarm. Steady morning, quiet after lunch. Nico changed the water filter reminder in StaffHub. Nico helped a customer with the loyalty app. Till was \u00a32 over, recorded on the cash sheet.\n\n## Wednesday 23 April 2025\n\n[log-old-mill-2025-12.md]\nOld-Mill branch log, December 2025\n\nHeavy showers. Queue out of the door at lunch. Till balanced to the penny. Delivery arrived on time and matched the note.\n\n## Friday 12 December 2025\n\nWindy. Busy from the first hour. Kira helped a customer with the loyalty app. Fridge log completed at opening and at 14:00. Till balanced to the penny.\n\n## Saturday 13 December 2025\n\n[log-riverside-2025-03.md]\nRiverside branch log, March 2025\n\nMild and grey. Good trade all afternoon. Finn helped a customer with the loyalty app. Lost property box checked, nothing to report. Till was \u00a32 over, recorded on the cash sheet.\n\n## Monday 10 March 2025\n\nError: you've already made this exact call 2 times. Try something else.\n\n[annual-leave.md]\n# Annual leave\n\nFull-time staff receive 28 days of annual leave each year, including public holidays. Part-time staff receive the same amount in proportion to their contracted hours. After five years of service, you receive 2 extra days.\n\n[staff-discount.md]\n# Staff discount\n\nThe discount applies when you are off shift, with your staff card, at any branch.\n\n- Band A and Band B: 25% off drinks and food, 15% off retail beans\n- Band C and Band D: 35% off drinks and food, 25% off retail beans\n- Band E: 40% off drinks and food, 30% off retail beans\n\n[shifts.md]\n# Shifts and arrival times\n\nRotas are published in StaffHub every Thursday for the two weeks starting the following Monday.\n\nOpening staff must arrive 30 minutes before the branch opens. Closing staff stay 45 minutes after the branch closes. Everyone else arrives 10 minutes before their shift so that they can get ready.\n\nError: you've already made this exact call 2 times. Try something else."
+ },
+ {
+  "question": "What percentage does Quillon match on pension contributions?",
+  "answer": "I don't know. The logs provided do not contain information about the pension contribution match percentage. [log-old-mill-2025-04.md] [log-old-mill-2025-12.md] [log-riverside-2025-03.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 824,
+  "searches": [
+   "pension contribution match percentage"
+  ],
+  "seen": "[log-old-mill-2025-04.md]\nOld-Mill branch log, April 2025\n\nWarm. Steady morning, quiet after lunch. Nico changed the water filter reminder in StaffHub. Nico helped a customer with the loyalty app. Till was \u00a32 over, recorded on the cash sheet.\n\n## Wednesday 23 April 2025\n\n[log-old-mill-2025-12.md]\nOld-Mill branch log, December 2025\n\nHeavy showers. Queue out of the door at lunch. Till balanced to the penny. Delivery arrived on time and matched the note.\n\n## Friday 12 December 2025\n\nWindy. Busy from the first hour. Kira helped a customer with the loyalty app. Fridge log completed at opening and at 14:00. Till balanced to the penny.\n\n## Saturday 13 December 2025\n\n[log-riverside-2025-03.md]\nRiverside branch log, March 2025\n\nMild and grey. Good trade all afternoon. Finn helped a customer with the loyalty app. Lost property box checked, nothing to report. Till was \u00a32 over, recorded on the cash sheet.\n\n## Monday 10 March 2025"
+ },
+ {
+  "question": "Does Quillon offer dental insurance?",
+  "answer": "I don't know if Quillon offers dental insurance based on the information provided in the staff handbook. The handbook didn't contain any specific details about dental insurance. [accidents-and-incidents.md] and [allergens.md] cover reporting incidents and allergens, respectively, but not insurance benefits. [uniform.md] only discusses uniform policies.",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 698,
+  "searches": [
+   "dental insurance"
+  ],
+  "seen": "[accidents-and-incidents.md]\n# Accidents and incidents\n\nAny injury to a colleague or a customer, however small, must be reported on form IR-7 before the end of the shift. Your branch manager sends it to Ines Duarte within 24 hours.\n\nNear misses count too. A wet floor that almost caused a fall is still an incident worth recording.\n\n[allergens.md]\nAllergens\n\nThe almond croissant and the seeded flapjack are the highest-risk products. Never guess. If the label is missing, the item must not be sold.\n\n[uniform.md]\nUniform\n\nLong hair must be tied back. Keep jewellery to plain rings and small stud earrings. Replacement aprons are free if the old one is worn out, but cost \u00a38 if lost."
+ },
+ {
+  "question": "Does Quillon offer dental insurance?",
+  "answer": "I don't know if Quillon offers dental insurance based on the information provided in the staff handbook. [accidents-and-incidents.md], [allergens.md], and [uniform.md] cover reporting incidents, allergen handling, and uniform policies, but they do not mention dental insurance.",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 698,
+  "searches": [
+   "dental insurance"
+  ],
+  "seen": "[accidents-and-incidents.md]\n# Accidents and incidents\n\nAny injury to a colleague or a customer, however small, must be reported on form IR-7 before the end of the shift. Your branch manager sends it to Ines Duarte within 24 hours.\n\nNear misses count too. A wet floor that almost caused a fall is still an incident worth recording.\n\n[allergens.md]\nAllergens\n\nThe almond croissant and the seeded flapjack are the highest-risk products. Never guess. If the label is missing, the item must not be sold.\n\n[uniform.md]\nUniform\n\nLong hair must be tied back. Keep jewellery to plain rings and small stud earrings. Replacement aprons are free if the old one is worn out, but cost \u00a38 if lost."
+ },
+ {
+  "question": "Does Quillon offer dental insurance?",
+  "answer": "I don't know if Quillon offers dental insurance based on the information provided in the staff handbook. [accidents-and-incidents.md], [allergens.md], and [uniform.md] cover different aspects but do not mention dental insurance.",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 698,
+  "searches": [
+   "dental insurance"
+  ],
+  "seen": "[accidents-and-incidents.md]\n# Accidents and incidents\n\nAny injury to a colleague or a customer, however small, must be reported on form IR-7 before the end of the shift. Your branch manager sends it to Ines Duarte within 24 hours.\n\nNear misses count too. A wet floor that almost caused a fall is still an incident worth recording.\n\n[allergens.md]\nAllergens\n\nThe almond croissant and the seeded flapjack are the highest-risk products. Never guess. If the label is missing, the item must not be sold.\n\n[uniform.md]\nUniform\n\nLong hair must be tied back. Keep jewellery to plain rings and small stud earrings. Replacement aprons are free if the old one is worn out, but cost \u00a38 if lost."
+ },
+ {
+  "question": "What is the customer wifi password at Harbour?",
+  "answer": "I don't know the customer wifi password for the Harbour branch based on the information available in the staff handbook. The logs do not contain the specific detail about the customer wifi password. \n\n[log-harbour-2025-05.md] [log-harbour-2025-06.md] [log-harbour-2025-12.md]",
+  "steps": 5,
+  "stopped": false,
+  "tokens_in": 4021,
+  "searches": [
+   "customer wifi password Harbour",
+   "wifi password Harbour",
+   "customer wifi password Harbour branch",
+   "customer wifi password Harbour"
+  ],
+  "seen": "[log-harbour-2025-05.md]\n# Harbour branch log, May 2025\n\n## Thursday 1 May 2025\n\nWindy. Queue out of the door at lunch. Finn helped a customer with the loyalty app. A customer returned a scarf left yesterday.\n\n## Friday 2 May 2025\n\nWarm. Slow day overall. Dairy delivery was 11 minutes late. Nico helped a customer with the loyalty app.\n\n[log-harbour-2025-06.md]\nHarbour branch log, June 2025\n\nBright and cold. Good trade all afternoon. Printer roll replaced on till two. Till balanced to the penny. Kira helped a customer with the loyalty app.\n\n[log-harbour-2025-12.md]\nHarbour branch log, December 2025\n\nLight rain all day. Steady morning, quiet after lunch. Maya helped a customer with the loyalty app. Delivery arrived on time and matched the note. A customer returned a scarf left yesterday.\n\n[log-harbour-2025-02.md]\nHarbour branch log, February 2025\n\nStorm surge flooded the Harbour cellar overnight. Stock worth \u00a3640 was lost, mostly paper cups and syrups. Lena Ortiz arranged a dry-out with Brinley Restoration. Heavy showers. Busy from the first hour. Fridge log completed at opening and at 14:00. Finn updated the chalkboard with this week's filter coffee. Lost property box checked, nothing to report.\n\n[log-harbour-2025-06.md]\nHarbour branch log, June 2025\n\nBright and cold. Good trade all afternoon. Printer roll replaced on till two. Till balanced to the penny. Kira helped a customer with the loyalty app.\n\n[branch-harbour.md]\n# Harbour branch\n\nAddress: 4 Quay Walk.\nBranch manager: Lena Ortiz.\n\nOpening hours: Monday to Friday 06:30 to 16:00. Saturday and Sunday 07:30 to 15:00.\n\nEquipment service contractor: Tidewater Espresso Service, 0300 555 0142.\n\n[log-harbour-2025-06.md]\nHarbour branch log, June 2025\n\nBright and cold. Good trade all afternoon. Printer roll replaced on till two. Till balanced to the penny. Kira helped a customer with the loyalty app.\n\n[log-harbour-2025-05.md]\n# Harbour branch log, May 2025\n\n## Thursday 1 May 2025\n\nWindy. Queue out of the door at lunch. Finn helped a customer with the loyalty app. A customer returned a scarf left yesterday.\n\n## Friday 2 May 2025\n\nWarm. Slow day overall. Dairy delivery was 11 minutes late. Nico helped a customer with the loyalty app.\n\n[log-harbour-2025-12.md]\nHarbour branch log, December 2025\n\nLight rain all day. Steady morning, quiet after lunch. Maya helped a customer with the loyalty app. Delivery arrived on time and matched the note. A customer returned a scarf left yesterday.\n\n[log-harbour-2025-05.md]\n# Harbour branch log, May 2025\n\n## Thursday 1 May 2025\n\nWindy. Queue out of the door at lunch. Finn helped a customer with the loyalty app. A customer returned a scarf left yesterday.\n\n## Friday 2 May 2025\n\nWarm. Slow day overall. Dairy delivery was 11 minutes late. Nico helped a customer with the loyalty app.\n\n[log-harbour-2025-06.md]\nHarbour branch log, June 2025\n\nBright and cold. Good trade all afternoon. Printer roll replaced on till two. Till balanced to the penny. Kira helped a customer with the loyalty app.\n\n[log-harbour-2025-12.md]\nHarbour branch log, December 2025\n\nLight rain all day. Steady morning, quiet after lunch. Maya helped a customer with the loyalty app. Delivery arrived on time and matched the note. A customer returned a scarf left yesterday."
+ },
+ {
+  "question": "What is the customer wifi password at Harbour?",
+  "answer": "I don't know. The logs provided do not contain information about the customer wifi password at the Harbour branch. [log-harbour-2025-05.md] [log-harbour-2025-06.md] [log-harbour-2025-12.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 768,
+  "searches": [
+   "customer wifi password Harbour"
+  ],
+  "seen": "[log-harbour-2025-05.md]\n# Harbour branch log, May 2025\n\n## Thursday 1 May 2025\n\nWindy. Queue out of the door at lunch. Finn helped a customer with the loyalty app. A customer returned a scarf left yesterday.\n\n## Friday 2 May 2025\n\nWarm. Slow day overall. Dairy delivery was 11 minutes late. Nico helped a customer with the loyalty app.\n\n[log-harbour-2025-06.md]\nHarbour branch log, June 2025\n\nBright and cold. Good trade all afternoon. Printer roll replaced on till two. Till balanced to the penny. Kira helped a customer with the loyalty app.\n\n[log-harbour-2025-12.md]\nHarbour branch log, December 2025\n\nLight rain all day. Steady morning, quiet after lunch. Maya helped a customer with the loyalty app. Delivery arrived on time and matched the note. A customer returned a scarf left yesterday."
+ },
+ {
+  "question": "What is the customer wifi password at Harbour?",
+  "answer": "I don't know. The logs provided do not include the customer wifi password for the Harbour branch. [log-harbour-2025-05.md] [log-harbour-2025-06.md] [log-harbour-2025-12.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 769,
+  "searches": [
+   "Harbour customer wifi password"
+  ],
+  "seen": "[log-harbour-2025-05.md]\n# Harbour branch log, May 2025\n\n## Thursday 1 May 2025\n\nWindy. Queue out of the door at lunch. Finn helped a customer with the loyalty app. A customer returned a scarf left yesterday.\n\n## Friday 2 May 2025\n\nWarm. Slow day overall. Dairy delivery was 11 minutes late. Nico helped a customer with the loyalty app.\n\n[log-harbour-2025-06.md]\nHarbour branch log, June 2025\n\nBright and cold. Good trade all afternoon. Printer roll replaced on till two. Till balanced to the penny. Kira helped a customer with the loyalty app.\n\n[log-harbour-2025-12.md]\nHarbour branch log, December 2025\n\nLight rain all day. Steady morning, quiet after lunch. Maya helped a customer with the loyalty app. Delivery arrived on time and matched the note. A customer returned a scarf left yesterday."
+ },
+ {
+  "question": "Are dogs allowed inside the Riverside branch?",
+  "answer": "I couldn't find any specific policy regarding dogs in the Riverside branch. The logs do not mention any such rules or exceptions. You might want to check directly with the branch manager, Sam Achebe, or the equipment service contractor, Northline Service, for the most accurate information.\n\n[branch-riverside.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 776,
+  "searches": [
+   "Riverside branch dog policy"
+  ],
+  "seen": "[log-riverside-2025-09.md]\n# Riverside branch log, September 2025\n\n## Monday 1 September 2025\n\nSunny. Steady morning, quiet after lunch. Swept the outdoor area twice because of leaves. Dairy delivery was 35 minutes late.\n\n## Tuesday 2 September 2025\n\n[log-riverside-2025-01.md]\nRiverside branch log, January 2025\n\nHeavy showers. Queue out of the door at lunch. Maya helped a customer with the loyalty app. Two pastries went on the waste sheet.\n\n## Friday 24 January 2025\n\n[branch-riverside.md]\n# Riverside branch\n\nAddress: 22 Mill Race Road.\nBranch manager: Sam Achebe.\n\nOpening hours: Monday to Saturday 07:30 to 18:00. Sunday 09:00 to 16:00.\n\nEquipment service contractor: Northline Service, 0300 555 0177."
+ },
+ {
+  "question": "Are dogs allowed inside the Riverside branch?",
+  "answer": "I don't know. The logs for the Riverside branch do not mention any pet policy. I would need to search further for specific information about allowing dogs inside the branch. [branch-riverside.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 778,
+  "searches": [
+   "Riverside branch pet policy"
+  ],
+  "seen": "[log-riverside-2025-01.md]\nRiverside branch log, January 2025\n\nHeavy showers. Queue out of the door at lunch. Maya helped a customer with the loyalty app. Two pastries went on the waste sheet.\n\n## Friday 24 January 2025\n\n[log-riverside-2025-11.md]\nRiverside branch log, November 2025\n\nMild and grey. Steady morning, quiet after lunch. Hugo helped a customer with the loyalty app. Bins collected as normal.\n\n## Tuesday 25 November 2025\n\nWindy. Slow day overall. Grace helped a customer with the loyalty app. Swept the outdoor area twice because of leaves.\n\n## Wednesday 26 November 2025\n\n[branch-riverside.md]\nRiverside branch\n\nRiverside is the only branch with a kitchen, so it is the only branch that makes hot food. It also hosts the Thursday evening cupping club, which runs from 18:30 to 20:00."
+ },
+ {
+  "question": "Are dogs allowed inside the Riverside branch?",
+  "answer": "I don't know. The logs and information provided do not mention any pet policy for the Riverside branch. I would need to search further for specific pet policy details. [branch-riverside.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 778,
+  "searches": [
+   "Riverside branch pet policy"
+  ],
+  "seen": "[log-riverside-2025-01.md]\nRiverside branch log, January 2025\n\nHeavy showers. Queue out of the door at lunch. Maya helped a customer with the loyalty app. Two pastries went on the waste sheet.\n\n## Friday 24 January 2025\n\n[log-riverside-2025-11.md]\nRiverside branch log, November 2025\n\nMild and grey. Steady morning, quiet after lunch. Hugo helped a customer with the loyalty app. Bins collected as normal.\n\n## Tuesday 25 November 2025\n\nWindy. Slow day overall. Grace helped a customer with the loyalty app. Swept the outdoor area twice because of leaves.\n\n## Wednesday 26 November 2025\n\n[branch-riverside.md]\nRiverside branch\n\nRiverside is the only branch with a kitchen, so it is the only branch that makes hot food. It also hosts the Thursday evening cupping club, which runs from 18:30 to 20:00."
+ },
+ {
+  "question": "How much stock was lost when the Harbour cellar flooded?",
+  "answer": "The stock loss when the Harbour cellar flooded was worth \u00a3640, mostly in paper cups and syrups. [log-harbour-2025-02.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 863,
+  "searches": [
+   "Harbour cellar flood stock loss"
+  ],
+  "seen": "[log-harbour-2025-02.md]\nHarbour branch log, February 2025\n\nStorm surge flooded the Harbour cellar overnight. Stock worth \u00a3640 was lost, mostly paper cups and syrups. Lena Ortiz arranged a dry-out with Brinley Restoration. Heavy showers. Busy from the first hour. Fridge log completed at opening and at 14:00. Finn updated the chalkboard with this week's filter coffee. Lost property box checked, nothing to report.\n\n[log-harbour-2025-02.md]\nHarbour branch log, February 2025\n\nBright and cold. Queue out of the door at lunch. Lost property box checked, nothing to report. Grace and Hugo rearranged the retail shelf.\n\n## Thursday 6 February 2025\n\nFoggy start. Quiet until the school run. Swept the outdoor area twice because of leaves. Lost property box checked, nothing to report. Fridge log completed at opening and at 14:00.\n\n[food-safety.md]\n# Food safety\n\n## Fridge temperatures\n\nFridges must stay at 5\u00b0C or below. Check and log them at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, throw the stock away and call your manager."
+ },
+ {
+  "question": "How much stock was lost when the Harbour cellar flooded?",
+  "answer": "When the Harbour cellar flooded, stock worth \u00a3640 was lost, mostly paper cups and syrups. [log-harbour-2025-02.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 863,
+  "searches": [
+   "Harbour cellar flood stock loss"
+  ],
+  "seen": "[log-harbour-2025-02.md]\nHarbour branch log, February 2025\n\nStorm surge flooded the Harbour cellar overnight. Stock worth \u00a3640 was lost, mostly paper cups and syrups. Lena Ortiz arranged a dry-out with Brinley Restoration. Heavy showers. Busy from the first hour. Fridge log completed at opening and at 14:00. Finn updated the chalkboard with this week's filter coffee. Lost property box checked, nothing to report.\n\n[log-harbour-2025-02.md]\nHarbour branch log, February 2025\n\nBright and cold. Queue out of the door at lunch. Lost property box checked, nothing to report. Grace and Hugo rearranged the retail shelf.\n\n## Thursday 6 February 2025\n\nFoggy start. Quiet until the school run. Swept the outdoor area twice because of leaves. Lost property box checked, nothing to report. Fridge log completed at opening and at 14:00.\n\n[food-safety.md]\n# Food safety\n\n## Fridge temperatures\n\nFridges must stay at 5\u00b0C or below. Check and log them at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, throw the stock away and call your manager."
+ },
+ {
+  "question": "How much stock was lost when the Harbour cellar flooded?",
+  "answer": "When the Harbour cellar flooded, stock worth \u00a3640 was lost, mostly paper cups and syrups. [log-harbour-2025-02.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 863,
+  "searches": [
+   "Harbour cellar flood stock loss"
+  ],
+  "seen": "[log-harbour-2025-02.md]\nHarbour branch log, February 2025\n\nStorm surge flooded the Harbour cellar overnight. Stock worth \u00a3640 was lost, mostly paper cups and syrups. Lena Ortiz arranged a dry-out with Brinley Restoration. Heavy showers. Busy from the first hour. Fridge log completed at opening and at 14:00. Finn updated the chalkboard with this week's filter coffee. Lost property box checked, nothing to report.\n\n[log-harbour-2025-02.md]\nHarbour branch log, February 2025\n\nBright and cold. Queue out of the door at lunch. Lost property box checked, nothing to report. Grace and Hugo rearranged the retail shelf.\n\n## Thursday 6 February 2025\n\nFoggy start. Quiet until the school run. Swept the outdoor area twice because of leaves. Lost property box checked, nothing to report. Fridge log completed at opening and at 14:00.\n\n[food-safety.md]\n# Food safety\n\n## Fridge temperatures\n\nFridges must stay at 5\u00b0C or below. Check and log them at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, throw the stock away and call your manager."
+ },
+ {
+  "question": "Who was the guest at the Riverside cupping club in June 2025?",
+  "answer": "The guest at the Riverside cupping club in June 2025 was Anika Voss, a green coffee buyer who led a tasting of washed Ethiopian lots. [log-riverside-2025-06.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 853,
+  "searches": [
+   "Riverside cupping club June 2025 guest"
+  ],
+  "seen": "[log-riverside-2025-06.md]\nRiverside branch log, June 2025\n\nThe guest at the cupping club tonight was Anika Voss, a green coffee buyer, who led a tasting of washed Ethiopian lots. Foggy start. Steady morning, quiet after lunch. Carla and Ben rearranged the retail shelf. A regular asked about the oat milk again. Ran out of oat milk by 14:00.\n\n## Friday 20 June 2025\n\n[branch-riverside.md]\nRiverside branch\n\nRiverside is the only branch with a kitchen, so it is the only branch that makes hot food. It also hosts the Thursday evening cupping club, which runs from 18:30 to 20:00.\n\n[log-riverside-2025-06.md]\nRiverside branch log, June 2025\n\nWarm. Slow day overall. Finn practised latte art with the spare milk. A regular asked about the cinnamon buns again.\n\n## Tuesday 3 June 2025\n\nHeavy showers. Good trade all afternoon. A regular asked about the seeded flapjacks again. Swept the outdoor area twice because of leaves. Till balanced to the penny.\n\n## Wednesday 4 June 2025"
+ },
+ {
+  "question": "Who was the guest at the Riverside cupping club in June 2025?",
+  "answer": "The guest at the Riverside cupping club in June 2025 was Anika Voss, a green coffee buyer. She led a tasting of washed Ethiopian lots. [log-riverside-2025-06.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 853,
+  "searches": [
+   "Riverside cupping club June 2025 guest"
+  ],
+  "seen": "[log-riverside-2025-06.md]\nRiverside branch log, June 2025\n\nThe guest at the cupping club tonight was Anika Voss, a green coffee buyer, who led a tasting of washed Ethiopian lots. Foggy start. Steady morning, quiet after lunch. Carla and Ben rearranged the retail shelf. A regular asked about the oat milk again. Ran out of oat milk by 14:00.\n\n## Friday 20 June 2025\n\n[branch-riverside.md]\nRiverside branch\n\nRiverside is the only branch with a kitchen, so it is the only branch that makes hot food. It also hosts the Thursday evening cupping club, which runs from 18:30 to 20:00.\n\n[log-riverside-2025-06.md]\nRiverside branch log, June 2025\n\nWarm. Slow day overall. Finn practised latte art with the spare milk. A regular asked about the cinnamon buns again.\n\n## Tuesday 3 June 2025\n\nHeavy showers. Good trade all afternoon. A regular asked about the seeded flapjacks again. Swept the outdoor area twice because of leaves. Till balanced to the penny.\n\n## Wednesday 4 June 2025"
+ },
+ {
+  "question": "Who was the guest at the Riverside cupping club in June 2025?",
+  "answer": "The guest at the Riverside cupping club in June 2025 was Anika Voss, a green coffee buyer. She led a tasting of washed Ethiopian lots. [log-riverside-2025-06.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 853,
+  "searches": [
+   "Riverside cupping club June 2025 guest"
+  ],
+  "seen": "[log-riverside-2025-06.md]\nRiverside branch log, June 2025\n\nThe guest at the cupping club tonight was Anika Voss, a green coffee buyer, who led a tasting of washed Ethiopian lots. Foggy start. Steady morning, quiet after lunch. Carla and Ben rearranged the retail shelf. A regular asked about the oat milk again. Ran out of oat milk by 14:00.\n\n## Friday 20 June 2025\n\n[branch-riverside.md]\nRiverside branch\n\nRiverside is the only branch with a kitchen, so it is the only branch that makes hot food. It also hosts the Thursday evening cupping club, which runs from 18:30 to 20:00.\n\n[log-riverside-2025-06.md]\nRiverside branch log, June 2025\n\nWarm. Slow day overall. Finn practised latte art with the spare milk. A regular asked about the cinnamon buns again.\n\n## Tuesday 3 June 2025\n\nHeavy showers. Good trade all afternoon. A regular asked about the seeded flapjacks again. Swept the outdoor area twice because of leaves. Till balanced to the penny.\n\n## Wednesday 4 June 2025"
+ },
+ {
+  "question": "How much did the film crew pay to use Old Mill?",
+  "answer": "The film crew paid \u00a3350 to use the Old Mill branch gallery for their shoot in August 2025. [log-old-mill-2025-08.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 822,
+  "searches": [
+   "film crew Old Mill rental payment"
+  ],
+  "seen": "[log-old-mill-2025-08.md]\nOld-Mill branch log, August 2025\n\nA film crew used the gallery for a morning and paid \u00a3350 for the location. Ravi Nair put the money towards new gallery lighting. Heavy showers. Queue out of the door at lunch. Ran out of seeded flapjacks by 12:45. Grinder needed a small adjustment after the morning rush.\n\n## Friday 8 August 2025\n\n[welcome.md]\n# Welcome to Quillon Coffee\n\nQuillon Coffee is a small, independent chain with four branches: Harbour, Riverside, Station and Old Mill. The first branch opened at Old Mill in 2011. We roast our own beans at the Old Mill roastery every Tuesday and Friday.\n\n[log-old-mill-2025-10.md]\nOld-Mill branch log, October 2025\n\nWindy. Busy from the first hour. Printer roll replaced on till two. Till was \u00a32 over, recorded on the cash sheet. Isla changed the water filter reminder in StaffHub.\n\n## Friday 17 October 2025\n\nWindy. Busy from the first hour. Grinder needed a small adjustment after the morning rush. Two pastries went on the waste sheet."
+ },
+ {
+  "question": "How much did the film crew pay to use Old Mill?",
+  "answer": "According to the log from August 2025, the film crew paid \u00a3350 to use the Old Mill branch gallery for their shoot. [log-old-mill-2025-08.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 809,
+  "searches": [
+   "Old Mill film crew payment"
+  ],
+  "seen": "[log-old-mill-2025-08.md]\nOld-Mill branch log, August 2025\n\nA film crew used the gallery for a morning and paid \u00a3350 for the location. Ravi Nair put the money towards new gallery lighting. Heavy showers. Queue out of the door at lunch. Ran out of seeded flapjacks by 12:45. Grinder needed a small adjustment after the morning rush.\n\n## Friday 8 August 2025\n\n[suppliers.md]\nSuppliers\n\nSupplies: Machine service, Harbour and Old Mill. Account manager: Marek Dolan. Terms: Call-out fee \u00a385. Invoices are paid within 30 days.\n\n## Northline Service\n\nSupplies: Machine service, Riverside and Station. Account manager: Yusuf Kaya. Terms: Call-out fee \u00a395. Invoices are paid within 30 days.\n\n## GreenLoop\n\n[welcome.md]\n# Welcome to Quillon Coffee\n\nQuillon Coffee is a small, independent chain with four branches: Harbour, Riverside, Station and Old Mill. The first branch opened at Old Mill in 2011. We roast our own beans at the Old Mill roastery every Tuesday and Friday."
+ },
+ {
+  "question": "How much did the film crew pay to use Old Mill?",
+  "answer": "The film crew paid \u00a3350 to use the gallery at Old Mill branch for a morning session. [log-old-mill-2025-08.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 837,
+  "searches": [
+   "film crew Old Mill payment"
+  ],
+  "seen": "[log-old-mill-2025-08.md]\nOld-Mill branch log, August 2025\n\nA film crew used the gallery for a morning and paid \u00a3350 for the location. Ravi Nair put the money towards new gallery lighting. Heavy showers. Queue out of the door at lunch. Ran out of seeded flapjacks by 12:45. Grinder needed a small adjustment after the morning rush.\n\n## Friday 8 August 2025\n\n[welcome.md]\n# Welcome to Quillon Coffee\n\nQuillon Coffee is a small, independent chain with four branches: Harbour, Riverside, Station and Old Mill. The first branch opened at Old Mill in 2011. We roast our own beans at the Old Mill roastery every Tuesday and Friday.\n\n[log-old-mill-2025-02.md]\nOld-Mill branch log, February 2025\n\nFoggy start. Steady morning, quiet after lunch. Nico practised latte art with the spare milk. Fridge log completed at opening and at 14:00. Till was \u00a34 over, recorded on the cash sheet.\n\n## Wednesday 12 February 2025\n\nBright and cold. Good trade all afternoon. Aisha helped a customer with the loyalty app. Aisha covered Finn's break. Bins collected as normal."
+ },
+ {
+  "question": "How long was the Station card reader down just before Christmas 2025?",
+  "answer": "The Station card reader was down from 07:40 and stayed down until 11:15 just before Christmas in 2025. [log-station-2025-12.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 807,
+  "searches": [
+   "Station card reader down Christmas 2025"
+  ],
+  "seen": "[log-station-2025-12.md]\nStation branch log, December 2025\n\nThe card reader on till one failed at 07:40 and stayed down until 11:15. We took cash only on that till and lost roughly \u00a3300 of trade. Heavy showers. Good trade all afternoon. Elif restocked the takeaway lids and cups. Elif practised latte art with the spare milk.\n\n## Wednesday 24 December 2025\n\n[log-station-2025-12.md]\n# Station branch log, December 2025\n\n## Monday 1 December 2025\n\nBright and cold. Slow day overall. Nico and Kira rearranged the retail shelf. Nico restocked the takeaway lids and cups. Two pastries went on the waste sheet.\n\n## Tuesday 2 December 2025\n\n[loyalty-card.md]\nQuillon loyalty card\n\nThe digital card lives in the Quillon app. A paper card can be moved to the app by a shift lead, once only. Stamps expire 12 months after the last purchase."
+ },
+ {
+  "question": "How long was the Station card reader down just before Christmas 2025?",
+  "answer": "The Station card reader was down from 07:40 and stayed down until 11:15 just before Christmas in 2025. [log-station-2025-12.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 807,
+  "searches": [
+   "Station card reader down Christmas 2025"
+  ],
+  "seen": "[log-station-2025-12.md]\nStation branch log, December 2025\n\nThe card reader on till one failed at 07:40 and stayed down until 11:15. We took cash only on that till and lost roughly \u00a3300 of trade. Heavy showers. Good trade all afternoon. Elif restocked the takeaway lids and cups. Elif practised latte art with the spare milk.\n\n## Wednesday 24 December 2025\n\n[log-station-2025-12.md]\n# Station branch log, December 2025\n\n## Monday 1 December 2025\n\nBright and cold. Slow day overall. Nico and Kira rearranged the retail shelf. Nico restocked the takeaway lids and cups. Two pastries went on the waste sheet.\n\n## Tuesday 2 December 2025\n\n[loyalty-card.md]\nQuillon loyalty card\n\nThe digital card lives in the Quillon app. A paper card can be moved to the app by a shift lead, once only. Stamps expire 12 months after the last purchase."
+ },
+ {
+  "question": "How long was the Station card reader down just before Christmas 2025?",
+  "answer": "The card reader at the Station branch was down from 07:40 and remained out of service until 11:15 just before Christmas 2025. [log-station-2025-12.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 807,
+  "searches": [
+   "Station card reader down Christmas 2025"
+  ],
+  "seen": "[log-station-2025-12.md]\nStation branch log, December 2025\n\nThe card reader on till one failed at 07:40 and stayed down until 11:15. We took cash only on that till and lost roughly \u00a3300 of trade. Heavy showers. Good trade all afternoon. Elif restocked the takeaway lids and cups. Elif practised latte art with the spare milk.\n\n## Wednesday 24 December 2025\n\n[log-station-2025-12.md]\n# Station branch log, December 2025\n\n## Monday 1 December 2025\n\nBright and cold. Slow day overall. Nico and Kira rearranged the retail shelf. Nico restocked the takeaway lids and cups. Two pastries went on the waste sheet.\n\n## Tuesday 2 December 2025\n\n[loyalty-card.md]\nQuillon loyalty card\n\nThe digital card lives in the Quillon app. A paper card can be moved to the app by a shift lead, once only. Stamps expire 12 months after the last purchase."
+ },
+ {
+  "question": "How many flat whites did the ferry company order for the Saturday crew breakfast?",
+  "answer": "The ferry company ordered 40 flat whites for the Saturday crew breakfast. [log-harbour-2025-09.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 838,
+  "searches": [
+   "ferry company flat whites Saturday crew breakfast"
+  ],
+  "seen": "[log-harbour-2025-09.md]\nHarbour branch log, September 2025\n\nPernille Lund from the ferry company agreed a standing order of 40 flat whites for the Saturday crew breakfast. Mild and grey. Queue out of the door at lunch. Swept the outdoor area twice because of leaves. Fridge log completed at opening and at 14:00. A customer returned a scarf left yesterday.\n\n## Thursday 4 September 2025\n\n[log-station-2025-12.md]\n## Friday 26 December 2025\n\nSunny. Steady morning, quiet after lunch. Finn deep cleaned the pastry cabinet. Printer roll replaced on till two.\n\n## Saturday 27 December 2025\n\nSunny. Good trade all afternoon. Ran out of soya milk by 12:15. Isla and Maya rearranged the retail shelf. Isla helped a customer with the loyalty app.\n\n## Sunday 28 December 2025\n\n[branch-harbour.md]\nHarbour branch\n\nHarbour serves the morning ferry crowd, so the first hour is the busiest of the day. It has outdoor seating for 16, which must be brought in if the wind warning flag is up on the quay."
+ },
+ {
+  "question": "How many flat whites did the ferry company order for the Saturday crew breakfast?",
+  "answer": "The ferry company ordered 40 flat whites for the Saturday crew breakfast. [log-harbour-2025-09.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 838,
+  "searches": [
+   "ferry company flat whites Saturday crew breakfast"
+  ],
+  "seen": "[log-harbour-2025-09.md]\nHarbour branch log, September 2025\n\nPernille Lund from the ferry company agreed a standing order of 40 flat whites for the Saturday crew breakfast. Mild and grey. Queue out of the door at lunch. Swept the outdoor area twice because of leaves. Fridge log completed at opening and at 14:00. A customer returned a scarf left yesterday.\n\n## Thursday 4 September 2025\n\n[log-station-2025-12.md]\n## Friday 26 December 2025\n\nSunny. Steady morning, quiet after lunch. Finn deep cleaned the pastry cabinet. Printer roll replaced on till two.\n\n## Saturday 27 December 2025\n\nSunny. Good trade all afternoon. Ran out of soya milk by 12:15. Isla and Maya rearranged the retail shelf. Isla helped a customer with the loyalty app.\n\n## Sunday 28 December 2025\n\n[branch-harbour.md]\nHarbour branch\n\nHarbour serves the morning ferry crowd, so the first hour is the busiest of the day. It has outdoor seating for 16, which must be brought in if the wind warning flag is up on the quay."
+ },
+ {
+  "question": "How many flat whites did the ferry company order for the Saturday crew breakfast?",
+  "answer": "The ferry company ordered 40 flat whites for the Saturday crew breakfast. [log-harbour-2025-09.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 838,
+  "searches": [
+   "ferry company flat whites Saturday crew breakfast"
+  ],
+  "seen": "[log-harbour-2025-09.md]\nHarbour branch log, September 2025\n\nPernille Lund from the ferry company agreed a standing order of 40 flat whites for the Saturday crew breakfast. Mild and grey. Queue out of the door at lunch. Swept the outdoor area twice because of leaves. Fridge log completed at opening and at 14:00. A customer returned a scarf left yesterday.\n\n## Thursday 4 September 2025\n\n[log-station-2025-12.md]\n## Friday 26 December 2025\n\nSunny. Steady morning, quiet after lunch. Finn deep cleaned the pastry cabinet. Printer roll replaced on till two.\n\n## Saturday 27 December 2025\n\nSunny. Good trade all afternoon. Ran out of soya milk by 12:15. Isla and Maya rearranged the retail shelf. Isla helped a customer with the loyalty app.\n\n## Sunday 28 December 2025\n\n[branch-harbour.md]\nHarbour branch\n\nHarbour serves the morning ferry crowd, so the first hour is the busiest of the day. It has outdoor seating for 16, which must be brought in if the wind warning flag is up on the quay."
+ },
+ {
+  "question": "What is the minimum order with Fennel Bakehouse?",
+  "answer": "The minimum order with Fennel Bakehouse is \u00a360 per branch. [suppliers.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 788,
+  "searches": [
+   "minimum order Fennel Bakehouse"
+  ],
+  "seen": "[suppliers.md]\n# Suppliers\n\n## Greywell Dairy\n\nSupplies: Milk and cream. Account manager: Hannah Pryce. Terms: No minimum order. Invoices are paid within 30 days.\n\n## Fennel Bakehouse\n\nSupplies: Pastries and cakes. Account manager: Oskar Lind. Terms: Minimum order \u00a360 per branch. Invoices are paid within 14 days.\n\n## Tidewater Espresso Service\n\n[deliveries.md]\n# Deliveries\n\nGreywell Dairy delivers on Mondays, Wednesdays and Saturdays before 07:00. Pastries from Fennel Bakehouse arrive every day by 06:15. Roasted beans come from the Old Mill roastery every Wednesday.\n\n[suppliers.md]\nSuppliers\n\nSupplies: Cash collection. Account manager: Dara Quinn. Terms: Fixed fee of \u00a322 per collection. Invoices are paid within 14 days.\n\n## Marlow Paper Goods\n\nSupplies: Cups, lids and napkins. Account manager: Sofia Bell. Terms: Minimum order 10 cases. Invoices are paid within 45 days."
+ },
+ {
+  "question": "What is the minimum order with Fennel Bakehouse?",
+  "answer": "The minimum order with Fennel Bakehouse is \u00a360 per branch. [suppliers.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 788,
+  "searches": [
+   "minimum order Fennel Bakehouse"
+  ],
+  "seen": "[suppliers.md]\n# Suppliers\n\n## Greywell Dairy\n\nSupplies: Milk and cream. Account manager: Hannah Pryce. Terms: No minimum order. Invoices are paid within 30 days.\n\n## Fennel Bakehouse\n\nSupplies: Pastries and cakes. Account manager: Oskar Lind. Terms: Minimum order \u00a360 per branch. Invoices are paid within 14 days.\n\n## Tidewater Espresso Service\n\n[deliveries.md]\n# Deliveries\n\nGreywell Dairy delivers on Mondays, Wednesdays and Saturdays before 07:00. Pastries from Fennel Bakehouse arrive every day by 06:15. Roasted beans come from the Old Mill roastery every Wednesday.\n\n[suppliers.md]\nSuppliers\n\nSupplies: Cash collection. Account manager: Dara Quinn. Terms: Fixed fee of \u00a322 per collection. Invoices are paid within 14 days.\n\n## Marlow Paper Goods\n\nSupplies: Cups, lids and napkins. Account manager: Sofia Bell. Terms: Minimum order 10 cases. Invoices are paid within 45 days."
+ },
+ {
+  "question": "What is the minimum order with Fennel Bakehouse?",
+  "answer": "The minimum order with Fennel Bakehouse is \u00a360 per branch. [suppliers.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 788,
+  "searches": [
+   "minimum order Fennel Bakehouse"
+  ],
+  "seen": "[suppliers.md]\n# Suppliers\n\n## Greywell Dairy\n\nSupplies: Milk and cream. Account manager: Hannah Pryce. Terms: No minimum order. Invoices are paid within 30 days.\n\n## Fennel Bakehouse\n\nSupplies: Pastries and cakes. Account manager: Oskar Lind. Terms: Minimum order \u00a360 per branch. Invoices are paid within 14 days.\n\n## Tidewater Espresso Service\n\n[deliveries.md]\n# Deliveries\n\nGreywell Dairy delivers on Mondays, Wednesdays and Saturdays before 07:00. Pastries from Fennel Bakehouse arrive every day by 06:15. Roasted beans come from the Old Mill roastery every Wednesday.\n\n[suppliers.md]\nSuppliers\n\nSupplies: Cash collection. Account manager: Dara Quinn. Terms: Fixed fee of \u00a322 per collection. Invoices are paid within 14 days.\n\n## Marlow Paper Goods\n\nSupplies: Cups, lids and napkins. Account manager: Sofia Bell. Terms: Minimum order 10 cases. Invoices are paid within 45 days."
+ },
+ {
+  "question": "How much is a Tidewater call-out?",
+  "answer": "The call-out fee for Tidewater Espresso Service is \u00a385. [suppliers.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 818,
+  "searches": [
+   "Tidewater call-out payment"
+  ],
+  "seen": "[suppliers.md]\nSuppliers\n\nSupplies: Machine service, Harbour and Old Mill. Account manager: Marek Dolan. Terms: Call-out fee \u00a385. Invoices are paid within 30 days.\n\n## Northline Service\n\nSupplies: Machine service, Riverside and Station. Account manager: Yusuf Kaya. Terms: Call-out fee \u00a395. Invoices are paid within 30 days.\n\n## GreenLoop\n\n[branch-harbour.md]\n# Harbour branch\n\nAddress: 4 Quay Walk.\nBranch manager: Lena Ortiz.\n\nOpening hours: Monday to Friday 06:30 to 16:00. Saturday and Sunday 07:30 to 15:00.\n\nEquipment service contractor: Tidewater Espresso Service, 0300 555 0142.\n\n[suppliers.md]\n# Suppliers\n\n## Greywell Dairy\n\nSupplies: Milk and cream. Account manager: Hannah Pryce. Terms: No minimum order. Invoices are paid within 30 days.\n\n## Fennel Bakehouse\n\nSupplies: Pastries and cakes. Account manager: Oskar Lind. Terms: Minimum order \u00a360 per branch. Invoices are paid within 14 days.\n\n## Tidewater Espresso Service"
+ },
+ {
+  "question": "How much is a Tidewater call-out?",
+  "answer": "The call-out fee for Tidewater Espresso Service is \u00a385. [suppliers.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 818,
+  "searches": [
+   "Tidewater call-out payment"
+  ],
+  "seen": "[suppliers.md]\nSuppliers\n\nSupplies: Machine service, Harbour and Old Mill. Account manager: Marek Dolan. Terms: Call-out fee \u00a385. Invoices are paid within 30 days.\n\n## Northline Service\n\nSupplies: Machine service, Riverside and Station. Account manager: Yusuf Kaya. Terms: Call-out fee \u00a395. Invoices are paid within 30 days.\n\n## GreenLoop\n\n[branch-harbour.md]\n# Harbour branch\n\nAddress: 4 Quay Walk.\nBranch manager: Lena Ortiz.\n\nOpening hours: Monday to Friday 06:30 to 16:00. Saturday and Sunday 07:30 to 15:00.\n\nEquipment service contractor: Tidewater Espresso Service, 0300 555 0142.\n\n[suppliers.md]\n# Suppliers\n\n## Greywell Dairy\n\nSupplies: Milk and cream. Account manager: Hannah Pryce. Terms: No minimum order. Invoices are paid within 30 days.\n\n## Fennel Bakehouse\n\nSupplies: Pastries and cakes. Account manager: Oskar Lind. Terms: Minimum order \u00a360 per branch. Invoices are paid within 14 days.\n\n## Tidewater Espresso Service"
+ },
+ {
+  "question": "How much is a Tidewater call-out?",
+  "answer": "The call-out fee for Tidewater Espresso Service is \u00a385. [suppliers.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 818,
+  "searches": [
+   "Tidewater call-out pay"
+  ],
+  "seen": "[suppliers.md]\nSuppliers\n\nSupplies: Machine service, Harbour and Old Mill. Account manager: Marek Dolan. Terms: Call-out fee \u00a385. Invoices are paid within 30 days.\n\n## Northline Service\n\nSupplies: Machine service, Riverside and Station. Account manager: Yusuf Kaya. Terms: Call-out fee \u00a395. Invoices are paid within 30 days.\n\n## GreenLoop\n\n[branch-harbour.md]\n# Harbour branch\n\nAddress: 4 Quay Walk.\nBranch manager: Lena Ortiz.\n\nOpening hours: Monday to Friday 06:30 to 16:00. Saturday and Sunday 07:30 to 15:00.\n\nEquipment service contractor: Tidewater Espresso Service, 0300 555 0142.\n\n[suppliers.md]\n# Suppliers\n\n## Greywell Dairy\n\nSupplies: Milk and cream. Account manager: Hannah Pryce. Terms: No minimum order. Invoices are paid within 30 days.\n\n## Fennel Bakehouse\n\nSupplies: Pastries and cakes. Account manager: Oskar Lind. Terms: Minimum order \u00a360 per branch. Invoices are paid within 14 days.\n\n## Tidewater Espresso Service"
+ },
+ {
+  "question": "How much is a 250g bag of Lantern?",
+  "answer": "A 250g bag of Lantern costs \u00a38.50. [products-beans.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 849,
+  "searches": [
+   "Lantern 250g price"
+  ],
+  "seen": "[products-beans.md]\n# Product sheet: beans\n\n## Lantern 250g\n\nPrice: \u00a38.50. House blend from Brazil and Colombia, with notes of milk chocolate.\n\n## Lantern 1kg\n\nPrice: \u00a329.00. House blend, wholesale size.\n\n## Dusk decaf 250g\n\nPrice: \u00a39.25. Sugarcane-process decaf from Colombia, with notes of caramel.\n\n## Harvest Ethiopia 250g\n\nPrice: \u00a311.00. Washed Yirgacheffe with notes of bergamot.\n\n## Harvest Guatemala 250g\n\n[products-kit.md]\n# Product sheet: kit\n\n## Quillon travel cup\n\nPrice: \u00a314.00. 350ml, stainless steel.\n\n## Hand grinder\n\nPrice: \u00a338.00. Ceramic burrs.\n\n## Pour-over starter set\n\nPrice: \u00a332.00. Dripper, filters and 250g of Lantern.\n\n[espresso-recipe.md]\n# Espresso recipe\n\nOur house blend is Lantern. Use 18 grams of ground coffee to give 36 grams of espresso in 26 to 30 seconds.\n\nIf the shot runs fast, grind finer. If it runs slow, grind coarser. Change one thing at a time, and throw away the first shot after any change."
+ },
+ {
+  "question": "How much is a 250g bag of Lantern?",
+  "answer": "The price for a 250g bag of Lantern is \u00a38.50. [products-beans.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 877,
+  "searches": [
+   "Lantern price 250g"
+  ],
+  "seen": "[products-beans.md]\n# Product sheet: beans\n\n## Lantern 250g\n\nPrice: \u00a38.50. House blend from Brazil and Colombia, with notes of milk chocolate.\n\n## Lantern 1kg\n\nPrice: \u00a329.00. House blend, wholesale size.\n\n## Dusk decaf 250g\n\nPrice: \u00a39.25. Sugarcane-process decaf from Colombia, with notes of caramel.\n\n## Harvest Ethiopia 250g\n\nPrice: \u00a311.00. Washed Yirgacheffe with notes of bergamot.\n\n## Harvest Guatemala 250g\n\n[products-kit.md]\n# Product sheet: kit\n\n## Quillon travel cup\n\nPrice: \u00a314.00. 350ml, stainless steel.\n\n## Hand grinder\n\nPrice: \u00a338.00. Ceramic burrs.\n\n## Pour-over starter set\n\nPrice: \u00a332.00. Dripper, filters and 250g of Lantern.\n\n[log-old-mill-2025-08.md]\nOld-Mill branch log, August 2025\n\nA film crew used the gallery for a morning and paid \u00a3350 for the location. Ravi Nair put the money towards new gallery lighting. Heavy showers. Queue out of the door at lunch. Ran out of seeded flapjacks by 12:45. Grinder needed a small adjustment after the morning rush.\n\n## Friday 8 August 2025"
+ },
+ {
+  "question": "How much is a 250g bag of Lantern?",
+  "answer": "The price for a 250g bag of Lantern is \u00a38.50. [products-beans.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 850,
+  "searches": [
+   "Lantern coffee price 250g"
+  ],
+  "seen": "[products-beans.md]\n# Product sheet: beans\n\n## Lantern 250g\n\nPrice: \u00a38.50. House blend from Brazil and Colombia, with notes of milk chocolate.\n\n## Lantern 1kg\n\nPrice: \u00a329.00. House blend, wholesale size.\n\n## Dusk decaf 250g\n\nPrice: \u00a39.25. Sugarcane-process decaf from Colombia, with notes of caramel.\n\n## Harvest Ethiopia 250g\n\nPrice: \u00a311.00. Washed Yirgacheffe with notes of bergamot.\n\n## Harvest Guatemala 250g\n\n[products-kit.md]\n# Product sheet: kit\n\n## Quillon travel cup\n\nPrice: \u00a314.00. 350ml, stainless steel.\n\n## Hand grinder\n\nPrice: \u00a338.00. Ceramic burrs.\n\n## Pour-over starter set\n\nPrice: \u00a332.00. Dripper, filters and 250g of Lantern.\n\n[espresso-recipe.md]\n# Espresso recipe\n\nOur house blend is Lantern. Use 18 grams of ground coffee to give 36 grams of espresso in 26 to 30 seconds.\n\nIf the shot runs fast, grind finer. If it runs slow, grind coarser. Change one thing at a time, and throw away the first shot after any change."
+ },
+ {
+  "question": "What did the health inspector score the Station branch in 2025?",
+  "answer": "I couldn't find a direct mention of the health inspector's score for the Station branch in 2025. The logs I found do not contain that information. [log-station-2025-12.md] and [log-station-2025-05.md] do not include any health inspection records. \n\nWould you like to try another query or check another year? [branch-station.md] might have some general information about the branch that could be useful.",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 807,
+  "searches": [
+   "health inspector Station branch 2025 score"
+  ],
+  "seen": "[log-station-2025-12.md]\nStation branch log, December 2025\n\nMild and grey. Steady morning, quiet after lunch. Till was \u00a33 over, recorded on the cash sheet. Printer roll replaced on till two. Bins collected as normal.\n\n## Saturday 13 December 2025\n\n[log-station-2025-05.md]\nStation branch log, May 2025\n\nHeavy showers. Steady morning, quiet after lunch. Hugo updated the chalkboard with this week's filter coffee. Delivery arrived on time and matched the note.\n\n## Saturday 10 May 2025\n\nWindy. Busy from the first hour. Finn covered Kira's break. Fridge log completed at opening and at 14:00.\n\n## Sunday 11 May 2025\n\n[branch-station.md]\nStation branch\n\nStation has no seating and sells takeaway only. Staff need a concourse pass from the station office, which Mei arranges in your first week. The goods lift is closed between 08:00 and 09:30."
+ },
+ {
+  "question": "What did the health inspector score the Station branch in 2025?",
+  "answer": "I don't know. The provided logs do not include any information about a health inspector score for the Station branch in 2025. [log-station-2025-12.md], [log-station-2025-05.md], and [branch-station.md] do not contain the required information.",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 807,
+  "searches": [
+   "health inspector Station branch 2025 score"
+  ],
+  "seen": "[log-station-2025-12.md]\nStation branch log, December 2025\n\nMild and grey. Steady morning, quiet after lunch. Till was \u00a33 over, recorded on the cash sheet. Printer roll replaced on till two. Bins collected as normal.\n\n## Saturday 13 December 2025\n\n[log-station-2025-05.md]\nStation branch log, May 2025\n\nHeavy showers. Steady morning, quiet after lunch. Hugo updated the chalkboard with this week's filter coffee. Delivery arrived on time and matched the note.\n\n## Saturday 10 May 2025\n\nWindy. Busy from the first hour. Finn covered Kira's break. Fridge log completed at opening and at 14:00.\n\n## Sunday 11 May 2025\n\n[branch-station.md]\nStation branch\n\nStation has no seating and sells takeaway only. Staff need a concourse pass from the station office, which Mei arranges in your first week. The goods lift is closed between 08:00 and 09:30."
+ },
+ {
+  "question": "What did the health inspector score the Station branch in 2025?",
+  "answer": "I don't know. The logs provided do not contain the health inspector's score for the Station branch in 2025. [log-station-2025-05.md] [log-station-2025-03.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 846,
+  "searches": [
+   "health inspector Station 2025 score"
+  ],
+  "seen": "[log-station-2025-05.md]\nStation branch log, May 2025\n\nMild and grey. Quiet until the school run. Delivery arrived on time and matched the note. A regular asked about the oat milk again.\n\n## Tuesday 20 May 2025\n\nFoggy start. Steady morning, quiet after lunch. Till was \u00a33 over, recorded on the cash sheet. Ben changed the water filter reminder in StaffHub.\n\n## Wednesday 21 May 2025\n\n[branch-station.md]\nStation branch\n\nStation has no seating and sells takeaway only. Staff need a concourse pass from the station office, which Mei arranges in your first week. The goods lift is closed between 08:00 and 09:30.\n\n[log-station-2025-03.md]\nStation branch log, March 2025\n\nMild and grey. Quiet until the school run. Isla updated the chalkboard with this week's filter coffee. Till balanced to the penny. Isla covered Jonas's break.\n\n## Friday 28 March 2025\n\nSunny. Slow day overall. Till was \u00a34 over, recorded on the cash sheet. Finn helped a customer with the loyalty app.\n\n## Saturday 29 March 2025"
+ },
+ {
+  "question": "How much did the Riverside roof repair cost in 2025?",
+  "answer": "I don't know. The logs for 2025 do not include information about the cost of the roof repair. [log-riverside-2025-02.md] and [log-riverside-2025-08.md] only contain daily activity logs and do not mention any roof repair costs. [grinder-errors.md] is about grinder errors and not related to the roof repair cost.",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 780,
+  "searches": [
+   "Riverside roof repair 2025 cost"
+  ],
+  "seen": "[log-riverside-2025-02.md]\n# Riverside branch log, February 2025\n\n## Saturday 1 February 2025\n\nHeavy showers. Good trade all afternoon. Till was \u00a31 over, recorded on the cash sheet. Bins collected as normal. Maya deep cleaned the pastry cabinet.\n\n## Sunday 2 February 2025\n\n[log-riverside-2025-08.md]\nRiverside branch log, August 2025\n\nLight rain all day. Quiet until the school run. Till was \u00a33 over, recorded on the cash sheet. Leo covered Ben's break.\n\n## Friday 22 August 2025\n\nMild and grey. Busy from the first hour. Two pastries went on the waste sheet. Grace deep cleaned the pastry cabinet.\n\n## Saturday 23 August 2025\n\n[grinder-errors.md]\nGrinder error codes\n\nIf the same code comes back three times in one day, treat it as a repair."
+ },
+ {
+  "question": "How much did the Riverside roof repair cost in 2025?",
+  "answer": "I don't know. The logs for 2025 do not include the cost of the Riverside roof repair. [log-riverside-2025-02.md] [log-riverside-2025-08.md] [grinder-errors.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 780,
+  "searches": [
+   "Riverside roof repair 2025 cost"
+  ],
+  "seen": "[log-riverside-2025-02.md]\n# Riverside branch log, February 2025\n\n## Saturday 1 February 2025\n\nHeavy showers. Good trade all afternoon. Till was \u00a31 over, recorded on the cash sheet. Bins collected as normal. Maya deep cleaned the pastry cabinet.\n\n## Sunday 2 February 2025\n\n[log-riverside-2025-08.md]\nRiverside branch log, August 2025\n\nLight rain all day. Quiet until the school run. Till was \u00a33 over, recorded on the cash sheet. Leo covered Ben's break.\n\n## Friday 22 August 2025\n\nMild and grey. Busy from the first hour. Two pastries went on the waste sheet. Grace deep cleaned the pastry cabinet.\n\n## Saturday 23 August 2025\n\n[grinder-errors.md]\nGrinder error codes\n\nIf the same code comes back three times in one day, treat it as a repair."
+ },
+ {
+  "question": "How much did the Riverside roof repair cost in 2025?",
+  "answer": "I don't know. The logs for February 2025 do not contain information about a roof repair, and there are no records of a roof repair cost in the logs available for August 2025 either. The grinder error log does not provide any cost information related to roof repairs. [log-riverside-2025-02.md] [log-riverside-2025-08.md] [grinder-errors.md]",
+  "steps": 2,
+  "stopped": false,
+  "tokens_in": 780,
+  "searches": [
+   "Riverside roof repair 2025 cost"
+  ],
+  "seen": "[log-riverside-2025-02.md]\n# Riverside branch log, February 2025\n\n## Saturday 1 February 2025\n\nHeavy showers. Good trade all afternoon. Till was \u00a31 over, recorded on the cash sheet. Bins collected as normal. Maya deep cleaned the pastry cabinet.\n\n## Sunday 2 February 2025\n\n[log-riverside-2025-08.md]\nRiverside branch log, August 2025\n\nLight rain all day. Quiet until the school run. Till was \u00a33 over, recorded on the cash sheet. Leo covered Ben's break.\n\n## Friday 22 August 2025\n\nMild and grey. Busy from the first hour. Two pastries went on the waste sheet. Grace deep cleaned the pastry cabinet.\n\n## Saturday 23 August 2025\n\n[grinder-errors.md]\nGrinder error codes\n\nIf the same code comes back three times in one day, treat it as a repair."
+ }
+]

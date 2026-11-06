@@ -1,0 +1,4 @@
+$ python3 eval_setup.py hybrid6
+KeyError: 'hybrid6'
+$ python3 -c "KeywordIndex().search(...)"   # nothing added
+ZeroDivisionError: division by zero

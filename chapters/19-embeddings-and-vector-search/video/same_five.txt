@@ -1,0 +1,5 @@
+$ python3 same_five.py
+round 2: 22 of 22 top 3s match round 1
+round 3: 22 of 22 top 3s match round 1
+round 4: 22 of 22 top 3s match round 1
+round 5: 22 of 22 top 3s match round 1

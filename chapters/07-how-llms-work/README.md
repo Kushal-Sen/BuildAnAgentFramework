@@ -168,7 +168,7 @@ With the small window, the text didn't fit, so the secret was lost and the reply
 **There was no error message.** Ollama cut the text and carried on.
 
 Agents resend everything on each step, so they can fill the window quickly. You'll manage this in
-chapter 23.
+chapter 24.
 
 ## 6. Made-up answers
 

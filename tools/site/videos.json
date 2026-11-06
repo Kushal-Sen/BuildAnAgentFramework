@@ -17,5 +17,10 @@
   "15-runtime": "n3PXbLxZxiY",
   "16-tracing-and-hooks": "kVWIUOlLCTc",
   "17-reliability": "bV3KcN3AG7g",
-  "18-evals": "Wy4mry9O2fE"
+  "18-evals": "Wy4mry9O2fE",
+  "19-embeddings-and-vector-search": "KOt8iJ-I5tU",
+  "20-rag-pipeline": "l54KFi5ouF4",
+  "21-better-chunks": "iPshIPFNOF0",
+  "22-better-search": "kajLBTA4eFs",
+  "23-agentic-rag": "W5cae68tpj8"
 }

@@ -1,0 +1,7 @@
+2. Saturation: repeats are worth less and less
+  found   1 times: 1.00
+  found   2 times: 1.43
+  found   3 times: 1.67
+  found   5 times: 1.92
+  found  10 times: 2.17
+  found 100 times: 2.46

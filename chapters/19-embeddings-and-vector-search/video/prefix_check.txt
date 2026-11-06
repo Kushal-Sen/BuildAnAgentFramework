@@ -1,0 +1,5 @@
+$ python3 prefix_check.py
+Group      With prefixes  Without
+direct           8/8          8/8
+reworded         4/8          4/8
+codes            4/6          5/6

@@ -1,0 +1,11 @@
+$ python3 all_setups.py
+plain60        102/126  direct 24/24  gap 21/24  code 12/18  hop 8/18  none 18/18  records 19/24
+plain60-again   98/126  direct 24/24  gap 21/24  code 12/18  hop 5/18  none 18/18  records 18/24
+titles60        98/126  direct 24/24  gap 19/24  code 12/18  hop 4/18  none 18/18  records 21/24
+titles60-again  97/126  direct 24/24  gap 18/24  code 12/18  hop 4/18  none 18/18  records 21/24
+plain120        99/126  direct 24/24  gap 19/24  code 15/18  hop 5/18  none 18/18  records 18/24
+titles120       98/126  direct 24/24  gap 15/24  code 15/18  hop 2/18  none 18/18  records 24/24
+titles120-again 101/126  direct 24/24  gap 15/24  code 15/18  hop 5/18  none 18/18  records 24/24
+hybrid-plain60  99/126  direct 24/24  gap 15/24  code 15/18  hop 6/18  none 18/18  records 21/24
+hybrid60       103/126  direct 24/24  gap 21/24  code 15/18  hop 4/18  none 18/18  records 21/24
+rerank60       102/126  direct 24/24  gap 20/24  code 12/18  hop 6/18  none 18/18  records 22/24

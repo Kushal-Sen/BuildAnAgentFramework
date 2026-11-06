@@ -1,0 +1,456 @@
+{
+  "label": "split60",
+  "rows": [
+    {
+      "name": "direct:drink-recipe",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:float",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:payday",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:milk-charge",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:fridge",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:grounds",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:hot-food",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "direct:loyalty",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:holiday",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:quit",
+      "runs": 3,
+      "passed": 2,
+      "steps": 6,
+      "failures": [
+        {
+          "run": 3,
+          "failed": [
+            "any of ['2 weeks', 'two weeks']"
+          ],
+          "answer": "You need to give 4 weeks' notice as you are Band C or Band D staff. [resignation.md]"
+        }
+      ]
+    },
+    {
+      "name": "gap:feel-ill",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:funeral",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:mice",
+      "runs": 3,
+      "passed": 2,
+      "steps": 6,
+      "failures": [
+        {
+          "run": 3,
+          "failed": [
+            "any of ['Halden']"
+          ],
+          "answer": "Report any droppings, gnawed packaging or live insects to your manager straight away. [food-safety.md]"
+        }
+      ]
+    },
+    {
+      "name": "gap:scald",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:shoes",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "gap:hair",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "code:e44",
+      "runs": 3,
+      "passed": 0,
+      "steps": 6,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['dose sensor']"
+          ],
+          "answer": "I don't know. [log-station-2025-03.md]"
+        },
+        {
+          "run": 2,
+          "failed": [
+            "any of ['dose sensor']"
+          ],
+          "answer": "I don't know. [log-station-2025-03.md] contains records from a branch log but does not define what E44 means."
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['dose sensor']"
+          ],
+          "answer": "I don't know. [forms.md] contains form codes like HR-04, HR-09, HR-12, HR-15, FN-3, FN-6, IR-7, and IR-9, but there is no mention of an E44 code."
+        }
+      ]
+    },
+    {
+      "name": "code:e31",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "code:r5",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "code:ir9",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "code:hr15",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "code:fn6",
+      "runs": 3,
+      "passed": 0,
+      "steps": 6,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['bank']"
+          ],
+          "answer": "I don't know. [log-riverside-2025-02.md] [log-riverside-2025-08.md] [log-riverside-2025-11.md] [log-old-mill-2025-06.md]"
+        },
+        {
+          "run": 2,
+          "failed": [
+            "any of ['bank']"
+          ],
+          "answer": "I don't know. [log-riverside-2025-02.md]"
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['bank']"
+          ],
+          "answer": "I don't know. [log-riverside-2025-02.md] [log-riverside-2025-08.md] [log-riverside-2025-11.md] [log-old-mill-2025-06.md] do not mention anything related to FN-6."
+        }
+      ]
+    },
+    {
+      "name": "hop:harbour-arrive",
+      "runs": 3,
+      "passed": 1,
+      "steps": 6,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['06:00', '6:00', '6 am', '6am']"
+          ],
+          "answer": "You need to arrive 30 minutes before the branch opens, which is at 06:30. [branch-harbour.md]"
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['06:00', '6:00', '6 am', '6am']"
+          ],
+          "answer": "You need to arrive 30 minutes before the branch opens, which is at 06:30. [branch-harbour.md]"
+        }
+      ]
+    },
+    {
+      "name": "hop:senior-beans",
+      "runs": 3,
+      "passed": 0,
+      "steps": 6,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['25%']"
+          ],
+          "answer": "You get 30% off retail beans as a senior barista, which corresponds to Band E discount. [staff-discount.md]"
+        },
+        {
+          "run": 2,
+          "failed": [
+            "any of ['25%']"
+          ],
+          "answer": "You get 30% off retail beans as a senior barista, which falls under Band E according to the staff discount policy. [staff-discount.md]"
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['25%']"
+          ],
+          "answer": "I don't know. [staff-discount.md] mentions discounts for different staff bands but does not specify a discount for senior baristas."
+        }
+      ]
+    },
+    {
+      "name": "hop:riverside-repair",
+      "runs": 3,
+      "passed": 0,
+      "steps": 6,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['0300 555 0177']"
+          ],
+          "answer": "I don't know. [branch-riverside.md] mentions the equipment service contractor but does not provide the number for the espresso machine."
+        },
+        {
+          "run": 2,
+          "failed": [
+            "any of ['0300 555 0177']"
+          ],
+          "answer": "I don't know. The given excerpts do not provide contact information for repairing the espresso machine or any specific maintenance number. [branch-riverside.md] lists the equipment service contractor as Northline Service, but it does not provide a specific number for espresso machine repairs."
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['0300 555 0177']"
+          ],
+          "answer": "I don't know. [branch-riverside.md] mentions an equipment service contractor for the Riverside branch, but it does not provide the number for the espresso machine repair."
+        }
+      ]
+    },
+    {
+      "name": "hop:shift-lead-pay",
+      "runs": 3,
+      "passed": 2,
+      "steps": 6,
+      "failures": [
+        {
+          "run": 2,
+          "failed": [
+            "any of ['14.75']"
+          ],
+          "answer": "I don't know. [wages.md] lists hourly rates for different bands but does not specify a rate for a shift lead."
+        }
+      ]
+    },
+    {
+      "name": "hop:lead-notice",
+      "runs": 3,
+      "passed": 2,
+      "steps": 6,
+      "failures": [
+        {
+          "run": 3,
+          "failed": [
+            "any of ['4 weeks', 'four weeks']"
+          ],
+          "answer": "You must give 8 weeks' notice when you resign as a shift lead, which likely corresponds to Band E staff in the resignation policy. [resignation.md]"
+        }
+      ]
+    },
+    {
+      "name": "hop:old-mill-repair",
+      "runs": 3,
+      "passed": 0,
+      "steps": 6,
+      "failures": [
+        {
+          "run": 1,
+          "failed": [
+            "any of ['0300 555 0142']"
+          ],
+          "answer": "I don't know. [branch-old-mill.md] mentions that the grinder needed adjustment, but it does not specify a contractor or a phone number for repairs."
+        },
+        {
+          "run": 2,
+          "failed": [
+            "any of ['0300 555 0142']"
+          ],
+          "answer": "I don't know. [branch-old-mill.md] mentions that the grinder needed adjustment, but it does not provide a contact number for repairs."
+        },
+        {
+          "run": 3,
+          "failed": [
+            "any of ['0300 555 0142']"
+          ],
+          "answer": "I don't know. [branch-old-mill.md] mentions that the grinder needed adjustment but does not provide a contact for equipment service."
+        }
+      ]
+    },
+    {
+      "name": "none:pension",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "none:dental",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "none:wifi",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "none:dogs",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:flood",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:cupping-guest",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:film-crew",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:card-reader",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:ferry-order",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:fennel-min",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:tidewater-fee",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "records:lantern-price",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "none:records-none",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    },
+    {
+      "name": "none:records-none2",
+      "runs": 3,
+      "passed": 3,
+      "steps": 6,
+      "failures": []
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+$ python3 word_search.py
+42 files
+How much is the till float?
+  2  cash-handling.md
+  1  closing-checklist.md
+  1  opening-checklist.md
+Can I get money back for buying work footwear?
+  2  expenses.md
+  1  cash-handling.md
+  1  closing-checklist.md

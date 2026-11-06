@@ -1,0 +1,13 @@
+$ python3 paste_try.py 8192
+Q: How much is the shoe allowance?
+A: The shoe allowance is £40 every 12 months, according to the [uniform.md] excerpt.
+tokens_in: 5080
+Q: What does E44 mean?
+A: E44 is a grinder error code that indicates a dose sensor fault. According to the excerpt, you should use the backup grinder and report the fault as a repair. [u
+tokens_in: 5080
+five runs each
+Case                  Passed  Steps
+shoes                    5/5    1.0
+e44                      5/5    1.0
+names its file           5/5    1.0
+Total                  15/15

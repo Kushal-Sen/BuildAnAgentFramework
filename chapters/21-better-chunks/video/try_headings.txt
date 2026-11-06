@@ -1,0 +1,9 @@
+$ python3 try_headings.py
+headings60     100/126  direct 24/24  gap 19/24  code 11/18  hop 7/18  none 18/18  records 21/24
+  card reader rank: 23
+  records:card-reader: 0/3
+  records:tidewater-fee: 3/3
+both60         103/126  direct 24/24  gap 21/24  code 12/18  hop 4/18  none 18/18  records 24/24
+  card reader rank: 1
+  records:card-reader: 3/3
+  records:tidewater-fee: 3/3

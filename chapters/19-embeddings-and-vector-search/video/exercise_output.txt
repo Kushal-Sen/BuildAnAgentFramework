@@ -1,0 +1,13 @@
+$ python3 -m pytest test_exercises.py -q --tb=no
+FFFFF                                                                    [100%]
+=========================== short test summary info ============================
+FAILED test_exercises.py::test_todo_1_unit - AssertionError: assert None == a...
+FAILED test_exercises.py::test_todo_2_above - AssertionError: assert None == ...
+FAILED test_exercises.py::test_todo_3_best_per_source - AssertionError: asser...
+FAILED test_exercises.py::test_todo_4_rank_of - AssertionError: assert None == 1
+FAILED test_exercises.py::test_todo_5_unit_store - TypeError: 'NoneType' obje...
+5 failed in 0.05s
+
+$ python3 -m pytest test_exercises.py -q --tb=no   # after the TODOs
+.....                                                                    [100%]
+5 passed in 0.05s

@@ -1,0 +1,11 @@
+$ python3 tidewater.py
+0.67 suppliers.md
+Supplies: Machine service, Harbour and Old Mill. Account manager: Marek Dolan. Terms: Call-out fee £85. Invoices are paid within 30 days.
+## Northline Service
+Supplies: Machine service, Riverside and Station. Account manager: Yusuf Kaya. Terms: Call-out fee £95. Invoices are paid within 30 days.
+## GreenLoop
+Does this chunk say Tidewater? False
+five runs
+Case                  Passed  Steps
+records:tidewater-fee     0/5    1.0
+Total                    0/5

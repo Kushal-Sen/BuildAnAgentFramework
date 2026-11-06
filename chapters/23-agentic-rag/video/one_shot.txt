@@ -1,0 +1,10 @@
+0.76  resignation.md
+0.71  breaks-and-staff-drinks.md
+0.69  shifts.md
+0.68  rota-swaps.md
+0.68  flexible-working.md
+Answer: You must give 8 weeks' notice when you resign as a Band E staff member. [resignation.md]
+five runs
+Case                  Passed  Steps
+hop:lead-notice          0/5    1.0
+Total                    0/5

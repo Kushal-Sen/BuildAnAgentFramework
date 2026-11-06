@@ -1,0 +1,2 @@
+$ python3 eval_setup.py rerank60
+rerank60       102/126  direct 24/24  gap 20/24  code 12/18  hop 6/18  none 18/18  records 22/24

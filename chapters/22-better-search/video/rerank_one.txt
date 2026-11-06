@@ -1,0 +1,9 @@
+$ python3 rerank_one.py
+What does E44 mean?
+  Vector rank: 22
+  Reranked rank: None
+  Model calls: 15
+What is FN-6 used for?
+  Vector rank: 629
+  Reranked rank: None
+  Model calls: 15
