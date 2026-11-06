@@ -1,0 +1,12 @@
+$ python3 read_notes.py
+Setup            Recall     Notes  Unwanted  Her words
+code checks       39/60    8 to 8    0 to 0      40/40
+model's words     50/60  14 to 18    3 to 6      21/77
+user's words      59/60  15 to 18    3 to 6      85/85
+Memory            57/60  13 to 15    2 to 3      69/69
+
+Missed, out of 5 runs each:
+code checks     knee 5, allergy 5, trip 5, badge 5, hygiene 1
+model's words   knee 3, trip 2, badge 5
+user's words    knee 1
+Memory          knee 3

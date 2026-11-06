@@ -1,0 +1,6 @@
+$ python3 plan_read.py senior-beans "Plain agent"
+pass: As a senior barista, you get 25% off retail beans when you are off shift and using your staff card at any branch. [staff-discount.md]
+$ python3 plan_read.py lead-notice Split
+pass: You must give 4 weeks' notice when you resign as a Band C or Band D staff member. [resignation.md]
+$ python3 plan_read.py riverside-repair
+pass: I don't know. [branch-riverside.md] doesn't provide the contact number for equipment service, only that the contractor is Northline Service, 0300 555 0177.

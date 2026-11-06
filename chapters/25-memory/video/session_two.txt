@@ -1,0 +1,9 @@
+$ python3 session_two.py
+Read 2 notes
+What's my locker number? Your locker number is 212. Is there anything else you need help with?
+Which day can't I work? I don't have information about your work availability. Could you please tell me which day you're unavailable?
+Which branch am I at? You are at the Old Mill branch, Hana.
+5/5  What's my locker number?
+0/5  Which day can't I work?
+5/5  Which branch am I at?
+Notes now: 2

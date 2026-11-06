@@ -1,0 +1,6 @@
+window     FAIL  To better assist you, could you please specify which day you are unable to work or provide more details about your sched
+window     FAIL  Noted. To help you better, could you please specify which day you mentioned or provide more details about your availabil
+window     FAIL  Noted. Could you please specify which day you cannot work or provide more details? Cheers
+summarise  FAIL  The handbook doesn't specify any particular day when staff can't work. However, it's common for certain days to be desig
+summarise  FAIL  You cannot work on the branch's closing day, which varies by location: - Harbour branch: Sunday - Old Mill branch: Monda
+summarise  FAIL  Based on the handbook, you cannot work on Mondays for the Old Mill Branch, as it is closed on that day. For the Riversid

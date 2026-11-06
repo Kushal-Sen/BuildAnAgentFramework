@@ -1,0 +1,12 @@
+Step:  Review the staff handbook for the resignation policy
+Query: Review the staff handbook for the resignation policy
+Found: Band E staff must give 8 weeks' notice when resigning.
+Step:  Identify the specific section related to shift leads
+Query: Band E staff resignation notice period
+Found: not found
+Step:  Check if there are any exceptions or additional requirements for shift leads
+Query: shift leads resignation notice period Band E
+Found: not found
+Files: annual-leave.md log-old-mill-2025-04.md log-station-2025-03.md pay-bands.md resignation.md shifts.md wages.md
+Answer: You must give 4 weeks' notice when resigning, as a shift lead is categorized under Band C, and Band C staff must give 4 weeks' notice according to the resignation guidelines. [resignation.md]
+Model calls: 7

@@ -1,0 +1,20 @@
+Plain agent
+  Searched: shift lead resignation notice period
+  Files:    breaks-and-staff-drinks.md resignation.md shifts.md
+  Answer:   As a shift lead, you must give your resignation notice according to your Band level. Band A and Band
+  Searched: shift lead resignation notice
+  Files:    resignation.md rota-swaps.md shifts.md
+  Answer:   As a shift lead, you must give your resignation notice based on your Band level. Band A and Band B s
+  Searched: shift lead resignation notice period
+  Files:    breaks-and-staff-drinks.md resignation.md shifts.md
+  Answer:   As a shift lead, you must give your resignation notice according to your band. Band A and Band B sta
+Split
+  Searched: What is the notice period required for shift leads in the staff handbook? | What are the resignation policies for management roles in the staff handbook? | What are the specific requirements for notice periods when resigning from a shift lead position?
+  Files:    breaks-and-staff-drinks.md forms.md resignation.md rota-swaps.md shifts.md welcome.md
+  Answer:   You must give 2 weeks' notice as a shift lead, which would be Band A or Band B based on the informat
+  Searched: What is the notice period required for shift leads to resign according to the staff handbook? | What group does the shift lead position fall under in the staff handbook? | What are the resignation procedures outlined for shift leads in the staff handbook?
+  Files:    breaks-and-staff-drinks.md pay-bands.md resignation.md rota-swaps.md shifts.md
+  Answer:   You must give 4 weeks' notice when you resign, as you are in Band C. [resignation.md]
+  Searched: When must a shift lead provide notice of resignation? | What is the notice period required for a shift lead? | Are there specific guidelines for notice periods in the staff handbook for shift leads?
+  Files:    breaks-and-staff-drinks.md resignation.md rota-swaps.md shifts.md
+  Answer:   You must give 8 weeks' notice when you resign, as you are Band E staff. [resignation.md]

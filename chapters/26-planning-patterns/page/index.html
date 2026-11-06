@@ -1,0 +1,479 @@
+<title>Whitebox: Planning patterns</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a black box header opens onto a white reading column; media breaks wider. */
+:root {
+  --bg: #fbfbf9; --surface: #ffffff; --ink: #16181d; --muted: #5d616b; --rule: #d9dade;
+  --accent: #2a4bd7; --tint: #e7ebfb; --box: #0c0d10; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #101218; --term-ink: #e4e6ec; --term-cmd: #9db1ff;
+  --display: "Bricolage Grotesque", Georgia, serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+    --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+    --term: #08090c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+  --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #08090c; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 400 1.0625rem/1.65 var(--body); }
+.gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 68rem; margin: 0 auto; min-width: 0; }
+.col { max-width: 42rem; display: grid; gap: 1rem; min-width: 0; }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2.6rem, 7vw, 4.4rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; }
+h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); line-height: 1.15; font-weight: 700; }
+h3 { font-size: 1.2rem; line-height: 1.3; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--accent); }
+a:focus-visible, video:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+code { font-family: var(--mono); font-size: 0.92em; }
+
+header.mast { background: var(--box); color: var(--on-box); padding-block: 1.6rem 3rem; }
+.mast .wrap { display: grid; gap: 2.4rem; }
+.brand { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font: 500 1rem var(--display); }
+.brand span:first-child { display: flex; align-items: center; gap: 0.55rem; }
+.brand i { width: 0.95rem; height: 0.95rem; border: 3px solid currentColor; display: block; }
+.brand span:last-child { font: 400 0.85rem var(--mono); color: var(--box-muted); align-self: center; }
+.mast .intro { display: grid; gap: 1rem; max-width: 46rem; }
+.mast .dek { font-size: 1.2rem; color: var(--box-muted); }
+.meta { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+
+main { padding-block: 0 4rem; }
+section { padding-block: 3.2rem 0; display: grid; gap: 1.4rem; }
+.label { font: 600 0.78rem/1.2 var(--mono); color: var(--accent); }
+.lede { font-size: 1.15rem; }
+
+figure { margin: 0; display: grid; gap: 0.5rem; min-width: 0; }
+figcaption { font-size: 0.86rem; color: var(--muted); }
+video { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 1440 / 900; background: #000; }
+
+ol.loop { margin: 0; padding-left: 1.3rem; display: grid; gap: 0.35rem; }
+ol.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 2.4rem; counter-reset: step; }
+ol.steps > li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 1.6rem; align-items: start; counter-increment: step; }
+ol.steps .txt { display: grid; gap: 0.45rem; min-width: 0; }
+ol.steps .txt h3::before { content: counter(step); display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; margin-right: 0.55rem; background: var(--ink); color: var(--bg); font: 600 0.85rem/1 var(--mono); vertical-align: 0.1em; }
+ol.steps img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); }
+@media (max-width: 720px) { ol.steps > li { grid-template-columns: minmax(0, 1fr); } }
+
+pre { margin: 0; background: var(--term); color: var(--term-ink); padding: 1rem 1.1rem; overflow-x: auto; font: 400 0.86rem/1.6 var(--mono); }
+pre .cmd { color: var(--term-cmd); }
+.tablebox { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.98rem; }
+th, td { text-align: left; padding: 0.65rem 0.8rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; color: var(--muted); }
+td { font-variant-numeric: tabular-nums; }
+.fails { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.fails div { background: var(--tint); padding: 1rem 1.1rem; display: grid; gap: 0.3rem; align-content: start; min-width: 0; }
+.list { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.35rem; }
+.next { background: var(--box); color: var(--on-box); padding: 1.4rem 1.5rem; display: grid; gap: 0.3rem; }
+.next span { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--muted); }
+</style>
+
+
+<header class="mast gutter">
+  <div class="wrap">
+    <div class="brand"><span><i></i>Whitebox Academy</span><span>Build an AI Agent from Scratch</span></div>
+    <div class="intro">
+      <span class="meta">Chapter 26 of 35 · Part 5: Agent capabilities · About 2 hours</span>
+      <h1>Planning patterns</h1>
+      <p class="dek">Write a plan, search step by step using what earlier steps found, and measure what that buys and what it costs.</p>
+    </div>
+  </div>
+</header>
+
+<main class="gutter">
+  <div class="wrap">
+    <section>
+      <figure>
+        <video controls playsinline preload="metadata" poster="media/07-scores.jpg">
+          <source src="media/video.mp4" type="video/mp4">
+        </video>
+        <figcaption>Chapter video, 6 minutes 47 seconds, no sound. It starts with a 30-second recap, and captions on screen explain each step.</figcaption>
+      </figure>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Where we are</span>
+        <h2>Two-fact questions still fail</h2>
+        <p class="lede">“How much notice must a shift lead give?” needs the shift lead’s band, and then the rule for that band.</p>
+        <p>In chapter 23 the agent almost never searched twice, so <code>Split</code> forced the searches in code. But <code>Split</code> writes every search before it has seen a single result. This chapter tries the next step: search, read, then write the next search. The model writes the steps, and your code makes sure each one happens. The result isn’t the one you’d hope for, so read it for the method as much as for the pattern.</p>
+        <p><a href="https://claude.ai/artifact/1uGgX3WK7v3D5HyfvB782p#start-ollama">Start Ollama</a>, activate the <code>.venv</code> from chapter 05, and work in <code>chapters/26-planning-patterns/code</code>. <code>whitebox/planning.py</code> is the only new framework file, and <code>agent.py</code> doesn’t change. <code>hop_setups.py</code> is provided, and <code>results/</code> holds our saved tests, so you can follow the whole chapter without running them. <code>python3 -m pytest tests</code> should show <code>77 passed</code>.</p>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Try it</span>
+        <h2>Two facts, six tries</h2>
+        <p>The answer needs <code>pay-bands.md</code> and <code>resignation.md</code>. The script asks the plain agent and <code>Split</code> three times each, and cuts answers at 100 characters. <strong>Predict:</strong> how many of the six runs see both files?</p>
+      </div>
+      <pre><span class="cmd">$ python3 two_facts.py</span>
+Plain agent
+  Searched: shift lead resignation notice period
+  Files:    breaks-and-staff-drinks.md resignation.md shifts.md
+  Answer:   As a shift lead, you must give your resignation notice according to your Band level. Band A and Band
+  Searched: shift lead resignation notice
+  Files:    resignation.md rota-swaps.md shifts.md
+  Answer:   As a shift lead, you must give your resignation notice based on your Band level. Band A and Band B s
+  Searched: shift lead resignation notice period
+  Files:    breaks-and-staff-drinks.md resignation.md shifts.md
+  Answer:   As a shift lead, you must give your resignation notice according to your band. Band A and Band B sta
+Split
+  Searched: What is the notice period required for shift leads in the staff handbook? | What are the resignation policies for management roles in the staff handbook? | What are the specific requirements for notice periods when resigning from a shift lead position?
+  Files:    breaks-and-staff-drinks.md forms.md resignation.md rota-swaps.md shifts.md welcome.md
+  Answer:   You must give 2 weeks&#x27; notice as a shift lead, which would be Band A or Band B based on the informat
+  Searched: What is the notice period required for shift leads to resign according to the staff handbook? | What group does the shift lead position fall under in the staff handbook? | What are the resignation procedures outlined for shift leads in the staff handbook?
+  Files:    breaks-and-staff-drinks.md pay-bands.md resignation.md rota-swaps.md shifts.md
+  Answer:   You must give 4 weeks&#x27; notice when you resign, as you are in Band C. [resignation.md]
+  Searched: When must a shift lead provide notice of resignation? | What is the notice period required for a shift lead? | Are there specific guidelines for notice periods in the staff handbook for shift leads?
+  Files:    breaks-and-staff-drinks.md resignation.md rota-swaps.md shifts.md
+  Answer:   You must give 8 weeks&#x27; notice when you resign, as you are Band E staff. [resignation.md]</pre>
+      <div class="col">
+        <p>This is real output from <code>qwen2.5:7b</code>. One of six. The agent listed the bands. <code>Split</code> gave three answers: 2 weeks, 4 weeks and 8 weeks. Only the run that saw <code>pay-bands.md</code> was right.</p>
+        <p>None of <code>Split</code>’s searches could say “Band C”, because nothing had been read when they were written. Try it the way a person would, reading the first result before writing the second. Hits are cut at 150 characters.</p>
+      </div>
+      <pre><span class="cmd">$ python3 by_hand.py</span>
+Search: What band is a shift lead?
+  [pay-bands.md] # Job roles and bands Every role belongs to a band. - Trainee barista: Band A - Barista: Band B - Senior barista: Band C - Shift lead: Band C - Assist
+  [rota-swaps.md] # Swapping a shift You may swap a shift with a colleague of the same band or higher, as long as the swap doesn&#x27;t take either person above 48 hours in 
+  [rota-swaps.md] Swapping a shift Post the swap in StaffHub at least 24 hours before the shift. It is confirmed only when the other person accepts and your manager app
+Search: How much notice does Band C give?
+  [resignation.md] # Leaving Quillon To resign, give your branch manager written notice. Band A and Band B staff must give 2 weeks. Band C and Band D staff must give 4 w
+  [wages.md] Wages Band E is salaried. Sunday hours are paid at time and a quarter. Hours worked on a public holiday are paid at time and a half. If your pay looks
+  [bereavement-leave.md] # Bereavement leave If a close relative dies, you may take up to 5 days of paid leave. A close relative means a partner, child, parent or sibling. For</pre>
+      <div class="col">
+        <p>That’s the new idea: <strong>a later search can use what an earlier step found.</strong></p>
+      </div>
+      <figure><img src="media/03-by-hand.jpg" alt="Two searches by hand: the first finds Band C, and the second uses it" loading="lazy" width="1440" height="900"></figure>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Build it</span>
+        <h2>Write a plan, then carry it out</h2>
+        <p><code>make_plan</code> asks for the facts to look up, in order, at most three, and <code>clean</code> removes the bullets and numbering at the start of each line, and any quotes around it. <strong>Predict:</strong> will the first plan say to find the band?</p>
+      </div>
+      <pre><span class="cmd">$ python3 first_plans.py</span>
+I&#x27;m a shift lead. How much notice must I give when I resign?
+  - Review the resignation policy outlined in the staff handbook
+  - Check if the handbook specifies a notice period for shift leads
+  - Determine if there are any exceptions or special conditions for resignation
+I&#x27;m opening the Harbour branch on a Monday. What time do I need to arrive?
+  - The opening hours for the Harbour branch on Monday
+  - The address and location of the Harbour branch
+  - The standard opening time for new branches</pre>
+      <div class="col">
+        <p>No. It’s tidy, and it would fit nearly any question. Now <code>run</code> carries it out:</p>
+        <ol class="loop">
+          <li>The first step is searched as it’s written.</li>
+          <li>Each later step gets a new search, written by the model from the step and everything known so far. This is what <code>Split</code> doesn’t have.</li>
+          <li>After each search, the model writes a one-sentence note, or “not found”.</li>
+          <li>The last call answers from all the hits and all the notes.</li>
+        </ol>
+        <p>Your code owns the loop, so the model can’t stop early. We ran it four times, and it was right once. Here are the first two runs, in the order they came.</p>
+      </div>
+      <pre><span class="cmd">$ python3 plan_once.py</span>
+Step:  Review the staff handbook for the resignation policy
+Query: Review the staff handbook for the resignation policy
+Found: Band E staff must give 8 weeks&#x27; notice when resigning.
+Step:  Identify the specific section related to shift leads
+Query: Band E staff resignation notice period
+Found: not found
+Step:  Check if there are any exceptions or additional requirements for shift leads
+Query: shift leads resignation notice period Band E
+Found: not found
+Files: annual-leave.md log-old-mill-2025-04.md log-station-2025-03.md pay-bands.md resignation.md shifts.md wages.md
+Answer: You must give 4 weeks&#x27; notice when resigning, as a shift lead is categorized under Band C, and Band C staff must give 4 weeks&#x27; notice according to the resignation guidelines. [resignation.md]
+Model calls: 7</pre>
+      <pre><span class="cmd">$ python3 plan_once.py</span>
+Step:  Review the resignation policy outlined in the staff handbook
+Query: Review the resignation policy outlined in the staff handbook
+Found: Band E staff must give 8 weeks&#x27; notice of resignation.
+Step:  Check if the handbook specifies a minimum notice period for shift leads
+Query: Band E staff notice period shift leads
+Found: not found
+Step:  Determine if there are any additional clauses for resignations by shift leads
+Query: Band E staff resignation notice period
+Found: not found
+Files: annual-leave.md log-old-mill-2025-04.md resignation.md shifts.md wages.md
+Answer: You must give 8 weeks&#x27; notice when you resign, as you are Band E staff. [resignation.md]
+Model calls: 7</pre>
+      <div class="col">
+        <ul class="list">
+          <li><strong>The chain worked.</strong> The second query uses what the first step found.</li>
+          <li><strong>What it carried was wrong.</strong> The excerpt listed every band, and the note kept only “Band E”.</li>
+          <li><strong>The first run was right by luck.</strong> No step asked for the band. One search happened to bring back <code>pay-bands.md</code>, as its third hit.</li>
+          <li><strong>The second run missed that file</strong>, and said 8 weeks, twice what’s right.</li>
+        </ul>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Measure</span>
+        <h2>Plan against Split</h2>
+        <p>Four setups, six hop questions, two batches of five runs. Step by step has <code>Plan</code>’s notes and no plan: the model chooses the next search or says <code>DONE</code>.</p>
+        <p><strong>Strict</strong> is chapter 23’s check. <strong>Earned</strong> means strict, and the searches saw both files, so the answer could have come from the facts. That’s about 420 model calls a batch, so our runs are saved. <strong>Predict:</strong> <code>Plan</code> makes 7 calls and <code>Split</code> makes 2. How much better is <code>Plan</code>?</p>
+      </div>
+      <pre><span class="cmd">$ python3 plan_scores.py</span>
+Setup          Strict  Earned  Calls  Searches  Calls per earned
+Plain agent        21       0    2.0       1.1                 -
+Split              20      16    2.0       2.8               7.5
+Step by step       10       0    3.0       1.0                 -
+Plan               20      14    7.0       3.0              30.0
+60 runs each. Calls and Searches are per run.</pre>
+      <pre><span class="cmd">$ python3 plan_scores.py batches</span>
+Setup               Strict      Earned   (first batch, second batch, 30 runs each)
+Plain agent         11, 10        0,  0
+Split               10, 10        8,  8
+Step by step         5,  5        0,  0
+Plan                10, 10        8,  6</pre>
+      <figure><img src="media/07-scores.jpg" alt="Plan and Split tie on strict and earned passes, and Plan costs 7 calls against 2" loading="lazy" width="1440" height="900"></figure>
+      <div class="col">
+        <ul class="list">
+          <li><strong><code>Plan</code> didn’t beat <code>Split</code>.</strong> 20 and 20 strict, 14 and 16 earned. That’s too close to rank, at three and a half times the calls.</li>
+          <li><strong>Forced searches earned something.</strong> 16 and 14, against 0 and 0.</li>
+          <li><strong>Left to the model, it searched about once.</strong> Step by step wrote <code>DONE</code> after one search in all 60 runs.</li>
+          <li><strong>The cost.</strong> A three-step plan is 7 calls: 1 plan, 3 notes, 2 queries, 1 answer. Each earned pass cost <code>Split</code> 7.5 calls and <code>Plan</code> 30.</li>
+        </ul>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Read the results</span>
+        <h2>Question by question</h2>
+      </div>
+      <pre><span class="cmd">$ python3 plan_scores.py questions</span>
+Strict / earned, out of 10 runs
+Question             Plain agent         Split  Step by step          Plan
+harbour-arrive             0 / 0         2 / 2         0 / 0         0 / 0
+senior-beans               2 / 0         0 / 0         0 / 0         1 / 0
+riverside-repair           8 / 0         4 / 4         0 / 0         4 / 2
+shift-lead-pay             0 / 0         2 / 2         0 / 0         4 / 4
+lead-notice                1 / 0         4 / 2         2 / 0         6 / 4
+old-mill-repair           10 / 0         8 / 6         8 / 0         5 / 4
+Needs both, of 40          3 / 0         8 / 6         2 / 0        11 / 8</pre>
+      <div class="col">
+        <p>The two repair questions aren’t really hops, because each branch file holds the number. “Earned” is too harsh there. The plain agent is the best setup on them, 18 of 20 at 2 calls, against 12 for <code>Split</code> and 9 for <code>Plan</code>. On the four questions that do need both files, <code>Plan</code> earned 8 and <code>Split</code> 6, of 40. That can’t be ranked.</p>
+        <p>Unearned passes show why the column matters:</p>
+      </div>
+      <pre>$ python3 plan_read.py senior-beans &quot;Plain agent&quot;
+pass: As a senior barista, you get 25% off retail beans when you are off shift and using your staff card at any branch. [staff-discount.md]
+$ python3 plan_read.py lead-notice Split
+pass: You must give 4 weeks&#x27; notice when you resign as a Band C or Band D staff member. [resignation.md]
+$ python3 plan_read.py riverside-repair
+pass: I don&#x27;t know. [branch-riverside.md] doesn&#x27;t provide the contact number for equipment service, only that the contractor is Northline Service, 0300 555 0177.</pre>
+      <div class="col">
+        <p>The third says “I don’t know”, gives the number anyway, and passes the strict check. We read all 71 strict passes, and the earned ones hold up.</p>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Be fair</span>
+        <h2>Read the plans</h2>
+        <p>Maybe <code>Plan</code> found both files because it planned well. Here’s a count of the 60 saved plans.</p>
+      </div>
+      <pre><span class="cmd">$ python3 plan_plans.py</span>
+Plans in all: 60
+Mention the handbook, a section or a policy: 35
+Three questions that turn on a band: 30 plans
+  name the band: 0
+  earned anyway: 8
+harbour-arrive: 10 plans
+  name the arrival time: 7
+  earned: 0</pre>
+      <div class="col">
+        <p>None of the 30 band plans says “band”, and they earned 8. Seven <code>harbour-arrive</code> plans name the arrival time, and that question earned none. It’s a rough word count, and “handbook” comes partly from our prompt. Judge some for yourself. Steps are cut at 90 characters.</p>
+      </div>
+      <pre><span class="cmd">$ python3 plan_plans.py shift-lead-pay</span>
+earned
+    Review the introduction section of the staff handbook for general information on pay struc
+    Check the section detailing roles and responsibilities to find the definition of a shift l
+    Identify and note the hourly rate associated with the shift lead role
+earned
+    Review the compensation section of the staff handbook
+    Check the shift lead responsibilities to confirm eligibility
+    Identify the hourly rate for shift leads as stated in the handbook
+earned
+    Review the staff handbook&#x27;s compensation section
+    Check the shift lead role description
+    Identify the specific hourly rate for shift leads
+FAIL
+    Review the staff handbook&#x27;s compensation section
+    Check if the handbook specifies a general pay rate for shift leads
+    Identify if there are any specific hourly rates mentioned for shift leads</pre>
+      <div class="col">
+        <p>The three that earned each have a step about the shift lead’s role. Across all ten plans for this question, 7 mention roles or responsibilities and 4 of those earned, and the other 3 earned none. So a step’s wording steers the search, whether or not the model meant it to.</p>
+        <p><strong>This test can’t say where <code>Plan</code>’s earned passes came from.</strong> It searches about three times, in new words, with notes. <code>Split</code> searches about three times in new words, with no notes and no plan, and it earned as much. So the gain may come from more searching, not smarter planning. We never ran three generic searches with no plan. Exercise 6 is that test.</p>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Read the failures</span>
+        <h2>What Plan still fails</h2>
+        <p><strong><code>harbour-arrive</code>: 0 of 10.</strong> Here are its first three runs. The rule is in <code>shifts.md</code>, and no run saw it. Adding “Harbour branch” to the query, from what was known, pulled the search towards Harbour’s logs. <code>Split</code> saw that file in 4 of 10 runs.</p>
+      </div>
+      <pre><span class="cmd">$ python3 plan_read.py harbour-arrive</span>
+FAIL: You need to arrive by 06:30 on a Monday. [branch-harbour.md]
+    search: The operating hours for the Harbour branch
+    search: What is the recommended arrival time for the Harbour branch on opening day?
+    search: Search for &quot;Harbour branch manager contact information
+FAIL: You need to arrive by 06:30 on a Monday. [branch-harbour.md]
+    search: The operating hours for the Harbour branch
+    search: What is the recommended arrival time for staff opening the Harbour branch on weekdays and weekends?
+    search: Harbour branch opening hours Monday to Friday and Saturday and Sunday
+FAIL: You need to arrive by 06:30 on a Monday, as the branch is open from 06:30 to 16:00 on weekdays. [branch-harbour.md]
+    search: The operating hours for the Harbour branch
+    search: Harbour branch operating hours Monday to Friday and weekends
+    search: What is the recommended arrival time for staff at the Harbour branch, considering it is busiest in t</pre>
+      <figure><img src="media/10-harbour.jpg" alt="Three Harbour runs that find the opening time and stop there" loading="lazy" width="1440" height="900"></figure>
+      <div class="col">
+        <p><strong><code>senior-beans</code>: 1 of 10, none earned.</strong> Here are its first four runs. Only 2 of 10 saw <code>pay-bands.md</code>. And 64 of <code>Plan</code>’s 180 searches start with “Search for” or similar, or are SQL for a database that doesn’t exist.</p>
+      </div>
+      <pre><span class="cmd">$ python3 plan_read.py senior-beans</span>
+FAIL: I don&#x27;t know. [staff-discount.md] mentions discounts for different bands but does not specify a discount for senior baristas.
+    search: Step 1: Review the employee benefits section of the staff handbook
+    search: Search for &quot;employee benefits senior barista discount
+    search: Search for: &quot;employee benefits section requirements for staff discounts
+FAIL: I don&#x27;t know. [staff-discount.md] mentions discounts for different bands but does not specify a discount for senior baristas.
+    search: Step 1: Check the employee benefits section of the staff handbook
+    search: Search for &quot;specific discount rate senior baristas retail beans
+    search: Search for additional terms or conditions associated with the discount
+FAIL: You get 30% off retail beans as a senior barista, which corresponds to Band C. [staff-discount.md]
+    search: Step 1: Review the current employee discount policy
+    search: senior baristas specific discount staff card branch drinks food retail beans
+    search: Search for: &quot;staff discounts percentages based on staff band for drinks, food, and retail beans
+pass: Band C and Band D get a 25% discount on retail beans. [staff-discount.md]
+    search: Step 1: Check the employee benefits section of the staff handbook
+    search: Search for &quot;specific discount details for baristas
+    search: SELECT * FROM discount_requirements WHERE discount_type = &#x27;drinks&#x27; AND guest_accompanied = &#x27;yes&#x27; AND</pre>
+      <div class="col">
+        <p><strong><code>riverside-repair</code>: 4 of 10, 2 earned.</strong> The first step usually left out the branch, and 5 of 10 runs never saw <code>branch-riverside.md</code>. The plain agent kept the word “Riverside”, and scored 8 of 10.</p>
+        <p>A plan can drop what mattered. The search only knows the step, and the step is the model’s rewording.</p>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Control</span>
+        <h2>Does it break easy questions?</h2>
+        <p>8 direct questions and 4 with no answer, three runs each. An unanswerable one passes only if it says “I don’t know”. <strong>Predict:</strong> does a longer process make it invent an answer?</p>
+      </div>
+      <pre><span class="cmd">$ python3 plan_control_scores.py</span>
+Setup           Direct  Unanswerable   Total  Calls
+Plain agent      24/24         12/12   36/36    2.0
+Split            24/24         12/12   36/36    2.0
+Step by step     24/24         12/12   36/36    3.0
+Plan             24/24         12/12   36/36    7.0</pre>
+      <div class="col">
+        <p>All four scored 36 of 36, and we read the answers. <code>Plan</code> did no harm, and no good: it paid 7 calls for what 2 calls got.</p>
+      </div>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th scope="col">Claim</th><th scope="col">Our evidence</th></tr></thead>
+          <tbody>
+            <tr><td>Forcing the searches in code gets both files, and leaving it to the model didn’t</td><td>Earned 16 and 14, against 0 and 0, of 60</td></tr>
+            <tr><td><code>Plan</code> costs 3.5 times <code>Split</code>’s calls</td><td>7 against 2, measured</td></tr>
+            <tr><td><code>Plan</code> did no harm on easy questions</td><td>36 of 36, level with every setup</td></tr>
+            <tr><td><code>Plan</code> beats <code>Split</code></td><td><strong>Not shown.</strong> 20 and 20 strict, 14 and 16 earned</td></tr>
+            <tr><td><code>Plan</code> does better where both files are needed</td><td><strong>Not shown.</strong> 8 against 6 of 40 is too close</td></tr>
+            <tr><td>Good plans caused <code>Plan</code>’s passes</td><td><strong>Not shown.</strong> 0 of 30 named the band, and they earned 8. The test can’t separate planning from more searching</td></tr>
+            <tr><td>Using earlier findings helps</td><td><strong>Mixed.</strong> It did what it says, and it also carried “Band E” and bent the Harbour search</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col">
+        <p>This is six questions, one handbook and 60 runs per setup. Two questions aren’t true hops, the strict check was written after reading answers, and a one-sentence note is what lost the list of bands. We tested one 7B model, and a bigger one may well write “find the band”. So don’t read this as “planning doesn’t work”. Run <code>plan_test.py</code> on your own model.</p>
+      </div>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th scope="col">Your situation</th><th scope="col">What to try</th></tr></thead>
+          <tbody>
+            <tr><td>One file holds the answer</td><td>The plain agent. It was the best setup on the repair questions, at 2 calls</td></tr>
+            <tr><td>The answer needs two facts, and calls matter</td><td><code>Split</code>, in your code. It earned as much here for 2 calls</td></tr>
+            <tr><td>A later search can’t be written until an earlier one is read</td><td><code>Plan</code>, with the notes read and tested. This is what it’s for, and our test didn’t show it paying off</td></tr>
+            <tr><td>You’re tempted to let the model choose when to stop</td><td>Measure first. Here it stopped after one search almost every time</td></tr>
+            <tr><td>Your documents fit in the window</td><td>Paste them, as chapter 23 found</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Reading errors</span>
+        <h2>These are real errors</h2>
+      </div>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th scope="col">What happened</th><th scope="col">What you see</th><th scope="col">The fix</th></tr></thead>
+          <tbody>
+            <tr><td>Ollama isn’t running</td><td><code>whitebox.models.ModelError: Couldn't reach Ollama</code></td><td><a href="https://claude.ai/artifact/1uGgX3WK7v3D5HyfvB782p#start-ollama">Start Ollama</a></td></tr>
+            <tr><td>You ran <code>plan_read.py</code> with no question</td><td><code>IndexError: list index out of range</code></td><td>Add one: <code>python3 plan_read.py lead-notice</code></td></tr>
+            <tr><td>You misspelled a question or setup</td><td>No error, and nothing printed</td><td>Use a name from <code>questions.py</code>, or a setup as written in <code>plan_scores.py</code>’s table</td></tr>
+            <tr><td>You wrote <code>Plan(model, index, OPTIONS)</code></td><td><code>TypeError: cannot use 'tuple' as a dict key (unhashable type: 'dict')</code></td><td>The third argument is <code>k</code>. Write <code>options=OPTIONS</code></td></tr>
+            <tr><td>The note carried a wrong fact</td><td>No error at all. The next query says “Band E”</td><td>Print the notes with <code>plan_once.py</code> and read them</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Your turn</span>
+        <h2>Exercises</h2>
+        <p>From <code>chapters/26-planning-patterns</code>, open <code>exercises.py</code> and complete the five TODOs:</p>
+        <ol class="loop">
+          <li><code>earned</code>: right, and every needed file is in what the search saw.</li>
+          <li><code>calls_per_earned</code>: what each earned pass cost, or <code>None</code> if nothing was earned.</li>
+          <li><code>drop_label</code>: remove the <code>Step 1:</code> that <code>clean</code> leaves in.</li>
+          <li><code>TidyPlan</code>: a <code>Plan</code> whose steps have no labels.</li>
+          <li><code>plans_naming</code>: count the plans that name a word.</li>
+        </ol>
+        <p><strong>Optional: separate the two.</strong> Write a <code>FixedPlan(Plan)</code> whose <code>make_plan</code> returns the same three generic steps for every question, add it to <code>build_setups</code>, and run <code>python3 plan_test.py</code>. If it earns as much as <code>Plan</code>, the plan wasn’t doing the work. There’s no worked answer, because we haven’t run it.</p>
+        <p>Then run <code>python3 -m pytest test_exercises.py</code> from that folder. These checks use a fake model and a fake embedder, so Ollama doesn’t need to be running. You’ve finished when you see <code>5 passed</code>.</p>
+      </div>
+      <div class="col">
+        <h3>Common mistakes</h3>
+        <ul class="list">
+          <li>Reading a plan as evidence. It looks like thinking. 0 of 30 plans named the band.</li>
+          <li>Scoring only the final answer. A run can be right with the second fact never seen.</li>
+          <li>Treating a note as a fact. “Band E staff must give 8 weeks” was true, and it was the wrong row.</li>
+          <li>Comparing without the cost. A tie on score at 3.5 times the calls is a loss.</li>
+          <li>Trusting one batch or one run. Run it again, and don’t rank close scores.</li>
+          <li>Using a pattern on every question. The plain agent did better on the questions that needed one file.</li>
+          <li>Believing “earned” blindly. It was too harsh on the repair questions.</li>
+        </ul>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Recap</span>
+        <h2>What you opened</h2>
+        <ul class="list">
+          <li><code>Split</code> writes every search before it sees a result. <code>Plan</code> writes up to three steps, searches each one, and rewrites later searches from what’s known, in 7 model calls.</li>
+          <li>Earned means right, and the searches saw both files.</li>
+          <li>Over 60 runs each, <code>Plan</code> scored 20 strict and 14 earned, and <code>Split</code> scored 20 and 16 at 2 calls. That’s a tie.</li>
+          <li>The setups that left searching to the model searched about once, and earned nothing.</li>
+          <li>Many plans were generic, so the gain may come from more searching, not smarter planning. This test can’t separate them.</li>
+          <li>Carrying facts forward cuts both ways: a one-line note kept “Band E”, and a known branch name bent a search away from <code>shifts.md</code>.</li>
+          <li>On direct and unanswerable questions, all four setups scored 36 of 36.</li>
+        </ul>
+        <p><strong>A plan that looks good isn’t evidence that planning worked.</strong> Measure the searches, the files and the cost.</p>
+        <p>Asking a model to plan before it acts comes from the 2023 paper <a href="https://arxiv.org/abs/2305.04091">Plan-and-Solve Prompting</a>. Using what was found to choose the next search is studied in <a href="https://arxiv.org/abs/2212.10509">Interleaving Retrieval with Chain-of-Thought Reasoning</a>. Both used other models and other tests, so measure your own.</p>
+      </div>
+      <div class="next"><span>Next</span><h3>Chapter 27: Durable execution</h3></div>
+    </section>
+
+    <footer>
+      <p>Get the code at <a href="https://github.com/WhiteboxAcademy/BuildAnAgentFramework">github.com/WhiteboxAcademy/BuildAnAgentFramework</a>. Code is under the MIT License. Articles and videos are under CC BY 4.0.</p>
+    </footer>
+  </div>
+</main>
+

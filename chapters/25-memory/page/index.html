@@ -1,0 +1,408 @@
+<title>Whitebox: Memory</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a black box header opens onto a white reading column; media breaks wider. */
+:root {
+  --bg: #fbfbf9; --surface: #ffffff; --ink: #16181d; --muted: #5d616b; --rule: #d9dade;
+  --accent: #2a4bd7; --tint: #e7ebfb; --box: #0c0d10; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #101218; --term-ink: #e4e6ec; --term-cmd: #9db1ff;
+  --display: "Bricolage Grotesque", Georgia, serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+    --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+    --term: #08090c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+  --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #08090c; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 400 1.0625rem/1.65 var(--body); }
+.gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 68rem; margin: 0 auto; min-width: 0; }
+.col { max-width: 42rem; display: grid; gap: 1rem; min-width: 0; }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2.6rem, 7vw, 4.4rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; }
+h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); line-height: 1.15; font-weight: 700; }
+h3 { font-size: 1.2rem; line-height: 1.3; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--accent); }
+a:focus-visible, video:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+code { font-family: var(--mono); font-size: 0.92em; }
+
+header.mast { background: var(--box); color: var(--on-box); padding-block: 1.6rem 3rem; }
+.mast .wrap { display: grid; gap: 2.4rem; }
+.brand { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font: 500 1rem var(--display); }
+.brand span:first-child { display: flex; align-items: center; gap: 0.55rem; }
+.brand i { width: 0.95rem; height: 0.95rem; border: 3px solid currentColor; display: block; }
+.brand span:last-child { font: 400 0.85rem var(--mono); color: var(--box-muted); align-self: center; }
+.mast .intro { display: grid; gap: 1rem; max-width: 46rem; }
+.mast .dek { font-size: 1.2rem; color: var(--box-muted); }
+.meta { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+
+main { padding-block: 0 4rem; }
+section { padding-block: 3.2rem 0; display: grid; gap: 1.4rem; }
+.label { font: 600 0.78rem/1.2 var(--mono); color: var(--accent); }
+.lede { font-size: 1.15rem; }
+
+figure { margin: 0; display: grid; gap: 0.5rem; min-width: 0; }
+figcaption { font-size: 0.86rem; color: var(--muted); }
+video { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 1440 / 900; background: #000; }
+
+ol.loop { margin: 0; padding-left: 1.3rem; display: grid; gap: 0.35rem; }
+ol.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 2.4rem; counter-reset: step; }
+ol.steps > li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 1.6rem; align-items: start; counter-increment: step; }
+ol.steps .txt { display: grid; gap: 0.45rem; min-width: 0; }
+ol.steps .txt h3::before { content: counter(step); display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; margin-right: 0.55rem; background: var(--ink); color: var(--bg); font: 600 0.85rem/1 var(--mono); vertical-align: 0.1em; }
+ol.steps img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); }
+@media (max-width: 720px) { ol.steps > li { grid-template-columns: minmax(0, 1fr); } }
+
+pre { margin: 0; background: var(--term); color: var(--term-ink); padding: 1rem 1.1rem; overflow-x: auto; font: 400 0.86rem/1.6 var(--mono); }
+pre .cmd { color: var(--term-cmd); }
+.tablebox { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.98rem; }
+th, td { text-align: left; padding: 0.65rem 0.8rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; color: var(--muted); }
+td { font-variant-numeric: tabular-nums; }
+.fails { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.fails div { background: var(--tint); padding: 1rem 1.1rem; display: grid; gap: 0.3rem; align-content: start; min-width: 0; }
+.list { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.35rem; }
+.next { background: var(--box); color: var(--on-box); padding: 1.4rem 1.5rem; display: grid; gap: 0.3rem; }
+.next span { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--muted); }
+</style>
+
+<header class="mast gutter">
+  <div class="wrap">
+    <div class="brand"><span><i></i>Whitebox Academy</span><span>Build an AI Agent from Scratch</span></div>
+    <div class="intro">
+      <span class="meta">Chapter 25 of 35 · Part 5: Agent capabilities · About 2 hours</span>
+      <h1>Memory</h1>
+      <p class="dek">Give an agent notes that outlive the session. Let the model say when to save, and keep the words and the order in code.</p>
+    </div>
+  </div>
+</header>
+
+<main class="gutter">
+  <div class="wrap">
+    <section>
+      <figure>
+        <video controls playsinline preload="metadata" poster="media/04-who.jpg">
+          <source src="media/video.mp4" type="video/mp4">
+        </video>
+        <figcaption>Chapter video, 7 minutes 16 seconds, no sound. It starts with a 30-second recap, and captions on screen explain each step.</figcaption>
+      </figure>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Where we are</span>
+        <h2>The conversation ends</h2>
+        <p class="lede">Chapter 24 ended on summaries losing the facts that matter. Now the chat itself is over, and the next session starts from nothing.</p>
+        <p>This chapter builds <code>Memory</code>: notes in a JSON file. The model says when to save, and your code keeps the user’s own words, in order.</p>
+        <p><a href="https://claude.ai/artifact/1uGgX3WK7v3D5HyfvB782p#start-ollama">Start Ollama</a>, activate the <code>.venv</code> from chapter 05, and work in <code>chapters/25-memory/code</code>. Hana Kowalski and her chat are made up for this chapter, and are provided in <code>hana.py</code>. <code>results/</code> holds our long runs, so you can follow along without them. <code>python3 -m pytest tests</code> should show <code>74 passed</code>.</p>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Try it</span>
+        <h2>A new session</h2>
+        <p>Hana tells the agent three things. Then <code>forgot.py</code> asks for her locker number, with the history and without it. <strong>Predict:</strong> what will the new session say?</p>
+      </div>
+<pre><span class="cmd">$ python3 forgot.py</span>
+Same session: Your locker number is 212, Hana. If you need any help with it or have any other questions, feel free to ask!
+New session:  I&#x27;m sorry, but I don&#x27;t have any information about your locker number. Could you provide more context or details about where this locker 
+Over 5 runs: same session 5/5, new session 0/5</pre>
+      <div class="col">
+        <p>No error, and nothing was cut. Everything an agent knows about a person lives in <code>messages</code>, and that list ends with the run. Long answers are cut at 150 characters by us.</p>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">First attempt</span>
+        <h2>Write it down at the end</h2>
+        <p><code>all_at_once.py</code> hands the model 12 messages at a time from Hana’s full chat: 36 messages, with 12 facts among 24 other things.</p>
+      </div>
+<pre><span class="cmd">$ python3 all_at_once.py</span>
+round 1: 14 lines, 10 of 12 facts
+round 2: 14 lines, 10 of 12 facts
+round 3: 13 lines, 10 of 12 facts
+round 4: 13 lines, 10 of 12 facts
+round 5: 13 lines, 10 of 12 facts
+NONE in 0 of 15 blocks
+One round&#x27;s lines:
+  - Hana Kowalski
+  - Staff number is 5093
+  - Locker number is 212
+  - Can&#x27;t do Thursdays, has a night class in bookkeeping
+  - Oat milk delivery came two hours late today
+  - NONE
+  - Emergency contact is my brother Piotr.
+  - Can carry leave over and save days for a trip to Lisbon in October.
+  - Been on the 06:15 opener rota since Monday
+  - My badge says Johanna but everyone calls me Hana
+  - Marek on the next till is off with flu
+  - I get the number 18 bus in, so Sundays are tight for me
+  - My food hygiene certificate runs out on 9 November</pre>
+      <div class="col">
+        <p>Ten of 12 is better than we expected. In our earlier testing, on a different chat, the model replied <code>NONE</code> to most blocks. This chapter didn’t reproduce that, so treat both as single results. But the knee and the allergy, both tucked behind a question, aren’t in the lines shown. Marek’s flu is there as a fact about Hana. And her question “Can I carry leave over?” became “Can carry leave over”. If the program dies before the end, nothing’s saved at all.</p>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Measure it</span>
+        <h2>Who decides?</h2>
+        <p><code>who_decides.py</code> tries three setups, and a new session then asks for the 12 facts. <strong>Code checks</strong>: your code asks about every message, and keeps her words. <strong>The model’s words</strong>: a <code>remember</code> tool saves what the model wrote. <strong>The user’s words</strong>: the same tool, but the code saves what she said. It’s about 900 model calls, so <code>read_notes.py</code> reads our saved run.</p>
+      </div>
+<pre><span class="cmd">$ python3 read_notes.py</span>
+Setup            Recall     Notes  Unwanted  Her words
+code checks       39/60    8 to 8    0 to 0      40/40
+model&#x27;s words     50/60  14 to 18    3 to 6      21/77
+user&#x27;s words      59/60  15 to 18    3 to 6      85/85
+Memory            57/60  13 to 15    2 to 3      69/69
+
+Missed, out of 5 runs each:
+code checks     knee 5, allergy 5, trip 5, badge 5, hygiene 1
+model&#x27;s words   knee 3, trip 2, badge 5
+user&#x27;s words    knee 1
+Memory          knee 3</pre>
+      <div class="col">
+        <p>Ignore the <code>Memory</code> row for now. Code checks saved nothing unwanted, and never kept the knee, allergy, trip or badge. Keeping her words scored 59 against 50 here. It’s one chat, so treat that as something to explain, not a ranking.</p>
+      </div>
+      <figure><img src="media/04-who.jpg" alt="Three setups compared: recall of 39, 50 and 59 out of 60" loading="lazy" width="1440" height="900"></figure>
+      <div class="col">
+        <p>Read the notes, because the score won’t tell you what’s in the file.</p>
+      </div>
+<pre><span class="cmd">$ python3 read_notes.py &quot;model&#x27;s words&quot;</span>
+Unwanted notes in model&#x27;s words, with how many runs saved each:
+4  A blue scarf was left on table 4.
+4  Harbour was packed when I dropped in earlier.
+1  Harbour was packed when the user dropped in earlier.
+4  Marek is off with flu.
+1  Marek is off with the flu.
+1  The flapjack contains nuts.
+1  The oat milk delivery arrived two hours late today.
+4  The oat milk delivery was two hours late today.
+1  The user asked about logging waste.
+1  The user asked about the staff discount on bags of beans.</pre>
+      <div class="col">
+        <p>Hana only <em>asked</em> if the flapjack has nuts. The model turned that into an allergen fact, in 1 run of 5. And in all 5 runs it wrote “Johanna is known as Hana”, dropping the word “badge”, so all 5 failed that question. Her own words were noisy too, with as many unwanted notes. But each was something she really said. <strong>The difference isn’t how much they save. It’s that one can invent, and the other can’t.</strong></p>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">The danger</span>
+        <h2>The bare 212</h2>
+        <p><code>rewritten.py</code> saves the model’s line, and tells it to copy numbers exactly. <strong>Predict:</strong> what could go wrong with a note that copies a number exactly?</p>
+      </div>
+<pre><span class="cmd">$ python3 rewritten.py</span>
+run 1: 6 of 12. Locker: Your locker number is 5093.
+run 2: 6 of 12. Locker: Your locker number is 5093.
+run 3: 5 of 12. Locker: Your locker number is 5093.
+run 4: 6 of 12. Locker: Your locker number is 5093.
+run 5: 5 of 12. Locker: Your locker number is 5093.
+Notes from the last run:
+  - Hana Kowalski
+  - 5093
+  - 212
+  - Thursdays
+  - Piotr
+  - 06:15
+  - Monday
+  - 18
+  - 9 November</pre>
+      <div class="col">
+        <p>Every value is exact, and <code>212</code> has nothing to say it’s a locker. So the model used her staff number, with no doubt, in all 5 runs. <code>Thursdays</code> lost “can’t”, and <code>Monday</code> turned into a day she can’t work. The user’s sentence has the value and what it is. These bare notes came from this one prompt, and a note in the model’s words is only as good as its prompt. A note in the user’s words doesn’t depend on one.</p>
+      </div>
+      <figure><img src="media/06-bare.jpg" alt="Five runs answering Your locker number is 5093, above a list of bare notes" loading="lazy" width="1440" height="900"></figure>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Be fair</span>
+        <h2>How much was the prompt?</h2>
+        <p>Code checks missed four facts, and “A question is not a fact” looks guilty. <code>wording.py</code> removes that sentence, then also changes “state a fact” to “say anything, even in passing”. <strong>Predict:</strong> how much will each change help?</p>
+      </div>
+<pre><span class="cmd">$ python3 wording.py</span>
+Wording            Facts picked  Unwanted  Recall
+as written               8 to 8    0 to 0   37/60
+no question rule         7 to 9    0 to 0   41/60
+in passing             12 to 12    4 to 4   60/60</pre>
+      <div class="col">
+        <p>Removing the sentence, at 41, is barely more than the 37 to 39 this setup gets on its own. “Even in passing” picked all 12 facts and scored 60 of 60, with 4 unwanted notes. So much of the gap in “who decides?” was one phrase in a prompt. We wrote that phrase after reading these failures, on this chat, so it’s a direction, not a result. It’s also a model call on every message, where the tool costs an extra call only when it saves. Either way, what’s saved is her words. <code>Memory</code> uses the tool so the decision stays in the agent you already have. That’s a design choice, and these numbers don’t prove it’s better.</p>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Open the box</span>
+        <h2>The class</h2>
+        <p>All of that fits in <code>whitebox/memory.py</code>. Here’s the tool:</p>
+      </div>
+<pre>        @tool
+        def remember(fact: Annotated[str, &quot;What&#x27;s worth keeping, in a few words&quot;]) -&gt; str:
+            &quot;&quot;&quot;Save something the user told you about themselves, for future conversations.&quot;&quot;&quot;
+            self.add(self.latest)
+            return &quot;Saved.&quot;</pre>
+      <div class="col">
+        <p><strong>It never uses <code>fact</code>.</strong> <code>self.latest</code> is the user’s latest message, which a <code>before_model</code> hook keeps up to date. So the model can make the call happen, and that’s all. Now the write:</p>
+      </div>
+<pre>    def add(self, text):
+        &quot;&quot;&quot;Save a note at the end, moving it there if we have it already, because the newest note wins.&quot;&quot;&quot;
+        if not text:
+            return
+        self.notes = [note for note in self.notes if note[&quot;text&quot;] != text]
+        self.notes.append({&quot;text&quot;: text, &quot;saved&quot;: self.today().isoformat()})
+        temporary = self.path.with_suffix(&quot;.tmp&quot;)
+        temporary.write_text(json.dumps(self.notes, indent=1))
+        os.replace(temporary, self.path)</pre>
+      <div class="col">
+        <ul class="list"><li><code>append</code> keeps the notes oldest first. Remember that line.</li><li>The line above it takes out any note with the same words, so a repeat moves to the end, because the newest note wins.</li><li><code>with_suffix(".tmp")</code> gives the same path with a different ending.</li><li><code>os.replace(a, b)</code> renames in one step, so a crash leaves <code>hana.json</code> as the last good version.</li><li><code>memory.system(text)</code> adds the notes to a system prompt, oldest first.</li></ul>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Try it</span>
+        <h2>Notes on disk, read back</h2>
+        <p><code>session_one.py</code> is a short chat with <code>Memory</code>. <strong>Predict:</strong> which messages will be saved?</p>
+      </div>
+<pre><span class="cmd">$ python3 session_one.py</span>
+1 notes after: Hi, I&#x27;m Hana Kowalski, I&#x27;ve just joined the Old Mill branch.
+1 notes after: How do I report a broken grinder?
+2 notes after: My locker is number 212.
+2 notes after: Can&#x27;t do Thursdays, I&#x27;ve got a night class in bookkeeping.
+2 notes after: The oat milk delivery came two hours late today.
+2 notes after: Thanks, that&#x27;s useful!
+<span class="cmd">$ cat hana.json</span>
+[
+ {
+  &quot;text&quot;: &quot;Hi, I&#x27;m Hana Kowalski, I&#x27;ve just joined the Old Mill branch.&quot;,
+  &quot;saved&quot;: &quot;2026-11-06&quot;
+ },
+ {
+  &quot;text&quot;: &quot;My locker is number 212.&quot;,
+  &quot;saved&quot;: &quot;2026-11-06&quot;
+ }
+]</pre>
+      <div class="col">
+        <p>It’s a file you can open. <code>code/*.json</code> is in <code>.gitignore</code>, so your notes stay out of git. And “Can’t do Thursdays” wasn’t saved. No error, just a note that isn’t there. That’s the price of letting the model decide. Now a separate program, with only the file. Answers are cut at 135 characters by us.</p>
+      </div>
+<pre><span class="cmd">$ python3 session_two.py</span>
+Read 2 notes
+What&#x27;s my locker number? Your locker number is 212. Is there anything else you need help with?
+Which day can&#x27;t I work? I don&#x27;t have information about your work availability. Could you please tell me which day you&#x27;re unavailable?
+Which branch am I at? You are at the Old Mill branch, Hana.
+5/5  What&#x27;s my locker number?
+0/5  Which day can&#x27;t I work?
+5/5  Which branch am I at?
+Notes now: 2</pre>
+      <div class="col">
+        <p>The locker comes back, 5 of 5 against 0 of 5 in the first demo. Old Mill came along inside her sentence. Thursdays can’t: it was never saved. On all 36 messages, five times:</p>
+      </div>
+<pre><span class="cmd">$ python3 whole_chat.py</span>
+run 1: 11 of 12, 13 notes, 2 unwanted
+run 2: 12 of 12, 15 notes, 3 unwanted
+run 3: 11 of 12, 14 notes, 3 unwanted
+run 4: 11 of 12, 13 notes, 2 unwanted
+run 5: 12 of 12, 14 notes, 2 unwanted</pre>
+      <div class="col">
+        <p>57 of 60 and every note in her words. Don’t rank that against 59. The knee is the fact that goes missing, in 3 runs of 5.</p>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Measure it</span>
+        <h2>Out-of-date facts</h2>
+        <p>Hana moves branch, and both notes stay. <code>stale_notes.py</code> has 8 old notes, 4 updates and 48 diary notes, in different orders, with nine questions over five runs. The last setup asks the model to delete replaced notes. <strong>Predict:</strong> which gives the most old answers?</p>
+      </div>
+<pre><span class="cmd">$ python3 stale_notes.py</span>
+Setup                Right Stale Both   Same Before Old last  Tokens
+12 in order          20/20     0    2  20/20    5/5   0 of  0     208
+60 in order          20/20     0    9  20/20    5/5   0 of  0     990
+60 newest first      10/20    10    4  20/20    5/5  10 of 20     987
+60 shuffled          18/20     2    4  20/20    5/5   2 of  6     987
+60 shuffled + dates  19/20     1    1  20/20    5/5   1 of  6    1718
+12 replacing old     20/20     0    5  20/20    0/5   0 of  0     175
+Replacing took 35 calls and removed 2 of the 4 old notes:
+  - I&#x27;m Hana Kowalski, I work at the Old Mill branch.
+  - I&#x27;m on the 06:15 opener rota.</pre>
+      <div class="col">
+        <p><code>Right</code> names the new value, and <code>Stale</code> gives only the old one. <code>Both</code> names both, and also counts as right. <code>Old last</code> is stale answers, out of the times the old note came after the new one.</p>
+      </div>
+      <figure><img src="media/12-stale.jpg" alt="Six ways of ordering notes, with stale answers only where the old note came last" loading="lazy" width="1440" height="900"></figure>
+      <div class="fails">
+        <div><h3>In order</h3><p>Nothing stale, at 12 notes or 60.</p></div>
+        <div><h3>Old note last</h3><p>Every stale answer came from this case. Backwards, 10 of 20. Shuffled, it only came up 6 times in 20, so shuffling hurt less than we expected.</p></div>
+        <div><h3>Dates</h3><p>They didn’t clearly help: 18 and 19 are too close to rank. They did cost more tokens.</p></div>
+        <div><h3>Replacing</h3><p>35 calls, 2 of 4 old notes removed, and “which branch before?” fell to 0 of 5.</p></div>
+      </div>
+      <div class="col">
+        <p>So keep the order in code. <code>append</code> already does.</p>
+        <h3>Why there’s no search</h3>
+        <p>All 60 notes came to 987 tokens, so every note fits in the prompt, and there’s nothing to choose between. A search would add a way to miss a note. It also returns hits by score, which could put an old note after a new one. If you ever need it, sort the hits by <code>saved</code> in code. We haven’t tested that.</p>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Read what failed</span>
+        <h2>Two weak spots</h2>
+        <p><code>weak_spots.py</code> tries two things we were suspicious of. Hana says something, changes it, and says the first thing again. Then she asks the agent to save something she said earlier. Answers are cut at 100 characters by the script.</p>
+      </div>
+<pre><span class="cmd">$ python3 weak_spots.py</span>
+Notes kept: [&#x27;My locker is number 87.&#x27;, &#x27;My locker is number 212.&#x27;]
+   Your locker number is 212.
+   Your locker number is 212. The previous statement about locker number 87 appears to be a correction 
+   It seems there&#x27;s a bit of a mix-up there. You mentioned your locker is number 87 and then 212. Could
+   Based on the information you provided, your locker number is 212. The earlier locker number you ment
+   Your locker number is 212. It appears there was a change from 87 to 212.
+Notes kept: [&#x27;Thursdays are fine now.&#x27;, &quot;Can&#x27;t do Thursdays.&quot;]
+   Based on the information provided, it seems there was a change in availability for Thursdays. Initia
+   Based on the information provided, it seems there was a change in availability for Thursdays. Initia
+   Based on the information you provided, it seems there was a change in availability for Thursdays. In
+   It seems there might be a bit of a mix-up. Previously, you mentioned &quot;Can&#x27;t do Thursdays&quot; and later 
+   It seems there&#x27;s a bit of a mix-up with Thursdays. Earlier, you mentioned &quot;Can&#x27;t do Thursdays,&quot; but 
+run 1: [&quot;Can&#x27;t do Thursdays, I&#x27;ve got a night class in bookkeeping.&quot;]
+run 2: [&quot;Can&#x27;t do Thursdays, I&#x27;ve got a night class in bookkeeping.&quot;]
+run 3: [&quot;Can&#x27;t do Thursdays, I&#x27;ve got a night class in bookkeeping.&quot;]
+run 4: [&quot;Can&#x27;t do Thursdays, I&#x27;ve got a night class in bookkeeping.&quot;]
+run 5: [&quot;Can&#x27;t do Thursdays, I&#x27;ve got a night class in bookkeeping.&quot;]</pre>
+      <div class="col">
+        <p><strong>The order is right, and that’s not always enough.</strong> Both lists end on what she said last, because <code>add</code> moved the repeat. For the locker, 4 of 5 runs gave 212. With Thursdays, every answer calls it a change or a mix-up, and in an earlier run none of the five gave a plain “no”. Our guess is the word “now” in the older note, but we didn’t test that. Order helps the model. It doesn’t decide for it. <strong>A note can be the request itself:</strong> “Please save that for next time.” This run shows 0 of 5, and two earlier runs each showed 1 of 5.</p>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Your turn</span>
+        <h2>Exercises</h2>
+        <p>From <code>chapters/25-memory</code>, open <code>exercises.py</code> and complete the five TODOs:</p>
+        <ol class="loop"><li><code>unwanted</code>: find the notes that hold none of the facts you hoped to save.</li><li><code>recall_score</code>: ask each question in a new session, and count the right answers.</li><li><code>forget</code>: delete notes on request, and write the file safely.</li><li><code>Budgeted</code>: keep the notes in the prompt inside a token budget, using chapter 24’s <code>newest</code>.</li><li><code>Private</code>: a hook that refuses to save messages holding words you’ve blocked.</li></ol>
+        <p><strong>Optional:</strong> copy <code>hana.py</code>, write a different person, and run <code>who_decides.py</code> on them. There’s no worked answer, because it’s your person.</p>
+        <p>Then run <code>python3 -m pytest test_exercises.py</code> from that folder. These checks use a fake model, so Ollama doesn’t need to be running. You’ve finished when you see <code>5 passed</code>.</p>
+      </div>
+      <div class="col">
+        <h3>Common mistakes</h3>
+        <ul class="list"><li>Saving the model’s summary of a fact. <code>212</code> is exact, and useless without “locker”.</li><li>Trusting a score without reading the notes. The flapjack note cost no points.</li><li>Assuming the model will save what matters.</li><li>Comparing setups and forgetting the prompt. One phrase moved code checks from 8 facts to 12.</li><li>Deleting old notes to keep things tidy.</li><li>Sorting notes any way but oldest first.</li><li>Writing the notes file directly. Use a temporary file and <code>os.replace</code>.</li><li>Adding search because you can.</li></ul>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Recap</span>
+        <h2>What you opened</h2>
+        <ul class="list"><li>A new session has only what you give it: 5 of 5 in the same session, 0 of 5 in a new one.</li><li><code>Memory</code> keeps notes in a JSON file, adds them to the system prompt, and writes through a temporary file.</li><li>The model says when to save. The tool ignores what it wrote, and saves the user’s own words.</li><li>Recall on Hana’s chat: 39 of 60 for code checks as first written, 50 for the model’s words, 59 for the user’s words, 57 for the finished <code>Memory</code>.</li><li>Rewriting went wrong quietly: a bare <code>212</code>, an invented flapjack fact, a lost “badge”.</li><li>Stale answers came only when an old note sat after its update. So the order stays in code, and a repeat moves to the end.</li></ul>
+        <p>We tested one person, one chat and one 7B model. A bigger model may behave differently, so measure yours.</p>
+        <p>Keeping a growing record of what an agent has seen comes from the 2023 paper <a href="https://arxiv.org/abs/2304.03442">Generative Agents</a>. A model managing its own memory with tool calls comes from <a href="https://arxiv.org/abs/2310.08560">MemGPT</a>.</p>
+      </div>
+      <div class="next"><span>Next</span><h3>Chapter 26: Planning patterns</h3></div>
+    </section>
+
+    <footer>
+      <p>Get the code at <a href="https://github.com/WhiteboxAcademy/BuildAnAgentFramework">github.com/WhiteboxAcademy/BuildAnAgentFramework</a>. Code is under the MIT License. Articles and videos are under CC BY 4.0.</p>
+    </footer>
+  </div>
+</main>

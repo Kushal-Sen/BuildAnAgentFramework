@@ -1,0 +1,40 @@
+earned: You should call the equipment service contractor listed for the Riverside branch, which is Northline Service, at 0300 555 0177. [equipment-repairs.md]
+    search: The contact number for maintenance services
+    search: step category maintenance issues
+    search: Search for "Riverside espresso machine contact person
+FAIL: You should phone the equipment service contractor listed for your branch. [equipment-repairs.md]
+    search: The contact number for maintenance services
+    search: Search for "espresso machine category in inventory
+    search: typical response time for maintenance calls
+FAIL: I don't know. The excerpts do not provide the specific number of the equipment service contractor for any branch. [equipment-repairs.md] mentions phoning the contractor b
+    search: The contact number for maintenance services
+    search: Search for "espresso machine category in inventory
+    search: Search for "escalation procedure for equipment issues
+earned: 0300 555 0177 [equipment-repairs.md]
+    search: The contact number for maintenance services
+    search: espresso machine repair or breakdown report
+    search: Search for "espresso machine location Riverside
+FAIL: I don't know. [equipment-repairs.md] mentions calling the equipment service contractor for repairs, but it does not provide a specific phone number.
+    search: The contact numbers for maintenance services
+    search: Espresso machine issues troubleshooting steps
+    search: search step preferred method contacting maintenance services facility
+pass: I don't know. [branch-riverside.md] doesn't provide the contact number for equipment service, only that the contractor is Northline Service, 0300 555 0177.
+    search: The contact number for maintenance services at Riverside
+    search: Search for "espresso machine category in inventory
+    search: search for "on-site supervisor name and extension
+FAIL: I don't know. [equipment-repairs.md] mentions contacting an equipment service contractor for repairs, but it does not specify a phone number.
+    search: The contact number for maintenance services
+    search: search for "category of equipment espresso machine
+    search: search for "usual response time maintenance calls
+FAIL: I don't know. [equipment-repairs.md] does not specify a phone number for the equipment service contractor; it only mentions phoning the contractor listed for your branch.
+    search: The contact number for maintenance services
+    search: Search for "espresso machine category in inventory
+    search: Search for "on-site supervisor name and extension
+pass: You should call Northline Service at 0300 555 0177. [branch-riverside.md]
+    search: The contact number for maintenance services at Riverside
+    search: search facilities "espresso machine category
+    search: Search for "standard response time maintenance calls Riverside
+FAIL: I don't know. [branch-riverside.md] provides the contact information for the equipment service contractor, Northline Service, but it does not mention any specific number 
+    search: Riverside's maintenance department contact number
+    search: Search for "Riverside espresso machine repair policy Sam Achebe Northline Service
+    search: Search for "Riverside branch emergency contact list for equipment issues

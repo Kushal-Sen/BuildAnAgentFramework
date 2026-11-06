@@ -1,0 +1,242 @@
+[
+ {
+  "run": 1,
+  "rows": [
+   {
+    "name": "name",
+    "right": false,
+    "read": 14317,
+    "answer": "I don't have access to your personal information, so I don't know your surname. How can I assist you with the handbook information? Cheers"
+   },
+   {
+    "name": "number",
+    "right": false,
+    "read": 14318,
+    "answer": "I don't have your specific staff number on file. Could you provide it or check your profile in StaffHub? Cheers"
+   },
+   {
+    "name": "day",
+    "right": false,
+    "read": 14319,
+    "answer": "To better assist you, could you please specify which day you are unable to work or provide more details about your schedule? Cheers"
+   },
+   {
+    "name": "locker",
+    "right": true,
+    "read": 14318,
+    "answer": "Your locker number is 212. Cheers"
+   },
+   {
+    "name": "allergy",
+    "right": true,
+    "read": 14318,
+    "answer": "It seems like you might be referring to an allergy, but you didn't specify what you're allergic to. If you need information about handling allergens in the handbook, you can ask about that. For example:\n\n- \"What does the handbook say about handling cashews?\" if you're allergic to cashews.\n\nIf you have a specific allergy, please let me know, and I'll provide the relevant information from the handbook. Cheers"
+   },
+   {
+    "name": "manager",
+    "right": true,
+    "read": 14318,
+    "answer": "Your manager is called Tomasz. Cheers"
+   },
+   {
+    "name": "bus",
+    "right": false,
+    "read": 14320,
+    "answer": "I don't have that information in my records. Could you provide the time or the route of your bus, so I can help you find the information? Cheers"
+   },
+   {
+    "name": "size",
+    "right": false,
+    "read": 14320,
+    "answer": "I don't have that information in the handbook. You can check your order details in StaffHub or by contacting your branch manager. If you need help, feel free to ask! Cheers"
+   },
+   {
+    "name": "till",
+    "right": false,
+    "read": 14319,
+    "answer": "The handbook doesn't specify which till you were trained on. Typically, this information would be noted in your training records or on your induction form. If you need to know which till you were trained on, you might want to check your personnel file or ask your branch manager for this information. Cheers"
+   },
+   {
+    "name": "sister",
+    "right": true,
+    "read": 14318,
+    "answer": "Your sister is named Anjali. Cheers"
+   },
+   {
+    "name": "course",
+    "right": true,
+    "read": 14320,
+    "answer": "Your food safety course expires on 14 March. Cheers"
+   },
+   {
+    "name": "shift",
+    "right": true,
+    "read": 14320,
+    "answer": "Your shift starts at 06:30 tomorrow. Cheers"
+   }
+  ],
+  "rounds": 0,
+  "sent": 14409,
+  "system": "You are the Quillon Coffee staff assistant. End every reply with the word Cheers."
+ },
+ {
+  "run": 2,
+  "rows": [
+   {
+    "name": "name",
+    "right": false,
+    "read": 14317,
+    "answer": "I don't have your specific information on file, but you mentioned your sister's name is Anjali. If you're asking about your own surname, could you provide it, or let me know if there's another way I can assist you? Cheers"
+   },
+   {
+    "name": "number",
+    "right": true,
+    "read": 14318,
+    "answer": "I don't have access to your specific information, including your staff number. You mentioned that your staff number is 4471 earlier, but I don't have a record of that. If you need to reference your staff number for any reason, you can check it in StaffHub or with your branch manager. Cheers"
+   },
+   {
+    "name": "day",
+    "right": false,
+    "read": 14319,
+    "answer": "Noted. To help you better, could you please specify which day you mentioned or provide more details about your availability? Cheers"
+   },
+   {
+    "name": "locker",
+    "right": true,
+    "read": 14318,
+    "answer": "I don't have that information on file. You mentioned your locker is number 212, but I don't have confirmation. If you can confirm it, I can help you with any questions about it. Cheers"
+   },
+   {
+    "name": "allergy",
+    "right": true,
+    "read": 14318,
+    "answer": "It seems like you're asking about allergies, but I don't have specific information about your allergies from the handbook. If you need advice on handling allergens based on your allergies, it's important to follow the procedures for allergens in the handbook. For instance, if you're allergic to cashews, the handbook might advise you not to handle cashew syrup or products containing cashews. If you have a specific allergy, it's best to inform your manager and follow the guidelines for handling allergens to ensure everyone's safety. Cheers"
+   },
+   {
+    "name": "manager",
+    "right": true,
+    "read": 14318,
+    "answer": "Your manager is called Tomasz. Cheers"
+   },
+   {
+    "name": "bus",
+    "right": true,
+    "read": 14320,
+    "answer": "Your bus gets in at 07:52 on weekdays. Cheers"
+   },
+   {
+    "name": "size",
+    "right": false,
+    "read": 14320,
+    "answer": "I don't have that specific information from your order details. If you need to know the size of the apron you ordered, you might want to check your recent order confirmation or contact the Quillon Coffee staff for assistance. Cheers"
+   },
+   {
+    "name": "till",
+    "right": true,
+    "read": 14319,
+    "answer": "I don't have that information from your profile. You were trained on TILL Three last week. If you need to confirm this or have any other questions, feel free to ask! Cheers"
+   },
+   {
+    "name": "sister",
+    "right": true,
+    "read": 14318,
+    "answer": "Your sister is called Anjali. Cheers"
+   },
+   {
+    "name": "course",
+    "right": true,
+    "read": 14320,
+    "answer": "Your food safety course expires on 14 March. Cheers"
+   },
+   {
+    "name": "shift",
+    "right": true,
+    "read": 14320,
+    "answer": "Your shift starts at 06:30 tomorrow. Cheers"
+   }
+  ],
+  "rounds": 0,
+  "sent": 14409,
+  "system": "You are the Quillon Coffee staff assistant. End every reply with the word Cheers."
+ },
+ {
+  "run": 3,
+  "rows": [
+   {
+    "name": "name",
+    "right": false,
+    "read": 14317,
+    "answer": "I don't have your personal information on file, so I don't have your surname. If you'd like to share it, I can include it in our conversation. Cheers"
+   },
+   {
+    "name": "number",
+    "right": false,
+    "read": 14318,
+    "answer": "I don't have your staff number on record. You can check it in StaffHub or with your branch manager. If you need to find it for a specific reason, let me know and I can guide you through the process. Cheers"
+   },
+   {
+    "name": "day",
+    "right": false,
+    "read": 14319,
+    "answer": "Noted. Could you please specify which day you cannot work or provide more details? Cheers"
+   },
+   {
+    "name": "locker",
+    "right": true,
+    "read": 14318,
+    "answer": "I don't have that information on file. You mentioned your locker number was 212 earlier, but if you need to check your actual locker number, you might want to log in to StaffHub or ask your branch manager for confirmation. Cheers"
+   },
+   {
+    "name": "allergy",
+    "right": false,
+    "read": 14318,
+    "answer": "To ensure your safety, could you please specify what you are allergic to, such as specific foods or substances? This information is crucial for your role and for the well-being of your colleagues and customers. If you need assistance with a specific allergen, I can provide guidance. Cheers"
+   },
+   {
+    "name": "manager",
+    "right": true,
+    "read": 14318,
+    "answer": "Your manager is called Tomasz. Cheers"
+   },
+   {
+    "name": "bus",
+    "right": true,
+    "read": 14320,
+    "answer": "Your bus gets in at 07:52 on weekdays. Cheers"
+   },
+   {
+    "name": "size",
+    "right": true,
+    "read": 14320,
+    "answer": "I don't have access to your specific order details, but your apron size is noted in your staff file. If you need to know the size, you can check with your branch manager or HR. If you remember, it was a size 10 apron for your uniform order. Cheers"
+   },
+   {
+    "name": "till",
+    "right": false,
+    "read": 14319,
+    "answer": "The handbook doesn't specify which till you were trained on, but typically this information would be recorded in your training records or on your employee file. If you need to know which till you were trained on, you should check with your branch manager or HR. Cheers"
+   },
+   {
+    "name": "sister",
+    "right": true,
+    "read": 14318,
+    "answer": "Your sister is named Anjali. Cheers"
+   },
+   {
+    "name": "course",
+    "right": true,
+    "read": 14320,
+    "answer": "Noted. Your food safety course expires on 14 March. If you need a reminder closer to that date, let me know! Cheers"
+   },
+   {
+    "name": "shift",
+    "right": true,
+    "read": 14320,
+    "answer": "Your shift starts at 06:30 tomorrow. Cheers"
+   }
+  ],
+  "rounds": 0,
+  "sent": 14409,
+  "system": "You are the Quillon Coffee staff assistant. End every reply with the word Cheers."
+ }
+]

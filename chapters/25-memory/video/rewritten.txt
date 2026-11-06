@@ -1,0 +1,16 @@
+$ python3 rewritten.py
+run 1: 6 of 12. Locker: Your locker number is 5093.
+run 2: 6 of 12. Locker: Your locker number is 5093.
+run 3: 5 of 12. Locker: Your locker number is 5093.
+run 4: 6 of 12. Locker: Your locker number is 5093.
+run 5: 5 of 12. Locker: Your locker number is 5093.
+Notes from the last run:
+  - Hana Kowalski
+  - 5093
+  - 212
+  - Thursdays
+  - Piotr
+  - 06:15
+  - Monday
+  - 18
+  - 9 November

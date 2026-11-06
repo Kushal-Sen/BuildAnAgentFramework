@@ -1,0 +1,7 @@
+$ python3 read_crashes.py
+Setup                  Crashes  Repeats  Unpaid  Clean  Hit limit
+Start again                 20       70       0      0          0
+Save before calls           20       70       0      0          0
+Save after tools too        19       24       4      0          2
+With once                   19        0       4     15          0
+With until_done             20        0       0     20          0

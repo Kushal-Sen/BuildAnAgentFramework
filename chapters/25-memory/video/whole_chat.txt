@@ -1,0 +1,6 @@
+$ python3 whole_chat.py
+run 1: 11 of 12, 13 notes, 2 unwanted
+run 2: 12 of 12, 15 notes, 3 unwanted
+run 3: 11 of 12, 14 notes, 3 unwanted
+run 4: 11 of 12, 13 notes, 2 unwanted
+run 5: 12 of 12, 14 notes, 2 unwanted

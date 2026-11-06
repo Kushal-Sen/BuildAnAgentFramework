@@ -1,0 +1,7 @@
+Setup      Run  Right  Summaries    Sent    Read  Cheers
+window       1      6          0  14,409  14,320   12/12
+window       2      9          0  14,409  14,320   12/12
+window       3      7          0  14,409  14,320   12/12
+summarise    1      2         12   3,079   3,125   12/12
+summarise    2      1         14   2,682   2,787   12/12
+summarise    3      2         14   2,935   2,985   12/12

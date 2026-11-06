@@ -1,0 +1,6 @@
+Setup           Direct  Unanswerable   Total  Calls
+Plain agent      24/24         12/12   36/36    2.0
+Split            24/24         12/12   36/36    2.0
+Step by step     24/24         12/12   36/36    3.0
+Plan             24/24         12/12   36/36    7.0
+

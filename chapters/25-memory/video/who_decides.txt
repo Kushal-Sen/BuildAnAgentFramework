@@ -1,0 +1,16 @@
+$ python3 who_decides.py
+code checks    run 1:  8 of 12, 8 notes
+code checks    run 2:  8 of 12, 8 notes
+code checks    run 3:  7 of 12, 8 notes
+code checks    run 4:  8 of 12, 8 notes
+code checks    run 5:  8 of 12, 8 notes
+model's words  run 1: 11 of 12, 18 notes
+model's words  run 2:  9 of 12, 14 notes
+model's words  run 3: 11 of 12, 16 notes
+model's words  run 4: 10 of 12, 14 notes
+model's words  run 5:  9 of 12, 15 notes
+user's words   run 1: 12 of 12, 17 notes
+user's words   run 2: 12 of 12, 18 notes
+user's words   run 3: 12 of 12, 18 notes
+user's words   run 4: 12 of 12, 15 notes
+user's words   run 5: 11 of 12, 17 notes

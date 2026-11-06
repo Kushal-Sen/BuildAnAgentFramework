@@ -1,0 +1,680 @@
+[
+ {
+  "setup": "12 in order",
+  "right": 20,
+  "stale": 0,
+  "both": 2,
+  "same": 20,
+  "before": 5,
+  "old_last": 0,
+  "stale_old_last": 0,
+  "answers": [
+   [
+    "Which branch do I work at?",
+    "You now work at the Harbour branch."
+   ],
+   [
+    "Which day can't I work?",
+    "Based on the information you've provided, you can't work on Tuesdays."
+   ],
+   [
+    "What's my locker number?",
+    "Your locker number is 87."
+   ],
+   [
+    "What time is my opener rota?",
+    "Your opener rota is at 07:30."
+   ],
+   [
+    "Which branch did I work at before this one?",
+    "You worked at the Old Mill branch before moving to the Harbour branch."
+   ],
+   [
+    "Which branch do I work at?",
+    "You now work at the Harbour branch."
+   ],
+   [
+    "Which day can't I work?",
+    "Based on the information you provided, you can't work on Tuesdays and Thursdays. However, Thursdays are now fine, but Tuesdays are still not available for you."
+   ],
+   [
+    "What's my locker number?",
+    "Your locker number is 87."
+   ],
+   [
+    "What time is my opener rota?",
+    "Your opener rota is at 07:30."
+   ],
+   [
+    "Which branch did I work at before this one?",
+    "You worked at the Old Mill branch before moving to the Harbour branch."
+   ],
+   [
+    "Which branch do I work at?",
+    "You currently work at the Harbour branch. Previously, you worked at the Old Mill branch, but you've since moved."
+   ],
+   [
+    "Which day can't I work?",
+    "Based on the information you provided, you can't work on Tuesdays."
+   ],
+   [
+    "What's my locker number?",
+    "Your locker number is 87."
+   ],
+   [
+    "What time is my opener rota?",
+    "Your opener rota is at 07:30."
+   ],
+   [
+    "Which branch did I work at before this one?",
+    "Before you moved to the Harbour branch, you worked at the Old Mill branch."
+   ],
+   [
+    "Which branch do I work at?",
+    "You now work at the Harbour branch."
+   ],
+   [
+    "Which day can't I work?",
+    "You can't work on Tuesdays."
+   ],
+   [
+    "What's my locker number?",
+    "Your locker number is 87."
+   ],
+   [
+    "What time is my opener rota?",
+    "Your opener rota is at 07:30."
+   ],
+   [
+    "Which branch did I work at before this one?",
+    "Before you moved to the Harbour branch, you worked at the Old Mill branch."
+   ],
+   [
+    "Which branch do I work at?",
+    "You now work at the Harbour branch."
+   ],
+   [
+    "Which day can't I work?",
+    "You can't work on Tuesdays."
+   ],
+   [
+    "What's my locker number?",
+    "Your locker number is 87."
+   ],
+   [
+    "What time is my opener rota?",
+    "Your opener rota is at 07:30."
+   ],
+   [
+    "Which branch did I work at before this one?",
+    "Before moving to the Harbour branch, you worked at the Old Mill branch."
+   ]
+  ],
+  "tokens_in": 208
+ },
+ {
+  "setup": "60 in order",
+  "right": 20,
+  "stale": 0,
+  "both": 9,
+  "same": 20,
+  "before": 5,
+  "old_last": 0,
+  "stale_old_last": 0,
+  "answers": [
+   [
+    "Which branch do I work at?",
+    "You now work at the Harbour branch."
+   ],
+   [
+    "Which day can't I work?",
+    "You can't work on Tuesdays and Thursdays. However, Thursdays are now fine for you, but Tuesdays are still not possible."
+   ],
+   [
+    "What's my locker number?",
+    "Your locker number is 87."
+   ],
+   [
+    "What time is my opener rota?",
+    "Your opener rota is at 07:30."
+   ],
+   [
+    "Which branch did I work at before this one?",
+    "You worked at the Old Mill branch before moving to the Harbour branch."
+   ],
+   [
+    "Which branch do I work at?",
+    "You currently work at the Harbour branch."
+   ],
+   [
+    "Which day can't I work?",
+    "You can't work on Tuesdays and Thursdays. However, Thursdays are now fine for you, but Tuesdays are still not possible."
+   ],
+   [
+    "What's my locker number?",
+    "Your locker number is 87."
+   ],
+   [
+    "What time is my opener rota?",
+    "Your opener rota is at 07:30. Previously, it was at 06:15, but you've switched to this new schedule."
+   ],
+   [
+    "Which branch did I work at before this one?",
+    "You worked at the Old Mill branch before moving to the Harbour branch."
+   ],
+   [
+    "Which branch do I work at?",
+    "You currently work at the Harbour branch."
+   ],
+   [
+    "Which day can't I work?",
+    "You can't work on Tuesdays. Additionally, you previously mentioned that you have a night class on Thursdays, but now Thursdays are fine for you."
+   ],
+   [
+    "What's my locker number?",
+    "Your locker number is 87."
+   ],
+   [
+    "What time is my opener rota?",
+    "Your opener rota is at 07:30. Previously, it was at 06:15, but you've switched to this new time."
+   ],
+   [
+    "Which branch did I work at before this one?",
+    "You worked at the Old Mill branch before moving to the Harbour branch."
+   ],
+   [
+    "Which branch do I work at?",
+    "You currently work at the Harbour branch. Previously, you worked at the Old Mill branch, but you mentioned that you've moved to the Harbour branch now."
+   ],
+   [
+    "Which day can't I work?",
+    "You can't work on Tuesdays."
+   ],
+   [
+    "What's my locker number?",
+    "Your locker number is 87."
+   ],
+   [
+    "What time is my opener rota?",
+    "Your opener rota is at 07:30. Previously, it was at 06:15, but you have switched to this new schedule."
+   ],
+   [
+    "Which branch did I work at before this one?",
+    "Before you moved to the Harbour branch, you worked at the Old Mill branch."
+   ],
+   [
+    "Which branch do I work at?",
+    "You now work at the Harbour branch."
+   ],
+   [
+    "Which day can't I work?",
+    "You can't work on Tuesdays and Thursdays. However, Thursdays are now fine for you, but Tuesdays are still a no-go."
+   ],
+   [
+    "What's my locker number?",
+    "Your locker number is 87."
+   ],
+   [
+    "What time is my opener rota?",
+    "Your opener rota is at 07:30. Previously, it was at 06:15, but you've switched to this new time."
+   ],
+   [
+    "Which branch did I work at before this one?",
+    "Before you moved to the Harbour branch, you worked at the Old Mill branch."
+   ]
+  ],
+  "tokens_in": 990
+ },
+ {
+  "setup": "60 newest first",
+  "right": 10,
+  "stale": 10,
+  "both": 4,
+  "same": 20,
+  "before": 5,
+  "old_last": 20,
+  "stale_old_last": 10,
+  "answers": [
+   [
+    "Which branch do I work at?",
+    "You work at the Old Mill branch."
+   ],
+   [
+    "Which day can't I work?",
+    "You can't work on Tuesdays."
+   ],
+   [
+    "What's my locker number?",
+    "Your locker number is 212."
+   ],
+   [
+    "What time is my opener rota?",
+    "Your opener rota is at 07:30."
+   ],
+   [
+    "Which branch did I work at before this one?",
+    "Before working at the Harbour branch, you worked at the Old Mill branch."
+   ],
+   [
+    "Which branch do I work at?",
+    "You work at the Old Mill branch."
+   ],
+   [
+    "Which day can't I work?",
+    "You can't work on Tuesdays and Thursdays. Thursdays are due to a night class in bookkeeping, and Tuesdays are not specified for a reason, but given the context, it seems Tuesdays are the day you can't work."
+   ],
+   [
+    "What's my locker number?",
+    "Your locker number is 212."
+   ],
+   [
+    "What time is my opener rota?",
+    "Your opener rota is at 06:15. However, you've switched to the 07:30 opener rota."
+   ],
+   [
+    "Which branch did I work at before this one?",
+    "Before working at the Old Mill branch, you worked at the Harbour branch."
+   ],
+   [
+    "Which branch do I work at?",
+    "You work at the Old Mill branch."
+   ],
+   [
+    "Which day can't I work?",
+    "You can't work on Tuesdays."
+   ],
+   [
+    "What's my locker number?",
+    "Your locker number is 212."
+   ],
+   [
+    "What time is my opener rota?",
+    "Your opener rota is at 06:15. However, you've switched to the 07:30 opener rota."
+   ],
+   [
+    "Which branch did I work at before this one?",
+    "Before working at the Old Mill branch, you worked at the Harbour branch."
+   ],
+   [
+    "Which branch do I work at?",
+    "You work at the Old Mill branch."
+   ],
+   [
+    "Which day can't I work?",
+    "You can't work on Tuesdays."
+   ],
+   [
+    "What's my locker number?",
+    "Your locker number is 212."
+   ],
+   [
+    "What time is my opener rota?",
+    "Your opener rota is at 07:30."
+   ],
+   [
+    "Which branch did I work at before this one?",
+    "Before working at the Harbour branch, you worked at the Old Mill branch."
+   ],
+   [
+    "Which branch do I work at?",
+    "You work at the Old Mill branch."
+   ],
+   [
+    "Which day can't I work?",
+    "You can't work on Tuesdays."
+   ],
+   [
+    "What's my locker number?",
+    "Your locker number is 212."
+   ],
+   [
+    "What time is my opener rota?",
+    "Your opener rota is at 06:15. However, you mentioned that you've switched to the 07:30 opener rota, so your current start time is at 07:30."
+   ],
+   [
+    "Which branch did I work at before this one?",
+    "Before working at the Harbour branch, you worked at the Old Mill branch."
+   ]
+  ],
+  "tokens_in": 987
+ },
+ {
+  "setup": "60 shuffled",
+  "right": 18,
+  "stale": 2,
+  "both": 4,
+  "same": 20,
+  "before": 5,
+  "old_last": 6,
+  "stale_old_last": 2,
+  "answers": [
+   [
+    "Which branch do I work at?",
+    "You currently work at the Harbour branch."
+   ],
+   [
+    "Which day can't I work?",
+    "You can't work on Tuesdays. Additionally, Thursdays are only fine now, implying that they might not have been possible before."
+   ],
+   [
+    "What's my locker number?",
+    "Your current locker number is 87."
+   ],
+   [
+    "What time is my opener rota?",
+    "Your opener rota is now at 07:30."
+   ],
+   [
+    "Which branch did I work at before this one?",
+    "You worked at the Old Mill branch before switching to the Harbour branch."
+   ],
+   [
+    "Which branch do I work at?",
+    "You now work at the Harbour branch."
+   ],
+   [
+    "Which day can't I work?",
+    "You can't work on Tuesdays and Thursdays. However, Thursdays are now fine, but Tuesdays are still not an option for you."
+   ],
+   [
+    "What's my locker number?",
+    "Your current locker number is 87."
+   ],
+   [
+    "What time is my opener rota?",
+    "Your opener rota is at 07:30."
+   ],
+   [
+    "Which branch did I work at before this one?",
+    "You worked at the Old Mill branch before switching to the Harbour branch."
+   ],
+   [
+    "Which branch do I work at?",
+    "You work at the Harbour branch."
+   ],
+   [
+    "Which day can't I work?",
+    "You can't work on Tuesdays and Thursdays due to your night class in bookkeeping."
+   ],
+   [
+    "What's my locker number?",
+    "Your locker number is 87."
+   ],
+   [
+    "What time is my opener rota?",
+    "Your opener rota is at 07:30."
+   ],
+   [
+    "Which branch did I work at before this one?",
+    "Based on the information you provided, you moved to the Harbour branch, so before you were working at the Old Mill branch."
+   ],
+   [
+    "Which branch do I work at?",
+    "You work at the Harbour branch."
+   ],
+   [
+    "Which day can't I work?",
+    "You can't work on Tuesdays."
+   ],
+   [
+    "What's my locker number?",
+    "Your locker number is 212."
+   ],
+   [
+    "What time is my opener rota?",
+    "Your opener rota is at 07:30."
+   ],
+   [
+    "Which branch did I work at before this one?",
+    "You worked at the Old Mill branch before moving to the Harbour branch."
+   ],
+   [
+    "Which branch do I work at?",
+    "You currently work at the Harbour branch."
+   ],
+   [
+    "Which day can't I work?",
+    "You can't work on Tuesdays and Thursdays. Thursdays are due to a night class in bookkeeping, and Tuesdays are mentioned as something you can't do now, though the reason is not specified."
+   ],
+   [
+    "What's my locker number?",
+    "Your locker number is 212."
+   ],
+   [
+    "What time is my opener rota?",
+    "You are on the 07:30 opener rota now."
+   ],
+   [
+    "Which branch did I work at before this one?",
+    "Before moving to the Harbour branch, you worked at the Old Mill branch."
+   ]
+  ],
+  "tokens_in": 987
+ },
+ {
+  "setup": "60 shuffled + dates",
+  "right": 19,
+  "stale": 1,
+  "both": 1,
+  "same": 20,
+  "before": 5,
+  "old_last": 6,
+  "stale_old_last": 1,
+  "answers": [
+   [
+    "Which branch do I work at?",
+    "You work at the Harbour branch now, as mentioned in the note from 2026-06-01."
+   ],
+   [
+    "Which day can't I work?",
+    "You can't work on Tuesdays."
+   ],
+   [
+    "What's my locker number?",
+    "Your locker number is 87."
+   ],
+   [
+    "What time is my opener rota?",
+    "Your current opener rota is at 07:30. This information was provided in the note from 2026-06-22."
+   ],
+   [
+    "Which branch did I work at before this one?",
+    "You worked at the Old Mill branch before moving to the Harbour branch."
+   ],
+   [
+    "Which branch do I work at?",
+    "You work at the Harbour branch. This information was provided in the note from 2026-06-01."
+   ],
+   [
+    "Which day can't I work?",
+    "You can't work on Tuesdays."
+   ],
+   [
+    "What's my locker number?",
+    "Your locker number is 87. This was updated on 2026-06-15."
+   ],
+   [
+    "What time is my opener rota?",
+    "Based on the information provided, your opener rota is now at 07:30. This was updated on 2026-06-22."
+   ],
+   [
+    "Which branch did I work at before this one?",
+    "Before moving to the Harbour branch, you worked at the Old Mill branch."
+   ],
+   [
+    "Which branch do I work at?",
+    "You work at the Old Mill branch."
+   ],
+   [
+    "Which day can't I work?",
+    "Based on the information provided, you can't work on Tuesdays and Thursdays. However, Thursdays are now available, but Tuesdays are still not possible for you."
+   ],
+   [
+    "What's my locker number?",
+    "Your locker number is 87. This was updated on 2026-06-15."
+   ],
+   [
+    "What time is my opener rota?",
+    "Your opener rota is at 07:30, as noted in the entry from 2026-06-22."
+   ],
+   [
+    "Which branch did I work at before this one?",
+    "Before moving to the Harbour branch, you worked at the Old Mill branch."
+   ],
+   [
+    "Which branch do I work at?",
+    "You work at the Harbour branch now."
+   ],
+   [
+    "Which day can't I work?",
+    "Based on the information provided, you can't work on Tuesdays."
+   ],
+   [
+    "What's my locker number?",
+    "Your locker number is 87, as noted on 2026-06-15."
+   ],
+   [
+    "What time is my opener rota?",
+    "Based on the information provided, your opener rota is 07:30. This was updated on 2026-06-22."
+   ],
+   [
+    "Which branch did I work at before this one?",
+    "Before moving to the Harbour branch, you worked at the Old Mill branch."
+   ],
+   [
+    "Which branch do I work at?",
+    "You currently work at the Harbour branch."
+   ],
+   [
+    "Which day can't I work?",
+    "You can't work on Tuesdays."
+   ],
+   [
+    "What's my locker number?",
+    "Your locker number is 87, as stated in the note from 2026-06-15."
+   ],
+   [
+    "What time is my opener rota?",
+    "Your opener rota is now at 07:30. This was updated on 2026-06-22."
+   ],
+   [
+    "Which branch did I work at before this one?",
+    "Before moving to the Harbour branch, you worked at the Old Mill branch."
+   ]
+  ],
+  "tokens_in": 1718
+ },
+ {
+  "setup": "12 replacing old",
+  "right": 20,
+  "stale": 0,
+  "both": 5,
+  "same": 20,
+  "before": 0,
+  "old_last": 0,
+  "stale_old_last": 0,
+  "answers": [
+   [
+    "Which branch do I work at?",
+    "You now work at the Harbour branch."
+   ],
+   [
+    "Which day can't I work?",
+    "You can't work on Tuesdays and Thursdays due to your night class in bookkeeping on Thursdays, and you've switched to the 07:30 opener rota which might conflict with other commitments on Tuesdays."
+   ],
+   [
+    "What's my locker number?",
+    "Your locker number is 87."
+   ],
+   [
+    "What time is my opener rota?",
+    "Your opener rota is at 07:30."
+   ],
+   [
+    "Which branch did I work at before this one?",
+    "Before moving to the Harbour branch, you worked at a different branch. Since you mentioned that you've \"moved to the Harbour branch now,\" the previous branch you worked at was not the Harbour branch. However, the specific name of the previous branch is not provided in the information you've given."
+   ],
+   [
+    "Which branch do I work at?",
+    "You now work at the Harbour branch."
+   ],
+   [
+    "Which day can't I work?",
+    "You can't work on Tuesdays. Additionally, Thursdays are fine now, but you can't do Tuesdays."
+   ],
+   [
+    "What's my locker number?",
+    "Your locker number is 87."
+   ],
+   [
+    "What time is my opener rota?",
+    "Your opener rota is at 07:30."
+   ],
+   [
+    "Which branch did I work at before this one?",
+    "Before moving to the Harbour branch, you worked at the original location, which is not specified in your details. However, since you mentioned moving to the Harbour branch, it implies that you worked at another branch before that. Without more specific information, we can't determine the exact name of the previous branch, but it was likely the main or another branch location before the Harbour branch."
+   ],
+   [
+    "Which branch do I work at?",
+    "You now work at the Harbour branch."
+   ],
+   [
+    "Which day can't I work?",
+    "Based on the information you provided, you can't work on Tuesdays and Thursdays. However, you mentioned that Thursdays are fine now, but you can't do Tuesdays. So, the day you can't work is Tuesday."
+   ],
+   [
+    "What's my locker number?",
+    "Your locker number is 87."
+   ],
+   [
+    "What time is my opener rota?",
+    "You are on the 07:30 opener rota now."
+   ],
+   [
+    "Which branch did I work at before this one?",
+    "Before moving to the Harbour branch, you worked at a different branch. Since the information about the branch change was not specified in the details you provided, we can infer that you previously worked at a branch other than Harbour. However, without more specific information, we can't determine the exact name of the previous branch."
+   ],
+   [
+    "Which branch do I work at?",
+    "You now work at the Harbour branch."
+   ],
+   [
+    "Which day can't I work?",
+    "You can't work on Tuesdays and you've mentioned that Thursdays are fine now, but you previously couldn't do Thursdays due to a night class in bookkeeping. So, currently, Tuesdays are the day you can't work."
+   ],
+   [
+    "What's my locker number?",
+    "Your locker number is 87."
+   ],
+   [
+    "What time is my opener rota?",
+    "Your opener rota is at 07:30."
+   ],
+   [
+    "Which branch did I work at before this one?",
+    "Before moving to the Harbour branch, you worked at a different branch. Since you mentioned you've moved to the Harbour branch now, the previous branch you worked at was likely the one you were at before the Harbour branch. However, you didn't specify the name of the previous branch. If you need more details, you might want to check your records or remember any specific name associated with your previous location."
+   ],
+   [
+    "Which branch do I work at?",
+    "You now work at the Harbour branch."
+   ],
+   [
+    "Which day can't I work?",
+    "You can't work on Tuesdays and Thursdays. However, Thursdays are fine now, but you can't do Tuesdays."
+   ],
+   [
+    "What's my locker number?",
+    "Your locker number is 87."
+   ],
+   [
+    "What time is my opener rota?",
+    "You are on the 07:30 opener rota now."
+   ],
+   [
+    "Which branch did I work at before this one?",
+    "Based on the information you provided, you previously worked at a branch that is no longer your current location. Since you mentioned moving to the Harbour branch now, the branch you worked at before must have been a different branch. However, the specific name or location of the previous branch is not provided in your statements."
+   ]
+  ],
+  "tokens_in": 175
+ }
+]

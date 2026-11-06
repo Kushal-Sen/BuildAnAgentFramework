@@ -1,0 +1,95 @@
+{
+  "chapter": "Chapter 26",
+  "scenes": [
+    {"type": "recap", "title": "Previously: the second search", "flow": ["Two-fact questions fail", "The model won't search twice", "Split forces the searches", "Both files, half the time"], "captions": [
+      {"text": "Recap of chapter 23: some questions need two facts, such as a band and the rule for that band.", "secs": 8, "focus": 0},
+      {"text": "The agent could search twice, and it almost never did, whatever we told it.", "secs": 7, "focus": 1},
+      {"text": "So Split asked for the facts first, and code ran every search.", "secs": 7, "focus": 2},
+      {"text": "Both files came back in about half the runs. There's still a gap to look at.", "secs": 8, "focus": 3}
+    ]},
+    {"type": "box", "label": "Planning", "inner": ["write the steps", "+ search each one", "+ use what you found"], "captions": [
+      {"text": "Today's black box: a plan, carried out one step at a time.", "secs": 5},
+      {"text": "Let's open it. But first, the question that still fails.", "secs": 5, "open": true, "shot": "01-box"}
+    ]},
+    {"type": "demo", "file": "code/two_facts.py", "start": "for _ in range(3)", "end": "print(\"  Answer:", "output": "video/two_facts_agent.txt", "captions": [
+      {"text": "A shift lead's notice needs pay-bands.md and resignation.md. Predict: how many runs see both?", "secs": 9, "focus": null, "lines": 0},
+      {"text": "The agent searches once, finds the rule, and lists the bands. Three runs, the same each time.", "secs": 9, "focus": null, "lines": 10}
+    ]},
+    {"type": "demo", "file": "code/two_facts.py", "start": "print(\"  Files:", "end": "print(\"  Answer:", "output": "video/two_facts_split.txt", "captions": [
+      {"text": "Split searches three times, and gives three answers: 2 weeks, 4 weeks and 8 weeks.", "secs": 9, "focus": null, "lines": 10, "shot": "02-two-facts"},
+      {"text": "Only the run that saw pay-bands.md was right. The other two picked a band.", "secs": 8, "focus": null, "lines": 10}
+    ]},
+    {"type": "demo", "file": "code/by_hand.py", "start": "show(\"What band", "end": "show(\"How much notice", "output": "video/by_hand.txt", "captions": [
+      {"text": "Split wrote every search before it read anything. Try it by hand: search, read, then search again.", "secs": 9, "focus": null, "lines": 0},
+      {"text": "The first search finds pay-bands.md. Shift lead: Band C.", "secs": 7, "focus": null, "lines": 4},
+      {"text": "Now you can write Band C in the next search. The question never said that.", "secs": 8, "focus": null, "lines": 8, "shot": "03-by-hand"},
+      {"text": "That's the new idea: a later search can use what an earlier step found.", "secs": 7, "focus": null, "lines": 8}
+    ]},
+    {"type": "code", "file": "code/whitebox/planning.py", "start": "def make_plan", "end": "return [clean(line)", "captions": [
+      {"text": "First, the model writes a plan: the facts to look up, in order, at most three.", "secs": 8, "focus": null}
+    ]},
+    {"type": "demo", "file": "code/first_plans.py", "start": "for question in QUESTIONS", "end": "print(\"  -\", step)", "output": "video/first_plans.txt", "captions": [
+      {"text": "Ask for two plans, and search for nothing. Predict: will the first plan say to find the band?", "secs": 8, "focus": null, "lines": 0},
+      {"text": "No. It's tidy, and it would fit almost any question about any handbook.", "secs": 8, "focus": null, "lines": 8, "shot": "04-plans"}
+    ]},
+    {"type": "code", "file": "code/whitebox/planning.py", "start": "steps = self.make_plan(question)", "end": "known.append(self.ask(FIND", "captions": [
+      {"text": "Your code owns the loop. Every step runs, so the model can't stop after one search.", "secs": 8, "focus": ["for step in steps", "for step in steps"]},
+      {"text": "Each later search is written from the step and everything known so far. Split can't do this.", "secs": 9, "focus": ["query = clean", "query = clean"]},
+      {"text": "Then the model writes one note on what the search found, and the note joins what's known.", "secs": 8, "focus": ["known.append", "known.append"]}
+    ]},
+    {"type": "demo", "file": "code/plan_once.py", "start": "for step, query, note in zip", "end": "print(\"Found:\"", "output": "video/plan_once_1.txt", "captions": [
+      {"text": "Run it. The first note kept one band: Band E. Later searches went looking for Band E.", "secs": 9, "focus": null, "lines": 9},
+      {"text": "One of them happened to bring back pay-bands.md, and the answer was right. No step asked for it.", "secs": 9, "focus": null, "lines": 12, "shot": "05-lucky"}
+    ]},
+    {"type": "demo", "file": "code/plan_once.py", "start": "for step, query, note in zip", "end": "print(\"Found:\"", "output": "video/plan_once_2.txt", "captions": [
+      {"text": "The next run had the same wrong note, missed that file, and said 8 weeks.", "secs": 8, "focus": null, "lines": 12, "shot": "06-wrong-note"},
+      {"text": "We ran it four times, and it was right once. One run proves little, so measure.", "secs": 8, "focus": null, "lines": 12}
+    ]},
+    {"type": "demo", "file": "code/plan_test.py", "start": "for name, _, question, answers, files in HOPS", "end": "queries, seen = what_it_did(result)", "output": "video/plan_scores.txt", "captions": [
+      {"text": "Four setups, six hop questions, ten runs each. Step by step has notes, and no plan.", "secs": 9, "focus": null, "lines": 0},
+      {"text": "Earned means right, and the searches saw both files. So the answer could have come from the facts.", "secs": 9, "focus": null, "lines": 0},
+      {"text": "Plan makes 7 calls and Split makes 2. Predict: how much better is Plan?", "secs": 7, "focus": null, "lines": 0},
+      {"text": "It isn't. 20 and 20 strict, 14 and 16 earned. That's too close to rank, at 3.5 times the calls.", "secs": 10, "focus": null, "lines": 6, "shot": "07-scores"},
+      {"text": "Setups that left searching to the model searched about once, and earned nothing.", "secs": 8, "focus": null, "lines": 6},
+      {"text": "Each earned pass cost Split 7.5 calls, and Plan 30.", "secs": 7, "focus": null, "lines": 6}
+    ]},
+    {"type": "demo", "file": "code/plan_scores.py", "start": "def show_questions", "end": "print(f\"{'Question'", "output": "video/plan_questions.txt", "captions": [
+      {"text": "Question by question. The repair questions need only one file, so earned is too harsh there.", "secs": 9, "focus": null, "lines": 9},
+      {"text": "On those, the plain agent is best: 18 of 20, at 2 calls. Plan gets 9.", "secs": 8, "focus": null, "lines": 9, "shot": "08-questions"},
+      {"text": "Where both files are needed, Plan earned 8 and Split 6, of 40. That can't be ranked either.", "secs": 9, "focus": null, "lines": 9}
+    ]},
+    {"type": "demo", "file": "code/plan_plans.py", "start": "print(f\"Three questions", "end": "print(f\"  earned anyway", "output": "video/plan_counts.txt", "captions": [
+      {"text": "Did good plans do it? Three questions turn on a band. None of the 30 plans says band.", "secs": 9, "focus": null, "lines": 5},
+      {"text": "They earned 8 anyway. And 7 Harbour plans name the arrival time, and earned none.", "secs": 9, "focus": null, "lines": 8, "shot": "09-counts"}
+    ]},
+    {"type": "demo", "file": "code/plan_plans.py", "start": "print(\"earned\" if earned(run)", "end": "print(\"   \", step[:90])", "output": "video/plan_plans_pay.txt", "captions": [
+      {"text": "Read them yourself. These three earned, and none names the band or says why it's looking.", "secs": 9, "focus": null, "lines": 12}
+    ]},
+    {"type": "demo", "file": "code/hop_setups.py", "start": "class Split", "end": "self.model, self.index, self.k = model", "output": "video/plan_scores.txt", "captions": [
+      {"text": "So the gain may come from more searching, not smarter planning. Split searched 2.8 times, with no plan.", "secs": 10, "focus": null, "lines": 6},
+      {"text": "This test can't separate them. Exercise 6 tries three generic searches with no plan.", "secs": 8, "focus": null, "lines": 6}
+    ]},
+    {"type": "demo", "file": "code/plan_read.py", "start": "for run in saved_tests()", "end": "print(\"    search:\"", "output": "video/plan_read_harbour.txt", "captions": [
+      {"text": "What still fails? harbour-arrive: 0 of 10. It finds the opening time, and stops.", "secs": 8, "focus": null, "lines": 8},
+      {"text": "No run saw shifts.md. Adding Harbour to the query pulled the search towards Harbour's logs.", "secs": 9, "focus": null, "lines": 8, "shot": "10-harbour"}
+    ]},
+    {"type": "demo", "file": "code/plan_read.py", "start": "for run in saved_tests()", "end": "print(\"    search:\"", "output": "video/plan_read_beans.txt", "captions": [
+      {"text": "senior-beans: no earned passes. Only 2 of 10 saw pay-bands.md, and no step asked for it.", "secs": 9, "focus": null, "lines": 8},
+      {"text": "So a plan can drop what mattered. The search only knows the step, and that's the model's rewording.", "secs": 9, "focus": null, "lines": 8}
+    ]},
+    {"type": "demo", "file": "code/plan_control.py", "start": "for name, kind, question, answers, _ in CONTROLS", "end": "good = says(answer", "output": "video/plan_control.txt", "captions": [
+      {"text": "The control: 8 direct and 4 unanswerable questions. Predict: does a longer process invent answers?", "secs": 9, "focus": null, "lines": 0},
+      {"text": "No. All four scored 36 of 36. Plan did no harm, and paid 7 calls for what 2 calls got.", "secs": 9, "focus": null, "lines": 5, "shot": "11-control"},
+      {"text": "We tested one 7B model on six questions. A bigger model may plan better, so measure yours.", "secs": 9, "focus": null, "lines": 5}
+    ]},
+    {"type": "term", "file": "video/exercise_output.txt", "final": "5 passed", "captions": [
+      {"text": "Your turn. Open exercises.py and complete the five TODOs.", "secs": 6, "lines": 9},
+      {"text": "You've finished when you see 5 passed.", "secs": 6, "lines": 13, "shot": "12-exercises"}
+    ]},
+    {"type": "end", "title": "You opened planning.", "points": ["A later search can use what was found", "Earned: right, with both files seen", "Plan tied Split, at 3.5 times the calls", "A good-looking plan isn't evidence"], "next": "Next: Chapter 27, durable execution", "captions": [
+      {"text": "Plan writes the steps, code runs every one, and each search can use what came before.", "secs": 8},
+      {"text": "On this test it tied Split, and forcing the searches mattered more than the plan.", "secs": 8},
+      {"text": "So measure the searches, the files and the cost, and read the plans.", "secs": 7}
+    ]}
+  ]
+}

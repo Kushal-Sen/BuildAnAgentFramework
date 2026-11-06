@@ -1,0 +1,6 @@
+After 3 turns, 8 messages sent
+  tokens_in: 134
+  Answer: Your staff number is 4471. Cheers
+After 43 turns, 88 messages sent
+  tokens_in: 4021
+  Answer: I'm here to assist with your questions about the handbook and Quillon Coffee policies, but I don't have access to personal information like your staff number. If you need to find your staff number, you can check your employee profile in StaffHub or contact your branch manager for assistance. Cheers

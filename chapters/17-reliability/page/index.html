@@ -159,6 +159,7 @@ footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--rule
         raise ModelError(f"Ollama said {response.status_code}: {response.text}", retryable)
     return response</pre>
       <p class="col">Status codes of 500 and above mean the server had a problem, and it might pass. Codes below that mean the request was wrong, and sending it again will fail again.</p>
+      <p class="col">A stream can also fail after it has started, if the connection drops partway through a reply. So from this chapter on, the loop in <code>OllamaModel.stream</code> sits inside the same kind of <code>try</code>, and a lost connection raises a retryable <code>ModelError</code> too. It’s the only change to chapter 15’s <code>stream</code>.</p>
     </section>
 
     <section>

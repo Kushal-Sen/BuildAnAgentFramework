@@ -1,0 +1,40 @@
+earned
+    Review the introduction section of the staff handbook for general information on pay struc
+    Check the section detailing roles and responsibilities to find the definition of a shift l
+    Identify and note the hourly rate associated with the shift lead role
+earned
+    Review the compensation section of the staff handbook
+    Check the shift lead responsibilities to confirm eligibility
+    Identify the hourly rate for shift leads as stated in the handbook
+earned
+    Review the staff handbook's compensation section
+    Check the shift lead role description
+    Identify the specific hourly rate for shift leads
+FAIL
+    Review the staff handbook's compensation section
+    Check if the handbook specifies a general pay rate for shift leads
+    Identify if there are any specific hourly rates mentioned for shift leads
+FAIL
+    Check if the staff handbook mentions a specific hourly rate for shift leads
+    Look for any policy or section that details wage structures or roles
+    Identify if there are any recent updates or changes to the payment policies that affect sh
+FAIL
+    Review the staff handbook's compensation section
+    Check if the handbook specifies different rates for shift leads
+    Identify if there is a specific rate mentioned for shift leads
+FAIL
+    Review the staff handbook for hourly rate details
+    Check the section on shift lead roles and responsibilities
+    Identify the specific mention of shift lead hourly rates
+FAIL
+    Check if the staff handbook mentions hourly rates or pay structures for shift leads
+    Identify if there is a specific section discussing shift lead roles and their compensation
+    Verify if the handbook provides a detailed hourly rate for shift leads
+earned
+    Step 1: Look up the compensation section in the staff handbook
+    Step 2: Identify the section related to shift lead roles
+    Step 3: Find the specific hourly rate mentioned for shift leads
+FAIL
+    Check if the staff handbook mentions a specific hourly rate for shift leads
+    Look for any policies or guidelines regarding pay structures in the handbook
+    Verify if there are any exceptions or additional benefits for shift leads in the handbook

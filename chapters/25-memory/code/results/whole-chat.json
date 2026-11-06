@@ -1,0 +1,166 @@
+[
+ {
+  "setup": "Memory",
+  "notes": [
+   "Hi, I'm Hana Kowalski, I've just joined the Old Mill branch.",
+   "My staff number is 5093.",
+   "My locker is number 212.",
+   "Can't do Thursdays, I've got a night class in bookkeeping.",
+   "Does the syrup shelf get wiped down? I'm allergic to hazelnuts.",
+   "Emergency contact is my brother Piotr.",
+   "Harbour was packed when I dropped in earlier.",
+   "Can I carry leave over? I'm saving days for a trip to Lisbon in October.",
+   "Been on the 06:15 opener rota since Monday.",
+   "My badge says Johanna but everyone calls me Hana.",
+   "Marek on the next till is off with flu.",
+   "I get the number 18 bus in, so Sundays are tight for me.",
+   "My food hygiene certificate runs out on 9 November."
+  ],
+  "answers": {
+   "surname": "Your surname is Kowalski.",
+   "staff": "Your staff number is 5093.",
+   "locker": "Your locker number is 212.",
+   "day": "You can't work on Thursdays because you have a night class in bookkeeping.",
+   "knee": "You are allergic to hazelnuts.",
+   "allergy": "You are allergic to hazelnuts.",
+   "contact": "Your emergency contact is your brother Piotr.",
+   "trip": "You're planning to go to Lisbon in October. You've been saving your leave days to visit there.",
+   "rota": "Your opener rota starts at 06:15.",
+   "badge": "The name on your badge is Johanna, but everyone calls you Hana.",
+   "bus": "You take the number 18 bus to get to work. Sundays are tight for you, so make sure to plan accordingly.",
+   "hygiene": "Your food hygiene certificate runs out on 9 November."
+  }
+ },
+ {
+  "setup": "Memory",
+  "notes": [
+   "Hi, I'm Hana Kowalski, I've just joined the Old Mill branch.",
+   "My staff number is 5093.",
+   "My locker is number 212.",
+   "Can't do Thursdays, I've got a night class in bookkeeping.",
+   "The oat milk delivery came two hours late today.",
+   "What's the rule on sick pay? I've got a bad knee so I might need it.",
+   "Does the syrup shelf get wiped down? I'm allergic to hazelnuts.",
+   "Emergency contact is my brother Piotr.",
+   "Harbour was packed when I dropped in earlier.",
+   "Can I carry leave over? I'm saving days for a trip to Lisbon in October.",
+   "Been on the 06:15 opener rota since Monday.",
+   "My badge says Johanna but everyone calls me Hana.",
+   "Marek on the next till is off with flu.",
+   "I get the number 18 bus in, so Sundays are tight for me.",
+   "My food hygiene certificate runs out on 9 November."
+  ],
+  "answers": {
+   "surname": "Your surname is Kowalski.",
+   "staff": "Your staff number is 5093.",
+   "locker": "Your locker number is 212.",
+   "day": "You can't work on Thursdays because you have a night class in bookkeeping.",
+   "knee": "You have a bad knee that might require sick pay, and you are allergic to hazelnuts.",
+   "allergy": "You are allergic to hazelnuts.",
+   "contact": "Your emergency contact is your brother Piotr.",
+   "trip": "You're planning to go to Lisbon in October, but you're saving days to cover your travel.",
+   "rota": "Your opener rota is for the 06:15 shift.",
+   "badge": "The name on your badge is Johanna, but everyone calls you Hana.",
+   "bus": "You take the number 18 bus to get to work. Sundays are tight for you, so be sure to plan your time accordingly.",
+   "hygiene": "Your food hygiene certificate runs out on 9 November."
+  }
+ },
+ {
+  "setup": "Memory",
+  "notes": [
+   "Hi, I'm Hana Kowalski, I've just joined the Old Mill branch.",
+   "My staff number is 5093.",
+   "A customer left a blue scarf on table 4, what do I do with it?",
+   "My locker is number 212.",
+   "Can't do Thursdays, I've got a night class in bookkeeping.",
+   "Does the syrup shelf get wiped down? I'm allergic to hazelnuts.",
+   "Emergency contact is my brother Piotr.",
+   "Harbour was packed when I dropped in earlier.",
+   "Can I carry leave over? I'm saving days for a trip to Lisbon in October.",
+   "Been on the 06:15 opener rota since Monday.",
+   "My badge says Johanna but everyone calls me Hana.",
+   "Marek on the next till is off with flu.",
+   "I get the number 18 bus in, so Sundays are tight for me.",
+   "My food hygiene certificate runs out on 9 November."
+  ],
+  "answers": {
+   "surname": "Your surname is Kowalski.",
+   "staff": "Your staff number is 5093.",
+   "locker": "Your locker number is 212.",
+   "day": "You can't work on Thursdays because you have a night class in bookkeeping.",
+   "knee": "You are allergic to hazelnuts, as mentioned when discussing the syrup shelf getting wiped down.",
+   "allergy": "You are allergic to hazelnuts.",
+   "contact": "Your emergency contact is your brother Piotr.",
+   "trip": "You are going to Lisbon in October, as you are saving your leave days for a trip there.",
+   "rota": "Your opener rota is at 06:15.",
+   "badge": "The name on your badge is Johanna, but everyone calls you Hana.",
+   "bus": "You take the number 18 bus to get to work.",
+   "hygiene": "Your food hygiene certificate runs out on 9 November."
+  }
+ },
+ {
+  "setup": "Memory",
+  "notes": [
+   "Hi, I'm Hana Kowalski, I've just joined the Old Mill branch.",
+   "My staff number is 5093.",
+   "My locker is number 212.",
+   "Can't do Thursdays, I've got a night class in bookkeeping.",
+   "Does the syrup shelf get wiped down? I'm allergic to hazelnuts.",
+   "Emergency contact is my brother Piotr.",
+   "Harbour was packed when I dropped in earlier.",
+   "Can I carry leave over? I'm saving days for a trip to Lisbon in October.",
+   "Been on the 06:15 opener rota since Monday.",
+   "My badge says Johanna but everyone calls me Hana.",
+   "Marek on the next till is off with flu.",
+   "I get the number 18 bus in, so Sundays are tight for me.",
+   "My food hygiene certificate runs out on 9 November."
+  ],
+  "answers": {
+   "surname": "Your surname is Kowalski.",
+   "staff": "Your staff number is 5093.",
+   "locker": "Your locker number is 212.",
+   "day": "You can't work on Thursdays because you have a night class in bookkeeping.",
+   "knee": "You are allergic to hazelnuts, as mentioned in your statement about the syrup shelf getting wiped down.",
+   "allergy": "You are allergic to hazelnuts.",
+   "contact": "Your emergency contact is Piotr, Hana's brother.",
+   "trip": "Based on the information you provided, it seems you are planning to go to Lisbon in October, as you mentioned saving days off to take a trip then.",
+   "rota": "Your opener rota is for the 06:15 shift.",
+   "badge": "The name on your badge is Johanna, but everyone calls you Hana.",
+   "bus": "You take the number 18 bus to get in, so Sundays are tight for you.",
+   "hygiene": "Your food hygiene certificate runs out on 9 November."
+  }
+ },
+ {
+  "setup": "Memory",
+  "notes": [
+   "Hi, I'm Hana Kowalski, I've just joined the Old Mill branch.",
+   "My staff number is 5093.",
+   "My locker is number 212.",
+   "Can't do Thursdays, I've got a night class in bookkeeping.",
+   "What's the rule on sick pay? I've got a bad knee so I might need it.",
+   "Does the syrup shelf get wiped down? I'm allergic to hazelnuts.",
+   "Emergency contact is my brother Piotr.",
+   "Harbour was packed when I dropped in earlier.",
+   "Can I carry leave over? I'm saving days for a trip to Lisbon in October.",
+   "Been on the 06:15 opener rota since Monday.",
+   "My badge says Johanna but everyone calls me Hana.",
+   "Marek on the next till is off with flu.",
+   "I get the number 18 bus in, so Sundays are tight for me.",
+   "My food hygiene certificate runs out on 9 November."
+  ],
+  "answers": {
+   "surname": "Your surname is Kowalski.",
+   "staff": "Your staff number is 5093.",
+   "locker": "Your locker number is 212.",
+   "day": "You can't work on Thursdays because you have a night class in bookkeeping.",
+   "knee": "You have a bad knee that might require sick pay, so it seems to be a recurring or chronic issue affecting your mobility.",
+   "allergy": "You are allergic to hazelnuts, specifically regarding the syrup shelf.",
+   "contact": "Your emergency contact is your brother Piotr.",
+   "trip": "You mentioned that you are saving days off for a trip to Lisbon in October. So, you are planning to go to Lisbon, Portugal in October.",
+   "rota": "Your opener rota is for the 06:15 shift.",
+   "badge": "The name on your badge is Johanna, but everyone calls you Hana.",
+   "bus": "You take the number 18 bus to get to your destination.",
+   "hygiene": "Your food hygiene certificate runs out on 9 November."
+  }
+ }
+]

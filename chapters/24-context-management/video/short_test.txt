@@ -1,0 +1,5 @@
+Setup              name   number      day  manager    shift   Total   Read
+nothing               0        0        0        5        5   10/25  4,084
+window 16384          5        5        5        5        5   25/25  5,357
+Trim                  0        0        0        5        5   10/25  2,922
+Summarise             5        5        5        5        5   25/25  2,996

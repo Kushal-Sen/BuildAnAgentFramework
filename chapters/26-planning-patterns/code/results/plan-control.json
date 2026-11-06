@@ -1,0 +1,1154 @@
+[
+ {
+  "setup": "Plain agent",
+  "name": "drink-recipe",
+  "kind": "direct",
+  "answer": "The house blend recipe, called Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso. [espresso-recipe.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "drink-recipe",
+  "kind": "direct",
+  "answer": "The house blend recipe, which is called Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso. [espresso-recipe.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "drink-recipe",
+  "kind": "direct",
+  "answer": "The house blend recipe, which is Lantern, uses 18 grams of ground coffee to yield 36 grams of espresso. [espresso-recipe.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "float",
+  "kind": "direct",
+  "answer": "The initial float for each till is \u00a3150. [cash-handling.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "float",
+  "kind": "direct",
+  "answer": "The initial float for each till is \u00a3150. [cash-handling.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "float",
+  "kind": "direct",
+  "answer": "The initial till float at the start of each day is \u00a3150. [cash-handling.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "payday",
+  "kind": "direct",
+  "answer": "Payday is the last Friday of each month. Payslips can be found in the StaffHub app two days before payday.",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "payday",
+  "kind": "direct",
+  "answer": "Payday is the last Friday of each month. Payslips can be found in the StaffHub app two days before payday.",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "payday",
+  "kind": "direct",
+  "answer": "Payday is the last Friday of each month. Payslips appear in the StaffHub app two days before payday.",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "milk-charge",
+  "kind": "direct",
+  "answer": "Oat, soya, and coconut milk cost an extra 45p each. [milk-and-alternatives.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "milk-charge",
+  "kind": "direct",
+  "answer": "Oat, soya, and coconut milk each cost an extra 45p. [milk-and-alternatives.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "milk-charge",
+  "kind": "direct",
+  "answer": "Oat, soya, and coconut milk each cost an extra 45p. [milk-and-alternatives.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "fridge",
+  "kind": "direct",
+  "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, throw the stock away and call your manager. [food-safety.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "fridge",
+  "kind": "direct",
+  "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. [food-safety.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "fridge",
+  "kind": "direct",
+  "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, the stock should be moved to another fridge and checked again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, the stock should be thrown away and a manager should be informed. [food-safety.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "grounds",
+  "kind": "direct",
+  "answer": "Coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost. [waste-and-recycling.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "grounds",
+  "kind": "direct",
+  "answer": "Coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost. [waste-and-recycling.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "grounds",
+  "kind": "direct",
+  "answer": "Coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost. [waste-and-recycling.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "hot-food",
+  "kind": "direct",
+  "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre, measured with the probe thermometer. [food-safety.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "hot-food",
+  "kind": "direct",
+  "answer": "The temperature that hot food must reach in the centre is 75\u00b0C, as measured with the probe thermometer. [food-safety.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "hot-food",
+  "kind": "direct",
+  "answer": "The temperature that hot food must reach in the centre is 75\u00b0C, as per the food safety guidelines in the staff handbook. [food-safety.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "loyalty",
+  "kind": "direct",
+  "answer": "A customer gets a free hot drink after collecting 10 stamps. Each hot drink earns one stamp. [loyalty-card.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "loyalty",
+  "kind": "direct",
+  "answer": "A customer gets a free hot drink after collecting 10 stamps. Each hot drink earns one stamp. [loyalty-card.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "loyalty",
+  "kind": "direct",
+  "answer": "A customer gets a free hot drink after collecting 10 stamps, which are earned by purchasing 10 hot drinks. [loyalty-card.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "pension",
+  "kind": "none",
+  "answer": "I don't know. The logs provided do not contain information about pension contribution match percentages. [log-old-mill-2025-04.md] [log-old-mill-2025-12.md] [log-riverside-2025-03.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "pension",
+  "kind": "none",
+  "answer": "I don't know. The logs provided do not contain information about pension contribution match percentages. [log-old-mill-2025-04.md] [log-old-mill-2025-12.md] [log-riverside-2025-03.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "pension",
+  "kind": "none",
+  "answer": "I don't know. The logs provided do not contain information about the pension contribution match percentage. [log-old-mill-2025-04.md] [log-old-mill-2025-12.md] [log-riverside-2025-03.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "dental",
+  "kind": "none",
+  "answer": "I don't know if Quillon offers dental insurance based on the information provided in the staff handbook. The relevant files searched did not contain information about dental insurance. [accidents-and-incidents.md][allergens.md][uniform.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "dental",
+  "kind": "none",
+  "answer": "I don't know if Quillon offers dental insurance based on the information provided in the staff handbook. The handbook does cover accident reporting, allergens, and uniform policies, but there is no mention of dental insurance. [accidents-and-incidents.md][allergens.md][uniform.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "dental",
+  "kind": "none",
+  "answer": "I don't know if Quillon offers dental insurance based on the information provided in the staff handbook. The documents I found were about accidents and incidents reporting, allergens, and uniform guidelines, but not about dental insurance. [accidents-and-incidents.md] [allergens.md] [uniform.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "wifi",
+  "kind": "none",
+  "answer": "I don't know the customer wifi password for the Harbour branch from the information provided. The logs only mention general branch operations and do not include details about the customer wifi password. [log-harbour-2025-11.md] [branch-harbour.md] [log-harbour-2025-05.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "wifi",
+  "kind": "none",
+  "answer": "I don't know. The log for the Harbour branch does not contain the customer wifi password. It seems to mainly log weather, busy periods, and staff activities. [log-harbour-2025-11.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "wifi",
+  "kind": "none",
+  "answer": "I don't know. The log does not contain the customer wifi password information. [log-harbour-2025-11.md] [branch-harbour.md] [log-harbour-2025-05.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "dogs",
+  "kind": "none",
+  "answer": "I don't know if dogs are allowed inside the Riverside branch based on the logs provided. The logs do not mention any policies regarding pets. [log-riverside-2025-11.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "dogs",
+  "kind": "none",
+  "answer": "I don't know.\n\nThe logs do not mention any pet policy or rules regarding dogs at the Riverside branch. I would need to search further in the staff handbook for specific policies related to pets.",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Plain agent",
+  "name": "dogs",
+  "kind": "none",
+  "answer": "I don't know. The logs for the Riverside branch do not mention any policy regarding dogs. I would need to search the staff handbook further for specific rules or guidelines. [log-riverside-2025-11.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "drink-recipe",
+  "kind": "direct",
+  "answer": "The house blend recipe uses 18 grams of ground coffee to give 36 grams of espresso. [espresso-recipe.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "drink-recipe",
+  "kind": "direct",
+  "answer": "The house blend recipe uses 18 grams of ground coffee to give 36 grams of espresso. [espresso-recipe.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "drink-recipe",
+  "kind": "direct",
+  "answer": "The house blend recipe uses 18 grams of ground coffee to give 36 grams of espresso. [espresso-recipe.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "float",
+  "kind": "direct",
+  "answer": "The till starts the day with a float of \u00a3150. [cash-handling.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "float",
+  "kind": "direct",
+  "answer": "The till starts the day with a float of \u00a3150. [cash-handling.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "float",
+  "kind": "direct",
+  "answer": "The till starts the day with a float of \u00a3150. [cash-handling.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "payday",
+  "kind": "direct",
+  "answer": "Payday is the last Friday of each month. [wages.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "payday",
+  "kind": "direct",
+  "answer": "Payday is the last Friday of each month. [wages.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "payday",
+  "kind": "direct",
+  "answer": "Payday is the last Friday of each month. [wages.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "milk-charge",
+  "kind": "direct",
+  "answer": "Oat, soya and coconut milk cost 45p extra. [milk-and-alternatives.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "milk-charge",
+  "kind": "direct",
+  "answer": "Oat, soya and coconut milk cost 45p extra. [milk-and-alternatives.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "milk-charge",
+  "kind": "direct",
+  "answer": "Oat, soya and coconut milk cost 45p extra. [milk-and-alternatives.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "fridge",
+  "kind": "direct",
+  "answer": "Fridges must stay at 5\u00b0C or below. [food-safety.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "fridge",
+  "kind": "direct",
+  "answer": "Fridges must stay at 5\u00b0C or below. [food-safety.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "fridge",
+  "kind": "direct",
+  "answer": "Fridges must stay at 5\u00b0C or below. [food-safety.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "grounds",
+  "kind": "direct",
+  "answer": "Coffee grounds are collected every Tuesday by GreenLoop. [waste-and-recycling.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "grounds",
+  "kind": "direct",
+  "answer": "Coffee grounds are collected every Tuesday by GreenLoop. [log-station-2025-09.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "grounds",
+  "kind": "direct",
+  "answer": "Coffee grounds are collected every Tuesday by GreenLoop. [waste-and-recycling.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "hot-food",
+  "kind": "direct",
+  "answer": "Hot food must reach 75\u00b0C in the centre. [food-safety.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "hot-food",
+  "kind": "direct",
+  "answer": "Hot food must reach 75\u00b0C in the centre. [food-safety.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "hot-food",
+  "kind": "direct",
+  "answer": "Hot food must reach 75\u00b0C in the centre. [food-safety.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "loyalty",
+  "kind": "direct",
+  "answer": "A customer gets a free drink after earning 10 stamps on the loyalty card. [loyalty-card.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "loyalty",
+  "kind": "direct",
+  "answer": "A customer gets a free drink after collecting ten stamps from hot drinks on the loyalty card. [loyalty-card.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "loyalty",
+  "kind": "direct",
+  "answer": "A customer gets a free drink after earning 10 stamps by purchasing hot drinks. [loyalty-card.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "pension",
+  "kind": "none",
+  "answer": "I don't know. [welcome.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "pension",
+  "kind": "none",
+  "answer": "I don't know. [loyalty-card.md] and [resignation.md] do not provide information about Quillon's pension contribution matching.",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "pension",
+  "kind": "none",
+  "answer": "I don't know. [resignation.md] [welcome.md] [loyalty-card.md] [social-media.md] do not contain information about pension contributions.",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "dental",
+  "kind": "none",
+  "answer": "I don't know. [welcome.md][resignation.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "dental",
+  "kind": "none",
+  "answer": "I don't know. [resignation.md] [loyalty-card.md] [social-media.md] [welcome.md] [products-kit.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "dental",
+  "kind": "none",
+  "answer": "I don't know. [welcome.md] [resignation.md] do not contain information about dental insurance.",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "wifi",
+  "kind": "none",
+  "answer": "I don't know. [log-harbour-2025-11.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "wifi",
+  "kind": "none",
+  "answer": "I don't know. [data-protection.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "wifi",
+  "kind": "none",
+  "answer": "I don't know. [log-harbour-2025-11.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "dogs",
+  "kind": "none",
+  "answer": "I don't know. [log-riverside-2025-06.md] [log-riverside-2025-10.md] [log-riverside-2025-03.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "dogs",
+  "kind": "none",
+  "answer": "I don't know. [branch-riverside.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Split",
+  "name": "dogs",
+  "kind": "none",
+  "answer": "I don't know. [log-riverside-2025-06.md]",
+  "good": true,
+  "calls": 2
+ },
+ {
+  "setup": "Step by step",
+  "name": "drink-recipe",
+  "kind": "direct",
+  "answer": "The house blend recipe uses 18 grams of ground coffee to give 36 grams of espresso. [espresso-recipe.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "drink-recipe",
+  "kind": "direct",
+  "answer": "The house blend recipe uses 18 grams of ground coffee to give 36 grams of espresso. [espresso-recipe.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "drink-recipe",
+  "kind": "direct",
+  "answer": "The house blend recipe uses 18 grams of ground coffee to give 36 grams of espresso. [espresso-recipe.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "float",
+  "kind": "direct",
+  "answer": "The till starts the day with a float of \u00a3150. [cash-handling.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "float",
+  "kind": "direct",
+  "answer": "The till float starts at \u00a3150. [cash-handling.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "float",
+  "kind": "direct",
+  "answer": "The till float starts at \u00a3150. [cash-handling.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "payday",
+  "kind": "direct",
+  "answer": "Payday is the last Friday of each month. [wages.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "payday",
+  "kind": "direct",
+  "answer": "Payday is the last Friday of each month. [wages.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "payday",
+  "kind": "direct",
+  "answer": "Payday is the last Friday of each month. [wages.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "milk-charge",
+  "kind": "direct",
+  "answer": "Oat, soya and coconut milk cost 45p extra. [milk-and-alternatives.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "milk-charge",
+  "kind": "direct",
+  "answer": "Oat, soya and coconut milk cost 45p extra. [milk-and-alternatives.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "milk-charge",
+  "kind": "direct",
+  "answer": "Oat, soya and coconut milk cost 45p extra. [milk-and-alternatives.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "fridge",
+  "kind": "direct",
+  "answer": "Fridges must stay at 5\u00b0C or below. [food-safety.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "fridge",
+  "kind": "direct",
+  "answer": "Fridges must stay at 5\u00b0C or below. [food-safety.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "fridge",
+  "kind": "direct",
+  "answer": "Fridges must stay at 5\u00b0C or below. [food-safety.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "grounds",
+  "kind": "direct",
+  "answer": "Coffee grounds are collected every Tuesday by GreenLoop. [waste-and-recycling.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "grounds",
+  "kind": "direct",
+  "answer": "Coffee grounds are collected every Tuesday by GreenLoop. [waste-and-recycling.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "grounds",
+  "kind": "direct",
+  "answer": "Coffee grounds are collected every Tuesday by GreenLoop. [waste-and-recycling.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "hot-food",
+  "kind": "direct",
+  "answer": "75\u00b0C [food-safety.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "hot-food",
+  "kind": "direct",
+  "answer": "75\u00b0C [food-safety.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "hot-food",
+  "kind": "direct",
+  "answer": "Riverside's hot food must reach 75\u00b0C in the centre. [food-safety.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "loyalty",
+  "kind": "direct",
+  "answer": "Ten hot drinks. [loyalty-card.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "loyalty",
+  "kind": "direct",
+  "answer": "Ten hot drinks. [loyalty-card.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "loyalty",
+  "kind": "direct",
+  "answer": "Ten hot drinks. [loyalty-card.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "pension",
+  "kind": "none",
+  "answer": "I don't know. [loyalty-card.md] and [resignation.md] do not contain information about Quillon's pension contribution matching.",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "pension",
+  "kind": "none",
+  "answer": "I don't know. [loyalty-card.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "pension",
+  "kind": "none",
+  "answer": "I don't know. [loyalty-card.md] and [resignation.md] do not contain information about pension contribution matching.",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "dental",
+  "kind": "none",
+  "answer": "I don't know. [resignation.md][social-media.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "dental",
+  "kind": "none",
+  "answer": "I don't know. [resignation.md][social-media.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "dental",
+  "kind": "none",
+  "answer": "I don't know. [resignation.md][social-media.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "wifi",
+  "kind": "none",
+  "answer": "I don't know. [branch-harbour.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "wifi",
+  "kind": "none",
+  "answer": "I don't know. [branch-harbour.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "wifi",
+  "kind": "none",
+  "answer": "I don't know. [branch-harbour.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "dogs",
+  "kind": "none",
+  "answer": "I don't know. [branch-riverside.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "dogs",
+  "kind": "none",
+  "answer": "I don't know. [branch-riverside.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Step by step",
+  "name": "dogs",
+  "kind": "none",
+  "answer": "I don't know. [branch-riverside.md]",
+  "good": true,
+  "calls": 3
+ },
+ {
+  "setup": "Plan",
+  "name": "drink-recipe",
+  "kind": "direct",
+  "answer": "The house blend recipe uses 18 grams of coffee to yield 36 grams of espresso. [espresso-recipe.md]",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "drink-recipe",
+  "kind": "direct",
+  "answer": "The house blend recipe uses 18 grams of ground coffee to yield 36 grams of espresso. [espresso-recipe.md]",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "drink-recipe",
+  "kind": "direct",
+  "answer": "The house blend recipe uses 18 grams of ground coffee to produce 36 grams of espresso. [espresso-recipe.md]",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "float",
+  "kind": "direct",
+  "answer": "Each till starts the day with a float of \u00a3150. [cash-handling.md]",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "float",
+  "kind": "direct",
+  "answer": "The till starts the day with a float of \u00a3150. [cash-handling.md]",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "float",
+  "kind": "direct",
+  "answer": "Each till starts the day with a float of \u00a3150. [cash-handling.md]",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "payday",
+  "kind": "direct",
+  "answer": "Payday is the last Friday of each month. [wages.md]",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "payday",
+  "kind": "direct",
+  "answer": "Payday is the last Friday of each month. [wages.md]",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "payday",
+  "kind": "direct",
+  "answer": "Payday is the last Friday of each month. [wages.md]",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "milk-charge",
+  "kind": "direct",
+  "answer": "Oat, soya and coconut milk cost 45p extra. [milk-and-alternatives.md]",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "milk-charge",
+  "kind": "direct",
+  "answer": "Oat, soya and coconut milk cost 45p extra. [milk-and-alternatives.md]",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "milk-charge",
+  "kind": "direct",
+  "answer": "Oat, soya and coconut milk cost 45p extra. [milk-and-alternatives.md]",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "fridge",
+  "kind": "direct",
+  "answer": "Fridges must stay at 5\u00b0C or below. [food-safety.md]",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "fridge",
+  "kind": "direct",
+  "answer": "Fridges must stay at 5\u00b0C or below. [food-safety.md]",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "fridge",
+  "kind": "direct",
+  "answer": "Fridges must stay at 5\u00b0C or below. [food-safety.md]",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "grounds",
+  "kind": "direct",
+  "answer": "Coffee grounds are collected every Tuesday. [waste-and-recycling.md]",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "grounds",
+  "kind": "direct",
+  "answer": "Coffee grounds are collected every Tuesday. [waste-and-recycling.md]",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "grounds",
+  "kind": "direct",
+  "answer": "Coffee grounds are collected every Tuesday. [waste-and-recycling.md]",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "hot-food",
+  "kind": "direct",
+  "answer": "Hot food must reach 75\u00b0C in the centre. [food-safety.md]",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "hot-food",
+  "kind": "direct",
+  "answer": "75\u00b0C [food-safety.md]",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "hot-food",
+  "kind": "direct",
+  "answer": "Riverside's hot food must reach 75\u00b0C in the centre. [food-safety.md]",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "loyalty",
+  "kind": "direct",
+  "answer": "A customer gets a free hot drink after collecting ten stamps. [loyalty-card.md]",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "loyalty",
+  "kind": "direct",
+  "answer": "A customer gets a free drink after earning ten stamps, one for each hot drink. [loyalty-card.md]",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "loyalty",
+  "kind": "direct",
+  "answer": "A customer gets a free drink after collecting 10 stamps on the loyalty card. [loyalty-card.md]",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "pension",
+  "kind": "none",
+  "answer": "I don't know. [log-old-mill-2025-04.md][log-old-mill-2025-12.md][welcome.md][loyalty-card.md][social-media.md][forms.md][staff-discount.md] do not contain information about pension contributions.",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "pension",
+  "kind": "none",
+  "answer": "I don't know. [resignation.md] [welcome.md] [loyalty-card.md] [log-harbour-2025-04.md] [log-harbour-2025-05.md] [log-station-2025-06.md] do not contain information about pension contributions.",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "pension",
+  "kind": "none",
+  "answer": "I don't know. [welcome.md]",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "dental",
+  "kind": "none",
+  "answer": "I don't know. [social-media.md] [welcome.md] [resignation.md] [forms.md] [accidents-and-incidents.md] [staff-discount.md] do not contain information about dental insurance.",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "dental",
+  "kind": "none",
+  "answer": "I don't know. [social-media.md] [welcome.md] [resignation.md] [forms.md] [accidents-and-incidents.md] [first-aid.md]",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "dental",
+  "kind": "none",
+  "answer": "I don't know. [staff-discount.md] [accidents-and-incidents.md] [forms.md] [first-aid.md] [welcome.md] [social-media.md] [resignation.md] do not contain information about dental insurance.",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "wifi",
+  "kind": "none",
+  "answer": "I don't know. [log-harbour-2025-07.md]",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "wifi",
+  "kind": "none",
+  "answer": "I don't know. [log-harbour-2025-11.md] [log-harbour-2025-08.md] [log-harbour-2025-04.md]",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "wifi",
+  "kind": "none",
+  "answer": "I don't know. [The provided excerpts do not contain information about the customer wifi password at the Harbour branch.]",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "dogs",
+  "kind": "none",
+  "answer": "I don't know. [log-riverside-2025-11.md]",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "dogs",
+  "kind": "none",
+  "answer": "I don't know. [log-riverside-2025-11.md]",
+  "good": true,
+  "calls": 7
+ },
+ {
+  "setup": "Plan",
+  "name": "dogs",
+  "kind": "none",
+  "answer": "I don't know. [log-riverside-2025-11.md] [log-riverside-2025-10.md] [log-riverside-2025-06.md] [log-riverside-2025-03.md] [log-riverside-2025-02.md]",
+  "good": true,
+  "calls": 7
+ }
+]

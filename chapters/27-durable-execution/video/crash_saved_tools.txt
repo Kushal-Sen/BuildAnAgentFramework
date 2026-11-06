@@ -1,0 +1,7 @@
+$ python3 crash_once.py job_saved_tools.py 2
+First run: exit code -9
+Bank: QC-101 QC-102
+Second run: exit code 0. It said: DONE
+Bank: QC-101 QC-102 QC-102 QC-103 QC-104 QC-105 QC-106
+Paid twice: QC-102
+Not paid: nobody

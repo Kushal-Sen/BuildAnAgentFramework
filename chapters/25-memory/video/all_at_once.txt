@@ -1,0 +1,21 @@
+$ python3 all_at_once.py
+round 1: 14 lines, 10 of 12 facts
+round 2: 14 lines, 10 of 12 facts
+round 3: 13 lines, 10 of 12 facts
+round 4: 13 lines, 10 of 12 facts
+round 5: 13 lines, 10 of 12 facts
+NONE in 0 of 15 blocks
+One round's lines:
+  - Hana Kowalski
+  - Staff number is 5093
+  - Locker number is 212
+  - Can't do Thursdays, has a night class in bookkeeping
+  - Oat milk delivery came two hours late today
+  - NONE
+  - Emergency contact is my brother Piotr.
+  - Can carry leave over and save days for a trip to Lisbon in October.
+  - Been on the 06:15 opener rota since Monday
+  - My badge says Johanna but everyone calls me Hana
+  - Marek on the next till is off with flu
+  - I get the number 18 bus in, so Sundays are tight for me
+  - My food hygiene certificate runs out on 9 November

@@ -17,6 +17,16 @@ The course has 35 chapters and takes about 85 hours.
 
 Stuck? Start with [docs/troubleshooting.md](docs/troubleshooting.md).
 
+## Why a small model
+
+This course runs `qwen2.5:7b` on your own computer, so anyone can take it without paying for an API.
+A bigger model may give better results. The concepts, the code and the framework you build stay the
+same, and you can switch models whenever you like. Chapter 32 switches to Gemini.
+
+The numbers won't stay the same. Every score in the course comes from real runs of this one model, so
+a stronger model may score higher, and some failures we show may shrink or disappear. That's why you
+learn to measure: run the evals on your own model and trust those numbers.
+
 ## What's in a chapter
 
 ```text

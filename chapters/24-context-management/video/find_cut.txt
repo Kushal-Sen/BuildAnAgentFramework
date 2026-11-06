@@ -1,0 +1,15 @@
+Window   Turns   Sent   Read  Name  Number  Day   Cheers
+default      3    104    135     5       5    5    15/15
+default      8    788    793     5       5    5    15/15
+default     13  1,394  1,435     5       5    5    15/15
+default     23  2,745  2,755     5       5    5    15/15
+default     43  5,308  4,022     0       0    0    15/15
+16384       43  5,308  5,295     5       5    5    15/15
+
+15 wrong answers: 11 said they didn't know or couldn't say, 4 didn't
+ - I don't have your name on file, but you can call me Quillon Coffee Assistant. How can I assist you further? Ch
+ - I don't have your name on file, but you can call me Quillon Coffee Assistant. How can I assist you further? Ch
+ - I'm sorry, but I don't have access to your personal information or staff number. You can find your staff numbe
+ - Your name isn't provided in the context of our conversation. How can I assist you further, [Your Name]? Cheers
+ - Your name is not provided in the context, but if you need any assistance or have specific questions related to
+ - Your name isn't mentioned in the handbook, but I'm here to assist you with any questions about the Quillon Cof

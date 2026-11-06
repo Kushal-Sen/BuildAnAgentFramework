@@ -1,0 +1,6 @@
+Before: 88 messages, about 5,317 tokens
+After:  47 messages, about 2,993 tokens
+First: You are the Quillon Coffee staff assistant. End every reply 
+Then:  # First aid Every branch has a first aid kit behind the coun
+tokens_in: 2970
+Answer: I'm here to assist with information from the handbook and FAQs, but I don't have access to personal employee details like your staff number. You can find your staff number on your employee record or payslip. If you need assistance locating it, feel free to ask! Cheers

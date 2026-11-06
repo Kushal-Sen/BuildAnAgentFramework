@@ -97,6 +97,10 @@ problem, and it might pass. Codes below that mean the request was wrong, and sen
 fail again. This is the same translation at the edge as in chapter 13: only `OllamaModel` knows about
 `requests`.
 
+A stream can also fail after it has started, if the connection drops partway through a reply. So from this
+chapter on, the loop in `OllamaModel.stream` sits inside the same kind of `try`, and a lost connection raises a
+retryable `ModelError` too. It's the only change to chapter 15's `stream`.
+
 ## 3. A model that wraps a model
 
 Here's the idea of this chapter. Open [code/try_retry.py](code/try_retry.py):

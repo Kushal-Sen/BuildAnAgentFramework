@@ -1,0 +1,6 @@
+window     pass  Your manager is called Tomasz. Cheers
+window     pass  Your manager is called Tomasz. Cheers
+window     pass  Your manager is called Tomasz. Cheers
+summarise  FAIL  Your manager is Lena Ortiz at the Harbour branch. If you work at a different branch, please let me know which one, and I
+summarise  FAIL  Your manager is Lena Ortiz at the Harbour branch. If you're at a different branch, please specify, and I'll provide the 
+summarise  FAIL  Your manager is Mei Tanaka for the Station Branch. If you have any questions or need assistance, feel free to reach out 

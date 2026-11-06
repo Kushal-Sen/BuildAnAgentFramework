@@ -1,0 +1,4 @@
+$ python3 runaway.py
+plain tool   replies 2, stopped by max_steps: False, payments 2000
+LoopGuard    replies 2, stopped by max_steps: False, payments 12
+once         replies 2, stopped by max_steps: False, payments 6

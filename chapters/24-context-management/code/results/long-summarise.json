@@ -1,0 +1,242 @@
+[
+ {
+  "run": 1,
+  "rows": [
+   {
+    "name": "name",
+    "right": false,
+    "read": 3122,
+    "answer": "I'm sorry, but I don't have that information. Could you please remind me of your surname or provide more context so I can assist you better? Cheers"
+   },
+   {
+    "name": "number",
+    "right": false,
+    "read": 3123,
+    "answer": "I don't have access to your personal information or staff number. You can check your staff number in StaffHub or by contacting your branch manager. If you need assistance with logging in or finding it, they can help you. Cheers"
+   },
+   {
+    "name": "day",
+    "right": false,
+    "read": 3124,
+    "answer": "The handbook doesn't specify any particular day when staff can't work. However, it's common for certain days to be designated as rest days or days off. If you have a specific day you can't work, check your personal rota or discuss with your branch manager. They can provide clarity on your scheduled days off. Cheers"
+   },
+   {
+    "name": "locker",
+    "right": false,
+    "read": 3123,
+    "answer": "I don't have access to your personal details or locker number. You can find your locker number by checking your staff card or contacting your branch manager for assistance. Cheers"
+   },
+   {
+    "name": "allergy",
+    "right": false,
+    "read": 3123,
+    "answer": "The handbook states that staff are handled milk, soya, nuts, gluten, egg, and sesame on site. Always check the allergen folder and use clean utensils and gloves to handle high-risk products like the almond croissant and seeded flapjack. Items without labels must not be sold. If you have specific allergies, make sure to inform your branch manager and follow the allergen handling procedures. Cheers"
+   },
+   {
+    "name": "manager",
+    "right": false,
+    "read": 3123,
+    "answer": "Your manager is Lena Ortiz at the Harbour branch. If you work at a different branch, please let me know which one, and I'll provide the correct manager's name. Cheers"
+   },
+   {
+    "name": "bus",
+    "right": false,
+    "read": 3125,
+    "answer": "I'm sorry, I don't have that information as it wasn't provided. Could you please tell me which bus route and timetable you're referring to? Cheers"
+   },
+   {
+    "name": "size",
+    "right": false,
+    "read": 3125,
+    "answer": "I don't have access to specific personal information like your order details. However, to check your apron size, you can log into your StaffHub account and review your profile or contact your branch manager for assistance. They will be able to provide you with the correct size of the apron you ordered. Cheers"
+   },
+   {
+    "name": "till",
+    "right": false,
+    "read": 3124,
+    "answer": "Your handbook doesn't specify which till you were trained on. Typically, this information would be documented in your personnel file or on form HR-01: induction. You can check with your branch manager or HR to find out which till you were trained on. If you can't find the information, your manager will be able to help you confirm. Cheers"
+   },
+   {
+    "name": "sister",
+    "right": false,
+    "read": 3123,
+    "answer": "I'm here to assist with Quillon Coffee policies and procedures, so I don't have access to personal information like your sister's name. If you need help with any of the handbook policies or procedures, feel free to ask! Cheers"
+   },
+   {
+    "name": "course",
+    "right": true,
+    "read": 3125,
+    "answer": "Your food safety course expires on 14 March. Ensure it is renewed to avoid any issues. Cheers"
+   },
+   {
+    "name": "shift",
+    "right": true,
+    "read": 3125,
+    "answer": "Your shift starts at 06:30 tomorrow. Cheers"
+   }
+  ],
+  "rounds": 12,
+  "sent": 3079,
+  "system": "You are the Quillon Coffee staff assistant. End every reply with the word Cheers.\n\nEarlier in this conversation: # Summary of Key Information\n\n- **Uniform**: Staff must wear a white t-shirt with the Quillon logo, black trousers or a black skirt, and black shoes. Uniforms must be clean and ironed. Replacement uniforms cost a small fee. Aprons and a cap are provided upon starting. A shoe allowance of \u00a340 can be claimed every 12 months after probation.\n- **Wages**: Payday is the last Friday of each month. Hourly rates vary by band: A - \u00a312.60, B - \u00a313.40, C - \u00a314.75, D - \u00a316.90, and E is salaried. Sunday hours are paid at time and a quarter, and public holidays at time and a half. Report any issues with pay to Tomas Weir within 10 days of payday.\n- **Waste and Recycling**: Coffee grounds go in the brown caddy, collected by GreenLoop on Tuesdays. Takeaway cups go in the separate cup bin, not with general recycling. Milk cartons go in the blue bin after rinsing. Unsold pastries can be offered through the Leftover app after 15:00. Food waste and items past their date go in the food waste bin and on the waste sheet.\n- **Welcome**: Quillon Coffee is an independent chain with four branches: Harbour, Riverside, Station, and Old Mill. The first branch opened at Old Mill in 2011. The handbook covers pay, leave, daily routines, equipment, and procedures for incidents. Ask your branch manager for clarification.\n- **Accidents and Incidents**: Report any injury or near miss on form IR-7 before the end of the shift. Serious incidents should not be moved at the scene, and photographs can be taken if safe. For customer compensation inquiries, provide the head office address.\n- **Allergens**: Handle milk, soya, nuts, gluten, egg, and sesame on site. Always check the allergen folder and use clean utensils and gloves. The almond croissant and seeded flapjack are high-risk products. Items without labels must not be sold.\n- **Annual Leave**: Full-time staff receive 28 days, including public holidays. Part-time staff receive leave in proportion to their hours. After five years, 2 extra days are added. Leave requests must be made in StaffHub at least 14 days in advance. Requests for December are decided by 1 November.\n- **Bereavement Leave**: Up to 5 days of paid leave for close relatives (partner, child, parent, sibling). 1 paid day for other relatives or close friends. No form is needed; phone the branch manager as soon as possible. Additional time can be agreed upon with the manager and Tomas Weir.\n- **Branches**:\n  - **Harbour**: Address: 4 Quay Walk. Manager: Lena Ortiz. Opening hours: Mon-Fri 06:30-16:00, Sat-Sun 07:30-15:00. Equipment service: Tidewater Espresso Service, 0300 555 0142. First hour is the busiest.\n  - **Old Mill**: Address: The Old Mill, Weir Lane. Manager: Ravi Nair. Opening hours: Tue-Sun 08:00-17:00, closed Mon. Equipment service: Tidewater Espresso Service, 0300 555 0142. Shares the building with the roastery.\n  - **Riverside**: Address: 22 Mill Race Road. Manager: Sam Achebe. Opening hours: Mon-Sat 07:30-18:00, Sun 09:00-16:00. Equipment service: Northline Service, 0300 555 0177. Only branch with a kitchen and hosts the Thursday evening cupping club.\n- **Food Safety Course**: Your course expires on 14 March. Ensure it is renewed to avoid any issues.\n\nCheers"
+ },
+ {
+  "run": 2,
+  "rows": [
+   {
+    "name": "name",
+    "right": false,
+    "read": 2784,
+    "answer": "I'm here to assist with your coffee needs and any other questions you have, but I don't have access to personal information like your surname. If you'd like to share it, I can certainly use it to personalize our conversation. Cheers"
+   },
+   {
+    "name": "number",
+    "right": false,
+    "read": 2785,
+    "answer": "I don't have access to personal information like your staff number. However, you can find your staff number in StaffHub under your profile. If you need assistance with logging in or locating it, let me know! Cheers"
+   },
+   {
+    "name": "day",
+    "right": false,
+    "read": 2786,
+    "answer": "You cannot work on the branch's closing day, which varies by location: - Harbour branch: Sunday - Old Mill branch: Monday - Riverside branch: Sunday - Station branch: Monday Cheers"
+   },
+   {
+    "name": "locker",
+    "right": false,
+    "read": 2785,
+    "answer": "I'm sorry, but I don't have access to individual employee information like locker numbers. You can check your locker details in StaffHub or ask your branch manager for assistance. Cheers"
+   },
+   {
+    "name": "allergy",
+    "right": false,
+    "read": 2785,
+    "answer": "The handbook doesn't list individual allergies; instead, it advises that all staff should handle milk, soya, nuts, gluten, egg, and sesame. If you have a specific allergy, it's important to inform your manager and ensure that proper precautions are taken. Always check the allergen folder if a customer mentions an allergy, and change gloves and use clean utensils and a clean steam jug to avoid cross-contamination. Cheers"
+   },
+   {
+    "name": "manager",
+    "right": false,
+    "read": 2785,
+    "answer": "Your manager is Lena Ortiz at the Harbour branch. If you're at a different branch, please specify, and I'll provide the correct manager's name. Cheers"
+   },
+   {
+    "name": "bus",
+    "right": false,
+    "read": 2787,
+    "answer": "I don't have that information in my records. Could you provide more details about your bus route or stop, and I'll try to help you find the arrival time? Cheers"
+   },
+   {
+    "name": "size",
+    "right": false,
+    "read": 2787,
+    "answer": "I don't have access to your personal order details. However, if you need to check the size of your apron, you can log into your StaffHub account or contact your branch manager for that information. Cheers"
+   },
+   {
+    "name": "till",
+    "right": false,
+    "read": 2786,
+    "answer": "To find out which till you were trained on, you can check your induction paperwork or look at your records in StaffHub under Personal Documents. If you're unsure, you can also ask your branch manager for assistance. Cheers"
+   },
+   {
+    "name": "sister",
+    "right": false,
+    "read": 2785,
+    "answer": "I'm here to help with Quillon Coffee policies and procedures, but I don't have personal information about you or your family. If you need assistance with something related to the handbook or your work, feel free to ask! Cheers"
+   },
+   {
+    "name": "course",
+    "right": false,
+    "read": 2787,
+    "answer": "Your food safety course should be valid for three years from the date of completion. However, it's a good idea to check with your branch manager or HR to confirm the specific expiration date in your case. They can also provide guidance on any updates or refresher courses that might be required. Cheers"
+   },
+   {
+    "name": "shift",
+    "right": true,
+    "read": 2787,
+    "answer": "Your shift starts at 06:30 tomorrow. Cheers"
+   }
+  ],
+  "rounds": 14,
+  "sent": 2682,
+  "system": "You are the Quillon Coffee staff assistant. End every reply with the word Cheers.\n\nEarlier in this conversation: # Accidents and incidents\n- Any injury, even minor, must be reported on form IR-7 before the end of the shift.\n- Branch managers send the form to Ines Duarte within 24 hours.\n- Near misses should also be recorded.\n- For serious injuries, don't move anything at the scene unless it's unsafe to leave it.\n- Take photos if possible.\n\n# Allergens\n- Handle milk, soya, nuts, gluten, egg, and sesame.\n- Always check the allergen folder if a customer mentions an allergy.\n- Change gloves and use clean utensils and a clean steam jug.\n- Almond croissants and seeded flapjacks are high-risk products.\n- Never guess about allergens; items without labels must not be sold.\n\n# Annual leave\n- Full-time staff get 28 days, including public holidays.\n- Part-time staff receive leave in proportion to their hours.\n- After 5 years, 2 extra days are added.\n- Leave year runs from 1 April to 31 March.\n- Up to 5 unused days can be carried over.\n- Requests must be made in StaffHub at least 14 days in advance.\n- December requests are decided by the branch manager on 1 November.\n\n# Bereavement leave\n- Up to 5 days of paid leave for a close relative (partner, child, parent, sibling).\n- 1 paid day for other relatives or close friends.\n- No form needed; phone the branch manager as soon as possible.\n- More time can be agreed upon by the manager and Tomas Weir.\n\n# Branches\n- **Harbour branch**\n  - Address: 4 Quay Walk\n  - Manager: Lena Ortiz\n  - Opening hours: Mon-Fri 06:30-16:00, Sat-Sun 07:30-15:00\n  - Equipment service: Tidewater Espresso Service, 0300 555 0142\n\n- **Old Mill branch**\n  - Address: The Old Mill, Weir Lane\n  - Manager: Ravi Nair\n  - Opening hours: Tue-Sun 08:00-17:00, closed Mon\n  - Equipment service: Tidewater Espresso Service, 0300 555 0142\n  - Shares building with roastery; visitors can watch roasting from the gallery\n\n- **Riverside branch**\n  - Address: 22 Mill Race Road\n  - Manager: Sam Achebe\n  - Opening hours: Mon-Sat 07:30-18:00, Sun 09:00-16:00\n  - Equipment service: Northline Service, 0300 555 0177\n  - Has a kitchen and makes hot food\n  - Hosts Thursday evening cupping club\n\n- **Station branch**\n  - Address: Unit 3, Central Station concourse\n  - Manager: Mei Tanaka\n  - Opening hours: Every day 06:00-20:00\n  - Equipment service: Northline Service, 0300 555 0177\n  - No seating; sells takeaway only\n  - Staff need a concourse pass from the station office\n  - Goods lift is closed between 08:00 and 09:30\n\n# Breaks and staff drinks\n- 4-6 hour shifts include one 15-minute break.\n- Shifts over 6 hours add a 30-minute unpaid meal break.\n- Shifts over 9 hours add a second 15-minute break.\n- One free drink for every 4 hours worked (rounded down).\n- Free drinks don't include bottled drinks or anything made for someone else.\n- Take breaks away from the counter.\n\n# Cash handling\n- Each till starts with a \u00a3150 float.\n- Only shift leads or managers can open the safe.\n- Cash differences over \u00a35 must be recorded and reported to the branch manager.\n- Banking is collected on Mondays and Thursdays by SecureRoute.\n- Never hand over cash to anyone else.\n- Politely refuse forged notes and hand them back."
+ },
+ {
+  "run": 3,
+  "rows": [
+   {
+    "name": "name",
+    "right": false,
+    "read": 2982,
+    "answer": "I'm here to assist with your coffee needs and other Quillon Coffee-related queries, but I don't have access to personal information like your surname. How can I assist you with your shift or any other coffee-related matters today? Cheers"
+   },
+   {
+    "name": "number",
+    "right": false,
+    "read": 2983,
+    "answer": "I don't have access to your personal information, including your staff number. You can find this in your StaffHub profile or by contacting your branch manager for assistance. Cheers"
+   },
+   {
+    "name": "day",
+    "right": false,
+    "read": 2984,
+    "answer": "Based on the handbook, you cannot work on Mondays for the Old Mill Branch, as it is closed on that day. For the Riverside and Station branches, there are no specific days mentioned as off-limits, but it's important to check the branch-specific opening hours and rota. If you're referring to any public holidays, those would also be days when you shouldn't work. Cheers"
+   },
+   {
+    "name": "locker",
+    "right": false,
+    "read": 2983,
+    "answer": "I don't have access to your personal information, including your locker number, as that would be a privacy concern. You can find your locker number on your staff card or by checking with your branch manager. If you need assistance with your staff card or have any other questions, feel free to ask! Cheers"
+   },
+   {
+    "name": "allergy",
+    "right": false,
+    "read": 2983,
+    "answer": "According to the handbook, you should handle milk, soya, nuts, gluten, egg, and sesame. However, you can never promise a product is free from an allergen. Always check the allergen folder, change gloves, and use clean utensils and steam jug. If in doubt, never guess; if the label is missing, the item must not be sold. Cheers"
+   },
+   {
+    "name": "manager",
+    "right": false,
+    "read": 2983,
+    "answer": "Your manager is Mei Tanaka for the Station Branch. If you have any questions or need assistance, feel free to reach out to her. Cheers"
+   },
+   {
+    "name": "bus",
+    "right": false,
+    "read": 2985,
+    "answer": "I don't have that information in my records. Could you provide more details, such as the bus route or company? I can help you find the schedule if needed. Cheers"
+   },
+   {
+    "name": "size",
+    "right": false,
+    "read": 2985,
+    "answer": "The handbook doesn't specify the size of the apron you ordered, but typically, aprons are ordered based on the employee's size. If you need assistance finding your size, you can check your personnel file or contact Tomas Weir for more details. Cheers"
+   },
+   {
+    "name": "till",
+    "right": false,
+    "read": 2984,
+    "answer": "To determine which till you were trained on, you would need to check your training records, which are typically stored in your staff profile within StaffHub. If you're unsure, you can also ask your branch manager for assistance. They will have access to your training history and can provide the information you need. Cheers"
+   },
+   {
+    "name": "sister",
+    "right": false,
+    "read": 2983,
+    "answer": "I'm here to help with information related to Quillon Coffee's operations and policies. I don't have personal information about you or your family members. If you need assistance with your shift, equipment, or any other work-related topic, feel free to ask! Cheers"
+   },
+   {
+    "name": "course",
+    "right": true,
+    "read": 2985,
+    "answer": "Your food safety course expires on 14 March. Please ensure you renew it before then to maintain your compliance. Cheers"
+   },
+   {
+    "name": "shift",
+    "right": true,
+    "read": 2985,
+    "answer": "Your shift starts at 06:30 tomorrow. Cheers"
+   }
+  ],
+  "rounds": 14,
+  "sent": 2935,
+  "system": "You are the Quillon Coffee staff assistant. End every reply with the word Cheers.\n\nEarlier in this conversation: # Summary of Key Information from the Handbook for Branches\n\n## Old Mill Branch\n- **Address**: The Old Mill, Weir Lane.\n- **Manager**: Ravi Nair.\n- **Opening Hours**: Tuesday to Sunday 08:00 to 17:00. Closed on Mondays.\n- **Equipment Service Contractor**: Tidewater Espresso Service, 0300 555 0142.\n- **Building**: Shares the building with the roastery. Visitors can watch roasting from the gallery, but only trained staff can enter the roasting floor.\n\n## Riverside Branch\n- **Address**: 22 Mill Race Road.\n- **Manager**: Sam Achebe.\n- **Opening Hours**: Monday to Saturday 07:30 to 18:00. Sunday 09:00 to 16:00.\n- **Equipment Service Contractor**: Northline Service, 0300 555 0177.\n- **Specials**: Only branch with a kitchen, hosts the Thursday evening cupping club from 18:30 to 20:00.\n\n## Station Branch\n- **Address**: Unit 3, Central Station concourse.\n- **Manager**: Mei Tanaka.\n- **Opening Hours**: Every day 06:00 to 20:00.\n- **Equipment Service Contractor**: Northline Service, 0300 555 0177.\n- **Specials**: No seating, sells takeaway only. Staff need a concourse pass from the station office, arranged by Mei Tanaka. Goods lift is closed between 08:00 and 09:30.\n\n## Breaks and Staff Drinks\n- **Breaks**: One paid 15-minute break for shifts 4 to 6 hours. An additional unpaid 30-minute meal break for shifts longer than 6 hours. A second paid 15-minute break for shifts longer than 9 hours.\n- **Free Drinks**: One free drink for every 4 hours worked, rounded down. Free drinks don't include bottled drinks or anything made for someone else. Breaks should be taken away from the counter.\n\n## Cash Handling\n- **Till Float**: Each till starts the day with a float of \u00a3150.\n- **Safe Access**: Only the shift lead or a manager may open the safe.\n- **Cash Differences**: Report any cash differences of more than \u00a35 to the branch manager on the same day.\n- **Banking**: SecureRoute collects the cash on Mondays and Thursdays. They will show photo ID.\n- **Forged Notes**: Politely refuse any forged notes and hand them back.\n\n## Closing Checklist\n1. Lock the door at closing time and let remaining customers finish.\n2. Backflush the group heads with detergent.\n3. Soak the portafilters and steam wand tips for 15 minutes.\n4. Empty and wash the grinder hoppers on Fridays only.\n5. Count the till and tips, and complete the cash sheet.\n6. Throw away unsold pastries and record them on the waste sheet.\n7. Empty the bins, mop the floor, and check that the back door is locked.\n8. Set the alarm. You have 60 seconds to leave.\n\n## Other Notes\n- **Food Safety Course**: Expires on 14 March.\n- **Annual Leave**: Full-time: 28 days including public holidays. Part-time: Proportionate to contracted hours. 2 extra days after 5 years of service. Leave year runs from 1 April to 31 March. Up to 5 unused days can be carried over. Requests in StaffHub at least 14 days ahead. December requests decided by branch manager on 1 November.\n- **Bereavement Leave**: Up to 5 days paid leave for close relatives. 1 paid day for other relatives or close friends. No form needed; phone branch manager as soon as possible. More time can be agreed with branch manager and Tomas Weir.\n- **Allergens**: Handle milk, soya, nuts, gluten, egg, and sesame. Can never promise a product is free from an allergen. Check allergen folder, change gloves, and use clean utensils and steam jug. Almond croissant and seeded flapjack are highest risk. Never guess; if label missing, item must not be sold.\n- **Waste and Recycling**: Coffee grounds in brown caddy, collected by GreenLoop every Tuesday. Takeaway cups in separate cup bin, not with general recycling. Milk cartons in blue bin, rinsed first. Unsold pastries still in date offered through Leftover app after 15:00. Food waste and past date items in food waste bin and on waste sheet.\n- **Accidents and Incidents**: Report any injury or near miss to form IR-7 before end of shift. Branch manager sends to Ines Duarte within 24 hours. Serious incidents: don't move anything at scene unless unsafe, take photos if safe.\n- **Wages**: Payday is the last Friday of each month. Hourly rates: Band A: \u00a312.60, Band B: \u00a313.40, Band C: \u00a314.75, Band D: \u00a316.90, Band E is salaried. Sunday hours paid at time and a quarter. Public holiday hours paid at time and a half. Report any issues with pay to Tomas Weir within 10 days of payday.\n- **Uniform**: Two aprons and one cap provided on start. Wear dark trousers or a dark skirt, plain tops in black or navy, and closed, non-slip shoes. Long hair must be tied back. Jewelry limited to plain rings and small stud earrings. Replacement aprons free if worn out, \u00a38 if lost. Shoe allowance of \u00a340 every 12 months after probation, using form FN-3 with a receipt."
+ }
+]

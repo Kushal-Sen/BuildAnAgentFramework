@@ -1,0 +1,6 @@
+window     pass  It seems like you might be referring to an allergy, but you didn't specify what you're allergic to. If you need informat
+window     pass  It seems like you're asking about allergies, but I don't have specific information about your allergies from the handboo
+window     FAIL  To ensure your safety, could you please specify what you are allergic to, such as specific foods or substances? This inf
+summarise  FAIL  The handbook states that staff are handled milk, soya, nuts, gluten, egg, and sesame on site. Always check the allergen 
+summarise  FAIL  The handbook doesn't list individual allergies; instead, it advises that all staff should handle milk, soya, nuts, glute
+summarise  FAIL  According to the handbook, you should handle milk, soya, nuts, gluten, egg, and sesame. However, you can never promise a

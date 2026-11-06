@@ -1,0 +1,5 @@
+$ python3 read_crashes.py job_saved_tools
+after 2: 4 with 1 repeats, 0 unpaid
+after 3: 5 with 1 repeats, 0 unpaid
+after 4: 4 with 1 repeats, 0 unpaid, 1 with 10 repeats, 0 unpaid
+after 5: 4 with 0 repeats, 1 unpaid, 1 with 1 repeats, 0 unpaid

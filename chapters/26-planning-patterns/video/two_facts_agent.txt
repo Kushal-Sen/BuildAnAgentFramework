@@ -1,0 +1,10 @@
+Plain agent
+  Searched: shift lead resignation notice period
+  Files:    breaks-and-staff-drinks.md resignation.md shifts.md
+  Answer:   As a shift lead, you must give your resignation notice according to your Band level. Band A and Band
+  Searched: shift lead resignation notice
+  Files:    resignation.md rota-swaps.md shifts.md
+  Answer:   As a shift lead, you must give your resignation notice based on your Band level. Band A and Band B s
+  Searched: shift lead resignation notice period
+  Files:    breaks-and-staff-drinks.md resignation.md shifts.md
+  Answer:   As a shift lead, you must give your resignation notice according to your band. Band A and Band B sta

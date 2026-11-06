@@ -1,0 +1,335 @@
+<title>Whitebox: Durable execution</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a black box header opens onto a white reading column; media breaks wider. */
+:root {
+  --bg: #fbfbf9; --surface: #ffffff; --ink: #16181d; --muted: #5d616b; --rule: #d9dade;
+  --accent: #2a4bd7; --tint: #e7ebfb; --box: #0c0d10; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #101218; --term-ink: #e4e6ec; --term-cmd: #9db1ff;
+  --display: "Bricolage Grotesque", Georgia, serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+    --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+    --term: #08090c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+  --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #08090c; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 400 1.0625rem/1.65 var(--body); }
+.gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 68rem; margin: 0 auto; min-width: 0; }
+.col { max-width: 42rem; display: grid; gap: 1rem; min-width: 0; }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2.6rem, 7vw, 4.4rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; }
+h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); line-height: 1.15; font-weight: 700; }
+h3 { font-size: 1.2rem; line-height: 1.3; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--accent); }
+a:focus-visible, video:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+code { font-family: var(--mono); font-size: 0.92em; }
+
+header.mast { background: var(--box); color: var(--on-box); padding-block: 1.6rem 3rem; }
+.mast .wrap { display: grid; gap: 2.4rem; }
+.brand { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font: 500 1rem var(--display); }
+.brand span:first-child { display: flex; align-items: center; gap: 0.55rem; }
+.brand i { width: 0.95rem; height: 0.95rem; border: 3px solid currentColor; display: block; }
+.brand span:last-child { font: 400 0.85rem var(--mono); color: var(--box-muted); align-self: center; }
+.mast .intro { display: grid; gap: 1rem; max-width: 46rem; }
+.mast .dek { font-size: 1.2rem; color: var(--box-muted); }
+.meta { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+
+main { padding-block: 0 4rem; }
+section { padding-block: 3.2rem 0; display: grid; gap: 1.4rem; }
+.label { font: 600 0.78rem/1.2 var(--mono); color: var(--accent); }
+.lede { font-size: 1.15rem; }
+
+figure { margin: 0; display: grid; gap: 0.5rem; min-width: 0; }
+figcaption { font-size: 0.86rem; color: var(--muted); }
+video { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 1440 / 900; background: #000; }
+
+ol.loop { margin: 0; padding-left: 1.3rem; display: grid; gap: 0.35rem; }
+ol.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 2.4rem; counter-reset: step; }
+ol.steps > li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 1.6rem; align-items: start; counter-increment: step; }
+ol.steps .txt { display: grid; gap: 0.45rem; min-width: 0; }
+ol.steps .txt h3::before { content: counter(step); display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; margin-right: 0.55rem; background: var(--ink); color: var(--bg); font: 600 0.85rem/1 var(--mono); vertical-align: 0.1em; }
+ol.steps img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); }
+@media (max-width: 720px) { ol.steps > li { grid-template-columns: minmax(0, 1fr); } }
+
+pre { margin: 0; background: var(--term); color: var(--term-ink); padding: 1rem 1.1rem; overflow-x: auto; font: 400 0.86rem/1.6 var(--mono); }
+pre .cmd { color: var(--term-cmd); }
+.tablebox { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.98rem; }
+th, td { text-align: left; padding: 0.65rem 0.8rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; color: var(--muted); }
+td { font-variant-numeric: tabular-nums; }
+.fails { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.fails div { background: var(--tint); padding: 1rem 1.1rem; display: grid; gap: 0.3rem; align-content: start; min-width: 0; }
+.list { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.35rem; }
+.next { background: var(--box); color: var(--on-box); padding: 1.4rem 1.5rem; display: grid; gap: 0.3rem; }
+.next span { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--muted); }
+</style>
+
+<header class="mast gutter">
+  <div class="wrap">
+    <div class="brand"><span><i></i>Whitebox Academy</span><span>Build an AI Agent from Scratch</span></div>
+    <div class="intro">
+      <span class="meta">Chapter 27 of 35 · Part 5: Agent capabilities · About 2 hours</span>
+      <h1>Durable execution</h1>
+      <p class="dek">Kill a refund job right after a payment, and start it again. Save as you go, make the tool safe to repeat, and let the bank say when you’re done.</p>
+    </div>
+  </div>
+</header>
+
+<main class="gutter">
+  <div class="wrap">
+    <section>
+      <figure>
+        <video controls playsinline preload="metadata" poster="media/09-table.jpg">
+          <source src="media/video.mp4" type="video/mp4">
+        </video>
+        <figcaption>Chapter video, 7 minutes 6 seconds, no sound. It starts with a 30-second recap, and captions on screen explain each step.</figcaption>
+      </figure>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Where we are</span>
+        <h2>When “run it again” is the dangerous option</h2>
+        <p class="lede">Longer runs have a new way to fail: the process stops mid-step, with no error your code can catch. For a search you just ask again. For a tool that pays money, you can’t.</p>
+        <p>This chapter builds <code>durable.py</code>, one piece at a time: <code>Checkpoint</code>, <code>load_messages</code>, <code>once</code> and <code>until_done</code>. Each piece fails in a way that shows why you need the next.</p>
+        <p><a href="https://claude.ai/artifact/1uGgX3WK7v3D5HyfvB782p#start-ollama">Start Ollama</a>, activate the <code>.venv</code> from chapter 05, and work in <code>chapters/27-durable-execution/code</code>. The orders and the bank are made up, and provided in <code>refunds.py</code>. No real money moves. <code>results/</code> holds our long runs, so you can follow along without them. <code>python3 -m pytest tests</code> should show <code>87 passed</code>.</p>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Try it</span>
+        <h2>A job that pays people</h2>
+        <p>The agent has two tools. <code>issue_refund</code> appends a line to <code>bank.jsonl</code>, our pretend bank. Think of that file as outside your program: once a line is in it, the money has gone.</p>
+      </div>
+<pre><span class="cmd">$ python3 job_restart.py</span>
+DONE
+$ cat bank.jsonl
+{&quot;order&quot;: &quot;QC-101&quot;, &quot;amount&quot;: 4.5}
+{&quot;order&quot;: &quot;QC-102&quot;, &quot;amount&quot;: 12.0}
+{&quot;order&quot;: &quot;QC-103&quot;, &quot;amount&quot;: 3.2}
+{&quot;order&quot;: &quot;QC-104&quot;, &quot;amount&quot;: 7.75}
+{&quot;order&quot;: &quot;QC-105&quot;, &quot;amount&quot;: 18.4}
+{&quot;order&quot;: &quot;QC-106&quot;, &quot;amount&quot;: 5.1}</pre>      <div class="col">
+        <p>Six orders, six lines. Delete the file before you go on, because the bank keeps every line.</p>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Feel the problem</span>
+        <h2>Kill it</h2>
+        <p>Right after a chosen payment, the tool calls <code>os.kill(os.getpid(), KILL)</code>. <code>os.getpid()</code> is this process’s own number, and <code>KILL</code> is <code>signal.SIGKILL</code>, a signal a process can’t catch. No <code>except</code> runs, and no hook fires.</p>
+        <p><code>crash_once.py</code> runs the job with <code>subprocess.run</code>, which starts another program and waits, with <code>timeout</code> so it can’t wait forever. <strong>Predict:</strong> the job dies after two payments. What does the second run do?</p>
+      </div>
+<pre><span class="cmd">$ python3 crash_once.py job_restart.py 2</span>
+First run: exit code -9
+Bank: QC-101 QC-102
+Second run: exit code 0. It said: DONE
+Bank: QC-101 QC-102 QC-101 QC-102 QC-103 QC-104 QC-105 QC-106
+Paid twice: QC-101 QC-102
+Not paid: nobody</pre>      <figure><img src="media/02-paid-twice.jpg" alt="The bank after a crash and restart, with QC-101 and QC-102 paid twice" loading="lazy" width="1440" height="900"></figure>
+      <div class="col">
+        <p>Exit code <code>-9</code> means signal 9 killed it. The second run finished with 0, said <code>DONE</code>, and paid two customers twice. <code>messages</code> died with the old process.</p>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">First attempt</span>
+        <h2>Save before each model call</h2>
+        <p><code>Checkpoint</code> is a hook that writes the conversation to disk, through a temporary file and <code>os.replace</code>, so a crash can’t leave half a file. <code>load_messages</code> reads it back, and <code>agent.run(AGAIN, saved)</code> resumes. <code>job_saved.py</code> uses only the save before each model call. <strong>Predict:</strong> who gets paid twice now?</p>
+      </div>
+<pre><span class="cmd">$ python3 crash_once.py job_saved.py 2</span>
+First run: exit code -9
+Bank: QC-101 QC-102
+Second run: exit code 0. It said: DONE
+Bank: QC-101 QC-102 QC-101 QC-102 QC-103 QC-104 QC-105 QC-106
+Paid twice: QC-101 QC-102
+Not paid: nobody</pre>      <div class="col">
+        <p>The same two people. So read the save, before anything restarts:</p>
+      </div>
+<pre><span class="cmd">$ python3 look_at_save.py job_saved.py 2</span>
+Exit code -9. Bank: QC-101 QC-102
+The save holds:
+  system: You process refunds. Call list_refunds, then call issue_refu
+  user: Process today&#x27;s refunds.
+  assistant: asked for 1 list_refunds
+  tool: QC-101: 4.50 QC-102: 12.00 QC-103: 3.20 QC-104: 7.75 QC-105:</pre>      <div class="col">
+        <p>Two payments have gone, and the save ends at the list of orders. Lines are cut at 60 characters by the script. To see why, <code>one_reply.py</code> runs the job with no crash, and shows what each reply asked for:</p>
+      </div>
+<pre><span class="cmd">$ python3 one_reply.py</span>
+run 1: 1 list_refunds | 77 issue_refund | Refunded QC-106. DON | bank: 77 payments, 0 unpaid
+run 2: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid
+run 3: 1 list_refunds | 7 issue_refund | DONE | bank: 7 payments, 0 unpaid
+run 4: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid
+run 5: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid</pre>      <div class="col">
+        <p><strong>All the payments arrive in one reply</strong>, so a save before each model call sits before the whole batch. And runs 1 and 3 paid too many with no crash at all. That was our first run of this script, so we ran it 30 more times. Over 35 runs, 30 were fine, 2 had a seventh call the tool refused, 2 paid too many, and 1 stopped at the 180-second limit with nothing to read.</p>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Second attempt</span>
+        <h2>Save after each tool too</h2>
+        <p>The finished <code>Checkpoint</code> also saves in <code>after_tool</code>, inside the batch. <strong>Predict:</strong> will anyone be paid twice?</p>
+      </div>
+<pre><span class="cmd">$ python3 crash_once.py job_saved_tools.py 2</span>
+First run: exit code -9
+Bank: QC-101 QC-102
+Second run: exit code 0. It said: DONE
+Bank: QC-101 QC-102 QC-102 QC-103 QC-104 QC-105 QC-106
+Paid twice: QC-102
+Not paid: nobody</pre><pre><span class="cmd">$ python3 look_at_save.py job_saved_tools.py 2</span>
+Exit code -9. Bank: QC-101 QC-102
+The save holds:
+  system: You process refunds. Call list_refunds, then call issue_refu
+  user: Process today&#x27;s refunds.
+  assistant: asked for 1 list_refunds
+  tool: QC-101: 4.50 QC-102: 12.00 QC-103: 3.20 QC-104: 7.75 QC-105:
+  assistant: asked for 6 issue_refund
+  tool: Refunded QC-101.</pre>      <div class="col">
+        <p>The bank has two payments, and the save has one result. The second payment landed, and the process died before the save. Saving first doesn’t help: a crash in between says “paid” when it isn’t. <strong>The bank and your file are two separate systems, and you can’t write to both in one step.</strong></p>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">The fix</span>
+        <h2>Ask the real system</h2>
+        <p><code>once(tool, done)</code> wraps a tool. Before it runs, <code>done</code> asks the real system whether this already happened. Here that’s <code>bank.paid</code>, so the wiring is one line: <code>once(issue_refund, bank.paid)</code>.</p>
+      </div>
+<pre><span class="cmd">$ python3 crash_once.py job_once.py 2</span>
+First run: exit code -9
+Bank: QC-101 QC-102
+Second run: exit code 0. It said: DONE
+Bank: QC-101 QC-102 QC-103 QC-104 QC-105 QC-106
+Paid twice: nobody
+Not paid: nobody</pre>      <div class="col">
+        <p>Six orders, six lines. The model can ask to pay QC-102 again, and the bank’s answer decides. It’s the same check whoever is repeating, so it covers the runs with no crash too.</p>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Read what failed</span>
+        <h2>The job that said DONE</h2>
+        <p><strong>Predict:</strong> the job dies after five payments of six, with <code>once</code> in place. What’s left to go wrong?</p>
+      </div>
+<pre><span class="cmd">$ python3 crash_once.py job_once.py 5</span>
+First run: exit code -9
+Bank: QC-101 QC-102 QC-103 QC-104 QC-105
+Second run: exit code 0. It said: &lt;tool_response&gt; Refunded QC-105. &lt;/tool_response&gt; &lt;tool_response&gt; Refunded QC-106. &lt;/tool_response&gt;
+Bank: QC-101 QC-102 QC-103 QC-104 QC-105
+Paid twice: nobody
+Not paid: QC-106</pre>      <figure><img src="media/07-fake-done.jpg" alt="The model typing a fake tool_response, with QC-106 left unpaid" loading="lazy" width="1440" height="900"></figure>
+      <div class="col">
+        <p><code>&lt;tool_response&gt;</code> isn’t a tool call. The model typed what a result would look like, as plain text. No tool ran, and a reply with no tool calls is a final answer. This happened in 8 of 9 crashes at payment 5, and in none of 29 at payments 2 to 4. It’s what this 7B model did on this job, and a bigger one may not. What holds more widely is narrower: the job’s own report of being finished isn’t evidence.</p>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">The last piece</span>
+        <h2>Let the bank decide</h2>
+        <p><code>until_done(agent, left, ask, history)</code> asks the real system what’s left, tells the model, and checks again, up to <code>tries</code> times. If the tries run out it just returns, so check <code>left()</code> yourself.</p>
+      </div>
+<pre><span class="cmd">$ python3 crash_once.py job_until_done.py 5</span>
+First run: exit code -9
+Bank: QC-101 QC-102 QC-103 QC-104 QC-105
+Second run: exit code 0. It said: DONE
+Still unpaid: nothing
+Bank: QC-101 QC-102 QC-103 QC-104 QC-105 QC-106
+Paid twice: nobody
+Not paid: nobody</pre>      <div class="col">
+        <p>It needs a real system to ask. “Write a good report” has no outside record, so this doesn’t help with a job like that.</p>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Measure it</span>
+        <h2>The whole table</h2>
+        <p><code>crash_test.py</code> makes 20 crashes for each setup, five each after payments 2, 3, 4 and 5, each with an empty bank. <code>read_crashes.py</code> uses your file if you’ve made one, and ours if not.</p>
+      </div>
+<pre><span class="cmd">$ python3 read_crashes.py</span>
+Setup                  Crashes  Repeats  Unpaid  Clean  Hit limit
+Start again                 20       70       0      0          0
+Save before calls           20       70       0      0          0
+Save after tools too        19       24       4      0          2
+With once                   19        0       4     15          0
+With until_done             20        0       0     20          0</pre>      <figure><img src="media/09-table.jpg" alt="Five setups compared: repeats fall from 70 to 0, and unpaid orders fall to 0" loading="lazy" width="1440" height="900"></figure>
+      <div class="fails">
+        <div><h3>Start again, save before calls</h3><p>The same. Every payment before the crash was repeated, in all 40 crashes.</p></div>
+        <div><h3>Save after tools</h3><p>14 crashes left one repeat, and 4 left an order unpaid. One restart repeated 10 times, until the time limit stopped it.</p></div>
+        <div><h3>With once</h3><p>0 repeats here, and 4 unpaid orders, all after payment 5.</p></div>
+        <div><h3>With until_done</h3><p>20 clean of 20, and 120 of 120 orders paid, here.</p></div>
+      </div>
+      <div class="col">
+        <p><code>Crashes</code> isn’t always 20, because two runs never reached their crash. <code>Hit limit</code> counts runs stopped at 180 seconds.</p>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Be honest</span>
+        <h2>The runaway reply</h2>
+        <p>Run 1 above wrote 77 calls in one reply. In earlier testing, not in this chapter’s results, one reply in 46 runs wrote about 2,000. It’s rare, and you can’t make it happen on demand, so <code>runaway.py</code> hands the code a reply like that from a fake model.</p>
+      </div>
+<pre><span class="cmd">$ python3 runaway.py</span>
+plain tool   replies 2, stopped by max_steps: False, payments 2000
+LoopGuard    replies 2, stopped by max_steps: False, payments 12
+once         replies 2, stopped by max_steps: False, payments 6</pre>      <div class="col">
+        <p><code>max_steps</code> counts replies, so it never fires. <code>LoopGuard</code> and <code>once</code> act only after the reply is written, so neither saves that time. That’s why every process our scripts start has a time limit.</p>
+        <p>The other guard is <code>num_predict</code>, the most tokens a model may write in one reply. <code>job_capped.py</code> sets it to 60, far too low on purpose, to see what a cap does:</p>
+      </div>
+<pre><span class="cmd">$ python3 job_capped.py</span>
+reply: 1 calls, 17 tokens
+reply: 2 calls, 60 tokens
+reply: 2 calls, 60 tokens
+reply: 2 calls, 44 tokens
+reply: 0 calls, 2 tokens
+DONE
+Still unpaid: nothing</pre>      <div class="col">
+        <p>The reply was cut after two calls, and the job carried on: 20 crashes, no repeats, none unpaid. A cap of 512 would leave room for this batch. <strong>That’s a sensible cap, not a proven fix.</strong> We’ve never watched it stop a real runaway.</p>
+        <h3>What production uses instead</h3>
+        <p>The checkpoint usually lives in a database, or a workflow engine such as Temporal records each step. A real payment service takes an idempotency key and refuses a repeat itself, which also closes a gap <code>once</code> has: two workers could both ask, both hear “not paid”, and both pay.</p>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Your turn</span>
+        <h2>Exercises</h2>
+        <p>From <code>chapters/27-durable-execution</code>, open <code>exercises.py</code> and complete the five TODOs:</p>
+        <ol class="loop"><li><code>repeats</code>: count the repeat payments in a bank, as the table does.</li><li><code>resume</code>: start a job, or carry on from a checkpoint if there is one.</li><li><code>safe_email</code>: use <code>once</code> on a different tool, and work out what counts as the same email.</li><li><code>still_left</code>: call <code>until_done</code>, then find out what never got done.</li><li><code>CallLimit</code>: a hook that blocks a tool after too many calls in one run, whatever the arguments.</li></ol>
+        <p><strong>Optional:</strong> copy <code>job_once.py</code>, name the unpaid orders in <code>AGAIN</code>, and run <code>crash_test.py</code> on it, to see which half of <code>until_done</code> did the work. There’s no worked answer, because we haven’t run it.</p>
+        <p>Then run <code>python3 -m pytest test_exercises.py</code> from that folder. These checks use a fake model, so Ollama doesn’t need to be running. You’ve finished when you see <code>5 passed</code>.</p>
+      </div>
+      <div class="col">
+        <h3>Common mistakes</h3>
+        <ul class="list"><li>Testing a crash at a kind place. Use the worst moment.</li><li>Trusting exit code 0. The job that paid two people twice finished with 0.</li><li>Thinking one save per model call means one save per action.</li><li>Believing more saves will finish the job.</li><li>Trusting the checkpoint to say what’s been paid.</li><li>Trusting <code>DONE</code>.</li><li>Ignoring what <code>until_done</code> left.</li><li>Running a process with no time limit.</li><li>Using <code>until_done</code> with nothing to ask.</li></ul>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Recap</span>
+        <h2>What you opened</h2>
+        <ul class="list"><li>A restart with no memory paid 70 repeats in 20 crashes.</li><li>Saving only before model calls changed nothing, because every payment came in one reply.</li><li>Saving after each tool left one repeat in most crashes, 24 in all.</li><li><code>once</code> asks the real system first: 0 repeats in 19 crashes here.</li><li>After a crash at payment 5, the model typed a fake result and stopped, in 8 of 9 crashes.</li><li><code>until_done</code> asks the bank what’s left: 20 clean of 20 here.</li><li>With no crash, the model still repeated payments in 2 of 35 runs.</li><li>Give every process a time limit, and treat <code>num_predict</code> as a sensible cap, not a proven fix.</li></ul>
+        <p>We tested one job and one 7B model. A bigger model may behave differently, so measure yours.</p>
+        <p>Idempotency keys are how payment services make a repeat harmless: see <a href="https://docs.stripe.com/api/idempotent_requests">Stripe’s idempotent requests</a>. “Durable execution” is the name workflow engines such as <a href="https://temporal.io">Temporal</a> use.</p>
+      </div>
+      <div class="next"><span>Next</span><h3>The Part 5 checkpoint, then Part 6: MCP</h3></div>
+    </section>
+
+    <footer>
+      <p>Get the code at <a href="https://github.com/WhiteboxAcademy/BuildAnAgentFramework">github.com/WhiteboxAcademy/BuildAnAgentFramework</a>. Code is under the MIT License. Articles and videos are under CC BY 4.0.</p>
+    </footer>
+  </div>
+</main>

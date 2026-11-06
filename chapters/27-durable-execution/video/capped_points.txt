@@ -1,0 +1,5 @@
+$ python3 read_crashes.py job_capped
+after 2: 5 with 0 repeats, 0 unpaid
+after 3: 5 with 0 repeats, 0 unpaid
+after 4: 5 with 0 repeats, 0 unpaid
+after 5: 5 with 0 repeats, 0 unpaid

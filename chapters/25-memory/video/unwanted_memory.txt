@@ -1,0 +1,6 @@
+$ python3 read_notes.py Memory
+Unwanted notes in Memory, with how many runs saved each:
+1  A customer left a blue scarf on table 4, what do I do with it?
+5  Harbour was packed when I dropped in earlier.
+5  Marek on the next till is off with flu.
+1  The oat milk delivery came two hours late today.

@@ -1,0 +1,11 @@
+$ python3 stale_notes.py
+Setup                Right Stale Both   Same Before Old last  Tokens
+12 in order          20/20     0    2  20/20    5/5   0 of  0     208
+60 in order          20/20     0    9  20/20    5/5   0 of  0     990
+60 newest first      10/20    10    4  20/20    5/5  10 of 20     987
+60 shuffled          18/20     2    4  20/20    5/5   2 of  6     987
+60 shuffled + dates  19/20     1    1  20/20    5/5   1 of  6    1718
+12 replacing old     20/20     0    5  20/20    0/5   0 of  0     175
+Replacing took 35 calls and removed 2 of the 4 old notes:
+  - I'm Hana Kowalski, I work at the Old Mill branch.
+  - I'm on the 06:15 opener rota.

@@ -1,0 +1,30 @@
+run 1: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid
+run 2: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid
+run 3: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid
+run 4: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid
+run 5: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid
+run 6: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid
+run 7: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid
+run 8: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid
+run 9: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid
+run 10: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid
+run 11: 1 list_refunds | 7 issue_refund | All orders have been | bank: 6 payments, 0 unpaid
+run 12: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid
+run 13: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid
+run 14: 1 list_refunds | 7 issue_refund | All orders have been | bank: 6 payments, 0 unpaid
+run 15: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid
+run 16: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid
+run 17: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid
+run 18: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid
+run 19: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid
+run 20: Stopped after 180 seconds
+run 21: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid
+run 22: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid
+run 23: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid
+run 24: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid
+run 25: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid
+run 26: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid
+run 27: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid
+run 28: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid
+run 29: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid
+run 30: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid

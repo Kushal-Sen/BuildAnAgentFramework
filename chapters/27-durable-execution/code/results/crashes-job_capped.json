@@ -1,0 +1,302 @@
+[
+ {
+  "crash_after": 2,
+  "first": -9,
+  "second": 0,
+  "said": "reply: 2 calls, 60 tokens reply: 2 calls, 44 tokens reply: 2 calls, 60 tokens reply: 0 calls, 10 tok",
+  "payments": [
+   "QC-101",
+   "QC-102",
+   "QC-103",
+   "QC-104",
+   "QC-105",
+   "QC-106"
+  ],
+  "unpaid": []
+ },
+ {
+  "crash_after": 2,
+  "first": -9,
+  "second": 0,
+  "said": "reply: 2 calls, 60 tokens reply: 2 calls, 44 tokens reply: 2 calls, 60 tokens reply: 0 calls, 9 toke",
+  "payments": [
+   "QC-101",
+   "QC-102",
+   "QC-103",
+   "QC-104",
+   "QC-105",
+   "QC-106"
+  ],
+  "unpaid": []
+ },
+ {
+  "crash_after": 2,
+  "first": -9,
+  "second": 0,
+  "said": "reply: 2 calls, 60 tokens reply: 2 calls, 44 tokens reply: 2 calls, 60 tokens reply: 1 calls, 31 tok",
+  "payments": [
+   "QC-101",
+   "QC-102",
+   "QC-103",
+   "QC-104",
+   "QC-105",
+   "QC-106"
+  ],
+  "unpaid": []
+ },
+ {
+  "crash_after": 2,
+  "first": -9,
+  "second": 0,
+  "said": "2 calls, 60 tokens reply: 2 calls, 44 tokens reply: 2 calls, 60 tokens reply: 0 calls, 16 tokens All",
+  "payments": [
+   "QC-101",
+   "QC-102",
+   "QC-103",
+   "QC-104",
+   "QC-105",
+   "QC-106"
+  ],
+  "unpaid": []
+ },
+ {
+  "crash_after": 2,
+  "first": -9,
+  "second": 0,
+  "said": "2 calls, 60 tokens reply: 2 calls, 44 tokens reply: 1 calls, 39 tokens reply: 2 calls, 60 tokens rep",
+  "payments": [
+   "QC-101",
+   "QC-102",
+   "QC-103",
+   "QC-104",
+   "QC-105",
+   "QC-106"
+  ],
+  "unpaid": []
+ },
+ {
+  "crash_after": 3,
+  "first": -9,
+  "second": 0,
+  "said": "reply: 2 calls, 60 tokens reply: 2 calls, 44 tokens reply: 2 calls, 60 tokens reply: 1 calls, 24 tok",
+  "payments": [
+   "QC-101",
+   "QC-102",
+   "QC-103",
+   "QC-104",
+   "QC-105",
+   "QC-106"
+  ],
+  "unpaid": []
+ },
+ {
+  "crash_after": 3,
+  "first": -9,
+  "second": 0,
+  "said": "reply: 2 calls, 60 tokens reply: 2 calls, 60 tokens reply: 2 calls, 60 tokens reply: 1 calls, 24 tok",
+  "payments": [
+   "QC-101",
+   "QC-102",
+   "QC-103",
+   "QC-104",
+   "QC-105",
+   "QC-106"
+  ],
+  "unpaid": []
+ },
+ {
+  "crash_after": 3,
+  "first": -9,
+  "second": 0,
+  "said": "2 calls, 60 tokens reply: 1 calls, 24 tokens reply: 1 calls, 26 tokens reply: 0 calls, 16 tokens All",
+  "payments": [
+   "QC-101",
+   "QC-102",
+   "QC-103",
+   "QC-104",
+   "QC-105",
+   "QC-106"
+  ],
+  "unpaid": []
+ },
+ {
+  "crash_after": 3,
+  "first": -9,
+  "second": 0,
+  "said": "reply: 2 calls, 60 tokens reply: 1 calls, 24 tokens reply: 1 calls, 39 tokens reply: 0 calls, 10 tok",
+  "payments": [
+   "QC-101",
+   "QC-102",
+   "QC-103",
+   "QC-104",
+   "QC-105",
+   "QC-106"
+  ],
+  "unpaid": []
+ },
+ {
+  "crash_after": 3,
+  "first": -9,
+  "second": 0,
+  "said": "reply: 2 calls, 60 tokens reply: 1 calls, 24 tokens reply: 1 calls, 26 tokens reply: 0 calls, 11 tok",
+  "payments": [
+   "QC-101",
+   "QC-102",
+   "QC-103",
+   "QC-104",
+   "QC-105",
+   "QC-106"
+  ],
+  "unpaid": []
+ },
+ {
+  "crash_after": 4,
+  "first": -9,
+  "second": 0,
+  "said": "reply: 2 calls, 60 tokens reply: 2 calls, 44 tokens reply: 2 calls, 59 tokens reply: 0 calls, 2 toke",
+  "payments": [
+   "QC-101",
+   "QC-102",
+   "QC-103",
+   "QC-104",
+   "QC-105",
+   "QC-106"
+  ],
+  "unpaid": []
+ },
+ {
+  "crash_after": 4,
+  "first": -9,
+  "second": 0,
+  "said": "reply: 2 calls, 60 tokens reply: 2 calls, 44 tokens reply: 2 calls, 59 tokens reply: 0 calls, 2 toke",
+  "payments": [
+   "QC-101",
+   "QC-102",
+   "QC-103",
+   "QC-104",
+   "QC-105",
+   "QC-106"
+  ],
+  "unpaid": []
+ },
+ {
+  "crash_after": 4,
+  "first": -9,
+  "second": 0,
+  "said": "reply: 2 calls, 60 tokens reply: 0 calls, 2 tokens DONE Still unpaid: nothing",
+  "payments": [
+   "QC-101",
+   "QC-102",
+   "QC-103",
+   "QC-104",
+   "QC-105",
+   "QC-106"
+  ],
+  "unpaid": []
+ },
+ {
+  "crash_after": 4,
+  "first": -9,
+  "second": 0,
+  "said": "reply: 2 calls, 44 tokens reply: 0 calls, 2 tokens DONE Still unpaid: nothing",
+  "payments": [
+   "QC-101",
+   "QC-102",
+   "QC-103",
+   "QC-104",
+   "QC-105",
+   "QC-106"
+  ],
+  "unpaid": []
+ },
+ {
+  "crash_after": 4,
+  "first": -9,
+  "second": 0,
+  "said": "reply: 2 calls, 44 tokens reply: 0 calls, 2 tokens DONE Still unpaid: nothing",
+  "payments": [
+   "QC-101",
+   "QC-102",
+   "QC-103",
+   "QC-104",
+   "QC-105",
+   "QC-106"
+  ],
+  "unpaid": []
+ },
+ {
+  "crash_after": 5,
+  "first": -9,
+  "second": 0,
+  "said": "reply: 2 calls, 44 tokens reply: 2 calls, 60 tokens reply: 0 calls, 2 tokens DONE Still unpaid: noth",
+  "payments": [
+   "QC-101",
+   "QC-102",
+   "QC-103",
+   "QC-104",
+   "QC-105",
+   "QC-106"
+  ],
+  "unpaid": []
+ },
+ {
+  "crash_after": 5,
+  "first": -9,
+  "second": 0,
+  "said": "reply: 2 calls, 44 tokens reply: 0 calls, 10 tokens All refunds have been issued successfully. DONE.",
+  "payments": [
+   "QC-101",
+   "QC-102",
+   "QC-103",
+   "QC-104",
+   "QC-105",
+   "QC-106"
+  ],
+  "unpaid": []
+ },
+ {
+  "crash_after": 5,
+  "first": -9,
+  "second": 0,
+  "said": "reply: 2 calls, 44 tokens reply: 1 calls, 24 tokens reply: 0 calls, 12 tokens Refunded QC-105. DONE.",
+  "payments": [
+   "QC-101",
+   "QC-102",
+   "QC-103",
+   "QC-104",
+   "QC-105",
+   "QC-106"
+  ],
+  "unpaid": []
+ },
+ {
+  "crash_after": 5,
+  "first": -9,
+  "second": 0,
+  "said": "reply: 2 calls, 44 tokens reply: 1 calls, 24 tokens reply: 0 calls, 10 tokens All refunds have been ",
+  "payments": [
+   "QC-101",
+   "QC-102",
+   "QC-103",
+   "QC-104",
+   "QC-105",
+   "QC-106"
+  ],
+  "unpaid": []
+ },
+ {
+  "crash_after": 5,
+  "first": -9,
+  "second": 0,
+  "said": "reply: 2 calls, 44 tokens reply: 1 calls, 24 tokens reply: 0 calls, 9 tokens All refunds have been i",
+  "payments": [
+   "QC-101",
+   "QC-102",
+   "QC-103",
+   "QC-104",
+   "QC-105",
+   "QC-106"
+  ],
+  "unpaid": []
+ }
+]

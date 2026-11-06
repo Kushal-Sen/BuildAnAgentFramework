@@ -1,0 +1,9 @@
+Strict / earned, out of 10 runs
+Question             Plain agent         Split  Step by step          Plan
+harbour-arrive             0 / 0         2 / 2         0 / 0         0 / 0
+senior-beans               2 / 0         0 / 0         0 / 0         1 / 0
+riverside-repair           8 / 0         4 / 4         0 / 0         4 / 2
+shift-lead-pay             0 / 0         2 / 2         0 / 0         4 / 4
+lead-notice                1 / 0         4 / 2         2 / 0         6 / 4
+old-mill-repair           10 / 0         8 / 6         8 / 0         5 / 4
+Needs both, of 40          3 / 0         8 / 6         2 / 0        11 / 8

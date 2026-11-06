@@ -104,14 +104,17 @@ class OllamaModel(Model):
         body = self.request_body(messages, tools, options, stream=True)
         response = self.post(body, stream=True)
         text, calls, counts = "", [], {}
-        for line in response.iter_lines():
-            data = json.loads(line)
-            part = data["message"]
-            if part.get("content"):
-                text += part["content"]
-                yield part["content"]
-            calls += part.get("tool_calls") or []
-            counts.update(self.token_counts(data))
+        try:
+            for line in response.iter_lines():
+                data = json.loads(line)
+                part = data["message"]
+                if part.get("content"):
+                    text += part["content"]
+                    yield part["content"]
+                calls += part.get("tool_calls") or []
+                counts.update(self.token_counts(data))
+        except requests.RequestException as error:
+            raise ModelError(f"Lost Ollama partway through a reply: {error}", retryable=True) from error
         yield self.from_ollama({"content": text, "tool_calls": calls, **counts})
 
 

@@ -1,0 +1,15 @@
+Right answers, and final notes that hold the fact, out of 3 runs
+Fact       Window  Summarise  In note
+name            0          0        0
+number          1          0        0
+day             0          0        0
+locker          3          0        0
+allergy         2          0        0
+manager         3          0        0
+bus             2          0        0
+size            1          0        0
+till            1          0        0
+sister          3          0        0
+course          3          2        2
+shift           3          3        0
+Total          22          5        2   (of 36)

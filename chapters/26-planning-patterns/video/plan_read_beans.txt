@@ -1,0 +1,40 @@
+FAIL: I don't know. [staff-discount.md] mentions discounts for different bands but does not specify a discount for senior baristas.
+    search: Step 1: Review the employee benefits section of the staff handbook
+    search: Search for "employee benefits senior barista discount
+    search: Search for: "employee benefits section requirements for staff discounts
+FAIL: I don't know. [staff-discount.md] mentions discounts for different bands but does not specify a discount for senior baristas.
+    search: Step 1: Check the employee benefits section of the staff handbook
+    search: Search for "specific discount rate senior baristas retail beans
+    search: Search for additional terms or conditions associated with the discount
+FAIL: You get 30% off retail beans as a senior barista, which corresponds to Band C. [staff-discount.md]
+    search: Step 1: Review the current employee discount policy
+    search: senior baristas specific discount staff card branch drinks food retail beans
+    search: Search for: "staff discounts percentages based on staff band for drinks, food, and retail beans
+pass: Band C and Band D get a 25% discount on retail beans. [staff-discount.md]
+    search: Step 1: Check the employee benefits section of the staff handbook
+    search: Search for "specific discount details for baristas
+    search: SELECT * FROM discount_requirements WHERE discount_type = 'drinks' AND guest_accompanied = 'yes' AND
+FAIL: 30% off retail beans. [staff-discount.md]
+    search: Step 1: Check the current employee discount policy for baristas
+    search: discount for retail beans staff card applicable
+    search: Search for "staff card discounts percentage or dollar amount by band
+FAIL: I don't know. [staff-discount.md] does not specify the discount for senior baristas.
+    search: Step 1: Review the employee benefits section of the staff handbook
+    search: Search for "specific discount rates for baristas
+    search: Verify difference between retail beans discounts for Band B, Band C, and Band E
+FAIL: I don't know. [staff-discount.md]
+    search: Step 1: Check the current employee benefits section of the staff handbook
+    search: Search for "specific discount policy for baristas
+    search: Search for additional staff discount qualifications such as tenure or role-specific benefits
+FAIL: I don't know. [staff-discount.md]
+    search: Step 1: Check the employee benefits section of the staff handbook
+    search: Search for "senior barista discounts and benefits
+    search: Search for "discount rate retail beans senior baristas
+FAIL: I don't know. [staff-discount.md]
+    search: Step 1: Review the employee benefits section of the staff handbook
+    search: Search for "specific discount policy for baristas
+    search: SELECT band, AVG(discount_percentage) FROM baristas GROUP BY band
+FAIL: I don't know.
+    search: Step 1: Check the employee benefits section of the staff handbook
+    search: Search for "specific discount offered to senior baristas
+    search: Search for additional discount requirements in the policy document

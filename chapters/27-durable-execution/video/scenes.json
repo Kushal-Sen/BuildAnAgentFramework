@@ -1,0 +1,542 @@
+{
+ "chapter": "Chapter 27",
+ "scenes": [
+  {
+   "type": "recap",
+   "title": "Previously: planning patterns",
+   "flow": [
+    "Write the steps",
+    "Code runs every one",
+    "Plan tied Split",
+    "Measure the searches"
+   ],
+   "captions": [
+    {
+     "text": "Recap of chapter 26: Plan writes up to three steps, before any search happens.",
+     "secs": 8,
+     "focus": 0
+    },
+    {
+     "text": "Then code runs every step, and each search can use what came before.",
+     "secs": 7,
+     "focus": 1
+    },
+    {
+     "text": "Over 60 runs it tied Split, at 3.5 times the calls.",
+     "secs": 7,
+     "focus": 2
+    },
+    {
+     "text": "A plan that looks good isn't evidence. Measure the searches and the cost.",
+     "secs": 8,
+     "focus": 3
+    }
+   ]
+  },
+  {
+   "type": "box",
+   "label": "Durable execution",
+   "inner": [
+    "save as you go",
+    "safe to repeat",
+    "ask the real system"
+   ],
+   "captions": [
+    {
+     "text": "Today's black box: a job that can die halfway through, and carry on.",
+     "secs": 6
+    },
+    {
+     "text": "Let's open it. But first, a job that pays real money.",
+     "secs": 5,
+     "open": true,
+     "shot": "01-box"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/refunds.py",
+   "start": "def issue_refund",
+   "end": "return f\"Refunded",
+   "output": "video/first_job.txt",
+   "captions": [
+    {
+     "text": "Six refunds, and a pretend bank: a file with one line for each payment. Once it's in the file, the money's gone.",
+     "secs": 9,
+     "lines": 0,
+     "focus": null
+    },
+    {
+     "text": "Run it, and six orders make six lines.",
+     "secs": 6,
+     "lines": 9,
+     "focus": null
+    },
+    {
+     "text": "See that os.kill? Right after a payment, the process kills itself. No except, no hooks, nothing.",
+     "secs": 9,
+     "lines": 9,
+     "focus": [
+      "bank.pay",
+      "os.kill"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/crash_once.py",
+   "start": "def attempt",
+   "end": "return done.returncode",
+   "output": "video/crash_restart.txt",
+   "captions": [
+    {
+     "text": "subprocess.run starts the job as its own process. timeout means it can't hang forever.",
+     "secs": 8,
+     "lines": 0,
+     "focus": [
+      "subprocess.run",
+      "subprocess.run"
+     ]
+    },
+    {
+     "text": "Kill it after two payments, then run it again. Predict: what does the second run do?",
+     "secs": 8,
+     "lines": 0,
+     "focus": null
+    },
+    {
+     "text": "Exit code minus 9 means killed. The second run says DONE, with exit code 0.",
+     "secs": 8,
+     "lines": 4,
+     "focus": null,
+     "shot": "02-paid-twice"
+    },
+    {
+     "text": "QC-101 and QC-102 were paid twice. messages died with the old process, so it began at the top.",
+     "secs": 9,
+     "lines": 7,
+     "focus": null
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/job_saved.py",
+   "start": "agent = job_agent",
+   "end": "result = agent.run",
+   "output": "video/crash_saved.txt",
+   "captions": [
+    {
+     "text": "So save the conversation before each model call, and resume from it. Predict: who's paid twice now?",
+     "secs": 9,
+     "lines": 0,
+     "focus": [
+      "saved = load_messages",
+      "result = agent.run"
+     ]
+    },
+    {
+     "text": "The same two people. Exactly what starting again did.",
+     "secs": 7,
+     "lines": 7,
+     "focus": null
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/look_at_save.py",
+   "start": "code, _ = attempt",
+   "end": "print(\"The save holds",
+   "output": "video/save_before.txt",
+   "captions": [
+    {
+     "text": "So read what was saved, before anything restarts.",
+     "secs": 6,
+     "lines": 0,
+     "focus": null
+    },
+    {
+     "text": "Two payments have gone, and the save stops at the list of orders.",
+     "secs": 8,
+     "lines": 7,
+     "focus": null,
+     "shot": "03-save-before"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/job_replies.py",
+   "start": "class Replies",
+   "end": "self.seen.append",
+   "output": "video/one_reply.txt",
+   "captions": [
+    {
+     "text": "Why no save between payments? This hook shows what each model reply asked for.",
+     "secs": 8,
+     "lines": 0,
+     "focus": null
+    },
+    {
+     "text": "All the payments came in one reply. No model call between them, so no save.",
+     "secs": 8,
+     "lines": 6,
+     "focus": null,
+     "shot": "04-one-reply"
+    },
+    {
+     "text": "And look at run 1: 77 payments, with no crash at all. A surprise on our first try.",
+     "secs": 8,
+     "lines": 6,
+     "focus": null
+    },
+    {
+     "text": "Over 35 runs: every one that finished used one reply, and 2 paid too many.",
+     "secs": 8,
+     "lines": 6,
+     "focus": null
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/whitebox/durable.py",
+   "start": "def after_tool",
+   "end": "self.save(self.messages",
+   "captions": [
+    {
+     "text": "So save after each tool as well, inside the batch.",
+     "secs": 6,
+     "focus": null
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/job_saved_tools.py",
+   "start": "crash_after, folder",
+   "end": "print(one_line",
+   "output": "video/crash_saved_tools.txt",
+   "captions": [
+    {
+     "text": "Same job, with the full Checkpoint. Predict: will anyone be paid twice?",
+     "secs": 7,
+     "lines": 0,
+     "focus": null
+    },
+    {
+     "text": "Better, and still wrong: QC-102 was paid twice.",
+     "secs": 7,
+     "lines": 7,
+     "focus": null
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/look_at_save.py",
+   "start": "code, _ = attempt",
+   "end": "print(\"The save holds",
+   "output": "video/save_after.txt",
+   "captions": [
+    {
+     "text": "The bank has two payments. The save has one result. The process died before the save.",
+     "secs": 9,
+     "lines": 9,
+     "focus": null,
+     "shot": "05-save-after"
+    },
+    {
+     "text": "Save first instead, and a crash says paid when it isn't. Two systems, and no single step for both.",
+     "secs": 9,
+     "lines": 9,
+     "focus": null
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/whitebox/durable.py",
+   "start": "def once",
+   "end": "return Tool(tool.name",
+   "captions": [
+    {
+     "text": "So stop perfecting your notes. Before paying, ask the real system.",
+     "secs": 7,
+     "focus": null
+    },
+    {
+     "text": "done is yours to write. If it says yes, the tool doesn't run.",
+     "secs": 7,
+     "focus": [
+      "if done(",
+      "return f\"Already"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/job_once.py",
+   "start": "list_refunds, issue_refund",
+   "end": "agent = job_agent",
+   "output": "video/crash_with_once.txt",
+   "captions": [
+    {
+     "text": "One line of wiring. bank.paid is the question it asks.",
+     "secs": 6,
+     "lines": 0,
+     "focus": null
+    },
+    {
+     "text": "Six orders, six lines. The model can repeat itself, and the bank's answer decides.",
+     "secs": 8,
+     "lines": 7,
+     "focus": null,
+     "shot": "06-once"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/job_once.py",
+   "start": "list_refunds, issue_refund",
+   "end": "agent = job_agent",
+   "output": "video/crash_unpaid.txt",
+   "captions": [
+    {
+     "text": "Now crash after payment 5. Predict: what's left to go wrong?",
+     "secs": 7,
+     "lines": 0,
+     "focus": null
+    },
+    {
+     "text": "QC-106 got nothing, and the job finished with exit code 0.",
+     "secs": 8,
+     "lines": 7,
+     "focus": null
+    },
+    {
+     "text": "The model typed a fake tool_response. No tool ran. It did this in 8 of 9 crashes at that point.",
+     "secs": 9,
+     "lines": 7,
+     "focus": null,
+     "shot": "07-fake-done"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/whitebox/durable.py",
+   "start": "def until_done",
+   "end": "return result",
+   "captions": [
+    {
+     "text": "So don't take its word. left asks the bank what's still to do.",
+     "secs": 7,
+     "focus": [
+      "items = left()",
+      "break"
+     ]
+    },
+    {
+     "text": "ask tells the model what the bank shows. Then it goes round and checks again.",
+     "secs": 8,
+     "focus": [
+      "result = agent.run",
+      "history = result"
+     ]
+    },
+    {
+     "text": "If the tries run out it just returns, so check left yourself.",
+     "secs": 7,
+     "focus": null
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/job_until_done.py",
+   "start": "crash_after, folder",
+   "end": "print(\"Still unpaid",
+   "output": "video/crash_finished.txt",
+   "captions": [
+    {
+     "text": "This is the finished job. The last line asks the bank, not the model.",
+     "secs": 7,
+     "lines": 0,
+     "focus": null
+    },
+    {
+     "text": "Same crash, and QC-106 is paid. Six orders, six lines.",
+     "secs": 8,
+     "lines": 8,
+     "focus": null,
+     "shot": "08-until-done"
+    },
+    {
+     "text": "It needs a real system to ask. With no outside record, it has nothing to check.",
+     "secs": 8,
+     "lines": 8,
+     "focus": null
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/crash_test.py",
+   "start": "def crash_and_restart",
+   "end": "\"payments\": Bank",
+   "output": "video/crash_table.txt",
+   "captions": [
+    {
+     "text": "One crash proves little. So 20 crashes for each setup, at payments 2 to 5. Predict the zeros.",
+     "secs": 9,
+     "lines": 0,
+     "focus": null
+    },
+    {
+     "text": "Start again, and saving before calls: 70 repeats each. Saving after tools: 24.",
+     "secs": 8,
+     "lines": 7,
+     "focus": null,
+     "shot": "09-table"
+    },
+    {
+     "text": "once took repeats to 0 here. until_done took unpaid orders to 0: 20 clean of 20.",
+     "secs": 8,
+     "lines": 7,
+     "focus": null
+    },
+    {
+     "text": "A few runs never reached their crash, so we count only real crashes.",
+     "secs": 7,
+     "lines": 7,
+     "focus": null
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/read_crashes.py",
+   "start": "def by_point",
+   "end": "shapes = Counter",
+   "output": "video/saved_tools_points.txt",
+   "captions": [
+    {
+     "text": "Read the banks. Most crashes after saving tools left one repeat. Four left an order unpaid.",
+     "secs": 8,
+     "lines": 5,
+     "focus": null
+    },
+    {
+     "text": "One left 10 repeats. The restart kept paying until the 180-second limit stopped it.",
+     "secs": 8,
+     "lines": 5,
+     "focus": null
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/runaway.py",
+   "start": "run(\"plain tool",
+   "end": "run(\"once",
+   "output": "video/runaway.txt",
+   "captions": [
+    {
+     "text": "A runaway reply is rare, and we can't make one on demand. So here's a fake one: 2,000 calls.",
+     "secs": 9,
+     "lines": 0,
+     "focus": null
+    },
+    {
+     "text": "max_steps never fires: it counts replies. LoopGuard allows 12. once keeps it to 6.",
+     "secs": 8,
+     "lines": 4,
+     "focus": null,
+     "shot": "10-runaway"
+    },
+    {
+     "text": "All of them act after the reply is written, so none saves that time. Hence the time limit.",
+     "secs": 9,
+     "lines": 4,
+     "focus": null
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/job_capped.py",
+   "start": "CAP = 60",
+   "end": "reply.tokens_out",
+   "output": "video/capped.txt",
+   "captions": [
+    {
+     "text": "num_predict caps a reply. 60 is too low on purpose, to see what a cap does.",
+     "secs": 8,
+     "lines": 0,
+     "focus": null
+    },
+    {
+     "text": "The reply was cut after two calls, and the job carried on and paid everyone.",
+     "secs": 8,
+     "lines": 8,
+     "focus": null
+    },
+    {
+     "text": "So it's a sensible cap, not a proven fix. We've never seen it stop a real runaway.",
+     "secs": 8,
+     "lines": 8,
+     "focus": null
+    }
+   ]
+  },
+  {
+   "type": "term",
+   "file": "video/exercise_output.txt",
+   "final": "5 passed",
+   "captions": [
+    {
+     "text": "Your turn. Open exercises.py and complete the five TODOs.",
+     "secs": 6,
+     "lines": 8
+    },
+    {
+     "text": "You've finished when you see 5 passed.",
+     "secs": 6,
+     "lines": 13,
+     "shot": "11-exercises"
+    }
+   ]
+  },
+  {
+   "type": "end",
+   "title": "You opened durable execution.",
+   "points": [
+    "Checkpoint saves as you go",
+    "once asks before it acts",
+    "until_done asks what's left",
+    "Time limits on every process"
+   ],
+   "next": "Next: the Part 5 checkpoint, then Part 6, MCP",
+   "captions": [
+    {
+     "text": "Saving tells you where you were. Only the real system can say what happened.",
+     "secs": 8
+    },
+    {
+     "text": "The model chose the next step. The truth stayed in the bank.",
+     "secs": 7
+    },
+    {
+     "text": "We tested one job and one 7B model. Measure yours.",
+     "secs": 6
+    }
+   ]
+  }
+ ]
+}

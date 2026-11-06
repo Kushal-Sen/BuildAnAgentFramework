@@ -1,0 +1,2669 @@
+[
+ {
+  "setup": "Plain agent",
+  "name": "harbour-arrive",
+  "answer": "According to the branch handbook, you should arrive at the Harbour branch by 06:30 on a Monday. [branch-harbour.md]",
+  "calls": 2,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "Harbour branch opening hours Monday arrival time"
+  ],
+  "files": [
+   "branch-harbour.md",
+   "log-harbour-2025-02.md",
+   "log-harbour-2025-12.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Plain agent",
+  "name": "harbour-arrive",
+  "answer": "Based on the information in the handbook, the Harbour branch is open from 06:30 to 16:00 on Mondays. Therefore, you should aim to arrive by 06:30 to open the branch on time. [branch-harbour.md]",
+  "calls": 2,
+  "loose": true,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "Harbour branch opening hours"
+  ],
+  "files": [
+   "branch-harbour.md",
+   "log-harbour-2025-11.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Plain agent",
+  "name": "harbour-arrive",
+  "answer": "Based on the information provided, you should arrive at the Harbour branch by 06:30 on a Monday, which is its opening time. [branch-harbour.md]",
+  "calls": 2,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "Harbour branch opening hours Monday arrival time"
+  ],
+  "files": [
+   "branch-harbour.md",
+   "log-harbour-2025-02.md",
+   "log-harbour-2025-12.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Plain agent",
+  "name": "harbour-arrive",
+  "answer": "Based on the opening hours provided in the staff handbook, you should arrive at the Harbour branch by 06:30 on a Monday. \n\n[branch-harbour.md]",
+  "calls": 2,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "Harbour branch opening hours"
+  ],
+  "files": [
+   "branch-harbour.md",
+   "log-harbour-2025-11.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Plain agent",
+  "name": "harbour-arrive",
+  "answer": "Based on the information provided in the Harbour branch handbook, you should arrive by 06:30 on a Monday to open the branch. The handbook indicates that the branch opens at 06:30 every Monday to Friday.\n\n[branch-harbour.md]",
+  "calls": 2,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "Harbour branch opening time"
+  ],
+  "files": [
+   "branch-harbour.md",
+   "log-harbour-2025-02.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Plain agent",
+  "name": "senior-beans",
+  "answer": "As a senior barista, you get 15% off retail beans when you are off shift and using your staff card. This discount applies at any branch. [staff-discount.md]",
+  "calls": 2,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "senior barista discount beans"
+  ],
+  "files": [
+   "refunds.md",
+   "staff-discount.md",
+   "training.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Plain agent",
+  "name": "senior-beans",
+  "answer": "As a senior barista, you get 25% off retail beans when you are off shift and using your staff card at any branch. [staff-discount.md]",
+  "calls": 2,
+  "loose": true,
+  "strict": true,
+  "both_files": false,
+  "queries": [
+   "senior barista discount retail beans"
+  ],
+  "files": [
+   "refunds.md",
+   "staff-discount.md",
+   "training.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Plain agent",
+  "name": "senior-beans",
+  "answer": "As a senior barista, you receive a 15% discount on retail beans when you are off shift and using your staff card, according to the staff discount policy in [staff-discount.md].",
+  "calls": 2,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "senior barista discount"
+  ],
+  "files": [
+   "refunds.md",
+   "staff-discount.md",
+   "training.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Plain agent",
+  "name": "senior-beans",
+  "answer": "As a senior barista, you get 30% off retail beans when you are off shift and using your staff card at any branch. [staff-discount.md]",
+  "calls": 2,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "senior barista discount retail beans"
+  ],
+  "files": [
+   "refunds.md",
+   "staff-discount.md",
+   "training.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Plain agent",
+  "name": "senior-beans",
+  "answer": "As a senior barista, you get 30% off retail beans when you are off shift and using your staff card at any branch. [staff-discount.md]",
+  "calls": 2,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "senior barista discount retail beans"
+  ],
+  "files": [
+   "refunds.md",
+   "staff-discount.md",
+   "training.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Plain agent",
+  "name": "riverside-repair",
+  "answer": "You should call Northline Service at 0300 555 0177 to report the broken espresso machine at the Riverside branch. [branch-riverside.md]",
+  "calls": 2,
+  "loose": true,
+  "strict": true,
+  "both_files": false,
+  "queries": [
+   "espresso machine Riverside repair number"
+  ],
+  "files": [
+   "branch-riverside.md",
+   "log-riverside-2025-07.md",
+   "training.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Plain agent",
+  "name": "riverside-repair",
+  "answer": "According to the staff handbook, the equipment service contractor for Riverside branch is Northline Service, and their contact number is 0300 555 0177.\n\nSo, you should call 0300 555 0177 for the espresso machine issue.\n\n[branch-riverside.md]",
+  "calls": 3,
+  "loose": true,
+  "strict": true,
+  "both_files": false,
+  "queries": [
+   "Riverside espresso machine broken call",
+   "Riverside espresso machine maintenance contact"
+  ],
+  "files": [
+   "branch-riverside.md",
+   "log-riverside-2025-02.md",
+   "log-riverside-2025-05.md",
+   "log-riverside-2025-06.md",
+   "log-riverside-2025-07.md",
+   "log-riverside-2025-11.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Plain agent",
+  "name": "riverside-repair",
+  "answer": "You should call Northline Service at 0300 555 0177 to report the broken espresso machine at the Riverside branch. [branch-riverside.md]",
+  "calls": 2,
+  "loose": true,
+  "strict": true,
+  "both_files": false,
+  "queries": [
+   "espresso machine Riverside repair number"
+  ],
+  "files": [
+   "branch-riverside.md",
+   "log-riverside-2025-07.md",
+   "training.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Plain agent",
+  "name": "riverside-repair",
+  "answer": "You should call Northline Service at 0300 555 0177 to report the broken espresso machine at the Riverside branch. [branch-riverside.md]",
+  "calls": 2,
+  "loose": true,
+  "strict": true,
+  "both_files": false,
+  "queries": [
+   "espresso machine Riverside contact number"
+  ],
+  "files": [
+   "branch-riverside.md",
+   "log-riverside-2025-07.md",
+   "training.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Plain agent",
+  "name": "riverside-repair",
+  "answer": "You should call Northline Service at 0300 555 0177 to report the broken espresso machine at the Riverside branch. [branch-riverside.md]",
+  "calls": 2,
+  "loose": true,
+  "strict": true,
+  "both_files": false,
+  "queries": [
+   "espresso machine Riverside contact number"
+  ],
+  "files": [
+   "branch-riverside.md",
+   "log-riverside-2025-07.md",
+   "training.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Plain agent",
+  "name": "shift-lead-pay",
+  "answer": "The hourly rate for a shift lead is not explicitly stated, but based on the information provided, shift leads are likely to be paid according to the band they fall under. The handbook mentions bands A through D but does not specify a band for shift leads. However, the closest information given is for Band D, which has an hourly rate of \u00a316.90.\n\n[B wages.md]",
+  "calls": 2,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "hourly rate shift lead"
+  ],
+  "files": [
+   "breaks-and-staff-drinks.md",
+   "wages.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Plain agent",
+  "name": "shift-lead-pay",
+  "answer": "The hourly rate for a shift lead is not explicitly mentioned, but based on the information provided, it falls under Band D, which has an hourly rate of \u00a316.90. [wages.md]",
+  "calls": 2,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "hourly rate shift lead"
+  ],
+  "files": [
+   "breaks-and-staff-drinks.md",
+   "wages.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Plain agent",
+  "name": "shift-lead-pay",
+  "answer": "The hourly rate for a shift lead would depend on their band. According to the handbook, the hourly rates are as follows:\n\n- Band A: \u00a312.60\n- Band B: \u00a313.40\n- Band C: \u00a314.75\n- Band D: \u00a316.90\n\nThere is no specific mention of a Band E hourly rate, but it is noted as being salaried. [wages.md]",
+  "calls": 2,
+  "loose": true,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "hourly rate shift lead"
+  ],
+  "files": [
+   "breaks-and-staff-drinks.md",
+   "wages.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Plain agent",
+  "name": "shift-lead-pay",
+  "answer": "The hourly rate for a shift lead is not explicitly stated, but based on the information provided, shift leads are likely paid according to the band system. The rates are as follows:\n\n- Band A: \u00a312.60\n- Band B: \u00a313.40\n- Band C: \u00a314.75\n- Band D: \u00a316.90\n\nIf a shift lead falls into one of these bands, their hourly rate would be one of the above. To determine the exact band, we would need more information about the shift lead's role and responsibilities.\n\nThe file used is [wages.md].",
+  "calls": 2,
+  "loose": true,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "hourly rate shift lead"
+  ],
+  "files": [
+   "breaks-and-staff-drinks.md",
+   "wages.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Plain agent",
+  "name": "shift-lead-pay",
+  "answer": "The hourly rate for a shift lead is not explicitly mentioned, but based on the information provided, the rates are as follows:\n\n- Band A: \u00a312.60\n- Band B: \u00a313.40\n- Band C: \u00a314.75\n- Band D: \u00a316.90\n\nSince a shift lead is typically a Band D role, the hourly rate for a shift lead would be \u00a316.90. [wages.md]",
+  "calls": 2,
+  "loose": true,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "hourly rate shift lead"
+  ],
+  "files": [
+   "breaks-and-staff-drinks.md",
+   "wages.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Plain agent",
+  "name": "lead-notice",
+  "answer": "As a shift lead, you must give your resignation notice based on your Band level. Band A and Band B staff must give 2 weeks' notice, Band C and Band D staff must give 4 weeks' notice, and Band E staff must give 8 weeks' notice. [resignation.md]",
+  "calls": 2,
+  "loose": true,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "shift lead resignation notice period"
+  ],
+  "files": [
+   "breaks-and-staff-drinks.md",
+   "resignation.md",
+   "shifts.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Plain agent",
+  "name": "lead-notice",
+  "answer": "As a shift lead, you must give your resignation notice according to your Band level. Band A and Band B staff need to provide 2 weeks' notice, while Band C and Band D staff need to provide 4 weeks' notice. Band E staff need to provide 8 weeks' notice. [resignation.md]",
+  "calls": 2,
+  "loose": true,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "shift lead resignation notice period"
+  ],
+  "files": [
+   "breaks-and-staff-drinks.md",
+   "resignation.md",
+   "shifts.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Plain agent",
+  "name": "lead-notice",
+  "answer": "As a shift lead, you must give your resignation notice based on your Band level. Band A and Band B staff must give 2 weeks' notice, while Band C and Band D staff must give 4 weeks' notice. Band E staff must give 8 weeks' notice. [resignation.md]",
+  "calls": 2,
+  "loose": true,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "shift lead resignation notice"
+  ],
+  "files": [
+   "resignation.md",
+   "rota-swaps.md",
+   "shifts.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Plain agent",
+  "name": "lead-notice",
+  "answer": "As a shift lead, you must give your resignation notice based on your Band level. According to the handbook, Band A and Band B staff need to give 2 weeks' notice, while Band C and Band D staff need to give 4 weeks' notice. Band E staff need to give 8 weeks' notice.\n\n[resignation.md]",
+  "calls": 2,
+  "loose": true,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "shift lead resignation notice period"
+  ],
+  "files": [
+   "breaks-and-staff-drinks.md",
+   "resignation.md",
+   "shifts.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Plain agent",
+  "name": "lead-notice",
+  "answer": "As a shift lead, you must give your branch manager written notice according to your band. Band A and Band B staff need to give 2 weeks' notice, while Band C and Band D staff need to give 4 weeks' notice. Band E staff need to give 8 weeks' notice. [resignation.md]",
+  "calls": 2,
+  "loose": true,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "shift lead resignation notice period"
+  ],
+  "files": [
+   "breaks-and-staff-drinks.md",
+   "resignation.md",
+   "shifts.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Plain agent",
+  "name": "old-mill-repair",
+  "answer": "To repair the grinder at the Old Mill branch, you should contact Tidewater Espresso Service. Their number is 0300 555 0142.\n\n[branch-old-mill.md]",
+  "calls": 2,
+  "loose": true,
+  "strict": true,
+  "both_files": false,
+  "queries": [
+   "Old Mill grinder repair contact"
+  ],
+  "files": [
+   "branch-old-mill.md",
+   "log-old-mill-2025-05.md",
+   "log-old-mill-2025-06.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Plain agent",
+  "name": "old-mill-repair",
+  "answer": "To repair the grinder at the Old Mill branch, you should contact Tidewater Espresso Service. Their phone number is 0300 555 0142.\n\n[branch-old-mill.md]",
+  "calls": 2,
+  "loose": true,
+  "strict": true,
+  "both_files": false,
+  "queries": [
+   "Old Mill grinder repair contact"
+  ],
+  "files": [
+   "branch-old-mill.md",
+   "log-old-mill-2025-05.md",
+   "log-old-mill-2025-06.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Plain agent",
+  "name": "old-mill-repair",
+  "answer": "You should call Tidewater Espresso Service at 0300 555 0142 to repair the grinder at the Old Mill branch. [log-old-mill-2025-06.md] [branch-old-mill.md]",
+  "calls": 2,
+  "loose": true,
+  "strict": true,
+  "both_files": false,
+  "queries": [
+   "Old Mill grinder repair contact"
+  ],
+  "files": [
+   "branch-old-mill.md",
+   "log-old-mill-2025-05.md",
+   "log-old-mill-2025-06.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Plain agent",
+  "name": "old-mill-repair",
+  "answer": "The grinder at the Old Mill branch should be repaired by calling Tidewater Espresso Service at 0300 555 0142. [log-old-mill-2025-06.md] [branch-old-mill.md]",
+  "calls": 2,
+  "loose": true,
+  "strict": true,
+  "both_files": false,
+  "queries": [
+   "Old Mill grinder repair contact"
+  ],
+  "files": [
+   "branch-old-mill.md",
+   "log-old-mill-2025-05.md",
+   "log-old-mill-2025-06.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Plain agent",
+  "name": "old-mill-repair",
+  "answer": "To repair the grinder at Old Mill, you should contact Tidewater Espresso Service. You can reach them at 0300 555 0142.\n\n[log-old-mill-2025-06.md] [branch-old-mill.md]",
+  "calls": 2,
+  "loose": true,
+  "strict": true,
+  "both_files": false,
+  "queries": [
+   "Old Mill grinder repair contact"
+  ],
+  "files": [
+   "branch-old-mill.md",
+   "log-old-mill-2025-05.md",
+   "log-old-mill-2025-06.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Split",
+  "name": "harbour-arrive",
+  "answer": "You need to arrive 30 minutes before the branch opens, which is at 06:00 on a Monday. [branch-harbour.md]",
+  "calls": 2,
+  "loose": true,
+  "strict": true,
+  "both_files": true,
+  "queries": [
+   "harbour branch opening hours",
+   "staff arrival time on monday",
+   "opening procedures for harbour branch"
+  ],
+  "files": [
+   "branch-harbour.md",
+   "log-harbour-2025-05.md",
+   "log-harbour-2025-08.md",
+   "log-harbour-2025-10.md",
+   "log-harbour-2025-11.md",
+   "log-station-2025-01.md",
+   "shifts.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Split",
+  "name": "harbour-arrive",
+  "answer": "You need to arrive by 06:30 on Monday. [branch-harbour.md]",
+  "calls": 2,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "when does the Harbour branch open on Monday?",
+   "what are the required arrival times for opening the Harbour branch?",
+   "are there any specific instructions for opening the Harbour branch on Monday?"
+  ],
+  "files": [
+   "branch-harbour.md",
+   "log-harbour-2025-02.md",
+   "log-harbour-2025-08.md",
+   "log-harbour-2025-09.md",
+   "log-harbour-2025-11.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Split",
+  "name": "harbour-arrive",
+  "answer": "You need to arrive by 06:30. The opening hours for the Harbour branch on Monday are from 06:30 to 16:00. [branch-harbour.md]",
+  "calls": 2,
+  "loose": true,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "harbour branch opening hours on monday",
+   "staff arrival time for harbour branch",
+   "opening procedures for harbour branch on monday"
+  ],
+  "files": [
+   "branch-harbour.md",
+   "log-harbour-2025-02.md",
+   "log-harbour-2025-08.md",
+   "log-harbour-2025-09.md",
+   "log-harbour-2025-11.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Split",
+  "name": "harbour-arrive",
+  "answer": "You need to arrive by 06:30 to open the Harbour branch on a Monday. [branch-harbour.md]",
+  "calls": 2,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "when does the Harbour branch open on a Monday?",
+   "what is the required arrival time for opening the Harbour branch?",
+   "what are the opening hours for the Harbour branch?"
+  ],
+  "files": [
+   "branch-harbour.md",
+   "log-harbour-2025-02.md",
+   "log-harbour-2025-09.md",
+   "log-harbour-2025-11.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Split",
+  "name": "harbour-arrive",
+  "answer": "You need to arrive by 06:30 on a Monday. [branch-harbour.md]",
+  "calls": 2,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "when does the Harbour branch open on Mondays?",
+   "what is the required arrival time for opening the Harbour branch?",
+   "who is responsible for setting the opening hours for the Harbour branch?"
+  ],
+  "files": [
+   "branch-harbour.md",
+   "log-harbour-2025-02.md",
+   "log-harbour-2025-04.md",
+   "log-harbour-2025-09.md",
+   "log-harbour-2025-11.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Split",
+  "name": "senior-beans",
+  "answer": "I don't know. [staff-discount.md] mentions discounts for different bands but does not specify the discount for senior baristas.",
+  "calls": 2,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "discount for senior baristas",
+   "discount on retail beans",
+   "staff handbook senior barista benefits"
+  ],
+  "files": [
+   "products-beans.md",
+   "refunds.md",
+   "staff-discount.md",
+   "tips.md",
+   "training.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Split",
+  "name": "senior-beans",
+  "answer": "30% off retail beans [staff-discount.md]",
+  "calls": 2,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "What discount do senior baristas receive on retail beans?",
+   "What is the staff handbook policy for discounts?",
+   "Are senior baristas eligible for retail bean discounts?"
+  ],
+  "files": [
+   "refunds.md",
+   "shifts.md",
+   "staff-discount.md",
+   "training.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Split",
+  "name": "senior-beans",
+  "answer": "30% off retail beans. [staff-discount.md]",
+  "calls": 2,
+  "loose": false,
+  "strict": false,
+  "both_files": true,
+  "queries": [
+   "What discount do baristas receive on retail beans?",
+   "Which staff group does a senior barista belong to?",
+   "What are the discount policies for staff groups?"
+  ],
+  "files": [
+   "pay-bands.md",
+   "products-beans.md",
+   "refunds.md",
+   "shifts.md",
+   "staff-discount.md",
+   "training.md",
+   "welcome.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Split",
+  "name": "senior-beans",
+  "answer": "I don't know. [staff-discount.md] does not specify the discount for senior baristas on retail beans.",
+  "calls": 2,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "discounts for senior baristas",
+   "barista retail bean pricing",
+   "staff handbook barista benefits"
+  ],
+  "files": [
+   "products-beans.md",
+   "refunds.md",
+   "staff-discount.md",
+   "tips.md",
+   "training.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Split",
+  "name": "senior-beans",
+  "answer": "I don't know. [staff-discount.md] mentions discounts for different bands but does not specify the discount for senior baristas.",
+  "calls": 2,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "senior barista discount policy",
+   "retail beans discount for staff",
+   "staff discounts on retail products"
+  ],
+  "files": [
+   "log-station-2025-12.md",
+   "products-beans.md",
+   "refunds.md",
+   "staff-discount.md",
+   "training.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Split",
+  "name": "riverside-repair",
+  "answer": "0300 555 0177 [equipment-repairs.md]",
+  "calls": 2,
+  "loose": true,
+  "strict": true,
+  "both_files": true,
+  "queries": [
+   "Riverside staff handbook",
+   "Espresso machine maintenance",
+   "Riverside contact numbers"
+  ],
+  "files": [
+   "branch-riverside.md",
+   "equipment-repairs.md",
+   "espresso-recipe.md",
+   "log-riverside-2025-01.md",
+   "log-riverside-2025-02.md",
+   "log-riverside-2025-06.md",
+   "log-riverside-2025-11.md",
+   "opening-checklist.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Split",
+  "name": "riverside-repair",
+  "answer": "I don't know. [branch-riverside.md] mentions the equipment service contractor but does not provide the number for the espresso machine.",
+  "calls": 2,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "Riverside staff handbook contact information",
+   "Riverside espresso machine maintenance procedure",
+   "Riverside emergency numbers list"
+  ],
+  "files": [
+   "branch-riverside.md",
+   "log-riverside-2025-01.md",
+   "log-riverside-2025-02.md",
+   "log-riverside-2025-04.md",
+   "log-riverside-2025-07.md",
+   "log-riverside-2025-11.md",
+   "training.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Split",
+  "name": "riverside-repair",
+  "answer": "You should call the equipment service contractor listed for your branch, which is Northline Service at 0300 555 0177. [equipment-repairs.md]",
+  "calls": 2,
+  "loose": true,
+  "strict": true,
+  "both_files": true,
+  "queries": [
+   "Riverside staff handbook",
+   "Espresso machine maintenance",
+   "Contact numbers for Riverside"
+  ],
+  "files": [
+   "branch-riverside.md",
+   "equipment-repairs.md",
+   "espresso-recipe.md",
+   "log-riverside-2025-01.md",
+   "log-riverside-2025-02.md",
+   "log-riverside-2025-06.md",
+   "log-riverside-2025-11.md",
+   "opening-checklist.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Split",
+  "name": "riverside-repair",
+  "answer": "I don't know. [branch-riverside.md] contains information about the equipment service contractor, Northline Service, but there is no mention of the espresso machine or its service number in the provided excerpts.",
+  "calls": 2,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "Riverside staff handbook maintenance procedures",
+   "Riverside contact numbers for equipment issues",
+   "Riverside espresso machine repair protocol"
+  ],
+  "files": [
+   "branch-riverside.md",
+   "log-riverside-2025-02.md",
+   "log-riverside-2025-07.md",
+   "log-riverside-2025-09.md",
+   "log-riverside-2025-11.md",
+   "log-riverside-2025-12.md",
+   "training.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Split",
+  "name": "riverside-repair",
+  "answer": "0300 555 0177 [equipment-repairs.md]",
+  "calls": 2,
+  "loose": true,
+  "strict": true,
+  "both_files": true,
+  "queries": [
+   "Riverside staff handbook",
+   "Espresso machine maintenance",
+   "Riverside contact numbers"
+  ],
+  "files": [
+   "branch-riverside.md",
+   "equipment-repairs.md",
+   "espresso-recipe.md",
+   "log-riverside-2025-01.md",
+   "log-riverside-2025-02.md",
+   "log-riverside-2025-06.md",
+   "log-riverside-2025-11.md",
+   "opening-checklist.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Split",
+  "name": "shift-lead-pay",
+  "answer": "I don't know. [wages.md]",
+  "calls": 2,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "hourly rate for shift lead in staff handbook"
+  ],
+  "files": [
+   "shifts.md",
+   "staff-discount.md",
+   "wages.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Split",
+  "name": "shift-lead-pay",
+  "answer": "I don't know. [wages.md] lists hourly rates for different bands but does not specify a rate for a shift lead.",
+  "calls": 2,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "hourly rate for shift lead in staff handbook",
+   "group for shift lead in staff handbook",
+   "rule for hourly rate in staff handbook"
+  ],
+  "files": [
+   "rota-swaps.md",
+   "shifts.md",
+   "staff-discount.md",
+   "wages.md",
+   "welcome.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Split",
+  "name": "shift-lead-pay",
+  "answer": "I don't know. [wages.md]",
+  "calls": 2,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "hourly rate for shift lead in staff handbook"
+  ],
+  "files": [
+   "shifts.md",
+   "staff-discount.md",
+   "wages.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Split",
+  "name": "shift-lead-pay",
+  "answer": "The hourly rate for a shift lead is Band C, which is \u00a314.75. [pay-bands.md]",
+  "calls": 2,
+  "loose": true,
+  "strict": true,
+  "both_files": true,
+  "queries": [
+   "hourly rate for shift lead in staff handbook",
+   "job group for shift lead",
+   "rule for hourly rates in staff handbook"
+  ],
+  "files": [
+   "pay-bands.md",
+   "rota-swaps.md",
+   "shifts.md",
+   "staff-discount.md",
+   "wages.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Split",
+  "name": "shift-lead-pay",
+  "answer": "I don't know. [wages.md]",
+  "calls": 2,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "hourly rate for shift lead in staff handbook"
+  ],
+  "files": [
+   "shifts.md",
+   "staff-discount.md",
+   "wages.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Split",
+  "name": "lead-notice",
+  "answer": "You must give 8 weeks' notice when you resign, as you are Band E staff. [resignation.md]",
+  "calls": 2,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "When must a shift lead provide resignation notice according to the staff handbook?",
+   "What is the resignation policy for shift leads in the staff handbook?",
+   "Are there specific guidelines for notice periods in the staff handbook for shift leads?"
+  ],
+  "files": [
+   "breaks-and-staff-drinks.md",
+   "resignation.md",
+   "rota-swaps.md",
+   "shifts.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Split",
+  "name": "lead-notice",
+  "answer": "You must give 8 weeks' notice when you resign as a shift lead, which corresponds to Band E staff according to the resignation rules. [resignation.md]",
+  "calls": 2,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "What is the resignation policy for shift leads in the staff handbook?",
+   "How much notice is required for resigning in company policies?",
+   "What are the specific notice periods for different roles in the staff handbook?"
+  ],
+  "files": [
+   "complaints.md",
+   "forms.md",
+   "resignation.md",
+   "rota-swaps.md",
+   "shifts.md",
+   "sickness-absence.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Split",
+  "name": "lead-notice",
+  "answer": "You must give 8 weeks' notice when you resign, as you are Band E staff. [resignation.md]",
+  "calls": 2,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "How much notice is required for resignation in a staff handbook?",
+   "What is the policy on resignation for shift leads in the staff handbook?",
+   "Are there specific guidelines for notice periods in the staff handbook for management roles?"
+  ],
+  "files": [
+   "annual-leave.md",
+   "forms.md",
+   "resignation.md",
+   "rota-swaps.md",
+   "shifts.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Split",
+  "name": "lead-notice",
+  "answer": "You must give 8 weeks' notice when resigning as a shift lead, which corresponds to Band E staff according to the provided excerpts. [resignation.md]",
+  "calls": 2,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "How much notice is required for resignation according to staff handbooks?",
+   "What is the notice period for shift leads in company policies?",
+   "Are there specific guidelines for resignation notice periods in staff handbooks?"
+  ],
+  "files": [
+   "annual-leave.md",
+   "resignation.md",
+   "rota-swaps.md",
+   "shifts.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Split",
+  "name": "lead-notice",
+  "answer": "You must give 4 weeks' notice when you resign as a Band C or Band D staff member. [resignation.md]",
+  "calls": 2,
+  "loose": true,
+  "strict": true,
+  "both_files": false,
+  "queries": [
+   "how much notice is required for resignation in staff handbooks",
+   "what is the resignation policy for shift leads in staff handbooks",
+   "minimum notice period for resigning as a shift lead according to company policy"
+  ],
+  "files": [
+   "breaks-and-staff-drinks.md",
+   "forms.md",
+   "resignation.md",
+   "rota-swaps.md",
+   "shifts.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Split",
+  "name": "old-mill-repair",
+  "answer": "You should call Tidewater Espresso Service at 0300 555 0142 to repair the grinder at Old Mill. [branch-old-mill.md]",
+  "calls": 2,
+  "loose": true,
+  "strict": true,
+  "both_files": true,
+  "queries": [
+   "Who is responsible for maintaining equipment at Old Mill?",
+   "What is the contact number for equipment repairs at Old Mill?",
+   "Which department handles grinder repairs at Old Mill?"
+  ],
+  "files": [
+   "branch-old-mill.md",
+   "equipment-repairs.md",
+   "log-old-mill-2025-05.md",
+   "log-old-mill-2025-06.md",
+   "log-old-mill-2025-10.md",
+   "log-old-mill-2025-12.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Split",
+  "name": "old-mill-repair",
+  "answer": "You should call Tidewater Espresso Service at 0300 555 0142 to repair the grinder at Old Mill. [branch-old-mill.md]",
+  "calls": 2,
+  "loose": true,
+  "strict": true,
+  "both_files": false,
+  "queries": [
+   "Who is responsible for maintaining the grinder at Old Mill?",
+   "What is the repair hotline for facility issues at Old Mill?",
+   "What is the contact number for maintenance at Old Mill?"
+  ],
+  "files": [
+   "branch-old-mill.md",
+   "log-old-mill-2025-04.md",
+   "log-old-mill-2025-05.md",
+   "log-old-mill-2025-06.md",
+   "log-old-mill-2025-07.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Split",
+  "name": "old-mill-repair",
+  "answer": "I don't know. [branch-old-mill.md] mentions that the grinder needed adjustment but does not specify a contractor for repairs.",
+  "calls": 2,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "Who is responsible for maintenance at Old Mill?",
+   "What is the repair procedure for grinders at Old Mill?",
+   "What is the contact number for maintenance at Old Mill?"
+  ],
+  "files": [
+   "branch-old-mill.md",
+   "log-old-mill-2025-04.md",
+   "log-old-mill-2025-05.md",
+   "log-old-mill-2025-06.md",
+   "log-old-mill-2025-07.md",
+   "log-old-mill-2025-10.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Split",
+  "name": "old-mill-repair",
+  "answer": "You should call Tidewater Espresso Service to repair the grinder at Old Mill. The phone number is 0300 555 0142. [branch-old-mill.md]",
+  "calls": 2,
+  "loose": true,
+  "strict": true,
+  "both_files": true,
+  "queries": [
+   "Who is responsible for repairing equipment at Old Mill?",
+   "What is the maintenance department's contact information?",
+   "Who handles appliance repairs at the site?"
+  ],
+  "files": [
+   "branch-old-mill.md",
+   "equipment-repairs.md",
+   "log-old-mill-2025-10.md",
+   "log-old-mill-2025-11.md",
+   "log-station-2025-02.md",
+   "log-station-2025-08.md",
+   "suppliers.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Split",
+  "name": "old-mill-repair",
+  "answer": "You should call Tidewater Espresso Service at 0300 555 0142 to repair the grinder at Old Mill. [branch-old-mill.md]",
+  "calls": 2,
+  "loose": true,
+  "strict": true,
+  "both_files": true,
+  "queries": [
+   "Who is responsible for maintenance at Old Mill?",
+   "What is the maintenance phone number?",
+   "Who handles appliance repairs at Old Mill?"
+  ],
+  "files": [
+   "branch-old-mill.md",
+   "equipment-repairs.md",
+   "log-old-mill-2025-04.md",
+   "log-old-mill-2025-05.md",
+   "log-old-mill-2025-10.md",
+   "log-old-mill-2025-11.md",
+   "log-station-2025-02.md",
+   "log-station-2025-08.md"
+  ],
+  "plan": null,
+  "notes": ""
+ },
+ {
+  "setup": "Step by step",
+  "name": "harbour-arrive",
+  "answer": "You should arrive by 06:30. [log-harbour-2025-02.md]",
+  "calls": 3,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "I'm opening the Harbour branch on a Monday. What time do I need to arrive?"
+  ],
+  "files": [
+   "branch-harbour.md",
+   "log-harbour-2025-02.md",
+   "log-harbour-2025-08.md"
+  ],
+  "plan": null,
+  "notes": "Opening hours are Monday to Friday 06:30 to 16:00, so you should arrive by 06:30."
+ },
+ {
+  "setup": "Step by step",
+  "name": "harbour-arrive",
+  "answer": "You should arrive by 06:30. [log-harbour-2025-08.md]",
+  "calls": 3,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "I'm opening the Harbour branch on a Monday. What time do I need to arrive?"
+  ],
+  "files": [
+   "branch-harbour.md",
+   "log-harbour-2025-02.md",
+   "log-harbour-2025-08.md"
+  ],
+  "plan": null,
+  "notes": "Opening hours are Monday to Friday 06:30 to 16:00, so you should arrive by 06:30."
+ },
+ {
+  "setup": "Step by step",
+  "name": "harbour-arrive",
+  "answer": "You need to arrive by 06:30. [branch-harbour.md]",
+  "calls": 3,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "I'm opening the Harbour branch on a Monday. What time do I need to arrive?"
+  ],
+  "files": [
+   "branch-harbour.md",
+   "log-harbour-2025-02.md",
+   "log-harbour-2025-08.md"
+  ],
+  "plan": null,
+  "notes": "not found"
+ },
+ {
+  "setup": "Step by step",
+  "name": "harbour-arrive",
+  "answer": "You need to arrive by 06:30. [branch-harbour.md]",
+  "calls": 3,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "I'm opening the Harbour branch on a Monday. What time do I need to arrive?"
+  ],
+  "files": [
+   "branch-harbour.md",
+   "log-harbour-2025-02.md",
+   "log-harbour-2025-08.md"
+  ],
+  "plan": null,
+  "notes": "Opening hours are Monday to Friday from 06:30 to 16:00, so you should arrive by 06:30."
+ },
+ {
+  "setup": "Step by step",
+  "name": "harbour-arrive",
+  "answer": "You need to arrive by 06:30 on a Monday as the branch opens at this time. [branch-harbour.md]",
+  "calls": 3,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "I'm opening the Harbour branch on a Monday. What time do I need to arrive?"
+  ],
+  "files": [
+   "branch-harbour.md",
+   "log-harbour-2025-02.md",
+   "log-harbour-2025-08.md"
+  ],
+  "plan": null,
+  "notes": "not found"
+ },
+ {
+  "setup": "Step by step",
+  "name": "senior-beans",
+  "answer": "I don't know. [staff-discount.md]",
+  "calls": 3,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "I'm a senior barista. What discount do I get on retail beans?"
+  ],
+  "files": [
+   "refunds.md",
+   "staff-discount.md",
+   "training.md"
+  ],
+  "plan": null,
+  "notes": "not found"
+ },
+ {
+  "setup": "Step by step",
+  "name": "senior-beans",
+  "answer": "I don't know. [staff-discount.md] mentions discounts for different bands but does not specify the discount for senior baristas.",
+  "calls": 3,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "I'm a senior barista. What discount do I get on retail beans?"
+  ],
+  "files": [
+   "refunds.md",
+   "staff-discount.md",
+   "training.md"
+  ],
+  "plan": null,
+  "notes": "not found"
+ },
+ {
+  "setup": "Step by step",
+  "name": "senior-beans",
+  "answer": "I don't know. [staff-discount.md]",
+  "calls": 3,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "I'm a senior barista. What discount do I get on retail beans?"
+  ],
+  "files": [
+   "refunds.md",
+   "staff-discount.md",
+   "training.md"
+  ],
+  "plan": null,
+  "notes": "not found"
+ },
+ {
+  "setup": "Step by step",
+  "name": "senior-beans",
+  "answer": "I don't know. [staff-discount.md] only specifies discounts for drinks and food, not retail beans.",
+  "calls": 3,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "I'm a senior barista. What discount do I get on retail beans?"
+  ],
+  "files": [
+   "refunds.md",
+   "staff-discount.md",
+   "training.md"
+  ],
+  "plan": null,
+  "notes": "not found"
+ },
+ {
+  "setup": "Step by step",
+  "name": "senior-beans",
+  "answer": "I don't know. [staff-discount.md]",
+  "calls": 3,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "I'm a senior barista. What discount do I get on retail beans?"
+  ],
+  "files": [
+   "refunds.md",
+   "staff-discount.md",
+   "training.md"
+  ],
+  "plan": null,
+  "notes": "not found"
+ },
+ {
+  "setup": "Step by step",
+  "name": "riverside-repair",
+  "answer": "I don't know. [log-riverside-2025-07.md] [log-riverside-2025-06.md] [log-riverside-2025-11.md] do not mention any issues with the espresso machine breaking or provide contact numbers for maintenance.",
+  "calls": 3,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "The espresso machine at Riverside has broken. What number do I call?"
+  ],
+  "files": [
+   "log-riverside-2025-06.md",
+   "log-riverside-2025-07.md",
+   "log-riverside-2025-11.md"
+  ],
+  "plan": null,
+  "notes": "not found"
+ },
+ {
+  "setup": "Step by step",
+  "name": "riverside-repair",
+  "answer": "I don't know. [log-riverside-2025-07.md] [log-riverside-2025-06.md] [log-riverside-2025-11.md] do not mention any issues with the espresso machine breaking or provide a phone number to call for repairs.",
+  "calls": 3,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "The espresso machine at Riverside has broken. What number do I call?"
+  ],
+  "files": [
+   "log-riverside-2025-06.md",
+   "log-riverside-2025-07.md",
+   "log-riverside-2025-11.md"
+  ],
+  "plan": null,
+  "notes": "not found"
+ },
+ {
+  "setup": "Step by step",
+  "name": "riverside-repair",
+  "answer": "I don't know. [log-riverside-2025-07.md] [log-riverside-2025-06.md] [log-riverside-2025-11.md] do not mention any issues with the espresso machine breaking or provide a contact number for repairs.",
+  "calls": 3,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "The espresso machine at Riverside has broken. What number do I call?"
+  ],
+  "files": [
+   "log-riverside-2025-06.md",
+   "log-riverside-2025-07.md",
+   "log-riverside-2025-11.md"
+  ],
+  "plan": null,
+  "notes": "not found"
+ },
+ {
+  "setup": "Step by step",
+  "name": "riverside-repair",
+  "answer": "I don't know. [log-riverside-2025-07.md] [log-riverside-2025-06.md] [log-riverside-2025-11.md] do not mention any issues with the espresso machine or provide contact numbers for repairs.",
+  "calls": 3,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "The espresso machine at Riverside has broken. What number do I call?"
+  ],
+  "files": [
+   "log-riverside-2025-06.md",
+   "log-riverside-2025-07.md",
+   "log-riverside-2025-11.md"
+  ],
+  "plan": null,
+  "notes": "not found"
+ },
+ {
+  "setup": "Step by step",
+  "name": "riverside-repair",
+  "answer": "I don't know. [log-riverside-2025-07.md] [log-riverside-2025-06.md] [log-riverside-2025-11.md] do not mention any issues with the espresso machine breaking or provide a contact number for repairs.",
+  "calls": 3,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "The espresso machine at Riverside has broken. What number do I call?"
+  ],
+  "files": [
+   "log-riverside-2025-06.md",
+   "log-riverside-2025-07.md",
+   "log-riverside-2025-11.md"
+  ],
+  "plan": null,
+  "notes": "not found"
+ },
+ {
+  "setup": "Step by step",
+  "name": "shift-lead-pay",
+  "answer": "I don't know. [wages.md]",
+  "calls": 3,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "What is the hourly rate for a shift lead?"
+  ],
+  "files": [
+   "breaks-and-staff-drinks.md",
+   "wages.md"
+  ],
+  "plan": null,
+  "notes": "not found"
+ },
+ {
+  "setup": "Step by step",
+  "name": "shift-lead-pay",
+  "answer": "I don't know. [wages.md]",
+  "calls": 3,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "What is the hourly rate for a shift lead?"
+  ],
+  "files": [
+   "breaks-and-staff-drinks.md",
+   "wages.md"
+  ],
+  "plan": null,
+  "notes": "not found"
+ },
+ {
+  "setup": "Step by step",
+  "name": "shift-lead-pay",
+  "answer": "I don't know. [wages.md]",
+  "calls": 3,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "What is the hourly rate for a shift lead?"
+  ],
+  "files": [
+   "breaks-and-staff-drinks.md",
+   "wages.md"
+  ],
+  "plan": null,
+  "notes": "not found"
+ },
+ {
+  "setup": "Step by step",
+  "name": "shift-lead-pay",
+  "answer": "I don't know. [wages.md]",
+  "calls": 3,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "What is the hourly rate for a shift lead?"
+  ],
+  "files": [
+   "breaks-and-staff-drinks.md",
+   "wages.md"
+  ],
+  "plan": null,
+  "notes": "not found"
+ },
+ {
+  "setup": "Step by step",
+  "name": "shift-lead-pay",
+  "answer": "I don't know. [wages.md]",
+  "calls": 3,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "What is the hourly rate for a shift lead?"
+  ],
+  "files": [
+   "breaks-and-staff-drinks.md",
+   "wages.md"
+  ],
+  "plan": null,
+  "notes": "not found"
+ },
+ {
+  "setup": "Step by step",
+  "name": "lead-notice",
+  "answer": "You must give 4 weeks' notice when you resign, as you are likely categorized as Band C or Band D staff. [resignation.md]",
+  "calls": 3,
+  "loose": true,
+  "strict": true,
+  "both_files": false,
+  "queries": [
+   "I'm a shift lead. How much notice must I give when I resign?"
+  ],
+  "files": [
+   "breaks-and-staff-drinks.md",
+   "resignation.md",
+   "shifts.md"
+  ],
+  "plan": null,
+  "notes": "not found"
+ },
+ {
+  "setup": "Step by step",
+  "name": "lead-notice",
+  "answer": "I don't know. [resignation.md]",
+  "calls": 3,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "I'm a shift lead. How much notice must I give when I resign?"
+  ],
+  "files": [
+   "breaks-and-staff-drinks.md",
+   "resignation.md",
+   "shifts.md"
+  ],
+  "plan": null,
+  "notes": "not found"
+ },
+ {
+  "setup": "Step by step",
+  "name": "lead-notice",
+  "answer": "I don't know. [resignation.md]",
+  "calls": 3,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "I'm a shift lead. How much notice must I give when I resign?"
+  ],
+  "files": [
+   "breaks-and-staff-drinks.md",
+   "resignation.md",
+   "shifts.md"
+  ],
+  "plan": null,
+  "notes": "not found"
+ },
+ {
+  "setup": "Step by step",
+  "name": "lead-notice",
+  "answer": "I don't know. [resignation.md]",
+  "calls": 3,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "I'm a shift lead. How much notice must I give when I resign?"
+  ],
+  "files": [
+   "breaks-and-staff-drinks.md",
+   "resignation.md",
+   "shifts.md"
+  ],
+  "plan": null,
+  "notes": "not found"
+ },
+ {
+  "setup": "Step by step",
+  "name": "lead-notice",
+  "answer": "I don't know. [resignation.md]",
+  "calls": 3,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "I'm a shift lead. How much notice must I give when I resign?"
+  ],
+  "files": [
+   "breaks-and-staff-drinks.md",
+   "resignation.md",
+   "shifts.md"
+  ],
+  "plan": null,
+  "notes": "not found"
+ },
+ {
+  "setup": "Step by step",
+  "name": "old-mill-repair",
+  "answer": "You should call Tidewater Espresso Service on 0300 555 0142 to repair the grinder at Old Mill. [branch-old-mill.md]",
+  "calls": 3,
+  "loose": true,
+  "strict": true,
+  "both_files": false,
+  "queries": [
+   "Who do I call to repair the grinder at Old Mill, and on what number?"
+  ],
+  "files": [
+   "branch-old-mill.md",
+   "log-old-mill-2025-05.md",
+   "log-old-mill-2025-06.md"
+  ],
+  "plan": null,
+  "notes": "Equipment service contractor: Tidewater Espresso Service, 0300 555 0142."
+ },
+ {
+  "setup": "Step by step",
+  "name": "old-mill-repair",
+  "answer": "You should call Tidewater Espresso Service on 0300 555 0142 to repair the grinder at Old Mill. [branch-old-mill.md]",
+  "calls": 3,
+  "loose": true,
+  "strict": true,
+  "both_files": false,
+  "queries": [
+   "Who do I call to repair the grinder at Old Mill, and on what number?"
+  ],
+  "files": [
+   "branch-old-mill.md",
+   "log-old-mill-2025-05.md",
+   "log-old-mill-2025-06.md"
+  ],
+  "plan": null,
+  "notes": "Equipment service contractor: Tidewater Espresso Service, 0300 555 0142."
+ },
+ {
+  "setup": "Step by step",
+  "name": "old-mill-repair",
+  "answer": "I don't know. [branch-old-mill.md] mentions Tidewater Espresso Service as the equipment service contractor but does not specify that they are responsible for repairing the grinder. There's no direct information provided about who specifically is called to repair the grinder or the contact number for such repairs.",
+  "calls": 3,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "Who do I call to repair the grinder at Old Mill, and on what number?"
+  ],
+  "files": [
+   "branch-old-mill.md",
+   "log-old-mill-2025-05.md",
+   "log-old-mill-2025-06.md"
+  ],
+  "plan": null,
+  "notes": "not found"
+ },
+ {
+  "setup": "Step by step",
+  "name": "old-mill-repair",
+  "answer": "You should call Tidewater Espresso Service at 0300 555 0142 to repair the grinder at Old Mill. [branch-old-mill.md]",
+  "calls": 3,
+  "loose": true,
+  "strict": true,
+  "both_files": false,
+  "queries": [
+   "Who do I call to repair the grinder at Old Mill, and on what number?"
+  ],
+  "files": [
+   "branch-old-mill.md",
+   "log-old-mill-2025-05.md",
+   "log-old-mill-2025-06.md"
+  ],
+  "plan": null,
+  "notes": "not found"
+ },
+ {
+  "setup": "Step by step",
+  "name": "old-mill-repair",
+  "answer": "You should call Tidewater Espresso Service on 0300 555 0142 to repair the grinder at Old Mill. [branch-old-mill.md]",
+  "calls": 3,
+  "loose": true,
+  "strict": true,
+  "both_files": false,
+  "queries": [
+   "Who do I call to repair the grinder at Old Mill, and on what number?"
+  ],
+  "files": [
+   "branch-old-mill.md",
+   "log-old-mill-2025-05.md",
+   "log-old-mill-2025-06.md"
+  ],
+  "plan": null,
+  "notes": "Equipment service contractor: Tidewater Espresso Service, 0300 555 0142."
+ },
+ {
+  "setup": "Plan",
+  "name": "harbour-arrive",
+  "answer": "You need to arrive by 06:30 on a Monday. [branch-harbour.md]",
+  "calls": 7,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "The operating hours for the Harbour branch",
+   "What is the recommended arrival time for the Harbour branch on opening day?",
+   "Search for \"Harbour branch manager contact information"
+  ],
+  "files": [
+   "branch-harbour.md",
+   "log-harbour-2025-02.md",
+   "log-harbour-2025-05.md",
+   "log-harbour-2025-08.md",
+   "log-harbour-2025-11.md"
+  ],
+  "plan": [
+   "The operating hours for the Harbour branch",
+   "The recommended arrival time for opening day",
+   "The contact information for the Harbour branch manager"
+  ],
+  "notes": "The Harbour branch is open from Monday to Friday 06:30 to 16:00 and Saturday and Sunday 07:30 to 15:00.\nnot found\nThe contact information for the Harbour branch manager is Lena Ortiz."
+ },
+ {
+  "setup": "Plan",
+  "name": "harbour-arrive",
+  "answer": "You need to arrive by 06:30 on a Monday. [branch-harbour.md]",
+  "calls": 7,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "The operating hours for the Harbour branch",
+   "What is the recommended arrival time for staff opening the Harbour branch on weekdays and weekends?",
+   "Harbour branch opening hours Monday to Friday and Saturday and Sunday"
+  ],
+  "files": [
+   "branch-harbour.md",
+   "log-harbour-2025-05.md",
+   "log-harbour-2025-08.md",
+   "log-harbour-2025-09.md"
+  ],
+  "plan": [
+   "The operating hours for the Harbour branch",
+   "The recommended arrival time for staff opening the branch",
+   "Any specific instructions for opening day"
+  ],
+  "notes": "The Harbour branch is open from Monday to Friday 06:30 to 16:00 and Saturday and Sunday 07:30 to 15:00.\nnot found\nnot found"
+ },
+ {
+  "setup": "Plan",
+  "name": "harbour-arrive",
+  "answer": "You need to arrive by 06:30 on a Monday, as the branch is open from 06:30 to 16:00 on weekdays. [branch-harbour.md]",
+  "calls": 7,
+  "loose": true,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "The operating hours for the Harbour branch",
+   "Harbour branch operating hours Monday to Friday and weekends",
+   "What is the recommended arrival time for staff at the Harbour branch, considering it is busiest in the first hour on Fridays and has outdoor seating that must be brought in if the wind warning flag is up?"
+  ],
+  "files": [
+   "branch-harbour.md",
+   "log-harbour-2025-05.md",
+   "log-harbour-2025-08.md",
+   "log-harbour-2025-12.md"
+  ],
+  "plan": [
+   "The operating hours for the Harbour branch",
+   "The expected opening procedures for the Harbour branch",
+   "The recommended arrival time for staff based on branch policies"
+  ],
+  "notes": "The Harbour branch is open from Monday to Friday 06:30 to 16:00 and Saturday and Sunday 07:30 to 15:00.\nThe Harbour branch is busiest in the first hour on Fridays, serves the morning ferry crowd, and has outdoor seating for 16 that must be brought in if the wind warning flag is up.\nThe first hour is the busiest of the day, and outdoor seating for 16 must be brought in if the wind warning flag is up on the quay."
+ },
+ {
+  "setup": "Plan",
+  "name": "harbour-arrive",
+  "answer": "You need to arrive by 06:30 on a Monday to open the Harbour branch. [branch-harbour.md]",
+  "calls": 7,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "The operating hours for the Harbour branch",
+   "Harbour branch Monday opening and closing times",
+   "What are the opening hours for the Harbour branch on Mondays?"
+  ],
+  "files": [
+   "branch-harbour.md",
+   "log-harbour-2025-02.md",
+   "log-harbour-2025-05.md",
+   "log-harbour-2025-09.md",
+   "log-harbour-2025-11.md"
+  ],
+  "plan": [
+   "The operating hours for the Harbour branch",
+   "The standard opening time for branches on Mondays",
+   "The expected traffic and opening preparations needed for the Harbour branch"
+  ],
+  "notes": "The Harbour branch is open from Monday to Friday 06:30 to 16:00 and Saturday and Sunday 07:30 to 15:00.\nStep: The standard opening time for branches on Mondays is from 06:30 to 16:00.\nThe Harbour branch is busiest in the first hour due to the morning ferry crowd, and it requires opening preparations such as bringing in outdoor seating if the wind warning flag is up."
+ },
+ {
+  "setup": "Plan",
+  "name": "harbour-arrive",
+  "answer": "You need to arrive by 06:30 on a Monday. [branch-harbour.md]",
+  "calls": 7,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "The operating hours for the Harbour branch",
+   "What is the recommended arrival time for staff opening the Harbour branch on weekdays and weekends?",
+   "Search for \"Harbour branch manager contact details"
+  ],
+  "files": [
+   "branch-harbour.md",
+   "log-harbour-2025-05.md",
+   "log-harbour-2025-08.md",
+   "log-harbour-2025-11.md"
+  ],
+  "plan": [
+   "The operating hours for the Harbour branch",
+   "The recommended arrival time for staff opening the branch",
+   "The contact details for the Harbour branch manager"
+  ],
+  "notes": "The Harbour branch is open from Monday to Friday 06:30 to 16:00, and Saturday and Sunday 07:30 to 15:00.\nnot found\nBranch manager: Lena Ortiz."
+ },
+ {
+  "setup": "Plan",
+  "name": "senior-beans",
+  "answer": "I don't know. [staff-discount.md] mentions discounts for different bands but does not specify a discount for senior baristas.",
+  "calls": 7,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "Step 1: Review the employee benefits section of the staff handbook",
+   "Search for \"employee benefits senior barista discount",
+   "Search for: \"employee benefits section requirements for staff discounts"
+  ],
+  "files": [
+   "forms.md",
+   "log-station-2025-03.md",
+   "shifts.md",
+   "staff-discount.md",
+   "training.md"
+  ],
+  "plan": [
+   "Step 1: Review the employee benefits section of the staff handbook",
+   "Step 2: Check the specific discount offered to senior baristas",
+   "Step 3: Determine if there are any additional requirements for receiving the discount"
+  ],
+  "notes": "The excerpts provide information on forms, staff discounts, and shifts, but do not specifically cover the employee benefits section. Not found.\nnot found\nnot found"
+ },
+ {
+  "setup": "Plan",
+  "name": "senior-beans",
+  "answer": "I don't know. [staff-discount.md] mentions discounts for different bands but does not specify a discount for senior baristas.",
+  "calls": 7,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "Step 1: Check the employee benefits section of the staff handbook",
+   "Search for \"specific discount rate senior baristas retail beans",
+   "Search for additional terms or conditions associated with the discount"
+  ],
+  "files": [
+   "allergens.md",
+   "equipment-repairs.md",
+   "forms.md",
+   "log-station-2025-08.md",
+   "refunds.md",
+   "staff-discount.md",
+   "training.md"
+  ],
+  "plan": [
+   "Step 1: Check the employee benefits section of the staff handbook",
+   "Step 2: Verify the specific discount rate for senior baristas on retail beans",
+   "Step 3: Confirm if there are any additional terms or conditions associated with the discount"
+  ],
+  "notes": "not found\nnot found\nnot found"
+ },
+ {
+  "setup": "Plan",
+  "name": "senior-beans",
+  "answer": "You get 30% off retail beans as a senior barista, which corresponds to Band C. [staff-discount.md]",
+  "calls": 7,
+  "loose": false,
+  "strict": false,
+  "both_files": true,
+  "queries": [
+   "Step 1: Review the current employee discount policy",
+   "senior baristas specific discount staff card branch drinks food retail beans",
+   "Search for: \"staff discounts percentages based on staff band for drinks, food, and retail beans"
+  ],
+  "files": [
+   "log-old-mill-2025-10.md",
+   "log-station-2025-03.md",
+   "pay-bands.md",
+   "refunds.md",
+   "staff-discount.md",
+   "training.md"
+  ],
+  "plan": [
+   "Step 1: Review the current employee discount policy",
+   "Step 2: Check if there is a specific discount for senior baristas",
+   "Step 3: Determine the exact percentage or dollar amount of the discount"
+  ],
+  "notes": "The excerpts state that staff receive discounts when off shift, using their staff card at any branch, with varying percentages based on staff band for drinks, food, and retail beans.\nnot found\nThe excerpts say that staff receive different percentage discounts based on their band, and these discounts can be applied to drinks, food, and retail beans at any branch. not found"
+ },
+ {
+  "setup": "Plan",
+  "name": "senior-beans",
+  "answer": "Band C and Band D get a 25% discount on retail beans. [staff-discount.md]",
+  "calls": 7,
+  "loose": true,
+  "strict": true,
+  "both_files": false,
+  "queries": [
+   "Step 1: Check the employee benefits section of the staff handbook",
+   "Search for \"specific discount details for baristas",
+   "SELECT * FROM discount_requirements WHERE discount_type = 'drinks' AND guest_accompanied = 'yes' AND loyalty_card_combination = 'no' AND catering_exclusion = 'yes'"
+  ],
+  "files": [
+   "equipment-repairs.md",
+   "forms.md",
+   "loyalty-card.md",
+   "staff-discount.md",
+   "tips.md"
+  ],
+  "plan": [
+   "Step 1: Check the employee benefits section of the staff handbook",
+   "Step 2: Look for specific discount details for baristas",
+   "Step 3: Determine if there are any additional requirements for receiving the discount"
+  ],
+  "notes": "not found\nStaff can bring one guest who receives the same discount on drinks only, but the discount can't be combined with the loyalty card or used for catering orders.\nnot found"
+ },
+ {
+  "setup": "Plan",
+  "name": "senior-beans",
+  "answer": "30% off retail beans. [staff-discount.md]",
+  "calls": 7,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "Step 1: Check the current employee discount policy for baristas",
+   "discount for retail beans staff card applicable",
+   "Search for \"staff card discounts percentage or dollar amount by band"
+  ],
+  "files": [
+   "opening-checklist.md",
+   "refunds.md",
+   "staff-discount.md",
+   "tips.md",
+   "training.md"
+  ],
+  "plan": [
+   "Step 1: Check the current employee discount policy for baristas",
+   "Step 2: Determine if the discount applies specifically to retail beans",
+   "Step 3: Identify the percentage or dollar amount of the discount"
+  ],
+  "notes": "The excerpts say that staff can get discounts when off shift, with a staff card, at any branch, with different discount levels based on their band.\nnot found\nThe excerpts say that Band E staff get 40% off drinks and food, and 30% off retail beans."
+ },
+ {
+  "setup": "Plan",
+  "name": "riverside-repair",
+  "answer": "You should call the equipment service contractor listed for the Riverside branch, which is Northline Service, at 0300 555 0177. [equipment-repairs.md]",
+  "calls": 7,
+  "loose": true,
+  "strict": true,
+  "both_files": true,
+  "queries": [
+   "The contact number for maintenance services",
+   "step category maintenance issues",
+   "Search for \"Riverside espresso machine contact person"
+  ],
+  "files": [
+   "branch-riverside.md",
+   "equipment-repairs.md",
+   "log-harbour-2025-04.md",
+   "log-riverside-2025-02.md",
+   "log-riverside-2025-05.md",
+   "log-riverside-2025-07.md",
+   "log-riverside-2025-08.md",
+   "log-station-2025-02.md"
+  ],
+  "plan": [
+   "The contact number for maintenance services",
+   "The category of issues the maintenance team handles",
+   "The specific contact person for espresso machines at Riverside"
+  ],
+  "notes": "not found\nnot found\nnot found"
+ },
+ {
+  "setup": "Plan",
+  "name": "riverside-repair",
+  "answer": "You should phone the equipment service contractor listed for your branch. [equipment-repairs.md]",
+  "calls": 7,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "The contact number for maintenance services",
+   "Search for \"espresso machine category in inventory",
+   "typical response time for maintenance calls"
+  ],
+  "files": [
+   "accidents-and-incidents.md",
+   "complaints.md",
+   "equipment-repairs.md",
+   "espresso-recipe.md",
+   "log-harbour-2025-04.md",
+   "log-station-2025-02.md",
+   "opening-checklist.md",
+   "shifts.md"
+  ],
+  "plan": [
+   "The contact number for maintenance services",
+   "The category of the espresso machine in the inventory",
+   "The typical response time for maintenance calls"
+  ],
+  "notes": "not found\nnot found\nnot found"
+ },
+ {
+  "setup": "Plan",
+  "name": "riverside-repair",
+  "answer": "I don't know. The excerpts do not provide the specific number of the equipment service contractor for any branch. [equipment-repairs.md] mentions phoning the contractor but does not give a specific number.",
+  "calls": 7,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "The contact number for maintenance services",
+   "Search for \"espresso machine category in inventory",
+   "Search for \"escalation procedure for equipment issues"
+  ],
+  "files": [
+   "accidents-and-incidents.md",
+   "equipment-repairs.md",
+   "espresso-recipe.md",
+   "grievances.md",
+   "log-harbour-2025-04.md",
+   "log-station-2025-02.md",
+   "opening-checklist.md"
+  ],
+  "plan": [
+   "The contact number for maintenance services",
+   "The category of the espresso machine in the inventory",
+   "The escalation procedure for equipment issues"
+  ],
+  "notes": "not found\nnot found\nIf equipment breaks, first put an out-of-order sign on it, then phone the equipment service contractor, and log the repair call in StaffHub under Maintenance."
+ },
+ {
+  "setup": "Plan",
+  "name": "riverside-repair",
+  "answer": "0300 555 0177 [equipment-repairs.md]",
+  "calls": 7,
+  "loose": true,
+  "strict": true,
+  "both_files": true,
+  "queries": [
+   "The contact number for maintenance services",
+   "espresso machine repair or breakdown report",
+   "Search for \"espresso machine location Riverside"
+  ],
+  "files": [
+   "branch-riverside.md",
+   "equipment-repairs.md",
+   "log-harbour-2025-04.md",
+   "log-riverside-2025-07.md",
+   "log-station-2025-02.md",
+   "opening-checklist.md",
+   "training.md"
+  ],
+  "plan": [
+   "The contact number for maintenance services",
+   "The type of issue to report (espresso machine breakage)",
+   "The specific location of the espresso machine at Riverside"
+  ],
+  "notes": "not found\nnot found\nnot found"
+ },
+ {
+  "setup": "Plan",
+  "name": "riverside-repair",
+  "answer": "I don't know. [equipment-repairs.md] mentions calling the equipment service contractor for repairs, but it does not provide a specific phone number.",
+  "calls": 7,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "The contact numbers for maintenance services",
+   "Espresso machine issues troubleshooting steps",
+   "search step preferred method contacting maintenance services facility"
+  ],
+  "files": [
+   "bereavement-leave.md",
+   "complaints.md",
+   "equipment-repairs.md",
+   "espresso-recipe.md",
+   "grinder-errors.md",
+   "log-harbour-2025-04.md",
+   "log-station-2025-02.md",
+   "opening-checklist.md"
+  ],
+  "plan": [
+   "The contact numbers for maintenance services",
+   "The type of issue with the espresso machine",
+   "The preferred method of contacting maintenance services for the facility"
+  ],
+  "notes": "not found\nIf the shot runs fast, grind finer. If it runs slow, grind coarser.\nIf equipment breaks, first put an out-of-order sign on it and then phone the equipment service contractor listed for your branch."
+ },
+ {
+  "setup": "Plan",
+  "name": "shift-lead-pay",
+  "answer": "The hourly rate for a shift lead is Band C, which is \u00a314.75. [wages.md]",
+  "calls": 7,
+  "loose": true,
+  "strict": true,
+  "both_files": true,
+  "queries": [
+   "Review the introduction section of the staff handbook for general information on pay structures",
+   "Search for \"definition of shift lead in roles and responsibilities",
+   "Search for \"hourly rate shift lead"
+  ],
+  "files": [
+   "pay-bands.md",
+   "rota-swaps.md",
+   "shifts.md",
+   "wages.md",
+   "welcome.md"
+  ],
+  "plan": [
+   "Review the introduction section of the staff handbook for general information on pay structures",
+   "Check the section detailing roles and responsibilities to find the definition of a shift lead",
+   "Identify and note the hourly rate associated with the shift lead role"
+  ],
+  "notes": "not found\nnot found\nnot found"
+ },
+ {
+  "setup": "Plan",
+  "name": "shift-lead-pay",
+  "answer": "The hourly rate for a shift lead is \u00a314.75. [wages.md]",
+  "calls": 7,
+  "loose": true,
+  "strict": true,
+  "both_files": true,
+  "queries": [
+   "Review the compensation section of the staff handbook",
+   "shift lead responsibilities eligibility criteria",
+   "search handbook for \"hourly rate shift leads"
+  ],
+  "files": [
+   "accidents-and-incidents.md",
+   "forms.md",
+   "pay-bands.md",
+   "resignation.md",
+   "rota-swaps.md",
+   "shifts.md",
+   "staff-discount.md",
+   "wages.md"
+  ],
+  "plan": [
+   "Review the compensation section of the staff handbook",
+   "Check the shift lead responsibilities to confirm eligibility",
+   "Identify the hourly rate for shift leads as stated in the handbook"
+  ],
+  "notes": "not found\nnot found\nnot found"
+ },
+ {
+  "setup": "Plan",
+  "name": "shift-lead-pay",
+  "answer": "The hourly rate for a shift lead, who is in Band C, is \u00a314.75. [wages.md]",
+  "calls": 7,
+  "loose": true,
+  "strict": true,
+  "both_files": true,
+  "queries": [
+   "Review the staff handbook's compensation section",
+   "shift lead role description",
+   "Identify the specific hourly rate for shift leads"
+  ],
+  "files": [
+   "forms.md",
+   "pay-bands.md",
+   "resignation.md",
+   "rota-swaps.md",
+   "shifts.md",
+   "staff-discount.md",
+   "wages.md"
+  ],
+  "plan": [
+   "Review the staff handbook's compensation section",
+   "Check the shift lead role description",
+   "Identify the specific hourly rate for shift leads"
+  ],
+  "notes": "not found\nnot found\nnot found"
+ },
+ {
+  "setup": "Plan",
+  "name": "shift-lead-pay",
+  "answer": "I don't know. [wages.md] mentions Sunday hours and public holiday pay rates but does not specify an hourly rate for a shift lead.",
+  "calls": 7,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "Review the staff handbook's compensation section",
+   "handbook shift leads pay rate",
+   "specific hourly rates shift leads"
+  ],
+  "files": [
+   "forms.md",
+   "resignation.md",
+   "shifts.md",
+   "staff-discount.md",
+   "wages.md"
+  ],
+  "plan": [
+   "Review the staff handbook's compensation section",
+   "Check if the handbook specifies a general pay rate for shift leads",
+   "Identify if there are any specific hourly rates mentioned for shift leads"
+  ],
+  "notes": "not found\nnot found\nnot found"
+ },
+ {
+  "setup": "Plan",
+  "name": "shift-lead-pay",
+  "answer": "I don't know. [wages.md]",
+  "calls": 7,
+  "loose": false,
+  "strict": false,
+  "both_files": true,
+  "queries": [
+   "Check if the staff handbook mentions a specific hourly rate for shift leads",
+   "Search for \"wage structures\" and \"roles\" policies in the document",
+   "SELECT * FROM company_policies WHERE effective_date >= CURRENT_DATE AND (policy_type = 'Payment' OR policy_type = 'Shift Lead')"
+  ],
+  "files": [
+   "forms.md",
+   "log-old-mill-2025-04.md",
+   "log-station-2025-03.md",
+   "log-station-2025-06.md",
+   "pay-bands.md",
+   "shifts.md",
+   "staff-discount.md",
+   "wages.md"
+  ],
+  "plan": [
+   "Check if the staff handbook mentions a specific hourly rate for shift leads",
+   "Look for any policy or section that details wage structures or roles",
+   "Identify if there are any recent updates or changes to the payment policies that affect shift leads"
+  ],
+  "notes": "not found\nBand E is salaried, and Sunday hours are paid at time and a quarter, while hours worked on a public holiday are paid at time and a half.\nnot found"
+ },
+ {
+  "setup": "Plan",
+  "name": "lead-notice",
+  "answer": "You must give 4 weeks' notice when resigning as a shift lead, which is Band C staff. [resignation.md]",
+  "calls": 7,
+  "loose": true,
+  "strict": true,
+  "both_files": true,
+  "queries": [
+   "Review the resignation policy in the staff handbook",
+   "Band E staff resignation notice period",
+   "Band E resignation policy shift leads"
+  ],
+  "files": [
+   "annual-leave.md",
+   "log-old-mill-2025-04.md",
+   "log-station-2025-03.md",
+   "pay-bands.md",
+   "resignation.md",
+   "shifts.md",
+   "wages.md"
+  ],
+  "plan": [
+   "Review the resignation policy in the staff handbook",
+   "Check if the handbook specifies a standard notice period for shift leads",
+   "Determine if there are any specific clauses regarding shift leads in the resignation policy"
+  ],
+  "notes": "Band E staff must give 8 weeks' notice when resigning.\nnot found\nnot found"
+ },
+ {
+  "setup": "Plan",
+  "name": "lead-notice",
+  "answer": "You must give 8 weeks' notice when you resign, as you are a Band E staff member. [resignation.md]",
+  "calls": 7,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "Review the employee handbook for resignation policies",
+   "handbook notice period shift leads",
+   "company policies override resignation notice duration"
+  ],
+  "files": [
+   "annual-leave.md",
+   "complaints.md",
+   "forms.md",
+   "log-old-mill-2025-04.md",
+   "log-old-mill-2025-12.md",
+   "resignation.md",
+   "shifts.md"
+  ],
+  "plan": [
+   "Review the employee handbook for resignation policies",
+   "Check if the handbook specifies a notice period for shift leads",
+   "Determine if there are any additional company policies that override the handbook"
+  ],
+  "notes": "To resign, give your branch manager written notice, with the duration depending on your band: 2 weeks for Band A and Band B staff, 4 weeks for Band C and Band D staff, and 8 weeks for Band E staff.\nnot found\nnot found"
+ },
+ {
+  "setup": "Plan",
+  "name": "lead-notice",
+  "answer": "You must give 4 weeks' notice when resigning as a shift lead, which corresponds to Band C or Band D staff according to the excerpts. [resignation.md]",
+  "calls": 7,
+  "loose": true,
+  "strict": true,
+  "both_files": false,
+  "queries": [
+   "Step 1: Locate the section of the staff handbook that outlines resignation policies",
+   "specific notice period required for shift leads leaving Quillon",
+   "Quillon resignation exceptions additional requirements"
+  ],
+  "files": [
+   "forms.md",
+   "resignation.md",
+   "shifts.md",
+   "welcome.md"
+  ],
+  "plan": [
+   "Step 1: Locate the section of the staff handbook that outlines resignation policies",
+   "Step 2: Identify the specific notice period required for shift leads",
+   "Step 3: Verify if there are any exceptions or additional requirements mentioned for resignations"
+  ],
+  "notes": "# Leaving Quillon\nnot found\nnot found"
+ },
+ {
+  "setup": "Plan",
+  "name": "lead-notice",
+  "answer": "You must give 4 weeks' notice when you resign. [resignation.md]",
+  "calls": 7,
+  "loose": true,
+  "strict": true,
+  "both_files": true,
+  "queries": [
+   "Step 1: Review the resignation policy section of the staff handbook",
+   "Identify notice period requirements for shift leads from given staff bands",
+   "Search query: \"Band C staff resignation notice period exceptions"
+  ],
+  "files": [
+   "annual-leave.md",
+   "log-station-2025-06.md",
+   "log-station-2025-10.md",
+   "pay-bands.md",
+   "resignation.md",
+   "shifts.md"
+  ],
+  "plan": [
+   "Step 1: Review the resignation policy section of the staff handbook",
+   "Step 2: Identify any specific notice period requirements for shift leads",
+   "Step 3: Confirm if there are any exceptions or additional guidelines for resignations"
+  ],
+  "notes": "To resign, give your branch manager written notice: Band A and Band B staff must give 2 weeks, Band C and Band D staff must give 4 weeks, and Band E staff must give 8 weeks.\nBand C staff, which includes shift leads, must give 4 weeks' notice.\nnot found"
+ },
+ {
+  "setup": "Plan",
+  "name": "lead-notice",
+  "answer": "Band E staff must give 8 weeks' notice when resigning. [resignation.md]",
+  "calls": 7,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "Review the staff handbook for the resignation policy",
+   "Band E staff notice period shift leads",
+   "Band E resignation notice period"
+  ],
+  "files": [
+   "annual-leave.md",
+   "log-old-mill-2025-04.md",
+   "resignation.md",
+   "shifts.md",
+   "wages.md"
+  ],
+  "plan": [
+   "Review the staff handbook for the resignation policy",
+   "Check if the handbook specifies a minimum notice period for shift leads",
+   "Identify if there are any exceptions or additional requirements for the resignation notice"
+  ],
+  "notes": "Band E staff must give 8 weeks' notice when resigning.\nnot found\nBand E staff must give 8 weeks' notice to resign."
+ },
+ {
+  "setup": "Plan",
+  "name": "old-mill-repair",
+  "answer": "I don't know. [equipment-repairs.md] mentions contacting the equipment service contractor for repairs but does not provide a specific name or phone number for the Old Mill branch.",
+  "calls": 7,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "Step 1: Find the contact information for maintenance or facilities management",
+   "Search for \"specific contact person for grinder repairs",
+   "Search for \"maintenance phone number\" or \"facilities team contact number"
+  ],
+  "files": [
+   "complaints.md",
+   "equipment-repairs.md",
+   "grinder-errors.md",
+   "log-station-2025-02.md",
+   "log-station-2025-08.md"
+  ],
+  "plan": [
+   "Step 1: Find the contact information for maintenance or facilities management",
+   "Step 2: Identify if there is a specific contact person for grinder repairs",
+   "Step 3: Locate the phone number for the maintenance or facilities team"
+  ],
+  "notes": "not found\nnot found\nnot found"
+ },
+ {
+  "setup": "Plan",
+  "name": "old-mill-repair",
+  "answer": "I don't know. [The provided excerpts do not include the equipment service contractor information for Old Mill specifically, nor do they provide a contact number for reporting repairs.]",
+  "calls": 7,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "Step 1: Find the contact information for the maintenance department",
+   "Search for \"person responsible for grinder repairs",
+   "Determine preferred contact method (phone/email) for repair person"
+  ],
+  "files": [
+   "complaints.md",
+   "data-protection.md",
+   "equipment-repairs.md",
+   "grinder-errors.md",
+   "log-riverside-2025-08.md",
+   "log-station-2025-02.md"
+  ],
+  "plan": [
+   "Step 1: Find the contact information for the maintenance department",
+   "Step 2: Identify the specific person responsible for grinder repairs",
+   "Step 3: Determine the preferred method of contacting the repair person, such as phone or email"
+  ],
+  "notes": "not found\nnot found\nnot found"
+ },
+ {
+  "setup": "Plan",
+  "name": "old-mill-repair",
+  "answer": "You should call the equipment service contractor Tidewater Espresso Service at 0300 555 0142 to repair the grinder at the Old Mill branch. [log-old-mill-2025-10.md]",
+  "calls": 7,
+  "loose": true,
+  "strict": true,
+  "both_files": true,
+  "queries": [
+   "Is there a specific maintenance department listed for Old Mill in the staff handbook?",
+   "Search for \"maintenance department contact information",
+   "Old Mill emergency repairs after-hours contact"
+  ],
+  "files": [
+   "branch-old-mill.md",
+   "equipment-repairs.md",
+   "log-old-mill-2025-04.md",
+   "log-old-mill-2025-06.md",
+   "log-old-mill-2025-10.md",
+   "log-station-2025-02.md",
+   "log-station-2025-08.md"
+  ],
+  "plan": [
+   "Is there a specific maintenance department listed for Old Mill in the staff handbook?",
+   "What is the contact information for the maintenance department?",
+   "Are there any designated after-hours contact numbers for emergency repairs at Old Mill?"
+  ],
+  "notes": "not found\nnot found\nnot found"
+ },
+ {
+  "setup": "Plan",
+  "name": "old-mill-repair",
+  "answer": "I don't know. [equipment-repairs.md] mentions contacting an equipment service contractor for repairs but does not provide a specific name or phone number for the Old Mill branch.",
+  "calls": 7,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "Check the maintenance section for contact information",
+   "identify specific appliance repair number",
+   "Search for contact person for grinder repairs"
+  ],
+  "files": [
+   "complaints.md",
+   "equipment-repairs.md",
+   "grinder-errors.md",
+   "log-station-2025-02.md"
+  ],
+  "plan": [
+   "Check the maintenance section for contact information",
+   "Identify the specific number for appliance repairs",
+   "Note the name of the contact person for grinder repairs"
+  ],
+  "notes": "not found\nnot found\nnot found"
+ },
+ {
+  "setup": "Plan",
+  "name": "old-mill-repair",
+  "answer": "I don't know. The provided excerpts do not specify the name or contact number of the equipment service contractor for the Old Mill branch. [equipment-repairs.md] mentions contacting the contractor but does not provide their contact information.",
+  "calls": 7,
+  "loose": false,
+  "strict": false,
+  "both_files": false,
+  "queries": [
+   "The contact information for maintenance services",
+   "site:grinder-repairs.com contact name",
+   "search for maintenance services number"
+  ],
+  "files": [
+   "equipment-repairs.md",
+   "grinder-errors.md",
+   "log-harbour-2025-04.md",
+   "log-station-2025-02.md",
+   "log-station-2025-03.md"
+  ],
+  "plan": [
+   "The contact information for maintenance services",
+   "The specific contact name for grinder repairs",
+   "The number associated with maintenance services"
+  ],
+  "notes": "not found\nnot found\nnot found"
+ }
+]

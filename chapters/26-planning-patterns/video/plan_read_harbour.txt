@@ -1,0 +1,40 @@
+FAIL: You need to arrive by 06:30 on a Monday. [branch-harbour.md]
+    search: The operating hours for the Harbour branch
+    search: What is the recommended arrival time for the Harbour branch on opening day?
+    search: Search for "Harbour branch manager contact information
+FAIL: You need to arrive by 06:30 on a Monday. [branch-harbour.md]
+    search: The operating hours for the Harbour branch
+    search: What is the recommended arrival time for staff opening the Harbour branch on weekdays and weekends?
+    search: Harbour branch opening hours Monday to Friday and Saturday and Sunday
+FAIL: You need to arrive by 06:30 on a Monday, as the branch is open from 06:30 to 16:00 on weekdays. [branch-harbour.md]
+    search: The operating hours for the Harbour branch
+    search: Harbour branch operating hours Monday to Friday and weekends
+    search: What is the recommended arrival time for staff at the Harbour branch, considering it is busiest in t
+FAIL: You need to arrive by 06:30 on a Monday to open the Harbour branch. [branch-harbour.md]
+    search: The operating hours for the Harbour branch
+    search: Harbour branch Monday opening and closing times
+    search: What are the opening hours for the Harbour branch on Mondays?
+FAIL: You need to arrive by 06:30 on a Monday. [branch-harbour.md]
+    search: The operating hours for the Harbour branch
+    search: What is the recommended arrival time for staff opening the Harbour branch on weekdays and weekends?
+    search: Search for "Harbour branch manager contact details
+FAIL: You need to arrive by 06:30 on Mondays. [branch-harbour.md]
+    search: The opening hours for the Harbour branch on Mondays
+    search: Harbour branch manager recommended arrival time on Mondays
+    search: Harbour branch opening procedures on Mondays
+FAIL: You need to arrive by 06:30 on a Monday, as that is the opening time for the Harbour branch. [branch-harbour.md]
+    search: Step 1: Determine the official opening hours for the Harbour branch
+    search: Search for "Harbour branch opening staff arrival time policy
+    search: What is the recommended arrival time considering a 30-minute preparation time before the official op
+FAIL: You need to arrive by 06:30 on a Monday. [branch-harbour.md]
+    search: The operating hours for the Harbour branch on Mondays
+    search: Search for "Harbour branch opening hours Monday
+    search: Search query: "Harbour branch opening hours on Mondays
+FAIL: You need to arrive by 06:30 on a Monday. [branch-harbour.md]
+    search: Step 1: Determine the official opening hours for the Harbour branch
+    search: Harbour branch opening staff arrival time based on standard procedures 06:30-16:00 Mon-Fri, 07:30-15
+    search: Are there any specific opening instructions for the Harbour branch on Mondays?
+FAIL: You need to arrive by 06:30 on a Monday. [branch-harbour.md]
+    search: The operating hours for the Harbour branch on Mondays
+    search: Search for "Harbour branch operating hours Monday
+    search: What is the recommended buffer time before opening for the Harbour branch on Mondays?

@@ -1,0 +1,9 @@
+$ python3 job_restart.py
+DONE
+$ cat bank.jsonl
+{"order": "QC-101", "amount": 4.5}
+{"order": "QC-102", "amount": 12.0}
+{"order": "QC-103", "amount": 3.2}
+{"order": "QC-104", "amount": 7.75}
+{"order": "QC-105", "amount": 18.4}
+{"order": "QC-106", "amount": 5.1}

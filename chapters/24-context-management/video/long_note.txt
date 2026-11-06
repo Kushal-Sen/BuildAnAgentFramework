@@ -1,0 +1,6 @@
+Run 1: one note, about 805 tokens
+  Starts: # Summary of Key Information  - **Uniform**: Staff must wear a white t-shirt with the Quillon logo, black trousers or a black skirt, and black shoes. 
+Run 2: one note, about 784 tokens
+  Starts: # Accidents and incidents - Any injury, even minor, must be reported on form IR-7 before the end of the shift. - Branch managers send the form to Ines
+Run 3: one note, about 1,183 tokens
+  Starts: # Summary of Key Information from the Handbook for Branches  ## Old Mill Branch - **Address**: The Old Mill, Weir Lane. - **Manager**: Ravi Nair. - **

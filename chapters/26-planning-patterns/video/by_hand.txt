@@ -1,0 +1,8 @@
+Search: What band is a shift lead?
+  [pay-bands.md] # Job roles and bands Every role belongs to a band. - Trainee barista: Band A - Barista: Band B - Senior barista: Band C - Shift lead: Band C - Assist
+  [rota-swaps.md] # Swapping a shift You may swap a shift with a colleague of the same band or higher, as long as the swap doesn't take either person above 48 hours in 
+  [rota-swaps.md] Swapping a shift Post the swap in StaffHub at least 24 hours before the shift. It is confirmed only when the other person accepts and your manager app
+Search: How much notice does Band C give?
+  [resignation.md] # Leaving Quillon To resign, give your branch manager written notice. Band A and Band B staff must give 2 weeks. Band C and Band D staff must give 4 w
+  [wages.md] Wages Band E is salaried. Sunday hours are paid at time and a quarter. Hours worked on a public holiday are paid at time and a half. If your pay looks
+  [bereavement-leave.md] # Bereavement leave If a close relative dies, you may take up to 5 days of paid leave. A close relative means a partner, child, parent or sibling. For

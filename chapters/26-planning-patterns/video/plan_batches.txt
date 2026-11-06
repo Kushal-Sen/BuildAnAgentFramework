@@ -1,0 +1,5 @@
+Setup               Strict      Earned   (first batch, second batch, 30 runs each)
+Plain agent         11, 10        0,  0
+Split               10, 10        8,  8
+Step by step         5,  5        0,  0
+Plan                10, 10        8,  6

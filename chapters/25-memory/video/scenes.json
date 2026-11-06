@@ -1,0 +1,519 @@
+{
+ "chapter": "Chapter 25",
+ "scenes": [
+  {
+   "type": "recap",
+   "title": "Previously: context management",
+   "flow": [
+    "Count what you send",
+    "Trim chooses what to lose",
+    "One summary looked perfect",
+    "Summaries lose facts"
+   ],
+   "captions": [
+    {
+     "text": "Recap of chapter 24: a long chat loses its oldest messages, with no error.",
+     "secs": 8,
+     "focus": 0
+    },
+    {
+     "text": "Trim keeps you in budget by choosing what to lose.",
+     "secs": 7,
+     "focus": 1
+    },
+    {
+     "text": "Summarise looked perfect on a short test.",
+     "secs": 7,
+     "focus": 2
+    },
+    {
+     "text": "On a long chat it wasn't. Summaries lose the facts that matter.",
+     "secs": 8,
+     "focus": 3
+    }
+   ]
+  },
+  {
+   "type": "box",
+   "label": "Memory",
+   "inner": [
+    "notes on disk",
+    "the user's words",
+    "kept in order"
+   ],
+   "captions": [
+    {
+     "text": "Today's black box: facts about a person that outlive the conversation.",
+     "secs": 6
+    },
+    {
+     "text": "Let's open it. But first, watch a new session forget someone.",
+     "secs": 5,
+     "open": true,
+     "shot": "01-box"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/forgot.py",
+   "start": "history = told_it()",
+   "end": "print(\"New session: \"",
+   "output": "video/forgot.txt",
+   "captions": [
+    {
+     "text": "Meet Hana, who's made up for this chapter. She tells the agent her locker number. Then we ask twice.",
+     "secs": 8,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "The only difference is history. Predict: what will the new session say?",
+     "secs": 7,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Same session: 212. New session: it has no idea.",
+     "secs": 7,
+     "focus": null,
+     "lines": 3,
+     "shot": "02-forgot"
+    },
+    {
+     "text": "5 of 5 against 0 of 5. No error. The messages list simply ended with the run.",
+     "secs": 8,
+     "focus": null,
+     "lines": 4
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/all_at_once.py",
+   "start": "for block in blocks:",
+   "end": "empty +=",
+   "output": "video/all_at_once_short.txt",
+   "captions": [
+    {
+     "text": "The obvious fix: when the chat ends, ask the model for the facts. 36 messages, 12 facts.",
+     "secs": 8,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "10 of 12, and never NONE. Better than we expected, on this chat.",
+     "secs": 7,
+     "focus": null,
+     "lines": 5
+    },
+    {
+     "text": "But Marek's flu isn't about Hana. And her question became a rule: \"Can carry leave over\".",
+     "secs": 9,
+     "focus": null,
+     "lines": 12,
+     "shot": "03-all-at-once"
+    },
+    {
+     "text": "And if the program dies first, nothing's saved. So decide message by message. But who decides?",
+     "secs": 8,
+     "focus": null,
+     "lines": 12
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/who_decides.py",
+   "start": "if said[\"latest\"] not in notes",
+   "end": "return \"Saved.\"",
+   "output": "video/read_notes.txt",
+   "captions": [
+    {
+     "text": "Three setups. Code checks every message. Or a remember tool saves the model's words.",
+     "secs": 8,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Or the same tool, and the code saves what she said. Predict: which remembers most?",
+     "secs": 8,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Code checks: 39 of 60, nothing unwanted. The model's words: 50. Her words: 59.",
+     "secs": 8,
+     "focus": null,
+     "lines": 5,
+     "shot": "04-who"
+    },
+    {
+     "text": "Ignore the Memory row for now. Code checks never kept the knee, allergy, trip or badge.",
+     "secs": 8,
+     "focus": null,
+     "lines": 12
+    },
+    {
+     "text": "It's one chat. Treat that gap as something to explain, not as a ranking.",
+     "secs": 6,
+     "focus": null,
+     "lines": 12
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/read_notes.py",
+   "start": "if len(sys.argv) > 1:",
+   "end": "print(f\"{unwanted.count(note)}",
+   "output": "video/unwanted_model.txt",
+   "captions": [
+    {
+     "text": "So read the notes. Unwanted ones are mostly noise, about other people and deliveries.",
+     "secs": 8,
+     "focus": null,
+     "lines": 12
+    },
+    {
+     "text": "But look: \"The flapjack contains nuts.\" Hana only asked if it did. 1 run in 5.",
+     "secs": 8,
+     "focus": null,
+     "lines": 12,
+     "shot": "05-flapjack"
+    },
+    {
+     "text": "Rewriting lets the model invent. Her own words can't. That's the difference, not the count.",
+     "secs": 8,
+     "focus": null,
+     "lines": 12
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/rewritten.py",
+   "start": "for text in chat():",
+   "end": "notes += [line",
+   "output": "video/rewritten.txt",
+   "captions": [
+    {
+     "text": "A quieter danger. Save the model's line, and tell it to copy numbers exactly.",
+     "secs": 7,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Your locker number is 5093, in all 5 runs. That's her staff number.",
+     "secs": 8,
+     "focus": null,
+     "lines": 6
+    },
+    {
+     "text": "It copied 212 exactly, and dropped the word locker. The label was the fact.",
+     "secs": 8,
+     "focus": null,
+     "lines": 16,
+     "shot": "06-bare"
+    },
+    {
+     "text": "Thursdays lost \"can't\". Monday became a day off. Her sentence had both parts.",
+     "secs": 8,
+     "focus": null,
+     "lines": 16
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/wording.py",
+   "start": "NO_RULE = CHECK",
+   "end": "}",
+   "output": "video/wording.txt",
+   "captions": [
+    {
+     "text": "Be fair to code checks. Is it the rule, \"A question is not a fact\"? Predict.",
+     "secs": 7,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Removing the rule hardly moved it. \"Even in passing\" picked all 12 facts.",
+     "secs": 8,
+     "focus": null,
+     "lines": 5,
+     "shot": "07-wording"
+    },
+    {
+     "text": "So one phrase did much of that gap. We wrote it after reading these failures, so it's a direction.",
+     "secs": 9,
+     "focus": null,
+     "lines": 5
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/whitebox/memory.py",
+   "start": "def tool(self)",
+   "end": "return remember",
+   "captions": [
+    {
+     "text": "Here's the finished class. The model gets a tool called remember.",
+     "secs": 6,
+     "focus": null
+    },
+    {
+     "text": "Read it closely. It never uses fact. The model's words can't reach the file.",
+     "secs": 8,
+     "focus": [
+      "def remember",
+      "self.add(self.latest)"
+     ],
+     "shot": "08-tool"
+    },
+    {
+     "text": "self.latest is what she just said. A before_model hook keeps it up to date.",
+     "secs": 7,
+     "focus": [
+      "self.add(self.latest)",
+      "self.add(self.latest)"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/whitebox/memory.py",
+   "start": "def add(self, text)",
+   "end": "os.replace(temporary",
+   "captions": [
+    {
+     "text": "append keeps the notes oldest first. Remember that line.",
+     "secs": 6,
+     "focus": [
+      "self.notes.append",
+      "self.notes.append"
+     ]
+    },
+    {
+     "text": "The line above takes out a repeat, so it moves to the end. The newest note wins.",
+     "secs": 8,
+     "focus": [
+      "self.notes = [note",
+      "self.notes.append"
+     ]
+    },
+    {
+     "text": "Write a temporary file, then os.replace swaps it in, in one step. A crash can't leave half a file.",
+     "secs": 9,
+     "focus": [
+      "temporary =",
+      "os.replace"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/session_one.py",
+   "start": "result = agent.run(text, history)",
+   "end": "print(f\"{len(memory.notes)}",
+   "output": "video/session_one_short.txt",
+   "captions": [
+    {
+     "text": "A short session with Memory. Predict: which messages get saved?",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "It's a JSON file you can open. Her words, and the date.",
+     "secs": 7,
+     "focus": null,
+     "lines": 15,
+     "shot": "09-file"
+    },
+    {
+     "text": "But \"Can't do Thursdays\" wasn't saved. No error. That's the price of letting the model decide.",
+     "secs": 9,
+     "focus": null,
+     "lines": 15
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/session_two.py",
+   "start": "memory = Memory(\"hana.json\")",
+   "end": "print(f\"Read",
+   "output": "video/session_two.txt",
+   "captions": [
+    {
+     "text": "A new program, and all it has is the file. Predict: which questions will it get?",
+     "secs": 7,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "Locker 5 of 5, against 0 of 5 before. Old Mill came along in her words.",
+     "secs": 8,
+     "focus": null,
+     "lines": 9,
+     "shot": "10-read-back"
+    },
+    {
+     "text": "Thursdays: 0 of 5. It can't know what was never saved.",
+     "secs": 7,
+     "focus": null,
+     "lines": 9
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/whole_chat.py",
+   "start": "for text in chat():",
+   "end": "answers = recall",
+   "output": "video/whole_chat.txt",
+   "captions": [
+    {
+     "text": "The finished class on all 36 messages, five times.",
+     "secs": 6,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "57 of 60, with 2 or 3 unwanted notes, every one in her words. Too close to 59 to rank.",
+     "secs": 9,
+     "focus": null,
+     "lines": 6,
+     "shot": "11-whole"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/stale_notes.py",
+   "start": "measure(model, \"12 in order\"",
+   "end": "measure(model, \"12 replacing old\"",
+   "output": "video/stale_notes.txt",
+   "captions": [
+    {
+     "text": "Now facts change. Hana moves branch, and both notes stay. 60 notes. Predict: what goes stale?",
+     "secs": 8,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "In order: 20 of 20, nothing stale, at 12 notes and at 60.",
+     "secs": 7,
+     "focus": null,
+     "lines": 4
+    },
+    {
+     "text": "Backwards: 10 stale. Shuffled: 2, and every stale answer had the old note last.",
+     "secs": 9,
+     "focus": null,
+     "lines": 8,
+     "shot": "12-stale"
+    },
+    {
+     "text": "Dates didn't clearly help. And they cost more tokens.",
+     "secs": 6,
+     "focus": null,
+     "lines": 8
+    },
+    {
+     "text": "Replacing took 35 calls, missed 2 of 4 changes, and lost the old branch: before 0 of 5.",
+     "secs": 9,
+     "focus": null,
+     "lines": 11
+    },
+    {
+     "text": "So order is a fact your code already knows. And 60 notes is under 1,000 tokens, so no search.",
+     "secs": 9,
+     "focus": null,
+     "lines": 11
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/weak_spots.py",
+   "start": "for text in said:",
+   "end": "memory.add(text)",
+   "output": "video/weak_spots.txt",
+   "captions": [
+    {
+     "text": "Two weak spots. She says something, changes it, then says it again. Predict the answer.",
+     "secs": 8,
+     "focus": null,
+     "lines": 0
+    },
+    {
+     "text": "The repeat moved to the end, and 4 of 5 runs gave 212. One asked her to clear it up.",
+     "secs": 8,
+     "focus": null,
+     "lines": 7,
+     "shot": "13-weak"
+    },
+    {
+     "text": "With Thursdays the order is right too, and every answer calls it a change or a mix-up. Order helps. It doesn't decide.",
+     "secs": 9,
+     "focus": null,
+     "lines": 13
+    },
+    {
+     "text": "And a note can be \"Please save that\". Not in this run, but in 2 of our 15.",
+     "secs": 8,
+     "focus": null,
+     "lines": 17
+    }
+   ]
+  },
+  {
+   "type": "term",
+   "file": "video/exercise_output.txt",
+   "final": "5 passed",
+   "captions": [
+    {
+     "text": "Your turn. Open exercises.py and complete the five TODOs.",
+     "secs": 6,
+     "lines": 8
+    },
+    {
+     "text": "You've finished when you see 5 passed.",
+     "secs": 6,
+     "lines": 13,
+     "shot": "14-exercises"
+    }
+   ]
+  },
+  {
+   "type": "end",
+   "title": "You opened Memory.",
+   "points": [
+    "Notes in a JSON file",
+    "The model says when",
+    "The code keeps her words",
+    "Oldest first, in code"
+   ],
+   "next": "Next: Chapter 26, planning patterns",
+   "captions": [
+    {
+     "text": "A new session has only what you give it, so write notes to disk.",
+     "secs": 7
+    },
+    {
+     "text": "The model makes the call. The code keeps the facts and the order.",
+     "secs": 7
+    },
+    {
+     "text": "We tested one person and one 7B model. Measure yours.",
+     "secs": 6
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+Before: 91 messages, about 5,355 tokens
+After:  25 messages, about 2,670 tokens
+The note:
+Hello Priya,
+
+You work at the Harbour branch with staff number 4471. You can't work on Tuesdays due to your college course. Here are some key points from the handbook:
+
+- **Accidents and Incidents**: Report any injury or near miss on form IR-7 before the end of the shift. Branch manager sends it to Ines Duarte within 24 hours.
+- **Allergens**: Handle milk, soya, nuts, gluten, egg, and sesame. Always check the allergen folder and use clean utensils. Almond croissant and seeded flapjack are high-r
+
+pass  What's my name?  Your name is Priya. How can I assist you further with your s
+pass  What's my staff number?  Your staff number is 4471. Cheers
+pass  Which day can't I work?  According to your information, you can't work on Tuesdays du
+pass  What's my manager called?  Your manager is Tomasz. Cheers
+pass  What time does my shift start tomorrow?  Your shift starts at 06:30 tomorrow. Remember to arrive 10 m

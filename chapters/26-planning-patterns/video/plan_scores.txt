@@ -1,0 +1,6 @@
+Setup          Strict  Earned  Calls  Searches  Calls per earned
+Plain agent        21       0    2.0       1.1                 -
+Split              20      16    2.0       2.8               7.5
+Step by step       10       0    3.0       1.0                 -
+Plan               20      14    7.0       3.0              30.0
+60 runs each. Calls and Searches are per run.

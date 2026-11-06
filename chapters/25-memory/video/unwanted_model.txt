@@ -1,0 +1,12 @@
+$ python3 read_notes.py "model's words"
+Unwanted notes in model's words, with how many runs saved each:
+4  A blue scarf was left on table 4.
+4  Harbour was packed when I dropped in earlier.
+1  Harbour was packed when the user dropped in earlier.
+4  Marek is off with flu.
+1  Marek is off with the flu.
+1  The flapjack contains nuts.
+1  The oat milk delivery arrived two hours late today.
+4  The oat milk delivery was two hours late today.
+1  The user asked about logging waste.
+1  The user asked about the staff discount on bags of beans.

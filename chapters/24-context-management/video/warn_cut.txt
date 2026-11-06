@@ -1,0 +1,6 @@
+Default window
+whitebox/context.py:43: UserWarning: Sent about 5317 tokens, but the model read 4021.
+  warnings.warn(f"Sent about {self.sent} tokens, but the model read {reply.tokens_in}.")
+  Answer: I'm here to assist with information from the handbook and provide guidance, but I don't have access to personal information like your staff number. If you need to find your staff number, you can check your staff card or log in to StaffHub. If you're unsure and need to contact someone for assistance, you can reach out to your branch manager or Tomas Weir. Cheers!
+num_ctx 16384
+  Answer: Your staff number is 4471. If you need any more information or assistance, feel free to ask! Cheers

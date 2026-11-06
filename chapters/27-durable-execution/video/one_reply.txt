@@ -1,0 +1,6 @@
+$ python3 one_reply.py
+run 1: 1 list_refunds | 77 issue_refund | Refunded QC-106. DON | bank: 77 payments, 0 unpaid
+run 2: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid
+run 3: 1 list_refunds | 7 issue_refund | DONE | bank: 7 payments, 0 unpaid
+run 4: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid
+run 5: 1 list_refunds | 6 issue_refund | DONE | bank: 6 payments, 0 unpaid

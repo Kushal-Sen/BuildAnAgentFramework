@@ -1,0 +1,18 @@
+$ python3 weak_spots.py
+Notes kept: ['My locker is number 87.', 'My locker is number 212.']
+   Your locker number is 212.
+   Your locker number is 212. The previous statement about locker number 87 appears to be a correction 
+   It seems there's a bit of a mix-up there. You mentioned your locker is number 87 and then 212. Could
+   Based on the information you provided, your locker number is 212. The earlier locker number you ment
+   Your locker number is 212. It appears there was a change from 87 to 212.
+Notes kept: ['Thursdays are fine now.', "Can't do Thursdays."]
+   Based on the information provided, it seems there was a change in availability for Thursdays. Initia
+   Based on the information provided, it seems there was a change in availability for Thursdays. Initia
+   Based on the information you provided, it seems there was a change in availability for Thursdays. In
+   It seems there might be a bit of a mix-up. Previously, you mentioned "Can't do Thursdays" and later 
+   It seems there's a bit of a mix-up with Thursdays. Earlier, you mentioned "Can't do Thursdays," but 
+run 1: ["Can't do Thursdays, I've got a night class in bookkeeping."]
+run 2: ["Can't do Thursdays, I've got a night class in bookkeeping."]
+run 3: ["Can't do Thursdays, I've got a night class in bookkeeping."]
+run 4: ["Can't do Thursdays, I've got a night class in bookkeeping."]
+run 5: ["Can't do Thursdays, I've got a night class in bookkeeping."]

@@ -1,0 +1,94 @@
+{
+  "chapter": "Chapter 24",
+  "scenes": [
+    {"type": "recap", "title": "Previously: Part 4", "flow": ["Search by meaning", "Chunk, search, ask once", "Chapter 20's silent cut", "The agent writes the query"], "captions": [
+      {"text": "Recap of Part 4: embeddings let you search a handbook by meaning.", "secs": 7, "focus": 0},
+      {"text": "RAG cut documents into chunks, searched them, and asked the model once.", "secs": 7, "focus": 1},
+      {"text": "Why chunk? Because text that doesn't fit the window is cut, with no error.", "secs": 8, "focus": 2},
+      {"text": "Then the agent took over the search. All of those were short runs.", "secs": 8, "focus": 3}
+    ]},
+    {"type": "box", "label": "Context management", "inner": ["a token budget", "+ a warning", "+ trim or summarise"], "captions": [
+      {"text": "Today's black box: keeping a long chat inside the window.", "secs": 5},
+      {"text": "Let's open it. But first, a chat that forgets.", "secs": 5, "open": true, "shot": "01-box"}
+    ]},
+    {"type": "demo", "file": "code/long_chat.py", "start": "for handbook_turns in (0, 40)", "end": "Answer: {reply.content}", "output": "video/long_chat.txt", "captions": [
+      {"text": "Priya gives her staff number, then asks 40 handbook questions. The whole chat is sent each time.", "secs": 9, "focus": null, "lines": 0},
+      {"text": "Predict: will the assistant find the number both times?", "secs": 6, "focus": null, "lines": 0},
+      {"text": "Early on, yes. After 43 turns, it says it can't know. No error, no warning.", "secs": 9, "focus": null, "lines": 6, "shot": "02-forgets"}
+    ]},
+    {"type": "code", "file": "code/whitebox/context.py", "start": "def estimate_tokens", "end": "return sum(estimate_tokens", "captions": [
+      {"text": "You can't manage what you don't measure. About four characters a token, plus a little.", "secs": 8, "focus": ["return len(message", "return len(message"]},
+      {"text": "It's free, with no model call. Add it up, and you know what you're sending.", "secs": 7, "focus": ["def total_tokens", "return sum"]}
+    ]},
+    {"type": "demo", "file": "code/count_chat.py", "start": "# One token of reply", "end": "real = model.chat", "output": "video/count_chat.txt", "captions": [
+      {"text": "How rough is it? Compare it with the model's own count, in a big window.", "secs": 7, "focus": null, "lines": 0},
+      {"text": "Within 1% on the long chats. It's a rule of thumb for English prose, so check yours.", "secs": 8, "focus": null, "lines": 6, "shot": "03-count"}
+    ]},
+    {"type": "demo", "file": "code/find_cut.py", "start": "for _, question, word in QUESTIONS", "end": "rule += \"cheers\"", "output": "video/find_cut.txt", "captions": [
+      {"text": "Grow the chat. Ask for three facts, five times each. Predict: a slow fade, or a cliff?", "secs": 9, "focus": null, "lines": 0},
+      {"text": "Perfect up to 2,755 tokens.", "secs": 5, "focus": null, "lines": 5},
+      {"text": "Then 0 of 15. We sent about 5,300, and the model read about 4,000. That's the window.", "secs": 9, "focus": null, "lines": 6, "shot": "04-cliff"},
+      {"text": "The same chat at num_ctx 16384 scores 15 of 15. And Cheers survived every run.", "secs": 8, "focus": null, "lines": 7},
+      {"text": "So the rules stayed, and the oldest messages went. It keeps its manners and loses its memory.", "secs": 9, "focus": null, "lines": 7}
+    ]},
+    {"type": "code", "file": "code/whitebox/context.py", "start": "class CutWarning", "end": "warnings.warn(", "captions": [
+      {"text": "First, stop the silence. CutWarning is a hook, and it counts what you sent.", "secs": 7, "focus": ["def before_model", "self.sent ="]},
+      {"text": "Afterwards it compares that with what the model read. 0.9 leaves room for a rough count.", "secs": 8, "focus": ["def after_model", "warnings.warn("]}
+    ]},
+    {"type": "demo", "file": "code/warn_cut.py", "start": "for label, options in", "end": "print(\"  Answer:\"", "output": "video/warn_cut.txt", "captions": [
+      {"text": "The 43-turn chat again, through an Agent, using history.", "secs": 6, "focus": null, "lines": 0},
+      {"text": "It spoke up on the real cut, and it stayed quiet at the bigger window.", "secs": 8, "focus": null, "lines": 6, "shot": "05-warning"}
+    ]},
+    {"type": "code", "file": "code/whitebox/context.py", "start": "class Trim", "end": "messages[:] = system", "captions": [
+      {"text": "If something must go, choose what. A token budget is a number you pick, below the window.", "secs": 8, "focus": null},
+      {"text": "Trim pins the system message, and keeps the newest messages that fit.", "secs": 7, "focus": ["system, rest", "messages[:] = system"]}
+    ]},
+    {"type": "demo", "file": "code/trim_chat.py", "start": "messages = staff_chat(40)", "end": "print(f\"After:", "output": "video/trim_chat.txt", "captions": [
+      {"text": "Trim to 3,000 tokens. Predict: will it find the staff number now?", "secs": 7, "focus": null, "lines": 0},
+      {"text": "The budget held. The number is still gone, because old is what you told Trim to remove.", "secs": 9, "focus": null, "lines": 6, "shot": "06-trim"},
+      {"text": "Trim gives you control, not memory.", "secs": 5, "focus": null, "lines": 6}
+    ]},
+    {"type": "code", "file": "code/whitebox/context.py", "start": "keep = newest(messages[1:], self.budget // 2)", "end": "messages[:] = [Message(\"system\", system + NOTE", "captions": [
+      {"text": "So don't throw old messages away. Keep the newest word for word, and summarise the rest.", "secs": 8, "focus": ["keep = newest", "older = "]},
+      {"text": "If there's a note already, it goes in too, so there's only ever one.", "secs": 7, "focus": ["system, _, note", "text = f"]},
+      {"text": "The model writes the note, and the note joins the system message.", "secs": 7, "focus": ["reply = self.model", "messages[:] ="]}
+    ]},
+    {"type": "demo", "file": "code/short_test.py", "start": "if label == \"nothing\"", "end": "return chat, Agent(model, options=OPTIONS)", "output": "video/short_test.txt", "captions": [
+      {"text": "A short test: 45 turns, five facts, five runs. Predict: which setups get all 25?", "secs": 8, "focus": null, "lines": 0},
+      {"text": "Nothing and Trim tie at 10. Both lose the three oldest facts.", "secs": 7, "focus": null, "lines": 4},
+      {"text": "A bigger window and one Summarise both get 25. It looks perfect.", "secs": 8, "focus": null, "lines": 5, "shot": "07-short"}
+    ]},
+    {"type": "demo", "file": "code/long_test.py", "start": "for question, answer in long_turns()", "end": "messages.append(Message(\"assistant\"", "output": "video/long_sizes.txt", "captions": [
+      {"text": "Now 120 turns and twelve facts, summarised again and again. Predict: how many of 36 come back?", "secs": 9, "focus": null, "lines": 0},
+      {"text": "Look at summarise. 12 to 14 summaries, and Sent stays about 3,000. The budget held.", "secs": 9, "focus": null, "lines": 7, "shot": "08-budget"},
+      {"text": "And it got 1 or 2 of 12 right.", "secs": 6, "focus": null, "lines": 7}
+    ]},
+    {"type": "demo", "file": "code/long_test.py", "start": "for name, _, question, word in FACTS", "end": "rows.append(", "output": "video/long_scores.txt", "captions": [
+      {"text": "Fact by fact: 5 of 36. Only 2 notes of 36 held a personal fact.", "secs": 8, "focus": null, "lines": 15, "shot": "10-facts"},
+      {"text": "shift passed because it's still in the chat word for word. Ten facts are simply gone.", "secs": 9, "focus": null, "lines": 15}
+    ]},
+    {"type": "demo", "file": "code/long_note.py", "start": "for run in load", "end": "Starts:", "output": "video/long_note.txt", "captions": [
+      {"text": "We said: leave out handbook text. Every note is a tidy handbook summary.", "secs": 8, "focus": null, "lines": 6, "shot": "09-notes"},
+      {"text": "Each round is a new chance to drop a fact, and a dropped fact can't come back.", "secs": 8, "focus": null, "lines": 6}
+    ]},
+    {"type": "demo", "file": "code/long_answers.py", "start": "for label in SETUPS", "end": "print(f\"{label:<10}", "output": "video/long_answers_manager.txt", "captions": [
+      {"text": "Read the answers. Priya's manager is Tomasz. With the whole chat, it says so.", "secs": 8, "focus": null, "lines": 3},
+      {"text": "From the note, it names handbook managers instead. Sure, and wrong, in 3 runs of 3.", "secs": 9, "focus": null, "lines": 6, "shot": "11-manager"}
+    ]},
+    {"type": "demo", "file": "code/long_answers.py", "start": "for label in SETUPS", "end": "print(f\"{label:<10}", "output": "video/long_answers_allergy.txt", "captions": [
+      {"text": "Why not a bigger window? The whole chat fits at 24,576. Window scored 22 of 36.", "secs": 9, "focus": null, "lines": 3},
+      {"text": "And both allergy passes are false. It only used cashews as an example. So 20.", "secs": 9, "focus": null, "lines": 3, "shot": "12-window"},
+      {"text": "Every fact was in the window. Fitting isn't the same as being used.", "secs": 8, "focus": null, "lines": 3},
+      {"text": "We tested one 7B model on one chat, three runs each. A bigger model may do better, so measure yours.", "secs": 9, "focus": null, "lines": 3}
+    ]},
+    {"type": "term", "file": "video/exercise_output.txt", "final": "5 passed", "captions": [
+      {"text": "Your turn. Open exercises.py and complete the five TODOs.", "secs": 6, "lines": 9},
+      {"text": "You've finished when you see 5 passed.", "secs": 6, "lines": 13, "shot": "13-exercises"}
+    ]},
+    {"type": "end", "title": "You opened context management.", "points": ["Measure what's cut", "Trim chooses what to lose", "One summary can look perfect", "Summaries lose the facts that matter"], "next": "Next: Chapter 25, memory", "captions": [
+      {"text": "A long chat loses its oldest messages silently. So count, and warn.", "secs": 7},
+      {"text": "Trim and Summarise keep you in budget, and a short test made Summarise look perfect.", "secs": 8},
+      {"text": "The long test didn't. Summaries lose the facts that matter.", "secs": 7}
+    ]}
+  ]
+}

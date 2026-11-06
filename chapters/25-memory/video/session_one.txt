@@ -1,0 +1,18 @@
+$ python3 session_one.py
+1 notes after: Hi, I'm Hana Kowalski, I've just joined the Old Mill branch.
+1 notes after: How do I report a broken grinder?
+2 notes after: My locker is number 212.
+2 notes after: Can't do Thursdays, I've got a night class in bookkeeping.
+2 notes after: The oat milk delivery came two hours late today.
+2 notes after: Thanks, that's useful!
+$ cat hana.json
+[
+ {
+  "text": "Hi, I'm Hana Kowalski, I've just joined the Old Mill branch.",
+  "saved": "2026-11-06"
+ },
+ {
+  "text": "My locker is number 212.",
+  "saved": "2026-11-06"
+ }
+]

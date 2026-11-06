@@ -1,0 +1,6 @@
+window     FAIL  I don't have access to your personal information, so I don't know your surname. How can I assist you with the handbook i
+window     FAIL  I don't have your specific information on file, but you mentioned your sister's name is Anjali. If you're asking about y
+window     FAIL  I don't have your personal information on file, so I don't have your surname. If you'd like to share it, I can include i
+summarise  FAIL  I'm sorry, but I don't have that information. Could you please remind me of your surname or provide more context so I ca
+summarise  FAIL  I'm here to assist with your coffee needs and any other questions you have, but I don't have access to personal informat
+summarise  FAIL  I'm here to assist with your coffee needs and other Quillon Coffee-related queries, but I don't have access to personal 

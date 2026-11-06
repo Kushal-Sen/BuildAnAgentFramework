@@ -1,0 +1,9 @@
+$ python3 look_at_save.py job_saved_tools.py 2
+Exit code -9. Bank: QC-101 QC-102
+The save holds:
+  system: You process refunds. Call list_refunds, then call issue_refu
+  user: Process today's refunds.
+  assistant: asked for 1 list_refunds
+  tool: QC-101: 4.50 QC-102: 12.00 QC-103: 3.20 QC-104: 7.75 QC-105:
+  assistant: asked for 6 issue_refund
+  tool: Refunded QC-101.

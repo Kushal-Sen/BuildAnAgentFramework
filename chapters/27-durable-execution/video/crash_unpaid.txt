@@ -1,0 +1,7 @@
+$ python3 crash_once.py job_once.py 5
+First run: exit code -9
+Bank: QC-101 QC-102 QC-103 QC-104 QC-105
+Second run: exit code 0. It said: <tool_response> Refunded QC-105. </tool_response> <tool_response> Refunded QC-106. </tool_response>
+Bank: QC-101 QC-102 QC-103 QC-104 QC-105
+Paid twice: nobody
+Not paid: QC-106

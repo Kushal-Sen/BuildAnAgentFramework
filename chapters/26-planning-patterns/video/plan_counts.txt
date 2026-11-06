@@ -1,0 +1,8 @@
+Plans in all: 60
+Mention the handbook, a section or a policy: 35
+Three questions that turn on a band: 30 plans
+  name the band: 0
+  earned anyway: 8
+harbour-arrive: 10 plans
+  name the arrival time: 7
+  earned: 0

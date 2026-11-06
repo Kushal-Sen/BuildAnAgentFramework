@@ -1,0 +1,8 @@
+$ python3 job_capped.py
+reply: 1 calls, 17 tokens
+reply: 2 calls, 60 tokens
+reply: 2 calls, 60 tokens
+reply: 2 calls, 44 tokens
+reply: 0 calls, 2 tokens
+DONE
+Still unpaid: nothing

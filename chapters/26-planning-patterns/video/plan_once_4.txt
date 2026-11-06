@@ -1,0 +1,12 @@
+Step:  Review the company's employee handbook for resignation policies
+Query: Review the company's employee handbook for resignation policies
+Found: To resign, give your branch manager written notice, with the required weeks varying by staff band.
+Step:  Check if the handbook specifies a minimum notice period for shift leads
+Query: handbook minimum notice period shift leads staff band
+Found: not found
+Step:  Determine if there are any additional provisions or exceptions for resignations as a shift lead
+Query: resignation shift lead additional provisions exceptions
+Found: not found
+Files: accidents-and-incidents.md forms.md log-old-mill-2025-04.md log-station-2025-10.md resignation.md shifts.md wages.md
+Answer: You must give your branch manager written notice 8 weeks in advance, as you are Band E staff. [resignation.md]
+Model calls: 7
