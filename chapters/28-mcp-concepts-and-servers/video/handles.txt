@@ -1,0 +1,11 @@
+$ python3 handles.py
+Baskets kept in memory
+  copy A: new_basket -> basket-7dc3e0
+  copy B: add flat white -> Error: no basket called basket-7dc3e0
+  copy A: add oat milk -> oat milk
+  copy B: add almond croissant -> Error: no basket called basket-7dc3e0
+Baskets kept in file
+  copy A: new_basket -> basket-376143
+  copy B: add flat white -> flat white
+  copy A: add oat milk -> flat white, oat milk
+  copy B: add almond croissant -> flat white, oat milk, almond croissant

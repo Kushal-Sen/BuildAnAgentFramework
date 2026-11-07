@@ -1,0 +1,13 @@
+$ python3 compare_evals.py
+Question                  local    mcp  again
+gap:quit                      2      3      3
+code:ir9                      2      3      2
+hop:harbour-arrive            1      1      0
+hop:senior-beans              1      0      0
+hop:riverside-repair          3      3      2
+hop:shift-lead-pay            2      1      2
+none:pension                  3      3      2
+none:dogs                     1      2      3
+records:card-reader           2      3      3
+records:tidewater-fee         3      3      2
+Total of 126                110    112    109

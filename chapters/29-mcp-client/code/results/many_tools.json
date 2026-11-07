@@ -1,0 +1,234 @@
+[
+ {
+  "descriptions": "short",
+  "tools": 5,
+  "window": "default",
+  "right": 57,
+  "wrong": 0,
+  "none": 3,
+  "empty": 0,
+  "tries": 60,
+  "tokens_in": 337,
+  "said": [
+   {
+    "question": "I'd like the 3rd to the 7th off.",
+    "reply": "Sure, I can help with that. Could you please specify which staff member you would like to book annual leave for and the dates you're referring to?"
+   },
+   {
+    "question": "I'd like the 3rd to the 7th off.",
+    "reply": "Sure, I can help with that. Could you please specify which staff member you want to book leave for and the dates you're referring to (3rd to 7th of which month/year)?"
+   },
+   {
+    "question": "I'd like the 3rd to the 7th off.",
+    "reply": "Sure, I can help with that. Could you please specify which staff member you would like to book leave for and the dates you mentioned (3rd to 7th)?"
+   }
+  ]
+ },
+ {
+  "descriptions": "short",
+  "tools": 10,
+  "window": "default",
+  "right": 57,
+  "wrong": 0,
+  "none": 3,
+  "empty": 0,
+  "tries": 60,
+  "tokens_in": 541,
+  "said": [
+   {
+    "question": "I'd like the 3rd to the 7th off.",
+    "reply": "It seems like you might be referring to closing the till at a specific time. Could you please provide more details on what you need to do? For instance, when you want to close the till and if you need any assistance with opening it again later."
+   },
+   {
+    "question": "I'd like the 3rd to the 7th off.",
+    "reply": "Could you please clarify what you would like turned off? Are you referring to the coffee machines, lights, or something else in the coffee shop?"
+   },
+   {
+    "question": "I'd like the 3rd to the 7th off.",
+    "reply": "Could you please provide more details on what you'd like to turn off? Are you referring to the coffee machine, lighting, or something else?"
+   }
+  ]
+ },
+ {
+  "descriptions": "short",
+  "tools": 20,
+  "window": "default",
+  "right": 57,
+  "wrong": 1,
+  "none": 2,
+  "empty": 0,
+  "tries": 60,
+  "tokens_in": 957,
+  "said": [
+   {
+    "question": "I'd like the 3rd to the 7th off.",
+    "reply": "Could you please clarify what you mean by \"the 3rd to the 7th off\"? Are you referring to a specific shift or a range of days?"
+   },
+   {
+    "question": "I'd like the 3rd to the 7th off.",
+    "reply": "Could you please specify what you would like to turn off from the 3rd to the 7th? For example, are you referring to the coffee machine, the water boiler, or something else? This will help me assist you better."
+   }
+  ]
+ },
+ {
+  "descriptions": "short",
+  "tools": 40,
+  "window": "default",
+  "right": 54,
+  "wrong": 3,
+  "none": 3,
+  "empty": 0,
+  "tries": 60,
+  "tokens_in": 1785,
+  "said": [
+   {
+    "question": "I'd like the 3rd to the 7th off.",
+    "reply": "To clarify, would you like 3 staff members off, or would you like to book 4 days of annual leave for a specific staff member starting from the 3rd? Could you please provide more details so I can assist you better?"
+   },
+   {
+    "question": "I'd like the 3rd to the 7th off.",
+    "reply": "It seems like you want to take some days off, but it's not clear from which context. Could you please specify if you're referring to annual leave, a shift swap, or another situation? Also, do you have a specific staff member in mind for this leave request?"
+   },
+   {
+    "question": "I'd like the 3rd to the 7th off.",
+    "reply": "Could you please specify what you would like to have the 3rd to the 7th off of, such as a shift, a meeting, or something else? This will help me provide the most accurate assistance."
+   }
+  ]
+ },
+ {
+  "descriptions": "long",
+  "tools": 5,
+  "window": "default",
+  "right": 57,
+  "wrong": 0,
+  "none": 3,
+  "empty": 0,
+  "tries": 60,
+  "tokens_in": 907,
+  "said": [
+   {
+    "question": "I'd like the 3rd to the 7th off.",
+    "reply": "Sure, I can help with that. Could you please specify which staff member you want to book leave for and the details of the leave period? Specifically, the start date (3rd), end date (7th), and any additional information you think is necessary."
+   },
+   {
+    "question": "I'd like the 3rd to the 7th off.",
+    "reply": "Sure, I can help with that. Could you please specify the name of the staff member you would like to book leave for and the reason for the leave? This information will help me book the leave correctly."
+   },
+   {
+    "question": "I'd like the 3rd to the 7th off.",
+    "reply": "Sure, I can help with that. Could you please specify the staff member's name and the reason for the leave? This information will help me book the annual leave correctly."
+   }
+  ]
+ },
+ {
+  "descriptions": "long",
+  "tools": 10,
+  "window": "default",
+  "right": 60,
+  "wrong": 0,
+  "none": 0,
+  "empty": 0,
+  "tries": 60,
+  "tokens_in": 1681,
+  "said": []
+ },
+ {
+  "descriptions": "long",
+  "tools": 20,
+  "window": "default",
+  "right": 57,
+  "wrong": 0,
+  "none": 3,
+  "empty": 0,
+  "tries": 60,
+  "tokens_in": 3237,
+  "said": [
+   {
+    "question": "I'd like the 3rd to the 7th off.",
+    "reply": "Could you please specify what you would like to turn off from the 3rd to the 7th? For example, are you referring to a shift, a machine, or something else?"
+   },
+   {
+    "question": "I'd like the 3rd to the 7th off.",
+    "reply": "Could you please specify what you'd like to turn off from the 3rd to the 7th? For example, is it a shift, a machine, or something else? This will help me provide the correct instruction."
+   },
+   {
+    "question": "I'd like the 3rd to the 7th off.",
+    "reply": "Could you please clarify what you'd like to turn off or disconnect between the 3rd and 7th positions? This could be a range of lights, a set of equipment, or something else. Providing more context will help me assist you better."
+   }
+  ]
+ },
+ {
+  "descriptions": "long",
+  "tools": 40,
+  "window": "default",
+  "right": 12,
+  "wrong": 26,
+  "none": 7,
+  "empty": 15,
+  "tries": 60,
+  "tokens_in": 2050,
+  "said": [
+   {
+    "question": "When am I working next week?",
+    "reply": "None of the provided functions can be used to check your working schedule. You might need to use a different tool or system to view your schedule."
+   },
+   {
+    "question": "What shifts have I got on Saturday?",
+    "reply": "None of the provided functions can be used to check shifts. You might want to use a different system or tool for checking your shifts."
+   },
+   {
+    "question": "What shifts have I got on Saturday?",
+    "reply": "None of the functions provided in the list relate to checking shifts. You might need to use a different tool or system to check your shifts. Could you please check your shift schedule through the staff management system or with your manager?"
+   },
+   {
+    "question": "What shifts have I got on Saturday?",
+    "reply": "None of the provided functions can be used to check shifts. You might want to use a different tool or system to check your shifts."
+   },
+   {
+    "question": "Show me my rota.",
+    "reply": "None of the functions listed in the provided JSON objects relate to showing a rota. The functions provided are for tasks such as finding lost property, checking stock, reading the notice board, and others. They do not include a function for viewing a rota. You might need to use a different function or interface to check your rota."
+   },
+   {
+    "question": "Show me my rota.",
+    "reply": "It seems like the provided functions do not include a direct way to show a rota. The available functions are related to staff tasks such as finding lost property, checking stock, and other operational activities. For viewing a rota, you might need a different function or a feature that is not covered by the ones listed.\n\nIf you can provide more details or if there's a specific function name for viewing the rota, I can help you with that. Otherwise, you might need to check with your manager or HR department for access to the rota."
+   },
+   {
+    "question": "Am I on the opening shift tomorrow?",
+    "reply": "It seems like you're asking about your shift schedule, but this information isn't covered by any of the functions listed above. You might want to check your personal schedule or ask your manager directly for this information. If you need to use one of the functions provided, you could use `check_opening_hours` to see the general opening times, but that won't tell you if you're on the opening shift."
+   }
+  ]
+ },
+ {
+  "descriptions": "long",
+  "tools": 40,
+  "window": 16384,
+  "right": 55,
+  "wrong": 0,
+  "none": 5,
+  "empty": 0,
+  "tries": 60,
+  "tokens_in": 6345,
+  "said": [
+   {
+    "question": "Am I on the opening shift tomorrow?",
+    "reply": "To check if you are on the opening shift tomorrow, I would need more information such as your name and the specific branch. However, we can use the `get_rota` function to look up your shift details. Could you please provide me with your name and the branch where you work?"
+   },
+   {
+    "question": "Am I on the opening shift tomorrow?",
+    "reply": "To check if you're on the opening shift tomorrow, I would need to look up your rota. Could you provide me with some details such as your name or staff ID, please? If you prefer, you can also check the staff noticeboard or use the `get_rota` function through the staff system. Would you like to proceed with that?"
+   },
+   {
+    "question": "I'd like the 3rd to the 7th off.",
+    "reply": "It seems like you're asking for annual leave. Could you please provide more details about the staff member you would like to book the leave for? For example, their name or employee ID. Also, please specify if there are any particular dates or shifts you want to allocate for this leave."
+   },
+   {
+    "question": "I'd like the 3rd to the 7th off.",
+    "reply": "It seems like you're trying to take annual leave. Could you please provide more details about the leave request, such as the staff member's name and the specific dates (3rd to 7th of which month/year)? This information is necessary to proceed with the request through the system. Once you provide these details, I can help you book the leave."
+   },
+   {
+    "question": "I'd like the 3rd to the 7th off.",
+    "reply": "It seems like you're requesting annual leave for yourself or a staff member. Could you please clarify who should be taking the leave and any additional details? For example, the dates, reasons, and the staff member's name if it's not you. This information will help me submit the request through the system."
+   }
+  ]
+ }
+]

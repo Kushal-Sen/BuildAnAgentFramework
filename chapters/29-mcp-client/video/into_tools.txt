@@ -1,0 +1,18 @@
+$ python3 into_tools.py
+From the server:
+  {"description": "Look up someone's next shift.", "inputSchema": {"type": "object",
+  "properties": {"staff_number": {"description": "The staff number", "title": "Staff
+  Number", "type": "string"}}, "required": ["staff_number"], "title":
+  "get_rotaArguments"}, "name": "get_rota", "outputSchema": {"properties": {"result":
+  {"title": "Result", "type": "string"}}, "required": ["result"], "title":
+  "get_rotaOutput", "type": "object"}}
+As a Tool:
+  is it a Tool? True
+  name: get_rota
+  description: Look up someone's next shift.
+  required: ['staff_number']
+Calling it like any Tool: rota(staff_number="1042")
+  Your next shift is Friday at 07:00.
+A server that leaves out required:
+  from the server: missing
+  on the Tool: []

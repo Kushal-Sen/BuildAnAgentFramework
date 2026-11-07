@@ -1,0 +1,13 @@
+$ python3 -m pytest test_exercises.py -q --tb=no
+FFFFF                                                                    [100%]
+=========================== short test summary info ============================
+FAILED test_exercises.py::test_todo_1_read_reply - assert None == ({'id': 2, ...
+FAILED test_exercises.py::test_todo_2_to_tool - assert (False)
+FAILED test_exercises.py::test_todo_3_connect_all - TypeError: cannot unpack ...
+FAILED test_exercises.py::test_todo_4_named_tools - TypeError: 'NoneType' obj...
+FAILED test_exercises.py::test_todo_5_closest_tools - TypeError: 'NoneType' o...
+5 failed in 0.05s
+
+$ python3 -m pytest test_exercises.py -q --tb=no   # after the TODOs
+.....                                                                    [100%]
+5 passed in 1.16s

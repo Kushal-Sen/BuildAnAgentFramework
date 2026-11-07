@@ -1,0 +1,16 @@
+$ python3 both_openings.py .venv-older/bin/python
+Server on SDK v2
+  New opening: no handshake, and _meta on every request
+    server/discover says: ['2026-07-28']
+    tools/call: Your next shift is Friday at 07:00.
+  Old opening: a handshake first, then plain requests
+    initialize agreed: 2025-06-18
+    notifications/initialized: sent, and no reply comes
+    tools/call: Your next shift is Friday at 07:00.
+Server on SDK v1
+  New opening: no handshake, and _meta on every request
+    server/discover refused: -32602 Invalid request parameters
+  Old opening: a handshake first, then plain requests
+    initialize agreed: 2025-06-18
+    notifications/initialized: sent, and no reply comes
+    tools/call: Your next shift is Friday at 07:00.

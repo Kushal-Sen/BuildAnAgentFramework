@@ -1,0 +1,15 @@
+$ python3 by_hand.py quillon_server.py
+Sent:
+  {"jsonrpc": "2.0", "id": 1, "method": "tools/list", "params": {"_meta":
+  {"io.modelcontextprotocol/protocolVersion": "2026-07-28",
+  "io.modelcontextprotocol/clientCapabilities": {}, "io.modelcontextprotocol/clientInfo":
+  {"name": "by-hand", "version": "1"}}}}
+Read:
+  {"jsonrpc":"2.0","id":1,"result":{"cacheScope":"private","resultType":"complete","tools"
+  :[{"description":"Search the staff handbook. Search again with new words if the result
+  isn't enough.","inputSchema":{"type":"object","properties":{"query":{"description":"What
+  to look up, in a few words","title":"Query","type":"string"}},"required":["query"],"titl
+  e":"search_handbookArguments"},"name":"search_handbook","outputSchema":{"properties":{"r
+  esult":{"title":"Result","type":"string"}},"required":["result"],"title":"search_handboo
+  kOutput","type":"object"}}],"ttlMs":0,"_meta":{"io.modelcontextprotocol/serverInfo":{"na
+  me":"quillon-handbook","version":""}}}}

@@ -1,0 +1,438 @@
+<title>Whitebox: MCP concepts and servers</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a black box header opens onto a white reading column; media breaks wider. */
+:root {
+  --bg: #fbfbf9; --surface: #ffffff; --ink: #16181d; --muted: #5d616b; --rule: #d9dade;
+  --accent: #2a4bd7; --tint: #e7ebfb; --box: #0c0d10; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #101218; --term-ink: #e4e6ec; --term-cmd: #9db1ff;
+  --display: "Bricolage Grotesque", Georgia, serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+    --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+    --term: #08090c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111318; --surface: #191c23; --ink: #e9eaee; --muted: #a4a8b3; --rule: #2e323c;
+  --accent: #9db1ff; --tint: #20274a; --box: #050507; --on-box: #fbfbf9; --box-muted: #a9adb8;
+  --term: #08090c; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 400 1.0625rem/1.65 var(--body); }
+.gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 68rem; margin: 0 auto; min-width: 0; }
+.col { max-width: 42rem; display: grid; gap: 1rem; min-width: 0; }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2.6rem, 7vw, 4.4rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; }
+h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); line-height: 1.15; font-weight: 700; }
+h3 { font-size: 1.2rem; line-height: 1.3; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--accent); }
+a:focus-visible, video:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+code { font-family: var(--mono); font-size: 0.92em; }
+
+header.mast { background: var(--box); color: var(--on-box); padding-block: 1.6rem 3rem; }
+.mast .wrap { display: grid; gap: 2.4rem; }
+.brand { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font: 500 1rem var(--display); }
+.brand span:first-child { display: flex; align-items: center; gap: 0.55rem; }
+.brand i { width: 0.95rem; height: 0.95rem; border: 3px solid currentColor; display: block; }
+.brand span:last-child { font: 400 0.85rem var(--mono); color: var(--box-muted); align-self: center; }
+.mast .intro { display: grid; gap: 1rem; max-width: 46rem; }
+.mast .dek { font-size: 1.2rem; color: var(--box-muted); }
+.meta { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+
+main { padding-block: 0 4rem; }
+section { padding-block: 3.2rem 0; display: grid; gap: 1.4rem; }
+.label { font: 600 0.78rem/1.2 var(--mono); color: var(--accent); }
+.lede { font-size: 1.15rem; }
+
+figure { margin: 0; display: grid; gap: 0.5rem; min-width: 0; }
+figcaption { font-size: 0.86rem; color: var(--muted); }
+video { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 1440 / 900; background: #000; }
+
+ol.loop { margin: 0; padding-left: 1.3rem; display: grid; gap: 0.35rem; }
+ol.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 2.4rem; counter-reset: step; }
+ol.steps > li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 1.6rem; align-items: start; counter-increment: step; }
+ol.steps .txt { display: grid; gap: 0.45rem; min-width: 0; }
+ol.steps .txt h3::before { content: counter(step); display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; margin-right: 0.55rem; background: var(--ink); color: var(--bg); font: 600 0.85rem/1 var(--mono); vertical-align: 0.1em; }
+ol.steps img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); }
+@media (max-width: 720px) { ol.steps > li { grid-template-columns: minmax(0, 1fr); } }
+
+pre { margin: 0; background: var(--term); color: var(--term-ink); padding: 1rem 1.1rem; overflow-x: auto; font: 400 0.86rem/1.6 var(--mono); }
+pre .cmd { color: var(--term-cmd); }
+.tablebox { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.98rem; }
+th, td { text-align: left; padding: 0.65rem 0.8rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; color: var(--muted); }
+td { font-variant-numeric: tabular-nums; }
+.fails { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.fails div { background: var(--tint); padding: 1rem 1.1rem; display: grid; gap: 0.3rem; align-content: start; min-width: 0; }
+.list { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.35rem; }
+.next { background: var(--box); color: var(--on-box); padding: 1.4rem 1.5rem; display: grid; gap: 0.3rem; }
+.next span { font: 400 0.85rem var(--mono); color: var(--box-muted); }
+footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--muted); }
+</style>
+
+<header class="mast gutter">
+  <div class="wrap">
+    <div class="brand"><span><i></i>Whitebox Academy</span><span>Build an AI Agent from Scratch</span></div>
+    <div class="intro">
+      <span class="meta">Chapter 28 of 35 · Part 6: MCP · About 2.5 hours</span>
+      <h1>MCP concepts and servers</h1>
+      <p class="dek">Your tool is locked inside your Python. Talk to a server by hand with one line of JSON, write a real one with the official SDK, break it on purpose, and see why MCP went stateless.</p>
+    </div>
+  </div>
+</header>
+
+<main class="gutter">
+  <div class="wrap">
+    <section>
+      <figure>
+        <video controls playsinline preload="metadata" poster="media/09-two-copies.jpg">
+          <source src="media/video.mp4" type="video/mp4">
+        </video>
+        <figcaption>Chapter video, 7 minutes 17 seconds, no sound. It starts with a 30-second recap, and captions on screen explain each step.</figcaption>
+      </figure>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Where we are</span>
+        <h2>A tool nobody else can reach</h2>
+        <p class="lede">Everything your agent can do lives inside its own program. This chapter starts Part 6, and its one new idea is small: a tool can live in another program, and the two programs talk with one line of JSON each way.</p>
+        <p>You’ll see that by hand first, with no library. Then you’ll write a real server with the official SDK, break it on purpose, and find out why the protocol changed shape. You won’t connect your agent yet. That’s the next chapter.</p>
+        <p><a href="https://claude.ai/artifact/1uGgX3WK7v3D5HyfvB782p#start-ollama">Start Ollama</a>, activate the <code>.venv</code> from chapter 05, and work in <code>chapters/28-mcp-concepts-and-servers/code</code>. Run <code>python3 -m pip install -r requirements.txt</code> to add the <code>mcp</code> library. <code>python3 -m pytest tests</code> should show <code>87 passed</code>. There’s nothing new in <code>whitebox/</code>.</p>
+        <p>The older server needs its own environment, so that part is optional. Make one with <code>python3 -m venv .venv-older</code>, then <code>.venv-older/bin/python -m pip install "mcp&gt;=1.28,&lt;2"</code>. Every older-server result is printed here anyway.</p>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Feel the problem</span>
+        <h2>Locked inside your Python</h2>
+        <p><code>locked.py</code> calls the tool the normal way. Then it starts a second Python program in an empty folder, and that program tries to import it.</p>
+      </div>
+<pre><span class="cmd">$ python3 locked.py</span>
+Inside this program:
+  [annual-leave.md] Annual leave  The leave year runs from 1 April to 31 March. You may
+  carry over up to 5 unused days into the next leave year. Anything above that is lost
+From a program in another folder:
+  ModuleNotFoundError: No module named &#x27;whitebox&#x27;</pre>      <figure><img src="media/02-locked.jpg" alt="search_handbook works inside the program, and a second program gets ModuleNotFoundError" loading="lazy" width="1440" height="900"></figure>
+      <div class="col">
+        <p>You could copy <code>whitebox/</code> across, along with the handbook, the index and the Ollama setup. If the other agent is in another language, you can’t import it at all. The problem isn’t the search. It’s that the only way in is a Python function call.</p>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">The idea</span>
+        <h2>What MCP is</h2>
+        <p>MCP, the Model Context Protocol, is a shared way for a program that has tools to say what they are, and to run them when asked.</p>
+        <ul class="list"><li><strong>Server:</strong> a program that offers tools, such as <code>quillon_server.py</code>.</li><li><strong>Client:</strong> the code that connects to one server. That’s <code>by_hand.py</code> now, and <code>McpClient</code> in chapter 29.</li><li><strong>Host:</strong> the application the user runs, which holds the clients and the model. That’s your agent.</li></ul>
+        <p>A server can offer <strong>tools</strong>, which the model chooses to call, <strong>resources</strong>, which are data the application can read, and <strong>prompts</strong>, which are templates a user can pick. Tools are all we’ll use.</p>
+        <p>Messages are <a href="https://www.jsonrpc.org/specification">JSON-RPC 2.0</a>: a request has an <code>id</code>, a <code>method</code> and <code>params</code>, and the reply carries the same <code>id</code>. On <strong>stdio</strong>, the client starts the server and they talk through its standard input and output, one message per line. That’s what we’ll teach. Remote servers use <strong>Streamable HTTP</strong>.</p>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Try it</span>
+        <h2>One line each way</h2>
+        <p>Before any library, here’s a whole server in plain Python, from <code>plain_server.py</code>. It ignores most of the rules, but it shows what a server is.</p>
+      </div>
+<pre>for line in sys.stdin:
+    request = json.loads(line)
+    if request[&quot;method&quot;] == &quot;tools/list&quot;:
+        result = {&quot;tools&quot;: TOOLS}
+    else:
+        result = {&quot;content&quot;: [{&quot;type&quot;: &quot;text&quot;, &quot;text&quot;: &quot;Your next shift is Friday at 07:00.&quot;}]}
+    print(json.dumps({&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;id&quot;: request[&quot;id&quot;], &quot;result&quot;: result}), flush=True)</pre>      <div class="col">
+        <p>Notice <code>flush=True</code>. Without it, Python may hold the reply in a buffer, and the client would wait for ever. The client, <code>by_hand.py</code>, is plain Python too. <code>subprocess.Popen</code> starts the server and keeps going, and a <code>threading.Timer</code> kills a server that goes quiet, because <code>readline</code> would otherwise wait for ever.</p>
+      </div>
+<pre>def send(server, message):
+    server.stdin.write(json.dumps(message) + &quot;\n&quot;)
+    server.stdin.flush()
+
+
+def read(server):
+    return server.stdout.readline()</pre>      <div class="col">
+        <p><strong>Predict:</strong> the message is <code>tools/list</code>. What comes back?</p>
+      </div>
+<pre><span class="cmd">$ python3 by_hand.py plain_server.py</span>
+Sent:
+  {&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;id&quot;: 1, &quot;method&quot;: &quot;tools/list&quot;, &quot;params&quot;: {&quot;_meta&quot;:
+  {&quot;io.modelcontextprotocol/protocolVersion&quot;: &quot;2026-07-28&quot;,
+  &quot;io.modelcontextprotocol/clientCapabilities&quot;: {}, &quot;io.modelcontextprotocol/clientInfo&quot;:
+  {&quot;name&quot;: &quot;by-hand&quot;, &quot;version&quot;: &quot;1&quot;}}}}
+Read:
+  {&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;id&quot;: 1, &quot;result&quot;: {&quot;tools&quot;: [{&quot;name&quot;: &quot;get_rota&quot;, &quot;description&quot;:
+  &quot;Look up someone&#x27;s next shift.&quot;, &quot;inputSchema&quot;: {&quot;type&quot;: &quot;object&quot;, &quot;properties&quot;:
+  {&quot;staff_number&quot;: {&quot;type&quot;: &quot;string&quot;}}}}]}}</pre>      <figure><img src="media/03-one-line.jpg" alt="One line of JSON sent to the plain server, and one line back listing get_rota" loading="lazy" width="1440" height="900"></figure>
+      <div class="col">
+        <p>The same <code>id</code> comes back, with one tool: a name, a description and a schema. <code>_meta</code> is new. It says which protocol you’re using, what your client can do, and who you are. Our plain server ignores it, but a real one won’t.</p>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">The real thing</span>
+        <h2>A real server</h2>
+        <p>The official <a href="https://github.com/modelcontextprotocol/python-sdk">Python SDK</a> handles the rules. <code>MCPServer</code> makes the server, <code>@mcp.tool()</code> turns a normal function into a tool, and <code>mcp.run()</code> starts the read-a-line loop. There’s no <code>async</code> in your code: the SDK uses it inside.</p>
+      </div>
+<pre>from library import all_documents, build_index
+from mcp.server import MCPServer
+from pydantic import Field
+from whitebox import excerpts
+
+index = build_index(all_documents(), 60)
+mcp = MCPServer(&quot;quillon-handbook&quot;)
+
+
+@mcp.tool()
+def search_handbook(query: Annotated[str, Field(description=&quot;What to look up, in a few words&quot;)]) -&gt; str:
+    &quot;&quot;&quot;Search the staff handbook. Search again with new words if the result isn&#x27;t enough.&quot;&quot;&quot;
+    return excerpts(index.search(query, 3)) or &quot;Nothing found.&quot;
+
+
+if __name__ == &quot;__main__&quot;:
+    mcp.run()</pre>      <div class="col">
+        <p><strong>Predict:</strong> does the same <code>by_hand.py</code> work, with no changes?</p>
+      </div>
+<pre><span class="cmd">$ python3 by_hand.py quillon_server.py</span>
+Sent:
+  {&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;id&quot;: 1, &quot;method&quot;: &quot;tools/list&quot;, &quot;params&quot;: {&quot;_meta&quot;:
+  {&quot;io.modelcontextprotocol/protocolVersion&quot;: &quot;2026-07-28&quot;,
+  &quot;io.modelcontextprotocol/clientCapabilities&quot;: {}, &quot;io.modelcontextprotocol/clientInfo&quot;:
+  {&quot;name&quot;: &quot;by-hand&quot;, &quot;version&quot;: &quot;1&quot;}}}}
+Read:
+  {&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:1,&quot;result&quot;:{&quot;cacheScope&quot;:&quot;private&quot;,&quot;resultType&quot;:&quot;complete&quot;,&quot;tools&quot;
+  :[{&quot;description&quot;:&quot;Search the staff handbook. Search again with new words if the result
+  isn&#x27;t enough.&quot;,&quot;inputSchema&quot;:{&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;query&quot;:{&quot;description&quot;:&quot;What
+  to look up, in a few words&quot;,&quot;title&quot;:&quot;Query&quot;,&quot;type&quot;:&quot;string&quot;}},&quot;required&quot;:[&quot;query&quot;],&quot;titl
+  e&quot;:&quot;search_handbookArguments&quot;},&quot;name&quot;:&quot;search_handbook&quot;,&quot;outputSchema&quot;:{&quot;properties&quot;:{&quot;r
+  esult&quot;:{&quot;title&quot;:&quot;Result&quot;,&quot;type&quot;:&quot;string&quot;}},&quot;required&quot;:[&quot;result&quot;],&quot;title&quot;:&quot;search_handboo
+  kOutput&quot;,&quot;type&quot;:&quot;object&quot;}}],&quot;ttlMs&quot;:0,&quot;_meta&quot;:{&quot;io.modelcontextprotocol/serverInfo&quot;:{&quot;na
+  me&quot;:&quot;quillon-handbook&quot;,&quot;version&quot;:&quot;&quot;}}}}</pre>      <figure><img src="media/04-real-server.jpg" alt="The same client talking to the real server, which lists search_handbook with a full schema" loading="lazy" width="1440" height="900"></figure>
+      <div class="col">
+        <p>The client didn’t change at all, and that’s the point of a protocol. The SDK built the schema from your function. Now close the loop from the start: <code>ask_handbook.py</code> uses <code>tools/call</code>, and imports only the standard library and <code>by_hand.py</code>.</p>
+      </div>
+<pre><span class="cmd">$ python3 ask_handbook.py &quot;carry over annual leave&quot;</span>
+[annual-leave.md] Annual leave  The leave year runs from 1 April to 31 March. You may
+carry over up to 5 unused days into the next leave year. Anything above that is lost
+whitebox imported in this program: False
+Seconds, with the server building its index: 7.5</pre>      <div class="col">
+        <p>It’s the same text <code>locked.py</code> printed, from a program that never imported <code>whitebox</code>, and it came back the same in five runs out of five. The time is nearly all the server building its index, which is a cost per connection, not per call.</p>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Break it</span>
+        <h2>Real errors</h2>
+        <p><code>real_errors.py</code> sends <code>rota_server.py</code> five bad requests, each on a new connection. <strong>Predict:</strong> which of these does the model get to read?</p>
+      </div>
+<pre><span class="cmd">$ python3 real_errors.py</span>
+A method that doesn&#x27;t exist
+  protocol error -32601: Method not found
+A tool that doesn&#x27;t exist
+  tool error: Unknown tool: get_menu
+A missing argument
+  tool error: Error executing tool get_rota: 1 validation error for get_rotaArguments
+The tool raises ValueError
+  tool error: Error executing tool get_rota
+The tool raises ToolError
+  tool error: Error executing tool get_rota: Staff numbers don&#x27;t start at 0</pre>      <figure><img src="media/05-errors.jpg" alt="Protocol errors and tool errors from five bad requests" loading="lazy" width="1440" height="900"></figure>
+      <div class="col">
+        <p>A <strong>protocol error</strong> comes back under <code>"error"</code>, and no tool ran. A <strong>tool error</strong> is a normal result with <code>"isError": true</code>, written for the model to read. The <code>ValueError</code>’s message never left the server. <code>ToolError</code> is the one exception whose message the SDK passes on, so raise that, or return the text.</p>
+        <p>Now the error worth remembering. <strong>Predict:</strong> the first request is wrong. If the next one is right, does it work?</p>
+      </div>
+<pre><span class="cmd">$ python3 era_lock.py</span>
+Forget _meta, then send a good request
+  protocol error -32602: Invalid request parameters
+  protocol error -32600: this connection serves the handshake protocol era; requests
+    carrying the 2026-07-28 envelope are not accepted on it
+A harmless ping with no _meta, then a good request
+  ok
+  protocol error -32600: this connection serves the handshake protocol era; requests
+    carrying the 2026-07-28 envelope are not accepted on it
+A good request, then forget _meta
+  ok
+  protocol error -32602: params._meta must be an object carrying the required
+    &#x27;io.modelcontextprotocol/protocolVersion&#x27; and
+    &#x27;io.modelcontextprotocol/clientCapabilities&#x27; envelope keys</pre>      <figure><img src="media/06-era-lock.jpg" alt="A good request refused because the first request locked the connection into the old protocol" loading="lazy" width="1440" height="900"></figure>
+      <div class="col">
+        <p><strong>The first request sets which protocol the connection speaks.</strong> With no <code>_meta</code>, the connection locks into the old protocol, and even a harmless <code>ping</code> does it, with an ordinary success reply. So if you see this error, look at the first request you sent. The fix is a new connection.</p>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Both protocols</span>
+        <h2>Two ways to open</h2>
+        <p>A server on the older library speaks only the older protocol, so you need to know both. On the older server, this script carries on down the same connection after the refusal.</p>
+      </div>
+<pre><span class="cmd">$ python3 both_openings.py .venv-older/bin/python</span>
+Server on SDK v2
+  New opening: no handshake, and _meta on every request
+    server/discover says: [&#x27;2026-07-28&#x27;]
+    tools/call: Your next shift is Friday at 07:00.
+  Old opening: a handshake first, then plain requests
+    initialize agreed: 2025-06-18
+    notifications/initialized: sent, and no reply comes
+    tools/call: Your next shift is Friday at 07:00.
+Server on SDK v1
+  New opening: no handshake, and _meta on every request
+    server/discover refused: -32602 Invalid request parameters
+  Old opening: a handshake first, then plain requests
+    initialize agreed: 2025-06-18
+    notifications/initialized: sent, and no reply comes
+    tools/call: Your next shift is Friday at 07:00.</pre>      <figure><img src="media/07-openings.jpg" alt="The new and old openings on a v2 server and an older server" loading="lazy" width="1440" height="900"></figure>
+      <div class="col">
+        <p>The new opening has no handshake: every request carries <code>_meta</code>, and <code>server/discover</code> is optional. The old opening is <code>initialize</code>, then <code>notifications/initialized</code>, which gets no reply. The older server refused <code>server/discover</code> with the same error as skipping the handshake, and the connection survived. So any failed discover means try the handshake. We’ve only tested that on Python SDK servers.</p>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Don’t blur them</span>
+        <h2>The protocol’s version and the library’s version</h2>
+        <p><code>2026-07-28</code> is a <strong>protocol</strong>: the rules for the messages. <code>2.3.0</code> is a <strong>library</strong>: one Python package. A library can speak several protocols.</p>
+      </div>
+<pre><span class="cmd">$ python3 versions.py .venv-older/bin/python</span>
+Library: mcp 2.3.0
+  Protocol without a handshake: [&#x27;2026-07-28&#x27;]
+  Newest protocol with a handshake: 2025-11-25
+  from mcp.server import MCPServer -&gt; imported
+  from mcp.server.fastmcp import FastMCP -&gt; ModuleNotFoundError: No module named
+    &#x27;mcp.server.fastmcp&#x27;. This is mcp 2.x, where FastMCP was renamed to MCPServer (from
+    mcp.server.mcpserver import MCPServer) and other APIs changed; see the migration
+    guide at https://py.sdk.modelcontextprotocol.io/v2/migration/#fastmcp-renamed-to-
+    mcpserver or pin &#x27;mcp&lt;2&#x27; to keep running v1 code.. Did you mean: &#x27;mcp.server.auth&#x27;?
+Library: mcp 1.30.0
+  Protocol without a handshake: none
+  Newest protocol with a handshake: 2025-11-25
+  from mcp.server import MCPServer -&gt; ImportError: cannot import name &#x27;MCPServer&#x27; from
+    &#x27;mcp.server&#x27;
+  from mcp.server.fastmcp import FastMCP -&gt; imported</pre>      <figure><img src="media/08-versions.jpg" alt="Library versions, the protocols each speaks, and which imports work" loading="lazy" width="1440" height="900"></figure>
+      <div class="col">
+        <p>So “v2” means the Python library, and “stateless” means the protocol. Library v2 renamed <code>FastMCP</code> to <code>MCPServer</code>, and tutorials from before v2 show the older name.</p>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Why it changed</span>
+        <h2>Why MCP went stateless</h2>
+        <p>The <a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">official post</a> says only “better reliability and scalability”. The clearest reasons are in <a href="https://developers.googleblog.com/scaling-ai-agent-infrastructure-with-the-mcp-stateless-updates/">Google’s write-up</a>, and they’re about running a remote server as several copies:</p>
+        <ul class="list"><li>A load balancer doesn’t know which copy holds a session.</li><li>Sticky routing spreads traffic unevenly.</li><li>A restart wipes sessions held in memory.</li><li>So teams had to add a shared store, such as Redis.</li></ul>
+        <p><code>two_copies.py</code> is pretend: two <code>Copy</code> objects and a balancer that takes turns. <strong>Predict:</strong> the handshake lands on copy A. What happens to the next four requests?</p>
+      </div>
+<pre><span class="cmd">$ python3 two_copies.py</span>
+1. Session remembered by copy A, balancer takes turns
+  B: unknown session | A: ok | B: unknown session | A: ok
+2. Self-contained requests, balancer takes turns
+  B: ok | A: ok | B: ok | A: ok
+3. Sticky routing: each client always goes to the copy that holds its session
+  100 requests: A served 95, B served 5
+  Self-contained, taking turns: A served 50, B served 50
+4. Restart copy A: memory is wiped
+  before: A: ok
+  after:  A: unknown session
+  self-contained after: A: ok
+5. A shared store, as teams built with Redis: it works, and it&#x27;s one more service to run
+  A: ok | B: ok</pre>      <figure><img src="media/09-two-copies.jpg" alt="A remembered session failing on the other copy, and self-contained requests working on either" loading="lazy" width="1440" height="900"></figure>
+      <div class="col">
+        <p>That’s why <code>_meta</code> is on every request: it makes a request self-contained. The traffic in case 3 is made up, to show the shape.</p>
+        <p><strong>Stateless doesn’t mean your app has no state.</strong> The protocol stopped holding it. A basket still has to live somewhere, so your application holds it, and names it with a <strong>handle</strong>: an ordinary string that one tool returns and later tools take as an argument. <code>handles.py</code> runs two real copies of <code>basket_server.py</code>, taking turns. <strong>Predict:</strong> does the handle alone save the first run?</p>
+      </div>
+<pre><span class="cmd">$ python3 handles.py</span>
+Baskets kept in memory
+  copy A: new_basket -&gt; basket-7dc3e0
+  copy B: add flat white -&gt; Error: no basket called basket-7dc3e0
+  copy A: add oat milk -&gt; oat milk
+  copy B: add almond croissant -&gt; Error: no basket called basket-7dc3e0
+Baskets kept in file
+  copy A: new_basket -&gt; basket-376143
+  copy B: add flat white -&gt; flat white
+  copy A: add oat milk -&gt; flat white, oat milk
+  copy B: add almond croissant -&gt; flat white, oat milk, almond croissant</pre>      <figure><img src="media/10-handles.jpg" alt="Two copies sharing a basket handle, failing from memory and working from a shared file" loading="lazy" width="1440" height="900"></figure>
+      <div class="col">
+        <p>No. A handle only helps if it points at something every copy can reach. A file is fine for a demo, and real servers use a database.</p>
+        <p>Be plain about this: <strong>on local stdio, very little changes.</strong> Remote servers gain the most. The deprecation policy gives older features at least twelve months.</p>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Measure it</span>
+        <h2>A stray print</h2>
+        <p>On stdio, standard output <em>is</em> the protocol’s pipe. You may have read that one <code>print</code> always breaks a server. We tested it: five ways of logging, five runs each, on both libraries. The numbers count lines of logging, and <code>many</code> prints 20,000 lines.</p>
+      </div>
+<pre><span class="cmd">$ python3 stray_print.py .venv-older/bin/python</span>
+SDK v2
+  log      answered  before reply  after reply  stderr
+  quiet    5 of 5    0             0            0
+  print    5 of 5    0             1            0
+  flushed  5 of 5    0             0            1
+  stderr   5 of 5    0             0            1
+  many     5 of 5    0             648          19353
+SDK v1
+  log      answered  before reply  after reply  stderr
+  quiet    5 of 5    0             0            0
+  print    5 of 5    0             0            0
+  flushed  5 of 5    1             0            0
+  stderr   5 of 5    0             0            1
+  many     0 of 5    19984         0            0
+  The reply arrived as: looking up the rota 19983{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:2,&quot;result&quot;:{&quot;</pre>      <figure><img src="media/11-print.jpg" alt="What each way of logging did on both libraries" loading="lazy" width="1440" height="900"></figure>
+      <div class="col">
+        <ul class="list"><li><strong>A plain <code>print</code> disturbed nothing here.</strong> Python holds it in a buffer. On v2 it reached the pipe at exit, after the reply. On v1 it never reached the pipe.</li><li><strong><code>flush=True</code> differs.</strong> On v1 the line went into the pipe before the reply, so a client that parses every line would crash on it. On v2 it went to stderr, because v2 points standard output at stderr while it serves.</li><li><strong><code>many</code> shows the real danger.</strong> On v1, 0 of 5 calls got an answer: the buffer overflowed halfway through a line, and the reply was written onto the end of it.</li></ul>
+        <p>One <code>print</code> doesn’t always break a server, and you shouldn’t rely on that. <strong>Log to stderr.</strong> Production code would use the official SDK’s client, which is async. We don’t, because writing a small client yourself shows what’s really on the wire.</p>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Be honest</span>
+        <h2>What this does and doesn’t show</h2>
+        <ul class="list"><li>We ran one Mac with Python 3.15, <code>mcp</code> 2.3.0 and <code>mcp</code> 1.30.0. Other libraries and languages may differ.</li><li>There’s no model in this chapter, so no model behaviour to measure.</li><li>The two-copies demo is pretend, and <code>handles.py</code> uses a loop, not a real balancer.</li><li>We haven’t measured a remote server. The reasons for going stateless come from Google’s write-up.</li></ul>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Your turn</span>
+        <h2>Exercises</h2>
+        <p>From <code>chapters/28-mcp-concepts-and-servers</code>, open <code>exercises.py</code> and complete the five TODOs:</p>
+        <ol class="loop"><li><code>request_line</code>: build one request, ready to write to a server.</li><li><code>with_meta</code>: add the three fields the new protocol wants.</li><li><code>reply_text</code>: turn a reply line into text, for both kinds of failure.</li><li><code>opening</code>: read a <code>server/discover</code> reply, and choose <code>"new"</code> or <code>"old"</code>.</li><li><code>add_to_basket</code>: the handle idea, with all the state in the store you’re given.</li></ol>
+        <p><strong>Optional:</strong> add a second tool to <code>quillon_server.py</code>, run <code>by_hand.py</code> on it, and see what the SDK did with your docstring.</p>
+        <p>Then run <code>python3 -m pytest test_exercises.py</code> from that folder. These checks need neither Ollama nor <code>mcp</code>. You’ve finished when you see <code>5 passed</code>.</p>
+      </div>
+<pre><span class="cmd">$ python3 -m pytest test_exercises.py -q --tb=no</span>
+FFFFF                                                                    [100%]
+=========================== short test summary info ============================
+FAILED test_exercises.py::test_todo_1_request_line - AttributeError: &#x27;NoneTyp...
+FAILED test_exercises.py::test_todo_2_with_meta - TypeError: &#x27;NoneType&#x27; objec...
+FAILED test_exercises.py::test_todo_3_reply_text - assert None == &#x27;Friday\n07...
+FAILED test_exercises.py::test_todo_4_opening - AssertionError: assert None =...
+FAILED test_exercises.py::test_todo_5_add_to_basket - AssertionError: assert ...
+5 failed in 0.01s
+
+$ python3 -m pytest test_exercises.py -q --tb=no   # after the TODOs
+.....                                                                    [100%]
+5 passed in 0.03s</pre>      <figure><img src="media/12-exercises.jpg" alt="The exercise checks, five failed and then five passed" loading="lazy" width="1440" height="900"></figure>
+      <div class="col">
+        <h3>Common mistakes</h3>
+        <ul class="list"><li>Forgetting <code>flush</code>, or reading with no timeout.</li><li>Looking at the refused request, when the first request caused the lock.</li><li>Trusting <code>ping</code> as a test.</li><li>Raising a plain exception for the model to read.</li><li>Mixing up <code>2026-07-28</code> and <code>2.3.0</code>.</li><li>Copying <code>FastMCP</code> from a tutorial.</li><li>Logging with <code>print</code>.</li><li>Keeping a handle’s data in one copy’s memory.</li><li>Reading “stateless” as “no state”.</li></ul>
+      </div>
+    </section>
+    <section>
+      <div class="col">
+        <span class="label">Recap</span>
+        <h2>What you opened</h2>
+        <ul class="list"><li>MCP puts a tool in its own program. On stdio, that’s one line of JSON each way, matched by <code>id</code>.</li><li><code>MCPServer</code> and <code>@mcp.tool()</code> build the tool from a normal function.</li><li>A protocol error means no tool ran. A tool error is a normal result, with text for the model.</li><li>The first request sets the protocol for that connection.</li><li>The new opening needs no handshake, because every request carries <code>_meta</code>. A v2 server answers both.</li><li><code>2026-07-28</code> is a protocol, and <code>2.3.0</code> is a library that speaks it.</li><li>Sessions in memory clash with balancers and restarts. Self-contained requests work on any copy.</li><li>A handle carries your state as an ordinary argument, if what it points at is shared.</li><li>A plain <code>print</code> disturbed nothing in our runs, and 20,000 lines damaged every reply on v1. Log to stderr.</li></ul>
+        <p>The protocol is defined in the <a href="https://modelcontextprotocol.io/specification">MCP specification</a>. The reasons for going stateless come from <a href="https://developers.googleblog.com/scaling-ai-agent-infrastructure-with-the-mcp-stateless-updates/">Scaling AI agent infrastructure with the MCP stateless updates</a>, by Kurtis Van Gent and Alan Blount of Google Cloud.</p>
+      </div>
+      <div class="next"><span>Next</span><h3>Chapter 29: McpClient, so your agent can use tools it doesn’t own</h3></div>
+    </section>
+
+    <footer>
+      <p>Get the code at <a href="https://github.com/WhiteboxAcademy/BuildAnAgentFramework">github.com/WhiteboxAcademy/BuildAnAgentFramework</a>. Code is under the MIT License. Articles and videos are under CC BY 4.0.</p>
+    </footer>
+  </div>
+</main>

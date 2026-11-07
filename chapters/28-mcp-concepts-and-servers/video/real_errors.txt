@@ -1,0 +1,11 @@
+$ python3 real_errors.py
+A method that doesn't exist
+  protocol error -32601: Method not found
+A tool that doesn't exist
+  tool error: Unknown tool: get_menu
+A missing argument
+  tool error: Error executing tool get_rota: 1 validation error for get_rotaArguments
+The tool raises ValueError
+  tool error: Error executing tool get_rota
+The tool raises ToolError
+  tool error: Error executing tool get_rota: Staff numbers don't start at 0

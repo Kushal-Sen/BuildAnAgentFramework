@@ -1,0 +1,12 @@
+$ python3 two_servers.py .venv-older/bin/python
+Rota server: new | Loyalty server: old
+Tools: ['search_handbook', 'get_rota', 'stamps_left']
+My staff number is 1042. When is my next shift?
+  called get_rota: 5 of 5, says 'Friday': 5 of 5
+  for example: Your next shift is on Friday at 07:00.
+A customer has 7 stamps. How many more do they need for a free drink?
+  called stamps_left: 5 of 5, says '3': 5 of 5
+  for example: The customer needs 3 more stamps to get a free drink.
+How much is the till float?
+  called search_handbook: 0 of 5, says '150': 0 of 5
+  for example: I don't know. The tools provided do not include a way to check the till floa

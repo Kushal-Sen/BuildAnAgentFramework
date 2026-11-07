@@ -1,0 +1,5 @@
+$ python3 local_and_mcp.py
+local                 110/126  direct 24/24  gap 23/24  code 11/18  hop 13/18  none 16/18  records 23/24
+era: new
+mcp                   112/126  direct 24/24  gap 24/24  code 12/18  hop 11/18  none 17/18  records 24/24
+local-again           109/126  direct 24/24  gap 24/24  code 11/18  hop 10/18  none 17/18  records 23/24

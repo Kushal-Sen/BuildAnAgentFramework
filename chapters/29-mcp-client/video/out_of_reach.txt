@@ -1,0 +1,14 @@
+$ python3 out_of_reach.py
+Tools: ['search_handbook']
+Asking: My staff number is 1042. When is my next shift?
+1. called nothing
+   I don't have access to your shift schedule with just your staff number. We would
+2. called ['search_handbook']
+   I couldn't find your specific shift schedule in the provided information. Rotas 
+3. called ['search_handbook']
+   Based on the information provided in the staff handbook, rota schedules are publ
+4. called ['search_handbook']
+   Based on the information in the staff handbook, your next shift schedule will be
+5. called ['search_handbook']
+   Based on the information in the handbook, your next shift is published in StaffH
+Says 'Friday at 07:00': 0 of 5

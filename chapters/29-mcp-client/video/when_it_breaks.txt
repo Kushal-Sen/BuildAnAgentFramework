@@ -1,0 +1,15 @@
+$ python3 when_it_breaks.py
+1. The tool says no
+  returned: Error: Error executing tool get_rota: No staff number 5
+2. No tool by that name
+  returned: Error: Unknown tool: get_menu
+3. No method by that name
+  raised McpError: tools/cancel: Method not found
+4. The tool hangs, so the server goes silent
+  raised McpError: No reply after 3 seconds
+   The same connection, straight after
+  returned: Your next shift is Friday at 07:00.
+5. The server has stopped
+  raised McpError: The server has stopped: [Errno 32] Broken pipe
+What a Toolbox hands the model when the server has stopped
+  returned: Error: The server has stopped: [Errno 32] Broken pipe

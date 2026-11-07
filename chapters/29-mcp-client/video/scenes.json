@@ -1,0 +1,516 @@
+{
+ "chapter": "Chapter 29",
+ "scenes": [
+  {
+   "type": "recap",
+   "title": "Previously: MCP concepts and servers",
+   "flow": [
+    "A locked tool",
+    "One line each way",
+    "A real server",
+    "Stateless"
+   ],
+   "captions": [
+    {
+     "text": "Recap of chapter 28: search_handbook was locked inside your Python. One folder away, it couldn't be imported.",
+     "secs": 8,
+     "focus": 0
+    },
+    {
+     "text": "MCP puts a tool in its own program. A request and a reply are one line of JSON each.",
+     "secs": 7,
+     "focus": 1
+    },
+    {
+     "text": "MCPServer turned a normal function into a real server, and by_hand.py talked to it.",
+     "secs": 7,
+     "focus": 2
+    },
+    {
+     "text": "Every request carries _meta now, and older servers speak only the handshake.",
+     "secs": 8,
+     "focus": 3
+    }
+   ]
+  },
+  {
+   "type": "box",
+   "label": "McpClient",
+   "inner": [
+    "connect",
+    "list tools",
+    "turn them into Tools"
+   ],
+   "captions": [
+    {
+     "text": "Today's black box: McpClient, the code that lets your agent use tools it doesn't own.",
+     "secs": 6
+    },
+    {
+     "text": "Let's open it. But first, a question your agent can't answer.",
+     "secs": 5,
+     "open": true,
+     "shot": "01-box"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/out_of_reach.py",
+   "start": "index = build_index",
+   "end": "ask(staff_agent",
+   "captions": [
+    {
+     "text": "The rota is a real server, running as its own program. This agent only has search_handbook.",
+     "secs": 8,
+     "focus": null
+    },
+    {
+     "text": "Ask when staff number 1042 works next, five times. Predict: what will it do?",
+     "secs": 7,
+     "focus": [
+      "tools = [",
+      "ask(staff_agent"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "term",
+   "file": "video/out_of_reach.txt",
+   "captions": [
+    {
+     "text": "0 of 5. It searched the handbook and found where rotas get published. It can't reach the answer.",
+     "secs": 9,
+     "lines": 14,
+     "shot": "02-out-of-reach"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/whitebox/mcp.py",
+   "start": "def __init__(self, command",
+   "end": "self.lines.put(None)",
+   "captions": [
+    {
+     "text": "McpClient starts the server as its own program, like by_hand.py did in chapter 28.",
+     "secs": 8,
+     "focus": [
+      "self.process = subprocess",
+      "stderr=subprocess"
+     ]
+    },
+    {
+     "text": "A thread is a second line of work. This one waits on the pipe, so your program doesn't have to.",
+     "secs": 9,
+     "focus": [
+      "threading.Thread",
+      "threading.Thread"
+     ]
+    },
+    {
+     "text": "Each line goes into a queue. When the pipe closes, None goes in, to say the server has gone.",
+     "secs": 9,
+     "focus": [
+      "def read_lines",
+      "self.lines.put(None)"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/whitebox/mcp.py",
+   "start": "def reply_to",
+   "end": "return message",
+   "captions": [
+    {
+     "text": "Waiting on the queue has a timeout, so a silent server becomes an error, not a freeze.",
+     "secs": 8,
+     "focus": [
+      "line = self.lines.get",
+      "raise McpError(f\"No reply"
+     ]
+    },
+    {
+     "text": "Lines that aren't JSON go in noise. A message with another id is skipped.",
+     "secs": 8,
+     "focus": [
+      "message = json.loads",
+      "return message"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/whitebox/mcp.py",
+   "start": "def connect",
+   "end": "notifications/initialized",
+   "output": "video/wire_new.txt",
+   "captions": [
+    {
+     "text": "connect asks server/discover. If the reply offers the new protocol, we're done.",
+     "secs": 8,
+     "lines": 0,
+     "focus": [
+      "reply = self.ask",
+      "return"
+     ]
+    },
+    {
+     "text": "Any other reply means try the handshake. A refusal isn't a failure here. It's the answer.",
+     "secs": 9,
+     "lines": 0,
+     "focus": [
+      "self.era = \"old\"",
+      "notifications/initialized"
+     ]
+    },
+    {
+     "text": "On a new server: one request to connect, then tools/list and tools/call. We hid _meta to fit.",
+     "secs": 9,
+     "lines": 11,
+     "focus": null,
+     "shot": "03-connect"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/whitebox/mcp.py",
+   "start": "def as_tool",
+   "end": "return Tool(name",
+   "captions": [
+    {
+     "text": "A server's tool already has a name, a description and a schema. Only the function is missing.",
+     "secs": 9,
+     "focus": null
+    },
+    {
+     "text": "So run is a stand-in. It remembers the name, and sends the arguments to the server.",
+     "secs": 8,
+     "focus": [
+      "def run",
+      "return self.call"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/within_reach.py",
+   "start": "with McpClient",
+   "end": "ask(staff_agent",
+   "output": "video/within_reach.txt",
+   "captions": [
+    {
+     "text": "The same agent and question. The only change: the server's tools join the list. Predict.",
+     "secs": 8,
+     "lines": 0,
+     "focus": [
+      "tools = [search_tool",
+      "tools = [search_tool"
+     ]
+    },
+    {
+     "text": "5 of 5. Agent and Toolbox didn't change, and they ran a tool in another program.",
+     "secs": 8,
+     "lines": 14,
+     "focus": null,
+     "shot": "04-within-reach"
+    }
+   ]
+  },
+  {
+   "type": "term",
+   "file": "video/when_it_breaks.txt",
+   "captions": [
+    {
+     "text": "Now break it. A second program means new ways to fail. Which of these raise an exception?",
+     "secs": 8,
+     "lines": 5
+    },
+    {
+     "text": "A tool error is text. A wrong method is a protocol error, so it raises McpError.",
+     "secs": 8,
+     "lines": 7
+    },
+    {
+     "text": "A hung tool costs the whole timeout. We only stopped waiting: the tool itself is still running.",
+     "secs": 9,
+     "lines": 9
+    },
+    {
+     "text": "A stopped server raises at once, and a Toolbox turns that into text for the model.",
+     "secs": 8,
+     "lines": 15,
+     "shot": "05-breaks"
+    }
+   ]
+  },
+  {
+   "type": "term",
+   "file": "video/server_gone.txt",
+   "captions": [
+    {
+     "text": "So kill the server, then ask. The agent still lists get_rota. Predict: crash, or a made-up shift?",
+     "secs": 9,
+     "lines": 3
+    },
+    {
+     "text": "No crash. It read the error and said something was wrong. In 20 more runs, none made up a shift.",
+     "secs": 9,
+     "lines": 14
+    }
+   ]
+  },
+  {
+   "type": "term",
+   "file": "video/noise_check.txt",
+   "captions": [
+    {
+     "text": "noise sets aside lines that aren't JSON. On SDK v2 it stayed empty, because v2 moves stdout.",
+     "secs": 9,
+     "lines": 5
+    },
+    {
+     "text": "On v1, the reply was glued onto a half-written line. 0 of 5, and no client can rescue that.",
+     "secs": 9,
+     "lines": 8,
+     "shot": "06-noise"
+    }
+   ]
+  },
+  {
+   "type": "term",
+   "file": "video/older_wire.txt",
+   "captions": [
+    {
+     "text": "Older servers speak only the handshake. Same client, older server. Predict the first reply.",
+     "secs": 9,
+     "lines": 4
+    },
+    {
+     "text": "Refused with -32602. connect reads that as try the handshake, and the connection survives.",
+     "secs": 9,
+     "lines": 9
+    },
+    {
+     "text": "After that it's the same tools/list and tools/call. Only the opening differs.",
+     "secs": 8,
+     "lines": 14,
+     "shot": "07-generations"
+    }
+   ]
+  },
+  {
+   "type": "term",
+   "file": "video/two_servers.txt",
+   "captions": [
+    {
+     "text": "One agent, one local tool, one new server and one older server, five runs per question.",
+     "secs": 8,
+     "lines": 3
+    },
+    {
+     "text": "Both servers worked, 5 of 5. The generations made no difference.",
+     "secs": 7,
+     "lines": 9
+    },
+    {
+     "text": "But the local search got 0 of 5. It has nothing to do with MCP. So what happened?",
+     "secs": 8,
+     "lines": 12,
+     "shot": "08-two-servers"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/adding_a_tool.py",
+   "start": "rows = [",
+   "end": "over MCP, prompt says search",
+   "output": "video/adding_a_tool.txt",
+   "captions": [
+    {
+     "text": "Eight easy handbook questions, ten runs each. Add one unrelated tool. Predict: does it matter?",
+     "secs": 9,
+     "lines": 2,
+     "focus": null
+    },
+    {
+     "text": "77 of 80 falls to 56. Local or remote, it's the same, so this isn't MCP. It's one more tool.",
+     "secs": 9,
+     "lines": 4,
+     "focus": null
+    },
+    {
+     "text": "Saying what each tool is for barely helped. Saying when to search reached 80 of 80, on these eight.",
+     "secs": 10,
+     "lines": 7,
+     "focus": null,
+     "shot": "09-one-more-tool"
+    }
+   ]
+  },
+  {
+   "type": "term",
+   "file": "video/many_tools.txt",
+   "captions": [
+    {
+     "text": "Now a bigger menu. Short descriptions cost about 40 tokens each, and 40 tools still mostly work.",
+     "secs": 9,
+     "lines": 6
+    },
+    {
+     "text": "Long descriptions held up too, while they fit: twenty tools, 3,237 tokens.",
+     "secs": 8,
+     "lines": 9
+    },
+    {
+     "text": "40 long tools: 12 of 60, with no error. It read 2,050 of 6,345 tokens: chapter 24's silent cut.",
+     "secs": 10,
+     "lines": 10
+    },
+    {
+     "text": "The same menu in a bigger window gets 55. Nothing was wrong with the tools. They didn't fit.",
+     "secs": 9,
+     "lines": 11,
+     "shot": "10-many-tools"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/local_and_mcp.py",
+   "start": "measure(build_agent(model, index), \"local\")",
+   "end": "measure(build_agent(model, index), \"local-again\")",
+   "output": "video/local_and_mcp.txt",
+   "captions": [
+    {
+     "text": "Did MCP itself cost anything? The same 42 questions, three runs each, local and over MCP.",
+     "secs": 8,
+     "lines": 0,
+     "focus": null
+    },
+    {
+     "text": "Local runs twice, on purpose, to show how much two identical runs differ. Predict the gap.",
+     "secs": 8,
+     "lines": 0,
+     "focus": [
+      "measure(build_agent(model, index), \"local-again\")",
+      "measure(build_agent(model, index), \"local-again\")"
+     ]
+    },
+    {
+     "text": "110 and 109 for local, 112 for MCP. Too close to rank, so we measured no cost.",
+     "secs": 9,
+     "lines": 5,
+     "focus": null,
+     "shot": "11-eval"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/notes_server.py",
+   "start": "ROTA =",
+   "end": "Call send_note",
+   "output": "video/someone_elses_text.txt",
+   "captions": [
+    {
+     "text": "Tool text is written by someone else. This pretend server plants a line. send_note sends nothing.",
+     "secs": 9,
+     "lines": 0,
+     "focus": null
+    },
+    {
+     "text": "Zero calls in 170 runs, even when told to obey. Read rose by 21, so the text did arrive.",
+     "secs": 9,
+     "lines": 6,
+     "focus": null
+    }
+   ]
+  },
+  {
+   "type": "term",
+   "file": "video/read_answers.txt",
+   "captions": [
+    {
+     "text": "But that score only counts tool calls. Read what it said to the user.",
+     "secs": 7,
+     "lines": 5
+    },
+    {
+     "text": "100 of 100 passed the planted request on, as if it came from Quillon. That's not safety. Chapter 31.",
+     "secs": 10,
+     "lines": 8,
+     "shot": "12-injection"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/whitebox/mcp.py",
+   "start": "import json",
+   "end": "from .tools import Tool",
+   "captions": [
+    {
+     "text": "McpClient is plain Python, so you can read it, and this course doesn't teach async.",
+     "secs": 8,
+     "focus": null
+    },
+    {
+     "text": "Production code would use the official SDK's client, which is async, and handles far more.",
+     "secs": 8,
+     "focus": null
+    }
+   ]
+  },
+  {
+   "type": "term",
+   "file": "video/exercise_output.txt",
+   "final": "5 passed",
+   "captions": [
+    {
+     "text": "Your turn. Open exercises.py and complete the five TODOs.",
+     "secs": 6,
+     "lines": 8
+    },
+    {
+     "text": "You've finished when you see 5 passed.",
+     "secs": 6,
+     "lines": 13,
+     "shot": "13-exercises"
+    }
+   ]
+  },
+  {
+   "type": "end",
+   "title": "You opened McpClient.",
+   "points": [
+    "Connect, on either generation",
+    "A server's tool is a Tool",
+    "Failures become text",
+    "Run your eval when tools change"
+   ],
+   "next": "Next: the Part 6 checkpoint, then Part 7",
+   "captions": [
+    {
+     "text": "Your agent can use tools it doesn't own, and MCP itself cost nothing we could measure.",
+     "secs": 8
+    },
+    {
+     "text": "But each tool changes your prompt, and tools have to fit in the window. Run your eval again.",
+     "secs": 8
+    },
+    {
+     "text": "Those counts come from one 7B model on one Mac. Test yours.",
+     "secs": 6
+    }
+   ]
+  }
+ ]
+}

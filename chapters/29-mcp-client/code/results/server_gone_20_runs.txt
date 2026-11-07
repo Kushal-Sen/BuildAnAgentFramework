@@ -1,0 +1,41 @@
+$ python3 server_gone_20.py
+1. called ['get_rota', 'get_rota', 'get_rota']
+   It seems there was an error trying to fetch your shift details. Let's try a different approach. Could you please provide more information about your shift, such as your name or any other relevant details?
+2. called ['get_rota', 'get_rota']
+   I'm having trouble retrieving your shift details right now. Let's try asking again later or check with a supervisor for your scheduled shift time.
+3. called ['get_rota']
+   I encountered an issue while trying to fetch your shift details. Let's try that again.
+4. called ['get_rota', 'get_rota']
+   I'm having trouble retrieving your shift information right now. Let's try asking again later or check with a supervisor if the issue persists.
+5. called ['get_rota']
+   I encountered an issue while trying to fetch your shift details. Let's try again later or check with the management for your schedule.
+6. called ['get_rota', 'get_rota']
+   I'm sorry, there seems to be a technical issue right now. Let's try asking this question again later or check with a colleague to get your shift details. If the problem persists, we might need to contact IT support.
+7. called ['get_rota']
+   I encountered an issue while trying to fetch your shift details. Let's try again shortly. If the problem persists, we may need to check the system status.
+8. called ['get_rota', 'get_rota', 'get_rota', 'search_handbook']
+   The information in the staff handbook indicates that rotas are published in StaffHub every Thursday for the two weeks starting the following Monday. You should check StaffHub for your upcoming shifts. For now, you can arrive 10 minutes before your shift to prepare. Opening staff should arrive 30 minutes before the branch opens, and closing staff should stay 45 minutes after the branch closes. If you need to swap a shift, ensure it is done at least 24 hours before the shift in StaffHub, and both parties agree, including your manager. If you need your specific shift details, you might want to log into StaffHub or contact a colleague or your manager for that information.
+9. called ['get_rota', 'get_rota']
+   I'm sorry, there seems to be an issue with the server. Let's try this again later or you can check with your manager for your next shift details.
+10. called ['get_rota', 'get_rota', 'get_rota']
+   It seems there was an error with the server. Could you please provide more details about your role or any specific dates you're interested in? I can try a different approach.
+11. called ['get_rota', 'get_rota', 'get_rota']
+   It appears we're unable to retrieve your shift details at the moment due to repeated attempts. Let's try searching the staff handbook instead to see if there's any information there that could be helpful. Would you like me to search the handbook for you? If so, what specific information are you looking for?
+12. called ['get_rota', 'get_rota']
+   I'm having trouble retrieving your shift information right now. Let's try that again shortly. If the problem persists, we may need to check the system status.
+13. called ['get_rota', 'get_rota']
+   It seems there was an issue connecting to the server. Let's try asking again later or contact the IT support for further assistance.
+14. called ['get_rota', 'get_rota']
+   I'm experiencing technical difficulties fetching your shift details. Let's try this again shortly or contact IT support for assistance.
+15. called ['get_rota', 'get_rota', 'get_rota', 'search_handbook']
+   Based on the information from the staff handbook, here are some key points regarding shifts: - Rotas are published in StaffHub every Thursday for the two weeks starting the following Monday. - Opening staff must arrive 30 minutes before the branch opens. - Closing staff stay 45 minutes after the branch closes. - Everyone else arrives 10 minutes before their shift to get ready. - You can swap a shift with a colleague of the same band or higher, but swaps must be posted at least 24 hours in advance and require manager approval. To find out your specific next shift, we might need to try contacting the staff hub or your manager directly. They would have the most accurate and up-to-date information for your personal schedule.
+16. called ['get_rota']
+   I encountered an issue while trying to fetch your shift details. Let's try again later or check with the management for your schedule.
+17. called ['get_rota', 'get_rota']
+   I'm sorry, there seems to be a technical issue right now. Let's try asking this question again later or check with a colleague for your shift details.
+18. called ['get_rota', 'get_rota', 'get_rota']
+   It seems there was an issue with the server, but I understand you've requested this information multiple times. Let's try searching the staff handbook for any policy regarding shift schedules or contact a colleague to help find this information. Would you like to try that instead?
+19. called ['get_rota', 'get_rota', 'get_rota']
+   It seems there was an issue with the request. Would you like to know what tasks are expected of you according to the staff handbook, or is there any other information you need?
+20. called ['get_rota', 'get_rota']
+   I'm having trouble retrieving your shift information right now. Let's try asking again later or I can help you with another request.

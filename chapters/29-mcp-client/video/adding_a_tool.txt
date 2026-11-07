@@ -1,0 +1,7 @@
+$ python3 adding_a_tool.py
+Tools                          Searched Right    Runs with no search
+search_handbook alone          77 of 80   77 of 80  {'float': 2, 'payday': 1}
+plus get_rota, over MCP        56 of 80   56 of 80  {'float': 10, 'payday': 8, 'milk-charge': 6}
+plus get_rota, local           55 of 80   55 of 80  {'float': 9, 'payday': 8, 'milk-charge': 8}
+over MCP, prompt says when     60 of 80   60 of 80  {'float': 7, 'payday': 2, 'milk-charge': 9, 'hot-food': 2}
+over MCP, prompt says search   80 of 80   80 of 80  

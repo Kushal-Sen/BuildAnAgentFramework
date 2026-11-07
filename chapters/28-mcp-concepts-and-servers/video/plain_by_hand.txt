@@ -1,0 +1,10 @@
+$ python3 by_hand.py plain_server.py
+Sent:
+  {"jsonrpc": "2.0", "id": 1, "method": "tools/list", "params": {"_meta":
+  {"io.modelcontextprotocol/protocolVersion": "2026-07-28",
+  "io.modelcontextprotocol/clientCapabilities": {}, "io.modelcontextprotocol/clientInfo":
+  {"name": "by-hand", "version": "1"}}}}
+Read:
+  {"jsonrpc": "2.0", "id": 1, "result": {"tools": [{"name": "get_rota", "description":
+  "Look up someone's next shift.", "inputSchema": {"type": "object", "properties":
+  {"staff_number": {"type": "string"}}}}]}}

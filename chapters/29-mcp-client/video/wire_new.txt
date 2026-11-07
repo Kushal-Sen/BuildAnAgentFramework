@@ -1,0 +1,11 @@
+$ python3 both_generations.py
+New server, SDK v2
+  -> {"id": 1, "method": "server/discover", "params": {}}
+  <- {"id": 1, "result": {"supportedVersions": ["2026-07-28"]}}
+  connected, era: new
+  -> {"id": 2, "method": "tools/list", "params": {}}
+  <- {"id": 2, "result": {"tools": [{"description": "Look up someone's next shift.", "...
+  tools: ['get_rota']
+  -> {"id": 3, "method": "tools/call", "params": {"name": "get_rota", "arguments": {"s...
+  <- {"id": 3, "result": {"content": [{"text": "Your next shift is Friday at 07:00.", ...
+  answer: Your next shift is Friday at 07:00.

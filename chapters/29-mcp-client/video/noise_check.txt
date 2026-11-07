@@ -1,0 +1,8 @@
+$ python3 noise_check.py .venv-older/bin/python
+Server                 answered   noise lines per run
+Plain test server      5 of 5     2 to 2
+SDK v2, flushed        5 of 5     0 to 0
+SDK v2, 20,000 lines   5 of 5     0 to 0
+SDK v1, flushed        5 of 5     1 to 1
+SDK v1, 20,000 lines   0 of 5     19984 to 19984
+  No reply after 5 seconds

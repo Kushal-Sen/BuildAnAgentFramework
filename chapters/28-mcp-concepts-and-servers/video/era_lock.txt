@@ -1,0 +1,14 @@
+$ python3 era_lock.py
+Forget _meta, then send a good request
+  protocol error -32602: Invalid request parameters
+  protocol error -32600: this connection serves the handshake protocol era; requests
+    carrying the 2026-07-28 envelope are not accepted on it
+A harmless ping with no _meta, then a good request
+  ok
+  protocol error -32600: this connection serves the handshake protocol era; requests
+    carrying the 2026-07-28 envelope are not accepted on it
+A good request, then forget _meta
+  ok
+  protocol error -32602: params._meta must be an object carrying the required
+    'io.modelcontextprotocol/protocolVersion' and
+    'io.modelcontextprotocol/clientCapabilities' envelope keys

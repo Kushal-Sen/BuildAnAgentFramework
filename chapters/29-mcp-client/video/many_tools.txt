@@ -1,0 +1,11 @@
+$ python3 many_tools.py
+Text   Tools   Window  Right  Wrong  None  Empty     Read
+short      5  default     57      0     3      0      337
+short     10  default     57      0     3      0      541
+short     20  default     57      1     2      0      957
+short     40  default     54      3     3      0    1,785
+long       5  default     57      0     3      0      907
+long      10  default     60      0     0      0    1,681
+long      20  default     57      0     3      0    3,237
+long      40  default     12     26     7     15    2,050
+long      40    16384     55      0     5      0    6,345

@@ -1,0 +1,470 @@
+{
+ "chapter": "Chapter 28",
+ "scenes": [
+  {
+   "type": "recap",
+   "title": "Previously: durable execution",
+   "flow": [
+    "Kill the job",
+    "Save as you go",
+    "Ask the real system",
+    "Bank says when"
+   ],
+   "captions": [
+    {
+     "text": "Recap of chapter 27: we killed a refund job right after a payment, and a restart paid people twice.",
+     "secs": 8,
+     "focus": 0
+    },
+    {
+     "text": "Checkpoint saved the conversation as it went, so the job could carry on.",
+     "secs": 7,
+     "focus": 1
+    },
+    {
+     "text": "once asked the bank before paying, so a repeat did nothing.",
+     "secs": 7,
+     "focus": 2
+    },
+    {
+     "text": "until_done let the bank say what was left. The truth stayed outside the model.",
+     "secs": 8,
+     "focus": 3
+    }
+   ]
+  },
+  {
+   "type": "box",
+   "label": "MCP",
+   "inner": [
+    "a tool in its own program",
+    "one line of JSON each way",
+    "a real server"
+   ],
+   "captions": [
+    {
+     "text": "Today's black box: MCP, the way agents use tools they don't own.",
+     "secs": 6
+    },
+    {
+     "text": "Let's open it. But first, a tool that's stuck.",
+     "secs": 5,
+     "open": true,
+     "shot": "01-box"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/locked.py",
+   "start": "search_handbook = search_tool",
+   "end": "print(\"  \" + done.stderr",
+   "output": "video/locked.txt",
+   "captions": [
+    {
+     "text": "search_handbook is a Python function. Call it inside this program, and it works.",
+     "secs": 8,
+     "lines": 4,
+     "focus": null
+    },
+    {
+     "text": "Then a second program in another folder tries to import it. Predict: what happens?",
+     "secs": 8,
+     "lines": 4,
+     "focus": [
+      "with tempfile",
+      "capture_output"
+     ]
+    },
+    {
+     "text": "ModuleNotFoundError. The only way in is a Python call, so no other agent can use it.",
+     "secs": 9,
+     "lines": 6,
+     "focus": null,
+     "shot": "02-locked"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/plain_server.py",
+   "start": "for line in sys.stdin",
+   "end": "print(json.dumps",
+   "output": "video/plain_by_hand.txt",
+   "captions": [
+    {
+     "text": "Here's a server in plain Python, with no library. Read a line, work out a reply, write a line.",
+     "secs": 9,
+     "lines": 0,
+     "focus": null
+    },
+    {
+     "text": "It isn't complete. But that's what an MCP server is: a program that reads and writes lines.",
+     "secs": 9,
+     "lines": 0,
+     "focus": null
+    },
+    {
+     "text": "See flush=True? Without it, the reply can sit in a buffer. Remember that.",
+     "secs": 7,
+     "lines": 0,
+     "focus": [
+      "print(json.dumps",
+      "print(json.dumps"
+     ]
+    },
+    {
+     "text": "Send tools/list as one line of JSON. One line comes back, with the same id, listing the tool.",
+     "secs": 9,
+     "lines": 10,
+     "focus": null,
+     "shot": "03-one-line"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/by_hand.py",
+   "start": "def start",
+   "end": "return server.stdout.readline",
+   "captions": [
+    {
+     "text": "The client is plain Python too. Popen starts the server as its own program.",
+     "secs": 8,
+     "focus": [
+      "server = subprocess.Popen",
+      "stderr=stderr"
+     ]
+    },
+    {
+     "text": "readline can wait for ever, so a timer kills a server that goes quiet.",
+     "secs": 7,
+     "focus": [
+      "timer = threading",
+      "timer.start"
+     ]
+    },
+    {
+     "text": "And that's the whole trick: write a line, flush it, read a line.",
+     "secs": 7,
+     "focus": [
+      "def send",
+      "return server.stdout.readline"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "file": "code/quillon_server.py",
+   "start": "index = build_index",
+   "end": "mcp.run()",
+   "captions": [
+    {
+     "text": "Now the real thing, with the official SDK. MCPServer makes a server, and @mcp.tool() adds a tool.",
+     "secs": 9,
+     "focus": [
+      "mcp = MCPServer",
+      "@mcp.tool"
+     ]
+    },
+    {
+     "text": "It's a normal function. The name, the docstring and the type hints become the tool. No async.",
+     "secs": 9,
+     "focus": [
+      "def search_handbook",
+      "return excerpts"
+     ]
+    },
+    {
+     "text": "Predict: does the same by_hand.py work, with no changes?",
+     "secs": 6,
+     "focus": null
+    }
+   ]
+  },
+  {
+   "type": "term",
+   "file": "video/quillon_by_hand.txt",
+   "captions": [
+    {
+     "text": "It does. The same line went out, and a real server answered.",
+     "secs": 6,
+     "lines": 6
+    },
+    {
+     "text": "The client didn't change, and that's the point of a protocol. The SDK built this schema.",
+     "secs": 9,
+     "lines": 15,
+     "shot": "04-real-server"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/ask_handbook.py",
+   "start": "began = time.time()",
+   "end": "print(textwrap.fill",
+   "output": "video/ask_handbook.txt",
+   "captions": [
+    {
+     "text": "Now tools/call, from a program that never imports whitebox.",
+     "secs": 7,
+     "lines": 0,
+     "focus": [
+      "send(server",
+      "reply = json"
+     ]
+    },
+    {
+     "text": "The same handbook text, and whitebox isn't loaded here. The tool is unlocked.",
+     "secs": 8,
+     "lines": 5,
+     "focus": null
+    }
+   ]
+  },
+  {
+   "type": "term",
+   "file": "video/real_errors.txt",
+   "captions": [
+    {
+     "text": "Now break it. Five bad requests, each on a new connection. Which ones can the model read?",
+     "secs": 8,
+     "lines": 5
+    },
+    {
+     "text": "A protocol error means no tool ran. A tool error is a normal result, with isError set.",
+     "secs": 9,
+     "lines": 7
+    },
+    {
+     "text": "The ValueError's message never left the server. Only ToolError's message gets through.",
+     "secs": 9,
+     "lines": 11,
+     "shot": "05-errors"
+    }
+   ]
+  },
+  {
+   "type": "term",
+   "file": "video/era_lock.txt",
+   "captions": [
+    {
+     "text": "Now the error worth remembering. A first request with no _meta, then a perfect one. Predict.",
+     "secs": 9,
+     "lines": 5
+    },
+    {
+     "text": "Refused. The first request set the protocol, and this connection is locked into the old one.",
+     "secs": 9,
+     "lines": 5
+    },
+    {
+     "text": "Even a harmless ping does it, and the ping itself succeeded, so nothing warned you.",
+     "secs": 8,
+     "lines": 9
+    },
+    {
+     "text": "The reverse fails too. The fix is a new connection, with _meta from the very first request.",
+     "secs": 9,
+     "lines": 14,
+     "shot": "06-era-lock"
+    }
+   ]
+  },
+  {
+   "type": "term",
+   "file": "video/both_openings.txt",
+   "captions": [
+    {
+     "text": "That lock exists because there are two protocols, and older servers speak only the older one.",
+     "secs": 9,
+     "lines": 1
+    },
+    {
+     "text": "The new opening has no handshake. Every request carries _meta, and discover is optional.",
+     "secs": 8,
+     "lines": 5
+    },
+    {
+     "text": "The old opening is a handshake: initialize, then a notification. A v2 server answers both.",
+     "secs": 9,
+     "lines": 9
+    },
+    {
+     "text": "An older server refuses discover, the connection survives, and the handshake works.",
+     "secs": 9,
+     "lines": 16,
+     "shot": "07-openings"
+    }
+   ]
+  },
+  {
+   "type": "term",
+   "file": "video/versions.txt",
+   "captions": [
+    {
+     "text": "Two things have versions here. 2026-07-28 is a protocol. 2.3.0 is a Python library that speaks it.",
+     "secs": 9,
+     "lines": 4
+    },
+    {
+     "text": "Library v2 renamed FastMCP to MCPServer. Tutorials from before v2 show the older name.",
+     "secs": 9,
+     "lines": 10
+    },
+    {
+     "text": "Library 1.30.0 speaks only the handshake. Say which one you mean: the rules, or the package.",
+     "secs": 9,
+     "lines": 16,
+     "shot": "08-versions"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/two_copies.py",
+   "start": "def remembered",
+   "end": "return f\"{self.name}: ok\"",
+   "output": "video/two_copies.txt",
+   "captions": [
+    {
+     "text": "Why go stateless? Run a remote server as two copies behind a balancer. This demo is pretend.",
+     "secs": 9,
+     "lines": 0,
+     "focus": null
+    },
+    {
+     "text": "A remembered session lives in one copy's memory. Predict: what happens on the other copy?",
+     "secs": 8,
+     "lines": 0,
+     "focus": [
+      "if session not in",
+      "return f\"{self.name}: unknown"
+     ]
+    },
+    {
+     "text": "It fails. But self-contained requests work on either copy, and that's why _meta is on every one.",
+     "secs": 9,
+     "lines": 5,
+     "focus": null
+    },
+    {
+     "text": "Sticky routing piles work onto one copy. The traffic is made up, to show the shape.",
+     "secs": 8,
+     "lines": 8,
+     "focus": null
+    },
+    {
+     "text": "A restart wipes sessions. A shared store works, and it's one more service to run.",
+     "secs": 8,
+     "lines": 14,
+     "focus": null,
+     "shot": "09-two-copies"
+    }
+   ]
+  },
+  {
+   "type": "demo",
+   "file": "code/basket_server.py",
+   "start": "def add_to_basket",
+   "end": "return \", \".join",
+   "output": "video/handles.txt",
+   "captions": [
+    {
+     "text": "Stateless doesn't mean your app has no state. A handle is an ordinary argument, passed on each call.",
+     "secs": 9,
+     "lines": 0,
+     "focus": [
+      "def add_to_basket",
+      "item: Annotated"
+     ]
+    },
+    {
+     "text": "Two real copies take turns. With baskets in memory, copy B has never heard of the handle.",
+     "secs": 9,
+     "lines": 6,
+     "focus": null
+    },
+    {
+     "text": "In a shared file, either copy can serve any call. The handle must point at something shared.",
+     "secs": 9,
+     "lines": 11,
+     "focus": null,
+     "shot": "10-handles"
+    }
+   ]
+  },
+  {
+   "type": "term",
+   "file": "video/stray_print.txt",
+   "captions": [
+    {
+     "text": "On stdio, stdout is the protocol's pipe. So what does a print in a tool do? Five runs each.",
+     "secs": 9,
+     "lines": 1
+    },
+    {
+     "text": "On v2, a plain print arrived after the reply, flushed went to stderr, and every call was answered.",
+     "secs": 9,
+     "lines": 8
+    },
+    {
+     "text": "On v1, a flushed print landed before the reply. It still got an answer here.",
+     "secs": 8,
+     "lines": 14
+    },
+    {
+     "text": "But 20,000 lines glued the reply onto a half-written line: 0 of 5 answered. Log to stderr.",
+     "secs": 9,
+     "lines": 16,
+     "shot": "11-print"
+    }
+   ]
+  },
+  {
+   "type": "term",
+   "file": "video/exercise_output.txt",
+   "final": "5 passed",
+   "captions": [
+    {
+     "text": "Your turn. Open exercises.py and complete the five TODOs.",
+     "secs": 6,
+     "lines": 8
+    },
+    {
+     "text": "You've finished when you see 5 passed.",
+     "secs": 6,
+     "lines": 13,
+     "shot": "12-exercises"
+    }
+   ]
+  },
+  {
+   "type": "end",
+   "title": "You opened MCP.",
+   "points": [
+    "A tool in its own program",
+    "One line of JSON each way",
+    "Every request stands alone",
+    "Log to stderr"
+   ],
+   "next": "Next: chapter 29, the MCP client",
+   "captions": [
+    {
+     "text": "A server is a program that reads and writes lines. The SDK does the rules for you.",
+     "secs": 8
+    },
+    {
+     "text": "The protocol stopped holding state, so your application holds it. On local stdio, little changes.",
+     "secs": 8
+    },
+    {
+     "text": "We tested Python SDK servers on one Mac. Test yours.",
+     "secs": 6
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,14 @@
+$ python3 server_gone.py
+The server is stopped. Tools the agent still thinks it has: ['search_handbook', 'get_rota']
+Asking: My staff number is 1042. When is my next shift?
+1. called ['get_rota', 'get_rota', 'get_rota', 'get_rota']
+   It appears there are ongoing issues with the server. I'll check back later to tr
+2. called ['get_rota', 'get_rota', 'get_rota']
+   It seems there was an issue with the previous request. Let's try a different app
+3. called ['get_rota']
+   I encountered an issue retrieving your shift details. Let's try that again.
+4. called ['get_rota', 'get_rota', 'get_rota', 'search_handbook']
+   Based on the information from the staff handbook, it looks like your next shift 
+5. called ['get_rota']
+   I encountered an issue while trying to fetch your shift details. Let's try again
+Says 'Friday at 07:00': 0 of 5

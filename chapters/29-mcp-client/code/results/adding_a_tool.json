@@ -1,0 +1,2442 @@
+[
+ {
+  "label": "search_handbook alone",
+  "searched": 77,
+  "right": 77,
+  "runs": 80,
+  "answers": [
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend recipe, Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend recipe, which is called Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend, Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend, Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend recipe, Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend recipe, Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend recipe, which is called Lantern, uses 18 grams of ground coffee to yield 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend recipe, Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend, Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend recipe, which is called Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:float",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, each till starts the day with a float of \u00a3150."
+   },
+   {
+    "case": "direct:float",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, each till starts the day with a float of \u00a3150. If you need more specific information about the current till float balance, you can check the cash sheet or consult a shift lead or a manager."
+   },
+   {
+    "case": "direct:float",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. This question might be specific to the current financial status of the store and isn't covered in our general staff handbook. We would need to check the relevant records or ask the finance manager for the most accurate information. Is there anything else you need help with from the handbook?"
+   },
+   {
+    "case": "direct:float",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, each till starts the day with a float of \u00a3150."
+   },
+   {
+    "case": "direct:float",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, each till starts the day with a float of \u00a3150. The tills have been \u00a31, \u00a32, and \u00a34 over on different days, but the exact current float amount is not specified. If you need the current float amount, you might want to check with the shift lead or a manager who has access to the safe."
+   },
+   {
+    "case": "direct:float",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, each till at Quillon Coffee starts the day with a float of \u00a3150. However, the exact current float balance is not specified in the documents I reviewed. For precise information, you might want to check the current day's cash sheet or consult the shift lead or a manager."
+   },
+   {
+    "case": "direct:float",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The information about the till float is not available in my current knowledge base. We would need to check the staff handbook or speak with a manager for that specific detail. Would you like me to search the staff handbook for this information?"
+   },
+   {
+    "case": "direct:float",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, each till starts the day with a float of \u00a3150."
+   },
+   {
+    "case": "direct:float",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, each till starts the day with a float of \u00a3150. However, the till float can vary depending on the day's trade. For example, on July 10th and July 18th, the tills were over by \u00a34 each day, while on July 17th, the till was over by \u00a32. If you need the exact current float amount, you might want to check with the shift lead or a manager."
+   },
+   {
+    "case": "direct:float",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, each till starts the day with a float of \u00a3150."
+   },
+   {
+    "case": "direct:payday",
+    "searched": true,
+    "passed": true,
+    "answer": "Payday is the last Friday of each month. Payslips appear in the StaffHub app two days before payday."
+   },
+   {
+    "case": "direct:payday",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, payday is the last Friday of each month. Payslips can be checked in the StaffHub app, which will show up two days before payday."
+   },
+   {
+    "case": "direct:payday",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, payday is the last Friday of each month. Payslips are available in the StaffHub app two days before payday."
+   },
+   {
+    "case": "direct:payday",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, payday is the last Friday of each month. Payslips can be found in the StaffHub app two days before payday."
+   },
+   {
+    "case": "direct:payday",
+    "searched": true,
+    "passed": true,
+    "answer": "Payday at Quillon Coffee is the last Friday of each month. Payslips can be found in the StaffHub app, typically two days before payday."
+   },
+   {
+    "case": "direct:payday",
+    "searched": true,
+    "passed": true,
+    "answer": "Payday is the last Friday of each month at Quillon Coffee. Payslips can be found in the StaffHub app, typically two days before payday."
+   },
+   {
+    "case": "direct:payday",
+    "searched": true,
+    "passed": true,
+    "answer": "Payday is the last Friday of each month. Payslips appear in the StaffHub app two days before payday."
+   },
+   {
+    "case": "direct:payday",
+    "searched": true,
+    "passed": true,
+    "answer": "Payday is the last Friday of each month. Payslips can be found in the StaffHub app two days before payday."
+   },
+   {
+    "case": "direct:payday",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, payday is the last Friday of each month. Payslips appear in the StaffHub app two days before payday."
+   },
+   {
+    "case": "direct:payday",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The payday for Quillon Coffee staff isn't mentioned in my records. Let me check the staff handbook for more information."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, oat, soya, and coconut milk each cost an extra 45p."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": true,
+    "passed": true,
+    "answer": "Oat, soya, and coconut milk cost an extra 45p each at Quillon Coffee."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": true,
+    "passed": true,
+    "answer": "Oat, soya, and coconut milk each cost an extra 45p at Quillon Coffee."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": true,
+    "passed": true,
+    "answer": "Oat, soya, and coconut milk each cost an extra 45p."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, oat, soya, and coconut milk each cost an extra 45p."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, oat, soya, and coconut milk each cost an extra 45p."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": true,
+    "passed": true,
+    "answer": "Oat, soya, and coconut milk each cost an extra 45p."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": true,
+    "passed": true,
+    "answer": "Oat, soya, and coconut milk each cost an extra 45p."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": true,
+    "passed": true,
+    "answer": "Oat, soya, and coconut milk each cost an extra 45p at Quillon Coffee."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": true,
+    "passed": true,
+    "answer": "The oat, soya, and coconut milk cost an extra 45p each."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, throw the stock away and call your manager."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. Make sure to check and log the temperature at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, throw the stock away and call your manager."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked at opening and at 14:00, and their temperatures logged. If a fridge reads between 5\u00b0C and 8\u00b0C, the stock should be moved to another fridge and the temperature checked again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, the stock should be thrown away and a manager should be informed."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. The temperature should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, the stock should be moved to another fridge and the temperature should be checked again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, the stock should be thrown away and a manager should be called."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, the stock should be moved to another fridge and checked again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, the stock should be thrown away and a manager should be called."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, the stock should be moved to another fridge and the temperature checked again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, the stock should be thrown away and your manager should be informed."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. The temperature should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, the stock should be moved to another fridge and the temperature checked again after 30 minutes. If the temperature reads above 8\u00b0C for more than 2 hours, the stock should be thrown away and a manager should be called."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. It's recommended to check and log the temperatures at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, the stock should be thrown away and you should call your manager."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. You should check and log the temperature at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, you should throw the stock away and call your manager."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. Make sure to check and log the temperature at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, throw the stock away and inform your manager."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "Coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "Coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "Coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "Coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "Coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "Coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "Based on the information provided in the handbook, coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "Coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "Coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "Coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre as measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre as measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre. This temperature must be measured using the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre as measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre to ensure food safety."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre, as measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre to ensure food safety."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre as measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre to ensure food safety. This temperature should be measured using the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre to ensure food safety."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, a customer gets a free hot drink after collecting 10 stamps. Each hot drink earns one stamp."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the information in the handbook, a customer gets a free hot drink after collecting 10 stamps. Each hot drink earns one stamp."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the information in the staff handbook, a customer needs to buy 10 hot drinks to get a free one on the loyalty card."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, a customer gets a free hot drink after collecting 10 stamps, one stamp for each hot drink purchased."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, a customer gets a free hot drink after collecting 10 stamps. Each hot drink earns one stamp."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, a customer gets a free hot drink after collecting 10 stamps, each earned from purchasing a hot drink."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, a customer gets a free hot drink after collecting 10 stamps. Each hot drink earns one stamp."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the information in the handbook, a customer gets a free hot drink after collecting 10 stamps. Each hot drink earns one stamp."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the loyalty card policy, a customer gets a free hot drink after collecting 10 stamps, with each stamp earned from purchasing one hot drink."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, a customer gets a free hot drink after collecting 10 stamps. Each hot drink earns one stamp."
+   }
+  ]
+ },
+ {
+  "label": "plus get_rota, over MCP",
+  "searched": 56,
+  "right": 56,
+  "runs": 80,
+  "answers": [
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend recipe, Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, the house blend (Lantern) uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend recipe, called Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, the house blend recipe (Lantern) uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, the house blend recipe (Lantern) uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend recipe, Lantern, uses 18 grams of ground coffee to make 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend recipe, Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend, Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend recipe, Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend recipe, called Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:float",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The information about the till float is not available through the tools provided. We would need to check the staff handbook or another relevant document for this information. Would you like me to search the staff handbook for you?"
+   },
+   {
+    "case": "direct:float",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The information about the till float is not available through the provided tools. We would need to check the staff handbook or ask a manager for this specific detail. Could we search the handbook for related information?"
+   },
+   {
+    "case": "direct:float",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The tools provided do not include a way to check the till float. We would typically find this information in the staff handbook or from our accountant. Would you like me to search the handbook for you?"
+   },
+   {
+    "case": "direct:float",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The information about the till float is not available through the tools provided. We would need to check the staff handbook or another relevant document for this information. Would you like me to search the staff handbook for you?"
+   },
+   {
+    "case": "direct:float",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The information about the till float is not available through the tools provided. We would need to check the staff handbook or another source for this specific information."
+   },
+   {
+    "case": "direct:float",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The information about the till float isn't available through the tools I have access to. We would need to check the staff handbook or speak with a manager for that specific information. Would you like me to search the staff handbook for you?"
+   },
+   {
+    "case": "direct:float",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The information about the till float is not available through the tools provided. We would need to check the staff handbook or ask a member of the staff for this specific information. Would you like me to search the staff handbook for you?"
+   },
+   {
+    "case": "direct:float",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The information about the till float is not included in the available tools. We would need to check the staff handbook or have a staff member provide this information. Would you like me to search the handbook for you?"
+   },
+   {
+    "case": "direct:float",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The information about the till float is not available through the tools provided. We can check the staff handbook or other specific documents for this information. Would you like me to search the staff handbook for this?"
+   },
+   {
+    "case": "direct:float",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The information about the till float isn't available through the tools provided. We can check the staff handbook or someone's shift rota, but not the till float."
+   },
+   {
+    "case": "direct:payday",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. This information isn't typically found in the staff handbook or through a staff member's shift details. Payday information might be specific to the company's HR policies or personal information. You might want to check with the HR department or your direct manager for this information."
+   },
+   {
+    "case": "direct:payday",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The staff handbook or shift rota won't have that information. Payday details are usually specific to the company's HR policies and not tied to shift schedules or general handbook entries. I would recommend checking directly with the HR department or your manager for payday information."
+   },
+   {
+    "case": "direct:payday",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The staff handbook or rota don't contain information about payday schedules. We would need to check with the management or HR for that information."
+   },
+   {
+    "case": "direct:payday",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, payday is the last Friday of each month. Payslips appear in the StaffHub app two days before payday."
+   },
+   {
+    "case": "direct:payday",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The staff handbook or shift rota won't have that information. Payday details are usually specific to the company's HR policies and not tied to shifts or shifts schedules. I would recommend checking with a manager or HR for this information."
+   },
+   {
+    "case": "direct:payday",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The staff handbook or shift rota don't typically contain information about payday schedules. We would need more specific information to answer this question. Is there a particular staff member you're asking about, or would you like to search the handbook for any policies related to pay?"
+   },
+   {
+    "case": "direct:payday",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, payday is the last Friday of each month. Wages are typically distributed two days before payday. If you have any concerns about your pay, you should report it to Tomas Weir within 10 days of the payday."
+   },
+   {
+    "case": "direct:payday",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The staff handbook or rota might not have this information. We can check the rota to see when the next payday is by looking at the payment schedule of the staff. Would you like to check the rota for this information? If so, I will need the staff number."
+   },
+   {
+    "case": "direct:payday",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The staff handbook or shift rota don't contain information about payday schedules. Would you like me to check the handbook for any policies related to paydays or find out someone's next shift to perhaps infer the payday pattern?"
+   },
+   {
+    "case": "direct:payday",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The staff handbook or rota might have this information, but I'll need more specific details to search for it. Can you provide me with the staff number or look it up in the handbook?"
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The prices of alternative milks are not typically detailed in the staff handbook or easily accessible through the tools provided. We would need to check with the management or financial records for this information. Is there another way I can assist you today?"
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": true,
+    "passed": true,
+    "answer": "Oat, soya, and coconut milk each cost an extra 45p."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The prices of alternative milks are not covered in our staff handbook. I will need to search for this information elsewhere or check with management."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The prices of alternative milks are not typically covered in the staff handbook or easily accessible through the tools I have. I would recommend checking with the management or finance department for this information."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The prices of alternative milks are not covered in the staff handbook. I will need to search further."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": true,
+    "passed": true,
+    "answer": "Oat, soya, and coconut milk each cost an extra 45p."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": true,
+    "passed": true,
+    "answer": "Oat, soya, and coconut milk cost an extra 45p each."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": true,
+    "passed": true,
+    "answer": "Oat, soya, and coconut milk cost an extra 45p each."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The pricing information for alternative milks is not included in the available tools. We would need to check the pricing handbook or current pricing list to find this information. Would you like me to search the staff handbook for this information?"
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The prices of alternative milks are not information typically found in the staff handbook or readily available through the tools provided. We would need to check the pricing details directly from the coffee menu or another relevant source. Is there any other information you need assistance with?"
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. The temperature should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, the stock should be thrown away and you should call your manager."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, you should move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, throw the stock away and contact your manager."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, the stock should be moved to another fridge and the temperature checked again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, the stock should be thrown away and a manager should be informed."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. This temperature must be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, the stock should be moved to another fridge and checked again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, the stock should be thrown away and a manager should be called."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. The temperature should be checked at opening and at 14:00, and any fridge reading between 5\u00b0C and 8\u00b0C should have its contents moved to another fridge and checked again after 30 minutes. If a fridge reads above 8\u00b0C for more than 2 hours, the stock should be discarded and a manager notified."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, you should move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, you should throw the stock away and call your manager."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, you should move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, you should throw the stock away and call your manager."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, throw the stock away and call your manager."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, throw the stock away and contact your manager."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, the stock should be thrown away and a manager should be notified."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the waste and recycling information in the handbook, coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "Based on the information in the staff handbook, coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the waste and recycling policy, coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "Coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the waste and recycling policy, coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre, as measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre, as measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre when measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre to ensure food safety."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre. This temperature should be measured using the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre, measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre, measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre when measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach a centre temperature of 75\u00b0C as measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre, as measured with the probe thermometer."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the information in the staff handbook, a customer needs to buy 10 hot drinks to get a free one on the loyalty card."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the information in the staff handbook, a customer gets a free hot drink after collecting 10 stamps. Each hot drink earns one stamp."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the information in the staff handbook, a customer needs to buy 10 hot drinks to get a free one as part of the loyalty card program."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, a customer gets a free hot drink after collecting ten stamps. Each hot drink earns one stamp."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, a customer gets a free hot drink after collecting ten stamps. Each hot drink earns one stamp."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the information in the staff handbook, a customer gets a free hot drink after collecting 10 stamps. Each hot drink earns one stamp."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, a customer gets a free hot drink after collecting 10 stamps. Each hot drink earns one stamp."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the information in the staff handbook, a customer needs to buy 10 hot drinks to get a free one on the loyalty card."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, a customer gets a free hot drink after collecting 10 stamps, each earned from purchasing a hot drink."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, a customer needs to buy 10 hot drinks to earn a free one on the loyalty card."
+   }
+  ]
+ },
+ {
+  "label": "plus get_rota, local",
+  "searched": 55,
+  "right": 55,
+  "runs": 80,
+  "answers": [
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend recipe, Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, the house blend (Lantern) uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, the house blend recipe, Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend, Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend recipe, Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend recipe, Lantern, uses 18 grams of coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend recipe, Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend recipe, Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, the house blend recipe (Lantern) uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend recipe, called Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:float",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The information about the till float is not available through the tools provided. We would need to check the staff handbook or ask a supervisor for this information."
+   },
+   {
+    "case": "direct:float",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The information about the till float is not available through the tools provided. We can check the staff handbook or shifts, but not the financial details."
+   },
+   {
+    "case": "direct:float",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The information about the till float is not available through the provided tools. We would need to check the staff handbook or speak with a manager to find this information. Could you provide the staff number so I can check the rota, or shall I search the handbook for policies related to the till float?"
+   },
+   {
+    "case": "direct:float",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, each till starts the day with a float of \u00a3150. However, the exact current amount in the till float is not detailed in the provided handbook entries. For the most accurate information, you might want to check the cash sheet or ask a shift lead or manager."
+   },
+   {
+    "case": "direct:float",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The information about the till float is not available through the tools provided. We can check the staff handbook or look up shifts, but not specific financial details."
+   },
+   {
+    "case": "direct:float",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The information about the till float is not available through the tools provided. We would need to check the staff handbook or another internal document for this specific information. Could you provide the staff number so I can check the rota, or would you like me to search the handbook for general policies on tills?"
+   },
+   {
+    "case": "direct:float",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The information about the till float is not available through the tools provided. We would need to check the staff handbook or speak with a manager to find this information. Would you like me to search the staff handbook for you?"
+   },
+   {
+    "case": "direct:float",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The information about the till float isn't available through the tools I have access to. We might need to check the staff handbook or ask a manager for that specific detail. Would you like me to search the staff handbook for this information?"
+   },
+   {
+    "case": "direct:float",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The information about the till float is not available through the tools provided. We would need to check the staff handbook or another source for this specific information. Would you like me to search the staff handbook for you?"
+   },
+   {
+    "case": "direct:float",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The tools provided do not include a way to check the till float. We would typically find this information in the staff handbook or from our accounting system, neither of which are available through these tools."
+   },
+   {
+    "case": "direct:payday",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The staff handbook or shift rota wouldn't have this information, as it varies by location and time period. You might want to check with your HR representative or the finance department for the exact payday date."
+   },
+   {
+    "case": "direct:payday",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The staff handbook or shift rota wouldn't have this information as payday can vary and is usually determined by the financial policies of the company. You might want to check with your HR representative or manager for the exact payday date."
+   },
+   {
+    "case": "direct:payday",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The staff handbook or rota doesn't typically contain payday information. We would need to check with the management or HR for that detail. Is there a specific staff member you're asking about, or would you like me to look up the payday information for the whole team?"
+   },
+   {
+    "case": "direct:payday",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. This information is not typically included in the staff handbook or shift rota. Payday details might be managed through a separate system or communicated directly by management. If you need this information, you might want to check your personal records or contact the management directly."
+   },
+   {
+    "case": "direct:payday",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, payday is every last Friday of the month. Payslips appear in the StaffHub app two days before payday."
+   },
+   {
+    "case": "direct:payday",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. This information is not typically found in the staff handbook or through a staff member's shift details. Payday information might be specific to the company's HR policies or financial procedures. I would recommend checking with your HR department or a manager for this information."
+   },
+   {
+    "case": "direct:payday",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The staff handbook or shift rota might not have this information. Would you like me to check the handbook for any payroll policies or look up someone's schedule to see if payday is mentioned there?"
+   },
+   {
+    "case": "direct:payday",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The staff handbook or rota don't contain information about payday schedules. We would need more specific details to look it up. Could you provide me with your staff number so I can check your next payday?"
+   },
+   {
+    "case": "direct:payday",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The staff handbook or shift rota might not contain this information. We would need to look into other resources or ask a manager directly. Is there a specific staff number you're interested in? I could check their next payday for you."
+   },
+   {
+    "case": "direct:payday",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, payday is the last Friday of each month. Payslips can be found in the StaffHub app two days before payday."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The pricing information for alternative milks is not included in the available tools. We would need to check the staff handbook or have a staff member provide this information. Would you like me to search the handbook for you?"
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The pricing information for alternative milks is not included in the available tools. We would need to check the staff handbook or point of sale system for this information. Could you please check the staff handbook or ask a manager for this information?"
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": true,
+    "passed": true,
+    "answer": "Oat, soya, and coconut milk each cost an extra 45p."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The prices of alternative milks are not covered in the staff handbook, and I don't have that information readily available. We can search the handbook for any relevant information though. Would you like me to check there?"
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The pricing information for alternative milks is not provided in the available tools. We would need to check the staff handbook or have this information from a reliable source. Would you like me to search the staff handbook for this information?"
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The prices of alternative milks are not a topic covered in our staff handbook. We would need to check with the management or the pricing policy document to find this information. Would you like me to look into it?"
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The prices of alternative milks are not typically covered in our staff handbook or easily accessible through the tools at hand. We would need to check with the management or the finance department for that information."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, oat, soya, and coconut milk cost an additional 45p each."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The pricing details for milk alternatives are not included in the information readily available to me. We would need to refer to the staff handbook or another source for this specific detail. Would you like to search the handbook for this information?"
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The prices of alternative milks are not typically covered in the staff handbook or easily accessible through the tools I have. We would need to check the pricing information directly. Would you like me to look this up for you? If so, do you have any specific locations or more details that could help?"
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, the stock should be moved to another fridge and checked again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, the stock should be thrown away and your manager should be informed."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, the stock should be moved to another fridge and checked again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, the stock should be thrown away and a manager should be notified."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, the stock should be moved to another fridge and the temperature checked again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, the stock should be thrown away and a manager notified."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, the stock should be moved to another fridge and checked again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, the stock should be thrown away and your manager should be informed."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. You should check and log the temperature at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, you should throw the stock away and contact your manager."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, throw the stock away and call your manager."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, the stock should be thrown away and your manager should be notified."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. Temperatures should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, the stock should be thrown away and a manager should be informed."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, you should move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, the stock should be thrown away and you should call your manager."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. Temperatures should be checked at opening and at 14:00, and if a fridge reads between 5\u00b0C and 8\u00b0C, the stock should be moved to another fridge and checked again after 30 minutes. If a fridge reads above 8\u00b0C for more than 2 hours, the stock should be thrown away and a manager should be notified."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "Coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "Coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "Coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "Coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "Coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost, according to the waste and recycling guidelines in the staff handbook."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre when measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre, as measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre. This temperature should be measured using the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre, as measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre, as measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, the centre of hot food must reach 75\u00b0C."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre when measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre, as measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre when measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre, as measured with the probe thermometer."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, a customer gets a free hot drink after collecting 10 stamps, each earned with the purchase of a hot drink."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the loyalty card information in the staff handbook, a customer gets a free hot drink after collecting 10 stamps, each earned from purchasing a hot drink."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, a customer gets a free hot drink after collecting 10 stamps. Each hot drink earns one stamp."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the loyalty card information in the staff handbook, a customer gets a free hot drink after collecting ten stamps, one for each hot drink purchased."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the information in the staff handbook, a customer needs to buy 10 hot drinks to get a free one on the loyalty card."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, a customer gets a free hot drink after collecting 10 stamps. Each hot drink earns one stamp."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, a customer gets a free hot drink after collecting 10 stamps. Each stamp is earned with one hot drink purchase."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, a customer needs to purchase 10 hot drinks to get a free one on the loyalty card."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, a customer gets a free hot drink after collecting 10 stamps. Each hot drink earns them one stamp."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, a customer gets a free hot drink after collecting 10 stamps. Each hot drink earns one stamp."
+   }
+  ]
+ },
+ {
+  "label": "over MCP, prompt says when",
+  "searched": 60,
+  "right": 60,
+  "runs": 80,
+  "answers": [
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the handbook, the house blend recipe, called Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "Based on the information in the staff handbook, the house blend (Lantern) uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the espresso recipe in the staff handbook, the house blend (Lantern) uses 18 grams of ground coffee to yield 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the handbook, the house blend (Lantern) uses 18 grams of ground coffee to make 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend recipe, Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the espresso recipe in the staff handbook, the house blend (Lantern) uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, the house blend recipe (Lantern) uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend, called Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, the house blend (Lantern) uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend recipe, Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:float",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The staff handbook or rota don't contain this information. We might need to check with the finance department or management for details on the till float. Is there anything else you need help with?"
+   },
+   {
+    "case": "direct:float",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The staff handbook or rota might not contain this information. We can try searching the handbook for related information, but the exact till float amount isn't typically something found there. Would you like me to check if there's any relevant information available?"
+   },
+   {
+    "case": "direct:float",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, each till starts the day with a float of \u00a3150."
+   },
+   {
+    "case": "direct:float",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The staff handbook or rota don't contain this information. We might need to check with the finance department or management for that detail."
+   },
+   {
+    "case": "direct:float",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The information about the till float is not available in the staff handbook. We might need to check with the finance department or a manager for that specific detail. Is there anything else you need help with?"
+   },
+   {
+    "case": "direct:float",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The information about the till float is not available in the staff handbook. We might need to check with the finance department or the manager for that detail. Is there anything else you need help with?"
+   },
+   {
+    "case": "direct:float",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The information about the till float is not available in the staff handbook, and I don't have a specific tool for querying this information directly. We usually manage the till float as part of our daily operations, but the exact amount can vary. If you need this information, you might want to check with the finance department or a senior member of staff."
+   },
+   {
+    "case": "direct:float",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, each till starts the day with a float of \u00a3150."
+   },
+   {
+    "case": "direct:float",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The staff handbook or rota doesn't contain this information. We might need to check with the finance department or a manager for that detail. Is there anything else you need help with?"
+   },
+   {
+    "case": "direct:float",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, each till starts the day with a float of \u00a3150."
+   },
+   {
+    "case": "direct:payday",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the handbook, payday is the last Friday of each month. Additionally, payslips can be found in the StaffHub app two days before payday."
+   },
+   {
+    "case": "direct:payday",
+    "searched": true,
+    "passed": true,
+    "answer": "Based on the information from the staff handbook, payday is on the last Friday of each month. Payslips appear in the StaffHub app two days before payday."
+   },
+   {
+    "case": "direct:payday",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, payday is every last Friday of the month. Payslips are available in the StaffHub app two days before each payday."
+   },
+   {
+    "case": "direct:payday",
+    "searched": true,
+    "passed": true,
+    "answer": "Based on the information from the staff handbook, payday is the last Friday of each month. Payslips are available in the StaffHub app two days before payday."
+   },
+   {
+    "case": "direct:payday",
+    "searched": true,
+    "passed": true,
+    "answer": "Based on the information from the handbook, payday is the last Friday of each month. Payslips can be found in the StaffHub app two days before payday."
+   },
+   {
+    "case": "direct:payday",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, payday is every last Friday of the month. Payslips are available in the StaffHub app two days before payday."
+   },
+   {
+    "case": "direct:payday",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the handbook, payday is every last Friday of the month. Payslips appear in the StaffHub app two days before payday."
+   },
+   {
+    "case": "direct:payday",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The handbook or rota might not have this information as it's more related to financial policies which are not typically detailed in the staff handbook or shift schedules. Could you provide me with more details or specify if you're asking about a particular staff member's payday?"
+   },
+   {
+    "case": "direct:payday",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, payday is on the last Friday of each month. Payslips appear in the StaffHub app two days before payday."
+   },
+   {
+    "case": "direct:payday",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The handbook or rota don't contain information about payday schedules. Could you provide me with an employee's staff number so I can check their schedule, or we might need to consult with HR for this information?"
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The pricing information for alternative milks is not available in the staff handbook. We would need to check with the finance or pricing department for this information."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The pricing information for alternative milks is not available in my current knowledge base. I would recommend checking the Quillon Coffee pricing handbook or asking a staff member for the most accurate information. Shall I search the staff handbook for you?"
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The pricing information for alternative milks is not covered in the staff handbook. I would need to search for it or ask a supervisor. Could you provide me with the handbook or a specific staff member to query?"
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": true,
+    "passed": true,
+    "answer": "Oat, soya, and coconut milk each cost an extra 45p at Quillon Coffee."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The pricing information for alternative milks is not included in our handbook. I would need to search for it or check with the management team. Can I help you with something else?"
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The pricing information for alternative milks is not covered in the staff handbook. I would recommend checking directly with the finance or pricing department for this information."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The pricing information for alternative milks is not provided in the staff handbook. We may need to check directly with the pricing department or the company's pricing guidelines."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The pricing information for alternative milks is not available in the staff handbook. I would need to search for it or check with the management."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The prices of alternative milks are not covered in the staff handbook. I would recommend checking directly with the finance or pricing department, or looking for a company-wide document that outlines pricing details. If you'd like, I can search the handbook for more information. Would you like to try that?"
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. The pricing details for alternative milks are not covered in the staff handbook. I would need to search for this information or consult with a manager to find out the extra cost. Would you like me to look it up for you?"
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, the stock should be moved to another fridge and the temperature checked again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, the stock should be thrown away and a manager notified."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, the stock should be thrown away and a manager should be notified."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. The temperature should be checked at opening and at 14:00, and if a fridge reads between 5\u00b0C and 8\u00b0C, the stock should be moved to another fridge and checked again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, the stock should be thrown away and your manager should be informed."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, throw the stock away and call your manager."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the handbook, fridges must stay at 5\u00b0C or below. They should be checked at opening and at 14:00, and the temperature logged. If a fridge reads between 5\u00b0C and 8\u00b0C, the stock should be moved to another fridge and checked again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, the stock should be thrown away and a manager should be notified."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked at opening and at 14:00, and the temperature should be logged at these times. If a fridge reads between 5\u00b0C and 8\u00b0C, the stock should be moved to another fridge and the temperature checked again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, the stock should be thrown away and a manager should be contacted."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, the stock should be moved to another fridge and the temperature checked again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, the stock should be thrown away and a manager should be notified."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, the stock should be moved to another fridge and checked again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, the stock should be thrown away and a manager should be informed."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked at opening and at 14:00, and the temperatures logged accordingly. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, the stock should be thrown away and your manager informed."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, the stock should be moved to another fridge and checked again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, the stock should be thrown away and your manager should be informed."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "Based on the information from the staff handbook, coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "Based on the information from the staff handbook, coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the information in the staff handbook, coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the waste and recycling policy document, coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "Coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the waste and recycling guidelines, coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the waste and recycling information in the handbook, coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "Coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost, according to the information in the staff handbook."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the waste and recycling policy, coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre, as measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. Let me check the staff handbook for this information."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre to ensure food safety."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre, as measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre, measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre when measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach a centre temperature of 75\u00b0C as measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre to ensure food safety."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach a centre temperature of 75\u00b0C as measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": false,
+    "passed": false,
+    "answer": "I don't know. Let me check the staff handbook for that information."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the information in the staff handbook, a customer gets a free hot drink after collecting 10 stamps. Each hot drink earns one stamp."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the information in the staff handbook, a customer needs to purchase 10 hot drinks to get a free one on the loyalty card."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, a customer needs to buy 10 hot drinks to get a free one on the loyalty card."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the information in the staff handbook, a customer needs to buy 10 hot drinks to get a free one as part of the loyalty card program."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the information in the staff handbook, a customer needs to buy 10 hot drinks to get a free one on the loyalty card."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, a customer gets a free hot drink after collecting 10 stamps, each earned with the purchase of a hot drink."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, a customer needs to purchase 10 hot drinks to get a free one as part of the loyalty card program."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, a customer gets a free hot drink after collecting 10 stamps. Each hot drink earned a stamp on the loyalty card."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, a customer gets a free hot drink after collecting 10 stamps. Each hot drink earns one stamp."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the information in the staff handbook, a customer gets a free hot drink after collecting 10 stamps. Each hot drink earns one stamp."
+   }
+  ]
+ },
+ {
+  "label": "over MCP, prompt says search",
+  "searched": 80,
+  "right": 80,
+  "runs": 80,
+  "answers": [
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend recipe, Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend recipe, also known as Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend recipe, Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend recipe, also known as Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend recipe, Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend recipe, which is called Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend recipe, Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend recipe, Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend recipe, which is called Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:drink-recipe",
+    "searched": true,
+    "passed": true,
+    "answer": "The house blend recipe, Lantern, uses 18 grams of ground coffee to produce 36 grams of espresso."
+   },
+   {
+    "case": "direct:float",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, each till starts the day with a float of \u00a3150."
+   },
+   {
+    "case": "direct:float",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, each till starts the day with a float of \u00a3150. This means that at the beginning of each shift, the cash in the till should be this amount. If there are any discrepancies at the end of the shift, they should be recorded on the cash sheet."
+   },
+   {
+    "case": "direct:float",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, each till starts the day with a float of \u00a3150."
+   },
+   {
+    "case": "direct:float",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, each till starts the day with a float of \u00a3150."
+   },
+   {
+    "case": "direct:float",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, each till starts the day with a float of \u00a3150."
+   },
+   {
+    "case": "direct:float",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, each till starts the day with a float of \u00a3150."
+   },
+   {
+    "case": "direct:float",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, each till starts the day with a float of \u00a3150. Only the shift lead or a manager may open the safe."
+   },
+   {
+    "case": "direct:float",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, each till starts the day with a float of \u00a3150."
+   },
+   {
+    "case": "direct:float",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, each till starts the day with a float of \u00a3150."
+   },
+   {
+    "case": "direct:float",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, each till starts the day with a float of \u00a3150."
+   },
+   {
+    "case": "direct:payday",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, payday is the last Friday of each month. Payslips are available in the StaffHub app two days before payday."
+   },
+   {
+    "case": "direct:payday",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, payday is every last Friday of the month. Payslips can be viewed in the StaffHub app two days before payday."
+   },
+   {
+    "case": "direct:payday",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, payday is the last Friday of each month. Payslips appear in the StaffHub app two days before payday."
+   },
+   {
+    "case": "direct:payday",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, payday is on the last Friday of each month. Payslips can be viewed in the StaffHub app two days before payday."
+   },
+   {
+    "case": "direct:payday",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, payday is every last Friday of the month. Payslips can be found in the StaffHub app, usually two days before payday."
+   },
+   {
+    "case": "direct:payday",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, payday is on the last Friday of each month. Payslips can be found in the StaffHub app two days before payday."
+   },
+   {
+    "case": "direct:payday",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, payday is every last Friday of the month. Payslips are available in the StaffHub app two days before payday."
+   },
+   {
+    "case": "direct:payday",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, payday is on the last Friday of each month. Payslips can be found in the StaffHub app two days before payday."
+   },
+   {
+    "case": "direct:payday",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, payday is the last Friday of each month. Payslips appear in the StaffHub app two days before payday."
+   },
+   {
+    "case": "direct:payday",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, payday is on the last Friday of each month. Payslips can be viewed in the StaffHub app two days before payday."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, oat, soya, and coconut milk each cost an extra 45p."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": true,
+    "passed": true,
+    "answer": "Oat, soya, and coconut milk each cost an extra 45p."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": true,
+    "passed": true,
+    "answer": "Oat, soya, and coconut milk each cost an extra 45p at Quillon Coffee."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, oat, soya, and coconut milk each cost an extra 45p."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, oat, soya, and coconut milk each cost an extra 45p."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, oat, soya, and coconut milk each cost an extra 45p."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, oat, soya, and coconut milk cost an extra 45p each."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, oat, soya, and coconut milk each cost an extra 45p."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, oat, soya, and coconut milk each cost an extra 45p."
+   },
+   {
+    "case": "direct:milk-charge",
+    "searched": true,
+    "passed": true,
+    "answer": "Oat, soya, and coconut milk each cost an extra 45p."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, throw the stock away and call your manager."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, throw the stock away and inform your manager."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. You should check and log the temperature at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, you should throw the stock away and call your manager."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, throw the stock away and call your manager."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, the stock should be moved to another fridge and the temperature checked again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, the stock should be thrown away and a manager should be informed."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, throw the stock away and call your manager."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, the stock should be thrown away and your manager should be informed."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, throw the stock away and call your manager."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, throw the stock away and contact your manager."
+   },
+   {
+    "case": "direct:fridge",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, fridges must stay at 5\u00b0C or below. They should be checked and logged at opening and at 14:00. If a fridge reads between 5\u00b0C and 8\u00b0C, move the stock to another fridge and check again after 30 minutes. If it reads above 8\u00b0C for more than 2 hours, throw the stock away and call your manager."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "Coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "Coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "Based on the information provided in the handbook, coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "Coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the waste and recycling policy, coffee grounds are collected every Tuesday by GreenLoop, who then turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "Coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "Coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "Coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "Coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:grounds",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the waste and recycling policy, coffee grounds are collected every Tuesday by GreenLoop, who turn them into compost."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre, measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre when measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach a centre temperature of 75\u00b0C as measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre when measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre, as measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre, as measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the handbook, hot food must reach a centre temperature of 75\u00b0C as measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre when measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the handbook, hot food must reach 75\u00b0C in the centre, measured with the probe thermometer."
+   },
+   {
+    "case": "direct:hot-food",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, hot food must reach 75\u00b0C in the centre when measured with the probe thermometer."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, a customer gets a free hot drink after collecting 10 stamps. Each hot drink earned a stamp on the loyalty card."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, a customer gets a free hot drink after collecting 10 stamps, each earned by purchasing a hot drink."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the loyalty card information in the staff handbook, a customer needs to buy 10 hot drinks to get a free one."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, a customer gets a free hot drink after collecting 10 stamps on their loyalty card."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, a customer gets a free hot drink after collecting 10 stamps. Each hot drink earns one stamp."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, a customer gets a free hot drink after collecting 10 stamps. Each hot drink earns them one stamp."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, a customer gets a free hot drink after collecting 10 stamps. Each hot drink earns one stamp."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, a customer needs to buy 10 hot drinks to get a free one on the loyalty card."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the loyalty card information in the staff handbook, a customer needs to purchase 10 hot drinks before they get a free one."
+   },
+   {
+    "case": "direct:loyalty",
+    "searched": true,
+    "passed": true,
+    "answer": "According to the staff handbook, a customer gets a free hot drink after collecting 10 stamps. Each hot drink earns one stamp."
+   }
+  ]
+ }
+]

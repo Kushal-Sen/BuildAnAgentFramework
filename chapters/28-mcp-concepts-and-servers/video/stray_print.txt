@@ -1,0 +1,16 @@
+$ python3 stray_print.py .venv-older/bin/python
+SDK v2
+  log      answered  before reply  after reply  stderr
+  quiet    5 of 5    0             0            0
+  print    5 of 5    0             1            0
+  flushed  5 of 5    0             0            1
+  stderr   5 of 5    0             0            1
+  many     5 of 5    0             648          19353
+SDK v1
+  log      answered  before reply  after reply  stderr
+  quiet    5 of 5    0             0            0
+  print    5 of 5    0             0            0
+  flushed  5 of 5    1             0            0
+  stderr   5 of 5    0             0            1
+  many     0 of 5    19984         0            0
+  The reply arrived as: looking up the rota 19983{"jsonrpc":"2.0","id":2,"result":{"

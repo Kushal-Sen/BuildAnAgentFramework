@@ -1,0 +1,14 @@
+$ python3 two_copies.py
+1. Session remembered by copy A, balancer takes turns
+  B: unknown session | A: ok | B: unknown session | A: ok
+2. Self-contained requests, balancer takes turns
+  B: ok | A: ok | B: ok | A: ok
+3. Sticky routing: each client always goes to the copy that holds its session
+  100 requests: A served 95, B served 5
+  Self-contained, taking turns: A served 50, B served 50
+4. Restart copy A: memory is wiped
+  before: A: ok
+  after:  A: unknown session
+  self-contained after: A: ok
+5. A shared store, as teams built with Redis: it works, and it's one more service to run
+  A: ok | B: ok
